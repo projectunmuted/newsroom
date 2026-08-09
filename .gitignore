@@ -11,3 +11,6 @@ logs/
 
 # Built output for the DSR deploy repo; publish.py pushes it there.
 docs_dsr/
+
+# Worktrees created by background sessions; never part of the repo.
+.claude/worktrees/
