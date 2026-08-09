@@ -1,0 +1,96 @@
+<svg viewBox="0 0 640 763" width="100%" role="img" aria-labelledby="gap-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="gap-title">Win rate in blowouts minus win rate in games decided by 3 or fewer, all 30 teams, 2026</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">Blowout win rate minus close-game win rate</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">Right of the line means a team wins when the game is not close and loses when it is. Close = games decided by 3 or fewer.</text>
+<line x1="343.4" y1="44" x2="343.4" y2="737.0" stroke="var(--rule)" stroke-width="2"/>
+<text x="138" y="62.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="700">Detroit Tigers</text>
+<path d="M344.9098337094614,50H562.210016780442A3.0,3.0 0 0 1 565.210016780442,53.0V63.0A3.0,3.0 0 0 1 562.210016780442,66H344.9098337094614Z" fill="var(--chart-pos)" opacity="1"><title>Detroit Tigers: 0.660 in 47 blowouts, 0.371 in 70 close games (+0.288)</title></path>
+<text x="572.2" y="62.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="700">+0.288</text>
+<text x="138" y="85.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Chicago Cubs</text>
+<path d="M344.9098337094614,73H473.6357226402415A3.0,3.0 0 0 1 476.6357226402415,76.0V86.0A3.0,3.0 0 0 1 473.6357226402415,89H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Chicago Cubs: 0.673 in 52 blowouts, 0.500 in 66 close games (+0.173)</title></path>
+<text x="483.6" y="85.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.173</text>
+<text x="138" y="108.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Pittsburgh Pirates</text>
+<path d="M344.9098337094614,96H449.53058389809405A3.0,3.0 0 0 1 452.53058389809405,99.0V109.0A3.0,3.0 0 0 1 449.53058389809405,112H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Pittsburgh Pirates: 0.564 in 55 blowouts, 0.422 in 64 close games (+0.142)</title></path>
+<text x="459.5" y="108.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.142</text>
+<text x="138" y="131.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Milwaukee Brewers</text>
+<path d="M344.9098337094614,119H441.0154019800539A3.0,3.0 0 0 1 444.0154019800539,122.0V132.0A3.0,3.0 0 0 1 441.0154019800539,135H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Milwaukee Brewers: 0.702 in 47 blowouts, 0.571 in 70 close games (+0.131)</title></path>
+<text x="451.0" y="131.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.131</text>
+<text x="138" y="154.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Atlanta Braves</text>
+<path d="M344.9098337094614,142H425.2968117196304A3.0,3.0 0 0 1 428.2968117196304,145.0V155.0A3.0,3.0 0 0 1 425.2968117196304,158H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Atlanta Braves: 0.660 in 47 blowouts, 0.549 in 71 close games (+0.110)</title></path>
+<text x="435.3" y="154.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.110</text>
+<text x="138" y="177.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Boston Red Sox</text>
+<path d="M344.9098337094614,165H421.06589697117306A3.0,3.0 0 0 1 424.06589697117306,168.0V178.0A3.0,3.0 0 0 1 421.06589697117306,181H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Boston Red Sox: 0.612 in 49 blowouts, 0.507 in 67 close games (+0.105)</title></path>
+<text x="431.1" y="177.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.105</text>
+<text x="138" y="200.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Los Angeles Dodgers</text>
+<path d="M344.9098337094614,188H412.1602470944044A3.0,3.0 0 0 1 415.1602470944044,191.0V201.0A3.0,3.0 0 0 1 412.1602470944044,204H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Los Angeles Dodgers: 0.647 in 51 blowouts, 0.554 in 65 close games (+0.093)</title></path>
+<text x="422.2" y="200.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.093</text>
+<text x="138" y="223.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Miami Marlins</text>
+<path d="M344.9098337094614,211H409.53498629522727A3.0,3.0 0 0 1 412.53498629522727,214.0V224.0A3.0,3.0 0 0 1 409.53498629522727,227H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Miami Marlins: 0.556 in 45 blowouts, 0.466 in 73 close games (+0.090)</title></path>
+<text x="419.5" y="223.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.090</text>
+<text x="138" y="246.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">New York Yankees</text>
+<path d="M344.9098337094614,234H401.52008994379594A3.0,3.0 0 0 1 404.52008994379594,237.0V247.0A3.0,3.0 0 0 1 401.52008994379594,250H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>New York Yankees: 0.614 in 44 blowouts, 0.534 in 73 close games (+0.079)</title></path>
+<text x="411.5" y="246.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.079</text>
+<text x="138" y="269.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Los Angeles Angels</text>
+<path d="M344.9098337094614,257H377.45660496294033A3.0,3.0 0 0 1 380.45660496294033,260.0V270.0A3.0,3.0 0 0 1 377.45660496294033,273H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Los Angeles Angels: 0.412 in 51 blowouts, 0.364 in 66 close games (+0.048)</title></path>
+<text x="387.5" y="269.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.048</text>
+<text x="138" y="292.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Arizona Diamondbacks</text>
+<path d="M344.9098337094614,280H357.6148916934459A3.0,3.0 0 0 1 360.6148916934459,283.0V293.0A3.0,3.0 0 0 1 357.6148916934459,296H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Arizona Diamondbacks: 0.543 in 46 blowouts, 0.521 in 71 close games (+0.022)</title></path>
+<text x="367.6" y="292.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.022</text>
+<text x="138" y="315.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Baltimore Orioles</text>
+<path d="M344.9098337094614,303H351.2792116111026A3.0,3.0 0 0 1 354.2792116111026,306.0V316.0A3.0,3.0 0 0 1 351.2792116111026,319H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Baltimore Orioles: 0.488 in 41 blowouts, 0.474 in 76 close games (+0.014)</title></path>
+<text x="361.3" y="315.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.014</text>
+<text x="138" y="338.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">New York Mets</text>
+<path d="M344.9098337094614,326H349.9293137097562A3.0,3.0 0 0 1 352.9293137097562,329.0V339.0A3.0,3.0 0 0 1 349.9293137097562,342H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>New York Mets: 0.439 in 57 blowouts, 0.426 in 61 close games (+0.012)</title></path>
+<text x="359.9" y="338.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.012</text>
+<text x="138" y="361.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Chicago White Sox</text>
+<path d="M344.9098337094614,349H349.88367470009473A3.0,3.0 0 0 1 352.88367470009473,352.0V362.0A3.0,3.0 0 0 1 349.88367470009473,365H344.9098337094614Z" fill="var(--chart-pos)" opacity="0.62"><title>Chicago White Sox: 0.520 in 50 blowouts, 0.508 in 65 close games (+0.012)</title></path>
+<text x="359.9" y="361.0" text-anchor="start" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">+0.012</text>
+<text x="138" y="384.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Seattle Mariners</text>
+<path d="M341.9098337094614,372H342.93846225784546V388H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Seattle Mariners: 0.478 in 46 blowouts, 0.479 in 71 close games (-0.001)</title></path>
+<text x="335.9" y="384.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.001</text>
+<text x="138" y="407.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">San Francisco Giants</text>
+<path d="M341.9098337094614,395H342.5126896762575V411H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>San Francisco Giants: 0.423 in 52 blowouts, 0.424 in 66 close games (-0.001)</title></path>
+<text x="335.5" y="407.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.001</text>
+<text x="138" y="430.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Kansas City Royals</text>
+<path d="M341.9098337094614,418H328.6463818520241A3.0,3.0 0 0 0 325.6463818520241,421.0V431.0A3.0,3.0 0 0 0 328.6463818520241,434H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Kansas City Royals: 0.400 in 40 blowouts, 0.423 in 78 close games (-0.023)</title></path>
+<text x="318.6" y="430.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.023</text>
+<text x="138" y="453.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Washington Nationals</text>
+<path d="M341.9098337094614,441H324.6244682239251A3.0,3.0 0 0 0 321.6244682239251,444.0V454.0A3.0,3.0 0 0 0 324.6244682239251,457H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Washington Nationals: 0.472 in 53 blowouts, 0.500 in 66 close games (-0.028)</title></path>
+<text x="314.6" y="453.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.028</text>
+<text x="138" y="476.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Philadelphia Phillies</text>
+<path d="M341.9098337094614,464H304.9617793754409A3.0,3.0 0 0 0 301.9617793754409,467.0V477.0A3.0,3.0 0 0 0 304.9617793754409,480H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Philadelphia Phillies: 0.500 in 52 blowouts, 0.554 in 65 close games (-0.054)</title></path>
+<text x="295.0" y="476.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.054</text>
+<text x="138" y="499.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Texas Rangers</text>
+<path d="M341.9098337094614,487H297.99169578396896A3.0,3.0 0 0 0 294.99169578396896,490.0V500.0A3.0,3.0 0 0 0 297.99169578396896,503H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Texas Rangers: 0.463 in 41 blowouts, 0.526 in 76 close games (-0.063)</title></path>
+<text x="288.0" y="499.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.063</text>
+<text x="138" y="522.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">San Diego Padres</text>
+<path d="M341.9098337094614,510H297.7094609881088A3.0,3.0 0 0 0 294.7094609881088,513.0V523.0A3.0,3.0 0 0 0 297.7094609881088,526H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>San Diego Padres: 0.477 in 44 blowouts, 0.541 in 74 close games (-0.063)</title></path>
+<text x="287.7" y="522.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.063</text>
+<text x="138" y="545.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Colorado Rockies</text>
+<path d="M341.9098337094614,533H284.9343044628877A3.0,3.0 0 0 0 281.9343044628877,536.0V546.0A3.0,3.0 0 0 0 284.9343044628877,549H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Colorado Rockies: 0.340 in 47 blowouts, 0.420 in 69 close games (-0.080)</title></path>
+<text x="274.9" y="545.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.080</text>
+<text x="138" y="568.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Athletics</text>
+<path d="M341.9098337094614,556H278.55956673627117A3.0,3.0 0 0 0 275.55956673627117,559.0V569.0A3.0,3.0 0 0 0 278.55956673627117,572H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Athletics: 0.340 in 47 blowouts, 0.429 in 70 close games (-0.088)</title></path>
+<text x="268.6" y="568.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.088</text>
+<text x="138" y="591.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Cleveland Guardians</text>
+<path d="M341.9098337094614,579H275.1559874074436A3.0,3.0 0 0 0 272.1559874074436,582.0V592.0A3.0,3.0 0 0 0 275.1559874074436,595H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Cleveland Guardians: 0.432 in 37 blowouts, 0.525 in 80 close games (-0.093)</title></path>
+<text x="265.2" y="591.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.093</text>
+<text x="138" y="614.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Toronto Blue Jays</text>
+<path d="M341.9098337094614,602H264.4365017612874A3.0,3.0 0 0 0 261.4365017612874,605.0V615.0A3.0,3.0 0 0 0 264.4365017612874,618H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Toronto Blue Jays: 0.400 in 40 blowouts, 0.506 in 77 close games (-0.106)</title></path>
+<text x="254.4" y="614.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.106</text>
+<text x="138" y="637.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Minnesota Twins</text>
+<path d="M341.9098337094614,625H255.70763417132713A3.0,3.0 0 0 0 252.70763417132713,628.0V638.0A3.0,3.0 0 0 0 255.70763417132713,641H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Minnesota Twins: 0.415 in 41 blowouts, 0.532 in 77 close games (-0.118)</title></path>
+<text x="245.7" y="637.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.118</text>
+<text x="138" y="660.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Tampa Bay Rays</text>
+<path d="M341.9098337094614,648H241.8138863606829A3.0,3.0 0 0 0 238.8138863606829,651.0V661.0A3.0,3.0 0 0 0 241.8138863606829,664H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Tampa Bay Rays: 0.521 in 48 blowouts, 0.657 in 67 close games (-0.136)</title></path>
+<text x="231.8" y="660.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.136</text>
+<text x="138" y="683.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Cincinnati Reds</text>
+<path d="M341.9098337094614,671H229.75213331237808A3.0,3.0 0 0 0 226.75213331237808,674.0V684.0A3.0,3.0 0 0 0 229.75213331237808,687H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Cincinnati Reds: 0.391 in 46 blowouts, 0.543 in 70 close games (-0.152)</title></path>
+<text x="219.8" y="683.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.152</text>
+<text x="138" y="706.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">St. Louis Cardinals</text>
+<path d="M341.9098337094614,694H218.40432844815751A3.0,3.0 0 0 0 215.40432844815751,697.0V707.0A3.0,3.0 0 0 0 218.40432844815751,710H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>St. Louis Cardinals: 0.395 in 43 blowouts, 0.562 in 73 close games (-0.166)</title></path>
+<text x="208.4" y="706.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.166</text>
+<text x="138" y="729.0" text-anchor="end" fill="var(--fg)" font-size="11.5" font-weight="400">Houston Astros</text>
+<path d="M341.9098337094614,717H183.78998321955805A3.0,3.0 0 0 0 180.78998321955805,720.0V730.0A3.0,3.0 0 0 0 183.78998321955805,733H341.9098337094614Z" fill="var(--chart-neg)" opacity="0.62"><title>Houston Astros: 0.378 in 45 blowouts, 0.589 in 73 close games (-0.211)</title></path>
+<text x="173.8" y="729.0" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums" font-weight="400">-0.211</text>
+</svg>

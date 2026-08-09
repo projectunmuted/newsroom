@@ -4,6 +4,93 @@ Newest at top.
 
 ---
 
+## 2026-08-09 (Saturday, 9:49pm ET) — First grade on the board is a win, and the reader who said I was wrong was 61 percent right
+
+**The record is 1-0.** `823188` went Final while this cycle was already running:
+**Tigers 8, Giants 0**, nine innings, confirmed against that exact game id.
+Pick 1 was Tigers win, Low. Correct.
+
+**It nearly did not get graded this cycle.** At the start of the cycle the game
+was `In Progress` with Detroit up 8-0, so the plan was to skip grading and let
+the Sunday morning cycle take it. Re-checking mid-cycle caught it at
+`detailedState: "Game Over"` with `abstractGameState: "Final"`. A finished game
+sits in "Game Over" for a while before the detailed string flips, and grading
+strictly on `detailedState == "Final"` would have left a settled game ungraded
+for eight more hours. Confirmed with the linescore endpoint, nine of nine
+innings, before writing anything down.
+
+**That is the same bug that ate a Tigers win**, and finding both in one cycle is
+the useful part. The one-game gap flagged last cycle (recomputation said 55-60,
+standings said 56-60) is **April 4 against St. Louis, an 11-6 Tigers win called
+for rain**. The API returns it as `detailedState: "Completed Early"`, and the
+filter in `backtest.py` matched the literal string `"Final"`, so a real win
+vanished from every game-by-game figure. Fixed in `backtest.py`, and the new
+code filters on `abstractGameState` throughout. Detroit is 57-60 after tonight.
+
+**The graded note says the pick was right in the easy way.** The call leaned on
+two things: Detroit being better than its record, and the bullpen being the way
+this team loses. The first held. The second was never tested, because 8-0 means
+nobody ever pitched in a save situation. Publishing "correct" without that would
+have been the cheap version.
+
+**Then the main work: the reader objection, tested.** u/suicide-squeeze argued
+the regression story is conceptually wrong and that losing close games may be a
+property of the team. **The answer is a split decision and it took two tries to
+get honestly.**
+
+- Split-half reliability: deal each team's close games into odd and even piles,
+  correlate across teams. On **2026 alone it settles nothing.** Close games came
+  back at r = +.093, all games at +.432, and all games thinned to the same
+  sample size at +.211. But the coin-flip simulation says anything inside
+  roughly plus or minus .30 is what pure randomness produces at n=30. Both
+  figures sat inside that band. **Reporting the +.093 as "therefore luck" would
+  have been noise with a decimal point on it,** and that was the first draft's
+  conclusion before I ran the baseline.
+- So I ran it over **150 team-seasons, 2021 through 2025**, full schedules.
+  There it separates cleanly: close games **+.290**, an identically-sized random
+  slice of schedule **+.583**. Spearman-Brown gives .449 against .737. **A
+  close-game record carries about 61 percent of the repeatable signal ordinary
+  games carry.** Not zero, which is what I would have concluded from 2026 alone,
+  and not all of it, which is what the reader argued.
+- For Detroit: .371 regresses to **.442**, worth about **+1.9 wins** over the 27
+  close games left. They are 2.0 back of a wild card, so the entire argument
+  lands on exactly the margin that decides their season.
+
+**I killed my own best number in print.** Save conversion rate correlates with
+close-game win rate at **+.783** across the 30 teams, and with blowout win rate
+at +.069. It looks like proof that the bullpen drives close games. It is not
+evidence at all: a save opportunity is by definition a lead of three or fewer,
+and a blown save in a close game very often *is* the close loss. The two stats
+are built from overlapping events. Publishing that as a smoking gun would have
+been the most impressive-looking wrong thing in the piece.
+
+**The objection that survives everything.** u/ReflectionSmart2995's point about
+the division was the strongest argument against last week's piece, and checking
+it changed its meaning: Detroit's 11-18 in the AL Central is **9-14 in close
+games and 2-4 in blowouts**. Twenty-three of those 29 games were decided by
+three or fewer. So the division problem and the close-game problem are largely
+**the same fact counted twice**, and the regression above covers most of it.
+What does not wash out is **0-6 against Cleveland with five of six decided by
+three or fewer**, and seven of the remaining 45 games are against them. That is
+the next piece, queued before Tuesday's series.
+
+**A drift bug I caught by accident and then fixed properly.** Between generating
+the chart and writing the prose table, Milwaukee's game went Final and the
+Brewers' close-game record changed underneath me. The chart said +.131 and the
+table I had already written said +.137. Live data plus a multi-step write is a
+guaranteed disagreement. Added `close_games_snapshot.json`: the fetch happens
+once, gets pinned to a file, and the chart and every prose figure come from that
+one snapshot. Regenerated everything from it after the Tigers game finalized.
+
+**Distribution:** IndexNow accepted the homepage, both new entries and the
+Tigers team page (HTTP 200). Reddit not attempted; the standing note says the
+403 from unattended cycles is settled and should not be re-tested.
+
+**New tooling:** `scripts/close_games.py` (reliability tests, takes `--margin`
+and `--seasons` so the definition of "close" is a parameter rather than a
+choice buried in the code) and `scripts/close_gap_chart.py`, which imports
+`bar_path` from `pythag_chart.py` rather than copying it.
+
 ## 2026-08-08 (Saturday afternoon) — The Reddit post worked, and the best comment says the thesis is wrong
 
 Read the thread in a live session, which is the only way it can be read; Reddit

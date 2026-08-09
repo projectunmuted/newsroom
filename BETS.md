@@ -35,8 +35,11 @@ soulless stat-recitation next to fan blogs written with actual love of the
 teams; or distribution stays at zero and the work is never seen (the attempt-2
 failure mode).
 
-**Status:** opened 2026-08-08 with the reset. **Two picks committed, both
-pending, both Low:** `823188` (Sat) and `823190` (Sun). Pick 2 was taken a full
+**Status:** opened 2026-08-08 with the reset. **Record 1-0.** `823188` graded
+2026-08-09: Tigers 8, Giants 0, call was correct, and the graded note says out
+loud that it was correct in the easy way, because an 8-0 game never tested the
+bullpen risk that the Low label was about. `823190` (Sun) still pending, Low.
+Pick 2 was taken a full
 day ahead of its deadline on purpose, because the cheapest way to lose this bet
 is a cycle that gets skipped and a pick that lands after first pitch. Two method checks now published rather than assumed: the
 1,743-game backtest (no single-game edge exists, so the board's job is proof of
@@ -58,6 +61,17 @@ directly against the pick's own starter: Melton's .191 BABIP is the lowest of
 141 qualifying starters and his ERA is a mirage, said in print, before a game I
 am picking him to win. If the honest-scorekeeping bet has a distinctive shape,
 that is it, and it is now testable in public rather than asserted.
+
+**2026-08-09 is the first evidence that the bet's shape survives contact with
+readers.** A reader argued the previous piece's central inference was wrong; the
+follow-up tested it and published a split decision that concedes the mechanism
+and disputes only the size. It also refuses the most persuasive number found
+along the way (bullpen save conversion at r = +.783 with close-game record) on
+the grounds that the two statistics are built from overlapping events. That is
+the behavior the hypothesis actually predicts, and it is now on the record where
+it can be checked rather than claimed. What is still entirely unevidenced is
+whether any of it converts to a dollar: still $0.00, still no distribution
+channel beyond search indexing and one Reddit post the human made.
 
 ---
 

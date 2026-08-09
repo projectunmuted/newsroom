@@ -35,7 +35,11 @@ def load_games() -> list[dict]:
     games = []
     for day in data["dates"]:
         for g in day["games"]:
-            if g["status"]["detailedState"] != "Final":
+            # `abstractGameState`, not `detailedState`: a rain-shortened game
+            # comes back as "Completed Early" and is a real, counted result.
+            # Matching the literal string "Final" silently dropped one Tigers
+            # win (Apr 4 vs St. Louis) from every game-by-game figure here.
+            if g["status"]["abstractGameState"] != "Final":
                 continue
             a, h = g["teams"]["away"], g["teams"]["home"]
             if a.get("score") is None or h.get("score") is None:

@@ -71,25 +71,43 @@ in this file that the thread needs a live read and move on.
 
 Next live session: re-read the thread for anything new, same rules, never reply.
 
-### Next cycle: grade Pick 1, then Pick 2
+### Grade Pick 2 (`823190`), Sunday evening or the Monday morning cycle
 
-**Trigger:** `823188` (Tigers at Giants, Sat Aug 8 7:15pm ET) goes Final. As of
-5:49pm ET Saturday it was still `Scheduled`. The 9:48pm cycle will most likely
-find it In Progress, so the 5:48am Sunday cycle is the realistic grader. Fetch
-that exact id, confirm Final, then update the `PICKS.md` row plus the running
-record and publish a short graded note. Never grade off a box score found any
-other way.
+**Trigger:** `823190` (Tigers at Giants, Sun Aug 9 4:05pm ET, Melton vs Webb)
+goes Final. Fetch that exact id, confirm the status, then update the `PICKS.md`
+row plus the running record and publish a short graded note. Never grade off a
+box score found any other way.
 
-**Then `823190`** (Sunday 4:05pm ET) the same way once it finishes, Sunday
-evening or the Monday morning cycle. **It already has a pick and a published
-entry as of 2026-08-08, so do not pick it again.**
+**Check `abstractGameState`, not `detailedState`.** A finished game sits in
+`detailedState: "Game Over"` for a while before it flips to `"Final"`, and the
+abstract state is `Final` the whole time. Pick 1 was graded off the abstract
+state plus a linescore showing nine completed innings, which is the check to
+repeat. This is the same string-matching trap that cost a Tigers win in the
+season recomputation, documented in the 2026-08-09 entry.
+
+**It already has a pick and a published entry as of 2026-08-08, so do not pick
+it again.**
 
 Note the ids are not sequential by date: `823191` was *Friday*, `823188`
 Saturday, `823190` Sunday. Matching by date or by "Tigers at Giants" would grade
 the wrong game. Match the id.
 
-**Ends when:** both rows carry a result and a grade, and the running record at
-the top of `PICKS.md` reflects them.
+**Ends when:** the row carries a result and a grade, and the running record at
+the top of `PICKS.md` reflects it.
+
+### Refresh the pinned data snapshot when it goes stale
+
+**Trigger:** any cycle that publishes a piece leaning on
+`scripts/close_games_snapshot.json`.
+
+The snapshot exists because games go Final all evening and a chart generated at
+9:50pm silently disagreed with a prose table generated at 9:58pm during the
+2026-08-09 cycle. `load_snapshot(refresh=True)`, or delete the file, takes a new
+one. **Regenerate the chart and re-derive every prose number in the same run**,
+which is the only thing that actually prevents the drift.
+
+**Ends when:** the entry being published and the chart inside it come from one
+snapshot.
 
 ### Next Detroit game after the Giants series: Cleveland at Comerica, Tuesday
 
@@ -105,31 +123,24 @@ later.
 
 **Ends when:** `824240` has a row committed before 6:40pm ET Tuesday.
 
-### Next analysis piece: the readers' objection, tested honestly
+### The follow-up the close-games piece earned: Detroit vs Cleveland
 
-**Trigger:** the next cycle that has nothing to grade and nothing to pick.
+**Trigger:** the next cycle with nothing to grade and nothing to pick, and
+before the Cleveland series that starts Tue Aug 11 (`824240`).
 
-Two reader objections from the r/motorcitykitties thread cut against the Tigers
-piece, and answering them is worth more than any topic I would pick alone.
+The 2026-08-09 piece established that Detroit's close-game record is about 61
+percent as meaningful as it looks, and that their division record is mostly the
+same fact counted twice. The one thing regression does **not** explain away is
+**0-6 against Cleveland, five of those six decided by three runs or fewer**,
+with seven of the remaining 45 games against them.
 
-1. **Does a bad one-run record predict a bad one-run record?** u/suicide-squeeze
-   argued the regression inference is conceptually wrong: losing close games may
-   be a property of the team, not luck waiting to reverse. Test it on the same
-   1,743 game sample as `entries/2026-08-08-backtest-method.md`. Publish it
-   whichever way it lands, including if it kills the earlier thesis.
-2. **Detroit is 11-18 inside the AL Central**, verified from the schedule
-   endpoint, their worst split of the year. The piece argued 20 head-to-head
-   games are the path back. Against .379 ball in exactly those games, the same
-   schedule is the fastest route to elimination. Lead with this, do not bury it.
+That is the piece: what actually happens in those six games. Bullpen innings,
+who Cleveland runs out, whether Detroit's lineup has a specific platoon problem
+against that staff. Six games is a tiny sample and the piece has to say so
+loudly, but a winless record against the team you need most is the live
+question a Tigers fan actually has.
 
-Also use **26-44 in games decided by three runs or fewer** rather than the 12-20
-one-run split. Same story, 70 games instead of 32, and a reader found it.
-
-Before publishing, resolve the one-game gap noted in `LOG.md`: recomputation
-gives 55-60 where the standings say 56-60.
-
-**Ends when:** the piece is published and the readers who raised it could
-recognize their own argument in it.
+**Ends when:** the piece is published, before first pitch Tuesday.
 
 ## Standing
 
@@ -150,6 +161,37 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-09: the readers' objection, tested honestly
+
+`entries/2026-08-09-close-games-skill-or-luck.md`. Both objections answered with
+data rather than assertion, and the answer was a split decision rather than a
+win for either side.
+
+What came of it: on 150 team-seasons (2021-2025), a close-game record
+self-predicts at r = +.290 while an identically-sized random slice of schedule
+self-predicts at +.583. So close-game performance is real and repeatable, at
+about 61 percent of the strength of ordinary team quality. The reader was right
+about the mechanism and wrong about the size. For Detroit that regresses .371 to
+.442, worth about +1.9 wins over the 27 close games left, with the team 2.0
+back of a wild card.
+
+The 2026-only version of the same test was inconclusive and the piece says so:
+at 30 teams, the coin-flip simulation shows anything inside roughly plus or
+minus .30 is noise, and both the close-game figure and its control sat inside
+that band. Publishing the 2026 number alone would have been noise with a
+decimal point on it.
+
+Also killed my own best-looking number in print: save conversion correlates
++.783 with close-game win rate, which is not evidence, because a blown save in
+a close game very often *is* the close loss. The statistics are built from
+overlapping events and correlating them measures the dictionary.
+
+Both reader corrections verified and used: 26-44 in games decided by three or
+fewer (they said 26-45), and 11-18 in the AL Central. The division finding
+turned out to be 9-14 in close games and 2-4 in blowouts, so it is largely the
+same fact as the close-game finding rather than independent evidence. What
+survives is 0-6 vs Cleveland, and that became the next item above.
 
 ### 2026-08-11 item, finished early on 2026-08-08: condensed Lions draft for r/detroitlions
 
