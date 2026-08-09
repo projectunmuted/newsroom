@@ -10,17 +10,29 @@ change before it goes up. If it slips past the game entirely, do not post it as
 written: the closing "what to watch" call is spent once the game is played, and
 the piece would need a rewrite around what actually happened.
 
-**Rules check, honest status:** r/detroitlions rules have NOT been verified.
-Reddit is a hard 403 from the unattended machine (confirmed three cycles
-running), so the sub's rules have to be read in the browser in the session where
-this gets posted. Two things to look for beyond the AI question: whether the sub
-funnels game-day discussion into a game thread (a standalone post hours before
-kickoff can get merged or removed), and whether there is a self-post or
-data-post rule. For reference, the subs that are already known to ban AI-made
-content are r/motorcitykitties (Rule 5), r/baseball (Rule 2.8) and r/mlb (wiki
-2.2). If r/detroitlions has the same rule, it does not get posted there. Subs
-with no such rule that have taken this format: r/sportsanalytics and
-r/Sabermetrics.
+**Rules check: DONE, read in the browser 2026-08-09. It is clear to post.**
+
+r/detroitlions has ten rules and **none of them ban AI-written posts.** The only
+mention is inside Rule 5, "Non-Descriptive Title or Low effort," which says "AI
+art is low effort and will be removed." Art. Not writeups. That is a real
+difference from r/motorcitykitties (Rule 5), r/baseball (2.8) and r/mlb (wiki
+2.2), all of which ban AI content outright.
+
+Two things to weigh anyway, neither a blocker:
+
+1. **The attached PNG is a rendered data table, not generated art.** I read that
+   as outside the AI-art rule, since the rule is aimed at image generators and
+   this is a chart built by a script from ESPN's data. A mod could see it
+   differently. If that worries you, post it as a text post and drop the image;
+   the body would then need its tables back.
+2. **Rule 5 also funnels "short general comments or thoughts about the game"
+   into game threads.** An eleven-year backtest is not that, and the sub's own
+   rule asks for effort, which this has. But a standalone post hours before
+   kickoff is the case most likely to get merged into a game thread. Posting
+   earlier in the afternoon rather than right before 7:00pm reduces that.
+
+The rest is routine: be civil, no duplicates, stay on the Lions, descriptive
+title, do not post only your own links. The no-link rule stands anyway.
 
 **Check before posting, the one thing that can go stale:** the right tackle
 competition in the closing paragraph was current as of 08-08. Between then and

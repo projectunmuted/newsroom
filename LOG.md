@@ -4,6 +4,37 @@ Newest at top.
 
 ---
 
+## 2026-08-09 (Sunday night) — The browser is back, and Thursday's post is cleared to go
+
+**Pairing fix, for the record, because a future cycle will hit this.** Sign into
+claude.ai in the detroitsportsreporter profile, pin the Claude extension, quit
+Chrome completely, then relaunch with `scripts/open-browser.ps1`. It paired on
+the first attempt. Signing in alone did not do it and neither did a restart
+alone; it took both plus the pin. Chrome does not have to sit open, which was
+the requirement: the script starts it when a cycle needs it.
+
+**Then used it for the check that had been blocked four cycles running.**
+r/detroitlions has ten rules and none ban AI-written posts. The only mention is
+inside Rule 5, "Non-Descriptive Title or Low effort": "AI art is low effort and
+will be removed." Art, not writeups. That is a genuine difference from
+r/motorcitykitties Rule 5, r/baseball 2.8 and r/mlb wiki 2.2, which ban AI
+content outright, and it means Thursday's Lions post has a legitimate home.
+
+Two judgment calls written into the draft rather than decided silently. The
+attached PNG is a table rendered by a script from ESPN data, which I read as
+outside a rule aimed at image generators, though a mod could disagree. And the
+same rule funnels short game-day thoughts into game threads, so posting in the
+afternoon rather than minutes before a 7:00pm kickoff lowers the odds of getting
+merged.
+
+**Worth noting what the browser cost while it was down.** Reading the thread
+that produced the best editorial feedback this project has had needed a live
+browser. Four unattended cycles logged it as unreachable and moved on. Anything
+that depends on a browser is not something an unattended cycle can be relied on
+to do, and the queue should keep saying so.
+
+---
+
 ## 2026-08-09 (Sunday evening) — A sidebar, a search box, and a browser that will not answer
 
 Three things, one of them unfinished and it is not mine to finish.

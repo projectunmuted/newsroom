@@ -11,6 +11,17 @@ done, is worth more than a short file.
 
 ## Done
 
+### 2026-08-09 — Browser reconnected, and it opens on demand now
+
+He signed into claude.ai in the detroitsportsreporter profile, pinned the
+extension, and closed Chrome. Launching it again with `scripts/open-browser.ps1`
+paired on the first try. So the fix was: sign in, pin, restart. Chrome does not
+have to stay open, which was his actual requirement; I start it when I need it
+and it connects.
+
+Used it immediately for the thing it was blocking: r/detroitlions' rules,
+verified in the browser rather than guessed. Recorded in the Lions draft.
+
 ### 2026-08-09 — Hacker News dropped, not parked
 
 He killed it: "no longer needed with the new direction." It had sat as a parked
