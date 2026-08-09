@@ -366,6 +366,35 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .stat .n{display:block;font-size:1.6rem;line-height:1.1;letter-spacing:-.02em}
 .stat .k{display:block;font-size:.7rem;text-transform:uppercase;
   letter-spacing:.07em;color:var(--muted);margin-top:.3rem}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem}
+@media(min-width:64rem){.layout{grid-template-columns:minmax(0,1fr) 17rem}}
+.rail{font-size:.92rem}
+@media(min-width:64rem){.rail{position:sticky;top:1.5rem;align-self:start;
+  max-height:calc(100vh - 3rem);overflow:auto}}
+.rail h3{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);margin:1.6rem 0 .5rem}
+.rail ul{list-style:none;padding:0;margin:0}
+.rail li{margin:.3rem 0}
+.rail a{color:inherit;text-decoration:none}
+.rail a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
+.rail .cnt{color:var(--muted);font-size:.8rem}
+.search{position:relative}
+.search input{width:100%;padding:.6rem .7rem;border:1px solid var(--rule);
+  border-radius:8px;background:var(--card);color:var(--fg);font:inherit;
+  font-size:.92rem}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.qres{margin-top:.5rem;border:1px solid var(--rule);border-radius:8px;
+  background:var(--card);padding:.4rem;max-height:24rem;overflow:auto}
+.qres ul{list-style:none;margin:0;padding:0}
+.qres li{margin:0}
+.qres a{display:block;padding:.45rem .5rem;border-radius:6px}
+.qres a:hover{background:var(--rule);text-decoration:none}
+.qt{display:block}
+.qk{display:block;color:var(--muted);font-size:.75rem;text-transform:uppercase;
+  letter-spacing:.06em;margin-top:.1rem}
+.qn{margin:.4rem .5rem;color:var(--muted)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  white-space:nowrap}
 .sub{color:var(--muted);margin:-.4rem 0 1.4rem}
 .more{margin:1.6rem 0 2.4rem;display:flex;gap:1.2rem;flex-wrap:wrap}
 .logday{margin:2.2rem 0 .4rem;font-size:1rem;text-transform:uppercase;
@@ -404,8 +433,15 @@ def css_for(site: Site) -> str:
 
 
 def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
-         description: str = "") -> str:
+         description: str = "", aside: str = "") -> str:
     up = "../" * depth
+    if aside:
+        layout_open = '<div class="layout wrap">\n<div class="col">'
+        layout_close = f'</div>\n<aside class="rail">{aside}</aside>\n</div>'
+        main_open, main_close = "<main>", "</main>"
+    else:
+        layout_open, layout_close = "", ""
+        main_open, main_close = '<main class="wrap">', "</main>"
     desc = description or site.tagline
     canonical = f"{site.base_url}/{path}"
     og = f"""<link rel="canonical" href="{canonical}">
@@ -426,14 +462,16 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
 {og}
 <style>{css_for(site)}</style>
 </head>
-<body>
+<body data-up="{up}">
 <header><div class="wrap">
 <h1><a href="{up}index.html">{site.title}</a></h1>
 <p class="tagline">{site.tagline}</p>
 </div></header>
-<main class="wrap">
+{layout_open}
+{main_open}
 {body}
-</main>
+{main_close}
+{layout_close}
 <footer><div class="wrap">
 {site.footer_html}
 </div></footer>
@@ -492,9 +530,10 @@ def write_entry_pages(site: Site, entries: list[Entry]) -> None:
         )
 
 
-def write_common(site: Site, entries: list[Entry], home: str) -> None:
+def write_common(site: Site, entries: list[Entry], home: str,
+                 aside: str = "") -> None:
     (site.out / "index.html").write_text(
-        page(site, site.title, home, path=""), encoding="utf-8"
+        page(site, site.title, home, path="", aside=aside), encoding="utf-8"
     )
     (site.out / ".nojekyll").write_text("", encoding="utf-8")
     if site.custom_domain:
@@ -536,6 +575,68 @@ def tip_block(text: str) -> str:
 <p>{text}</p>
 <p><a class="btn" href="{KOFI}">Tip $1 on Ko-fi</a></p>
 </div>"""
+
+
+SEARCH_JS = """
+(function(){
+  var box=document.getElementById('q'), out=document.getElementById('qr');
+  if(!box||!out) return;
+  var data=window.__INDEX__||[], up=document.body.dataset.up||'';
+  function esc(s){return s.replace(/[&<>]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function run(){
+    var q=box.value.trim().toLowerCase();
+    if(q.length<2){out.innerHTML='';out.hidden=true;return;}
+    var terms=q.split(/\\s+/);
+    var hits=data.filter(function(d){
+      var hay=(d.t+' '+d.x).toLowerCase();
+      return terms.every(function(t){return hay.indexOf(t)>-1;});
+    }).slice(0,12);
+    out.hidden=false;
+    if(!hits.length){out.innerHTML='<p class="qn">Nothing matches that.</p>';return;}
+    out.innerHTML='<ul>'+hits.map(function(d){
+      return '<li><a href="'+up+d.u+'"><span class="qt">'+esc(d.t)+'</span>'+
+             '<span class="qk">'+esc(d.k)+'</span></a></li>';
+    }).join('')+'</ul>';
+  }
+  box.addEventListener('input',run);
+  box.addEventListener('search',run);
+})();
+"""
+
+
+def search_box() -> str:
+    return (
+        '<div class="search">'
+        '<label class="vh" for="q">Search</label>'
+        '<input id="q" type="search" placeholder="Search the log and the writing" '
+        'autocomplete="off" spellcheck="false">'
+        '<div id="qr" class="qres" hidden></div>'
+        "</div>"
+    )
+
+
+def search_payload(items: list[dict]) -> str:
+    """Inline index. Small enough to inline, which keeps it working offline and
+    avoids a second request on a static host."""
+    rows = ",".join(
+        "{{t:{t},u:{u},k:{k},x:{x}}}".format(
+            t=js_str(i["t"]), u=js_str(i["u"]), k=js_str(i["k"]), x=js_str(i["x"])
+        )
+        for i in items
+    )
+    return f"<script>window.__INDEX__=[{rows}];{SEARCH_JS}</script>"
+
+
+def js_str(s: str) -> str:
+    return (
+        '"'
+        + s.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\n", " ")
+        .replace("<", "\\u003c")
+        + '"'
+    )
 
 
 def newest_first(md: str) -> str:
@@ -634,6 +735,41 @@ def build_journal(process: list[Entry]) -> None:
     log_md = (ROOT / "LOG.md").read_text(encoding="utf-8")
     days = parse_log(log_md)
 
+    # Search index and sidebar. A static host cannot run a query, so the index
+    # ships inline: every cycle and every essay, title plus its opening line.
+    index_items = [
+        {"t": c["title"], "u": f"log/{day}/", "k": pretty_day(day), "x": c["lead"]}
+        for day, cycles in days
+        for c in cycles
+    ] + [
+        {"t": e.title, "u": e.url, "k": "Essay", "x": e.summary} for e in process
+    ]
+
+    def rail(depth_prefix: str) -> str:
+        day_links = "".join(
+            f'<li><a href="{depth_prefix}log/{day}/">{pretty_day(day)}</a> '
+            f'<span class="cnt">{len(cycles)}</span></li>'
+            for day, cycles in days[:14]
+        )
+        essays = "".join(
+            f'<li><a href="{depth_prefix}{e.url}">{html.escape(e.title)}</a></li>'
+            for e in process
+        )
+        return (
+            search_box()
+            + "<h3>Log by day</h3>"
+            + f"<ul>{day_links}</ul>"
+            + (
+                f'<p class="cnt"><a href="{depth_prefix}log/">Every day</a></p>'
+                if len(days) > 14
+                else ""
+            )
+            + ("<h3>Longer pieces</h3>" + f"<ul>{essays}</ul>" if essays else "")
+            + "<h3>Elsewhere</h3>"
+            + f'<ul><li><a href="{DSR.base_url}/">Detroit Sports Reporter</a></li>'
+            + f'<li><a href="{KOFI}">Tip a dollar</a></li></ul>'
+        )
+
     # One page per day, not one page for everything. Three cycles a day rendered
     # end to end read as a wall of text, his words 2026-08-09, so a day is the
     # unit: all of that day's cycles together, and nothing else.
@@ -664,7 +800,8 @@ def build_journal(process: list[Entry]) -> None:
         )
         (site.out / "log" / day).mkdir(parents=True, exist_ok=True)
         (site.out / "log" / day / "index.html").write_text(
-            page(site, f"{pretty_day(day)}{site.title_sep}Working log", body, depth=2),
+            page(site, f"{pretty_day(day)}{site.title_sep}Working log", body,
+                 depth=2, aside=rail("../../") + search_payload(index_items)),
             encoding="utf-8",
         )
 
@@ -688,7 +825,8 @@ def build_journal(process: list[Entry]) -> None:
         + "".join(day_block(day, cycles, "") for day, cycles in days)
     )
     (site.out / "log" / "index.html").write_text(
-        page(site, f"Working log{site.title_sep}{site.title}", index_body, depth=1),
+        page(site, f"Working log{site.title_sep}{site.title}", index_body,
+             depth=1, aside=rail("../") + search_payload(index_items)),
         encoding="utf-8",
     )
 
@@ -729,7 +867,8 @@ def build_journal(process: list[Entry]) -> None:
         + dsr_note
         + tip
     )
-    write_common(site, process, home)
+    write_common(site, process, home,
+                 aside=rail("") + search_payload(index_items))
 
 
 def build_dsr(analysis: list[Entry]) -> None:
@@ -763,6 +902,34 @@ def build_dsr(analysis: list[Entry]) -> None:
         "paywall, nothing for sale. If a call or a piece was worth something to "
         "you, the tip jar is open."
     )
+    dsr_index = [
+        {"t": e.title, "u": e.url, "k": e.team.title() if e.team else "Analysis",
+         "x": e.summary}
+        for e in analysis
+    ]
+    by_team = {}
+    for e in analysis:
+        by_team.setdefault(e.team or "", []).append(e)
+    dsr_rail = (
+        search_box()
+        + "<h3>Teams</h3>"
+        + "<ul>"
+        + "".join(
+            f'<li><a href="team/{slug}/">{full}</a> '
+            f'<span class="cnt">{len(by_team.get(slug, []))}</span></li>'
+            for slug, short, full, *_ in TEAMS
+        )
+        + "</ul>"
+        + "<h3>Latest</h3>"
+        + "<ul>"
+        + "".join(
+            f'<li><a href="{e.url}">{html.escape(e.title)}</a></li>'
+            for e in analysis[:6]
+        )
+        + "</ul>"
+        + search_payload(dsr_index)
+    )
+
     home = (
         team_nav()
         + picks_html
@@ -771,7 +938,7 @@ def build_dsr(analysis: list[Entry]) -> None:
         + f'<ul class="entry-list">{"".join(entry_item(e) for e in analysis)}</ul>'
         + tip
     )
-    write_common(site, analysis, home)
+    write_common(site, analysis, home, aside=dsr_rail)
 
     # One page per team. Empty ones still ship: a fan arriving in October for
     # the Red Wings should find the page waiting, not a 404.

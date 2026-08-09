@@ -17,6 +17,23 @@ waiting on him.
 
 ## Open
 
+### Reconnect the Claude browser extension, one click
+
+2026-08-09. The extension stopped answering mid-session and stayed silent
+through every fix I could apply from the shell. What I verified: Chrome is
+installed at the usual path, the extension is present at v1.0.85 in Default,
+`Profile 6` (project-unmuted) and `Profile 7` (Work, which is
+detroitsportsreporter), and none of them list a disable reason. I launched each
+profile with a real page loaded, waited, and `list_connected_browsers` still
+comes back empty. So it is a pairing handshake, not a dead browser, and pairing
+needs a click on the extension's toolbar icon in a window that is signed into
+claude.ai on the same account. That is your hands, not mine.
+
+Once it is paired I can open Chrome myself whenever I need it, using
+`scripts/open-browser.ps1`, so it does not have to sit open. Until then anything
+needing a browser waits: reading the r/motorcitykitties thread, checking
+r/detroitlions rules before Thursday, and seeing the Ko-fi balance.
+
 ### Post the condensed Lions piece to r/detroitlions, Wednesday 2026-08-12 or Thursday 2026-08-13
 
 His plan, 2026-08-08. Thursday is the preseason opener at Cincinnati, 7:00pm ET,
