@@ -367,7 +367,13 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .stat .k{display:block;font-size:.7rem;text-transform:uppercase;
   letter-spacing:.07em;color:var(--muted);margin-top:.3rem}
 .sub{color:var(--muted);margin:-.4rem 0 1.4rem}
-.more{margin:1.6rem 0 2.4rem}
+.more{margin:1.6rem 0 2.4rem;display:flex;gap:1.2rem;flex-wrap:wrap}
+.logday{margin:2.2rem 0 .4rem;font-size:1rem;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted)}
+.logday a{color:inherit;text-decoration:none}
+.logday a:hover{text-decoration:underline}
+.loglist li{padding:.9rem 0}
+.loglist .ex{display:block;color:var(--muted);font-size:.92rem;margin-top:.2rem}
 .entry-list{list-style:none;padding:0;margin:0}
 .entry-list li{padding:1.4rem 0;border-bottom:1px solid var(--rule)}
 .entry-list a{text-decoration:none;color:inherit;display:block}
@@ -505,7 +511,13 @@ def write_common(site: Site, entries: list[Entry], home: str) -> None:
     if site.key == "dsr":
         pages += [f"team/{slug}/" for slug, *_ in TEAMS]
     else:
-        pages += ["log/"]
+        # Log day pages are written before this runs, so read them off disk
+        # rather than threading the list through every caller.
+        log_dir = site.out / "log"
+        pages += ["log/"] + sorted(
+            (f"log/{p.name}/" for p in log_dir.iterdir() if p.is_dir()),
+            reverse=True,
+        )
     urls = "\n".join(f"  <url><loc>{site.base_url}/{p}</loc></url>" for p in pages)
     (site.out / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -554,17 +566,48 @@ def newest_first(md: str) -> str:
     return "\n".join(out)
 
 
-def split_log(log_md: str, keep: int) -> tuple[str, int]:
-    """Most recent `keep` log sections, plus how many were left behind.
+LOG_HEAD = re.compile(r"^## (\d{4}-\d{2}-\d{2})[^\n]*?(?:—|--)\s*(.+)$")
 
-    LOG.md is newest-first and one `## ` heading per cycle, so splitting on the
-    heading preserves order without parsing dates.
+
+def parse_log(log_md: str) -> list[tuple[str, list[dict]]]:
+    """LOG.md into days, newest first, each day a list of cycle entries.
+
+    One `## ` heading per cycle, shaped `## 2026-08-09 (Sunday) — Title`. Days
+    group because three cycles a day otherwise render as three unrelated slabs
+    of text; the human's read of the old page was "a wall of text".
     """
     body = re.sub(r"^# .*\n", "", log_md, count=1).lstrip()
     body = re.sub(r"^Newest at top\.\s*\n+(---\s*\n+)?", "", body)
-    parts = re.split(r"\n(?=## )", body)
-    parts = [p for p in parts if p.strip() and p.strip() != "---"]
-    return "\n".join(parts[:keep]), max(0, len(parts) - keep)
+
+    days: list[tuple[str, list[dict]]] = []
+    for part in re.split(r"\n(?=## )", body):
+        part = part.strip()
+        if not part or part == "---":
+            continue
+        head, _, rest = part.partition("\n")
+        m = LOG_HEAD.match(head.strip())
+        if not m:
+            continue
+        day, title = m.group(1), m.group(2).strip()
+        rest = re.sub(r"\n?---\s*$", "", rest).strip()
+        # First sentence of the first paragraph, for the scannable view.
+        first_para = next((p for p in rest.split("\n\n") if p.strip()), "")
+        lead = re.sub(r"\s+", " ", re.sub(r"[*_`]", "", first_para)).strip()
+        if len(lead) > 220:
+            cut = lead[:220].rsplit(" ", 1)[0]
+            lead = cut + "..."
+        entry = {"title": title, "body": rest, "lead": lead}
+        if days and days[-1][0] == day:
+            days[-1][1].append(entry)
+        else:
+            days.append((day, [entry]))
+    return days
+
+
+def pretty_day(day: str) -> str:
+    """'2026-08-09' -> 'Sunday, August 9, 2026'. No %-d; it is not portable."""
+    d = date.fromisoformat(day)
+    return f"{d:%A, %B} {d.day}, {d.year}"
 
 
 def build_journal(process: list[Entry]) -> None:
@@ -589,34 +632,79 @@ def build_journal(process: list[Entry]) -> None:
     # written every cycle regardless, so rendering it as a page means the
     # thinking is always up, even when nobody wrote an essay about it.
     log_md = (ROOT / "LOG.md").read_text(encoding="utf-8")
-    log_body = (
-        '<div class="note">This is the raw working log, written by the machine '
-        "at the end of every cycle: what got done, what failed, what it decided "
-        "and why. Unedited, newest first. The entries on the home page are the "
-        "considered version; this is the tape.</div>"
-        + render(re.sub(r"^# .*\n", "", log_md, count=1))
-    )
+    days = parse_log(log_md)
+
+    # One page per day, not one page for everything. Three cycles a day rendered
+    # end to end read as a wall of text, his words 2026-08-09, so a day is the
+    # unit: all of that day's cycles together, and nothing else.
     (site.out / "log").mkdir(parents=True, exist_ok=True)
+    for i, (day, cycles) in enumerate(days):
+        newer = days[i - 1][0] if i > 0 else None
+        older_day = days[i + 1][0] if i + 1 < len(days) else None
+        nav = " ".join(
+            filter(
+                None,
+                [
+                    f'<a href="../{older_day}/">Previous day</a>' if older_day else "",
+                    f'<a href="../{newer}/">Next day</a>' if newer else "",
+                    '<a href="../">All days</a>',
+                ],
+            )
+        )
+        body = (
+            f"<h2>{pretty_day(day)}</h2>"
+            + f'<p class="sub">{len(cycles)} '
+            + ("cycle" if len(cycles) == 1 else "cycles")
+            + " that day.</p>"
+            + "".join(
+                f"<h3>{html.escape(c['title'])}</h3>" + render(c["body"])
+                for c in cycles
+            )
+            + f'<p class="more">{nav}</p>'
+        )
+        (site.out / "log" / day).mkdir(parents=True, exist_ok=True)
+        (site.out / "log" / day / "index.html").write_text(
+            page(site, f"{pretty_day(day)}{site.title_sep}Working log", body, depth=2),
+            encoding="utf-8",
+        )
+
+    def day_block(day: str, cycles: list[dict], depth_prefix: str) -> str:
+        items = "".join(
+            f'<li><a href="{depth_prefix}{day}/"><span class="t">'
+            f"{html.escape(c['title'])}</span>"
+            f'<span class="ex">{html.escape(c["lead"])}</span></a></li>'
+            for c in cycles
+        )
+        return (
+            f'<h3 class="logday"><a href="{depth_prefix}{day}/">'
+            f"{pretty_day(day)}</a></h3>"
+            + f'<ul class="entry-list loglist">{items}</ul>'
+        )
+
+    index_body = (
+        "<h2>Working log</h2>"
+        + '<p class="sub">What each cycle did, what failed, and what it decided. '
+        "One page per day, newest first.</p>"
+        + "".join(day_block(day, cycles, "") for day, cycles in days)
+    )
     (site.out / "log" / "index.html").write_text(
-        page(site, f"Working log{site.title_sep}{site.title}", log_body, depth=1),
+        page(site, f"Working log{site.title_sep}{site.title}", index_body, depth=1),
         encoding="utf-8",
     )
 
-    # The home page IS the log, newest first (his call 2026-08-09). Only the
-    # most recent entries render inline so the page stays loadable; the rest
-    # live on /log/. Everything that used to sit above the fold, the scoreboard,
-    # the intro, the notes, the tip rail, now sits underneath it.
-    recent_md, older = split_log(log_md, keep=6)
+    # Home page shows the last three days as titles plus one line each, which is
+    # scannable; the day pages carry the full text.
+    recent, rest = days[:3], days[3:]
     log_lead = (
         "<h2>Working log</h2>"
-        + '<p class="sub">What each cycle did, what failed, and what it decided. '
-        "Unedited, newest first.</p>"
-        + render(recent_md)
+        + '<p class="sub">Every cycle writes down what it did, what failed and '
+        "what it decided. Last three days.</p>"
+        + "".join(day_block(day, cycles, "log/") for day, cycles in recent)
         + (
-            f'<p class="more"><a href="log/">Older entries, all {older} of '
-            "them</a></p>"
-            if older
-            else ""
+            f'<p class="more"><a href="log/">Every day since the start, '
+            f"{len(rest)} more</a></p>"
+            if rest
+            else '<p class="more"><a href="log/">All days</a></p>'
         )
     )
 

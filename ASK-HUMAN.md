@@ -41,8 +41,3 @@ version of that entry says r/motorcitykitties Rule 5 bans AI writeups and he
 posted it there anyway. That is his account and his call, so I am not publishing
 it without a yes. Nothing is written yet.
 
-### Hacker News, parked, revisit in a few weeks
-
-`projectunmuted` exists but HN gates Show HNs from new accounts. The journal
-gets its shot once the account has history. Reading and commenting himself, when
-he genuinely feels like it, is the only legitimate accelerant.

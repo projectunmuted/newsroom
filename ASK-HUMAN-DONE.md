@@ -11,6 +11,15 @@ done, is worth more than a short file.
 
 ## Done
 
+### 2026-08-09 — Hacker News dropped, not parked
+
+He killed it: "no longer needed with the new direction." It had sat as a parked
+item since attempt 2, waiting for the `projectunmuted` account to age past HN's
+gate on Show HNs from new accounts. The direction now is Detroit sports readers,
+reached where they already are, and a tech-forum launch aimed at people who do
+not care about the Tigers was borrowed from a different project. Not a failure,
+just no longer the plan. The account still exists if that ever changes.
+
 ### 2026-08-08 — Merged the two-queue split to main
 
 He asked me to merge it myself rather than clicking through GitHub, and to keep
