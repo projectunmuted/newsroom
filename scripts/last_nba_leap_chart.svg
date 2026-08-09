@@ -1,0 +1,83 @@
+<svg viewBox="0 0 640 402" width="100%" role="img" aria-labelledby="leap-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="leap-title">The largest two-season win swings in the NBA since 1993, with each team's change in the following season</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">The biggest two-year climbs since 1993</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">Bar is the gain in wins per 82 games across two seasons. Right column is what that team</text>
+<text x="0" y="48" fill="var(--muted)" font-size="11">did the following season. A dot marks a span touching a lockout or covid season, converted to an 82-game pace.</text>
+<text x="590" y="62" text-anchor="middle" fill="var(--muted)" font-size="10">next year</text>
+<text x="0" y="87" fill="var(--fg)" font-size="11" font-weight="600">Detroit Pistons</text>
+<text x="142" y="87" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2026</text>
+<path d="M150.0,77H540.0A4.0,4.0 0 0 1 544.0,81.0V85.0A4.0,4.0 0 0 1 540.0,89H150.0Z" fill="var(--chart-pos)" opacity="0.85"><title>Detroit Pistons 2026: 14 to 60 wins per 82, a gain of +46.0</title></path>
+<text x="550.0" y="87" fill="var(--fg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">+46</text>
+<text x="590" y="87" text-anchor="middle" fill="var(--muted)" font-size="10.5">not played</text>
+<text x="0" y="108" fill="var(--muted)" font-size="11" font-weight="400">Philadelphia 76ers</text>
+<text x="142" y="108" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2018</text>
+<path d="M150.0,98H505.73913043478257A4.0,4.0 0 0 1 509.73913043478257,102.0V106.0A4.0,4.0 0 0 1 505.73913043478257,110H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Philadelphia 76ers 2018: 10 to 52 wins per 82, a gain of +42.0</title></path>
+<text x="515.7" y="108" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+42</text>
+<text x="590" y="108" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-1</text>
+<text x="0" y="129" fill="var(--muted)" font-size="11" font-weight="400">San Antonio Spurs</text>
+<text x="142" y="129" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">1999</text>
+<circle cx="110" cy="125.5" r="2.4" fill="var(--muted)"><title>San Antonio Spurs 1999: this span includes a shortened season, so the figures are a per-82 pace rather than games actually won. Raw: 20 to 37 wins</title></circle>
+<path d="M150.0,119H494.43304347826086A4.0,4.0 0 0 1 498.43304347826086,123.0V127.0A4.0,4.0 0 0 1 494.43304347826086,131H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>San Antonio Spurs 1999: 20 to 61 wins per 82, a gain of +40.7</title></path>
+<text x="504.4" y="129" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+41</text>
+<text x="590" y="129" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-8</text>
+<text x="0" y="150" fill="var(--muted)" font-size="11" font-weight="400">San Antonio Spurs</text>
+<text x="142" y="150" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2026</text>
+<path d="M150.0,140H488.6086956521739A4.0,4.0 0 0 1 492.6086956521739,144.0V148.0A4.0,4.0 0 0 1 488.6086956521739,152H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>San Antonio Spurs 2026: 22 to 62 wins per 82, a gain of +40.0</title></path>
+<text x="498.6" y="150" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+40</text>
+<text x="590" y="150" text-anchor="middle" fill="var(--muted)" font-size="10.5">not played</text>
+<text x="0" y="171" fill="var(--muted)" font-size="11" font-weight="400">Phoenix Suns</text>
+<text x="142" y="171" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2021</text>
+<circle cx="110" cy="167.5" r="2.4" fill="var(--muted)"><title>Phoenix Suns 2021: this span includes a shortened season, so the figures are a per-82 pace rather than games actually won. Raw: 19 to 51 wins</title></circle>
+<path d="M150.0,161H480.75724637681157A4.0,4.0 0 0 1 484.75724637681157,165.0V169.0A4.0,4.0 0 0 1 480.75724637681157,173H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Phoenix Suns 2021: 19 to 58 wins per 82, a gain of +39.1</title></path>
+<text x="490.8" y="171" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+39</text>
+<text x="590" y="171" text-anchor="middle" fill="var(--chart-pos)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">+6</text>
+<text x="0" y="192" fill="var(--muted)" font-size="11" font-weight="400">Boston Celtics</text>
+<text x="142" y="192" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2009</text>
+<path d="M150.0,182H471.47826086956525A4.0,4.0 0 0 1 475.47826086956525,186.0V190.0A4.0,4.0 0 0 1 471.47826086956525,194H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Boston Celtics 2009: 24 to 62 wins per 82, a gain of +38.0</title></path>
+<text x="481.5" y="192" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+38</text>
+<text x="590" y="192" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-12</text>
+<text x="0" y="213" fill="var(--muted)" font-size="11" font-weight="400">Charlotte Bobcats</text>
+<text x="142" y="213" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2014</text>
+<circle cx="110" cy="209.5" r="2.4" fill="var(--muted)"><title>Charlotte Bobcats 2014: this span includes a shortened season, so the figures are a per-82 pace rather than games actually won. Raw: 7 to 43 wins</title></circle>
+<path d="M150.0,203H439.81291172595525A4.0,4.0 0 0 1 443.81291172595525,207.0V211.0A4.0,4.0 0 0 1 439.81291172595525,215H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Charlotte Bobcats 2014: 9 to 43 wins per 82, a gain of +34.3</title></path>
+<text x="449.8" y="213" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+34</text>
+<text x="590" y="213" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-10</text>
+<text x="0" y="234" fill="var(--muted)" font-size="11" font-weight="400">Golden State Warriors</text>
+<text x="142" y="234" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2022</text>
+<circle cx="110" cy="230.5" r="2.4" fill="var(--muted)"><title>Golden State Warriors 2022: this span includes a shortened season, so the figures are a per-82 pace rather than games actually won. Raw: 15 to 53 wins</title></circle>
+<path d="M150.0,224H437.876254180602A4.0,4.0 0 0 1 441.876254180602,228.0V232.0A4.0,4.0 0 0 1 437.876254180602,236H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Golden State Warriors 2022: 19 to 53 wins per 82, a gain of +34.1</title></path>
+<text x="447.9" y="234" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+34</text>
+<text x="590" y="234" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-9</text>
+<text x="0" y="255" fill="var(--muted)" font-size="11" font-weight="400">Miami Heat</text>
+<text x="142" y="255" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2005</text>
+<path d="M150.0,245H437.2173913043478A4.0,4.0 0 0 1 441.2173913043478,249.0V253.0A4.0,4.0 0 0 1 437.2173913043478,257H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Miami Heat 2005: 25 to 59 wins per 82, a gain of +34.0</title></path>
+<text x="447.2" y="255" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+34</text>
+<text x="590" y="255" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-7</text>
+<text x="0" y="276" fill="var(--muted)" font-size="11" font-weight="400">Boston Celtics</text>
+<text x="142" y="276" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2008</text>
+<path d="M150.0,266H428.65217391304344A4.0,4.0 0 0 1 432.65217391304344,270.0V274.0A4.0,4.0 0 0 1 428.65217391304344,278H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Boston Celtics 2008: 33 to 66 wins per 82, a gain of +33.0</title></path>
+<text x="438.7" y="276" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+33</text>
+<text x="590" y="276" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-4</text>
+<text x="0" y="297" fill="var(--muted)" font-size="11" font-weight="400">Oklahoma City Thunder</text>
+<text x="142" y="297" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2024</text>
+<path d="M150.0,287H428.65217391304344A4.0,4.0 0 0 1 432.65217391304344,291.0V295.0A4.0,4.0 0 0 1 428.65217391304344,299H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Oklahoma City Thunder 2024: 24 to 57 wins per 82, a gain of +33.0</title></path>
+<text x="438.7" y="297" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+33</text>
+<text x="590" y="297" text-anchor="middle" fill="var(--chart-pos)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">+11</text>
+<text x="0" y="318" fill="var(--muted)" font-size="11" font-weight="400">Denver Nuggets</text>
+<text x="142" y="318" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2005</text>
+<path d="M150.0,308H420.0869565217391A4.0,4.0 0 0 1 424.0869565217391,312.0V316.0A4.0,4.0 0 0 1 420.0869565217391,320H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Denver Nuggets 2005: 17 to 49 wins per 82, a gain of +32.0</title></path>
+<text x="430.1" y="318" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+32</text>
+<text x="590" y="318" text-anchor="middle" fill="var(--chart-neg)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">-5</text>
+<text x="0" y="339" fill="var(--muted)" font-size="11" font-weight="400">Miami Heat</text>
+<text x="142" y="339" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2010</text>
+<path d="M150.0,329H420.0869565217391A4.0,4.0 0 0 1 424.0869565217391,333.0V337.0A4.0,4.0 0 0 1 420.0869565217391,341H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Miami Heat 2010: 15 to 47 wins per 82, a gain of +32.0</title></path>
+<text x="430.1" y="339" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+32</text>
+<text x="590" y="339" text-anchor="middle" fill="var(--chart-pos)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">+11</text>
+<text x="0" y="360" fill="var(--muted)" font-size="11" font-weight="400">Oklahoma City Thunder</text>
+<text x="142" y="360" text-anchor="end" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">2011</text>
+<path d="M150.0,350H420.0869565217391A4.0,4.0 0 0 1 424.0869565217391,354.0V358.0A4.0,4.0 0 0 1 420.0869565217391,362H150.0Z" fill="var(--chart-pos)" opacity="0.4"><title>Oklahoma City Thunder 2011: 23 to 55 wins per 82, a gain of +32.0</title></path>
+<text x="430.1" y="360" fill="var(--fg)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">+32</text>
+<text x="590" y="360" text-anchor="middle" fill="var(--chart-pos)" font-size="10.5" font-weight="600" font-variant-numeric="tabular-nums">+3</text>
+<line x1="150.0" y1="72" x2="150.0" y2="368" stroke="var(--rule)" stroke-width="1"/>
+<text x="150" y="386" fill="var(--muted)" font-size="10.5">No other team in the sample gained as much as Detroit. What each of them did next runs both ways.</text>
+</svg>

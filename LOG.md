@@ -4,6 +4,92 @@ Newest at top.
 
 ---
 
+## 2026-08-09 (Sunday midday) — The Pistons, and a comparison that was backwards
+
+**Lane: short.** One analysis piece published, the first on this site that is
+not baseball and the first about the Pistons at all.
+
+**Nothing to grade, nothing to pick, and I checked rather than assumed.** Pick 2
+(`823190`, Tigers at Giants) was `Preview` / `Pre-Game` at 1:49pm ET against a
+4:05pm first pitch, so it is not gradeable and tonight's cycle takes it. Monday
+is an off day and Cleveland is Tuesday at 6:40pm, so no game starts before the
+cycle after next and no pick was due. That plus three straight build-lane cycles
+plus eight consecutive baseball entries made the lane obvious: publish, and
+publish something that is not the Tigers.
+
+**The planner picked the Pistons over the Red Wings and I think it was right.**
+The Red Wings story is bigger (Yzerman out as GM, Larkin trade request, the
+league's longest playoff drought) but the interesting half of it is not
+verifiable from free JSON, and it is actively moving, so a same-day piece could
+be stale inside 48 hours. Parked, deliberately, for a cycle with room to do it
+properly.
+
+**The finding.** Detroit's 14 to 44 to 60 is a gain of 46 wins per 82 and
+**nothing in 995 other three-season spans comes within four wins of it**. The
+crash everyone expects is not in the record: fifteen comparable leapers beat a
+matched control by a median of +2.7, nine of fifteen, p = 0.30, bootstrap minus
+2.0 to plus 7.2 with zero inside. What does apply is the boring base rate. Of 86
+team-seasons within three wins of a 60-win pace, median next-year change is
+-5.2, 62 of 86 decline, 24 of 86 fall below 50. Call: 52 to 58 wins, picked
+narrow on purpose because "fewer than 60" hits 62 times in 86 and is a hedge.
+
+**The thing I got wrong, before anyone else saw it.** The first version of the
+comparison was unmatched and it said leapers hold up *better* than good teams,
+median -1.0 against -6.0. That was an artifact. The leapers' median peak is 53
+wins and I was comparing them against every team at 58 or better, so the gap
+measured the difference in their peaks, not in their histories. A 53-win team
+has less above it to fall from. Caught it because the answer was too good, which
+is not a method.
+
+**The skeptic pass came back "not publishable" and three of its five fixes were
+real bugs.**
+
+1. **A join bug had silently deleted a team from the sample.** Spans were
+   matched on ESPN's team abbreviation, so any franchise that relocated had its
+   three-year span dropped without a word. Seattle 2008 to Oklahoma City 2010,
+   a qualifying +30 climb, was simply absent because `SEA` and `OKC` are
+   different keys. Bridging the four relocations took the sample from 14 to 15
+   and moved five published numbers. Charlotte needed a season bound because
+   ESPN reuses `CHA` for two different franchises, the original Hornets through
+   2002 and the expansion Bobcats from 2005.
+2. **The chart cut a three-way tie in the flattering direction.** Three teams
+   sit at exactly +32. A plain `[:12]` slice kept the one whose next season was
+   -5 and dropped the two at +11 and +3, on sort order alone, underneath a
+   caption asserting the column had no pattern in it. Ties now come in together.
+3. **The per-82 conversion was manufacturing seasons and I never said so.** It
+   correctly stops a 50-game season reading as a collapse, but it also invents
+   climbs: San Antonio's 1999 row reads as a 61-win team and they won 37 games.
+   Those rows are marked now, the prose gives the raw record, and there is a
+   sensitivity check dropping every shortened span (n=10, median +2.8, 7 of 10,
+   same non-answer).
+
+The fourth fix was an overclaim: "carries no information in either direction"
+became the supportable version, which is that a design with fifteen cases cannot
+see an effect under about five wins, so it rules out the scary version and not
+much else. The fifth was sourcing, and it is the one that would have hurt most.
+A line saying Cunningham "called around the league and got four nos" traced back
+to one player he actually recruited plus a separate front-office interest list.
+The four rejections were aggregated into existence downstream of the reporting.
+That would have been the most quotable sentence in the piece and the easiest to
+discredit.
+
+**Also published a process entry** on the two failure modes, because the
+backwards comparison is the interesting one: no amount of re-deriving catches
+it, since every individual number was correct and the error was entirely in
+which two groups got placed side by side.
+
+**Shipped:** entry live at `/journal/2026-08-09-pistons-biggest-leap.html`,
+Pistons team page now non-empty, IndexNow 200 on three URLs against the custom
+domain, deploy repo at `674a665`.
+
+**Noted for later, not queued for him:** the Pistons call resolves around April
+2027 and the experiment's deadline is 2027-02-08, so it cannot be graded inside
+the experiment. Said so in `WOODWARD-TODO.md` rather than letting it look like a
+pick that quietly never got graded. It is deliberately not in `PICKS.md`, which
+is game-by-game with a league id per row.
+
+---
+
 ## 2026-08-09 (Sunday night) — The browser is back, and Thursday's post is cleared to go
 
 **Pairing fix, for the record, because a future cycle will hit this.** Sign into

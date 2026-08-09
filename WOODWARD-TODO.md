@@ -88,6 +88,10 @@ season recomputation, documented in the 2026-08-09 entry.
 **It already has a pick and a published entry as of 2026-08-08, so do not pick
 it again.**
 
+**Checked 2026-08-09 at 1:49pm ET and it was still `Preview` / `Pre-Game`, so
+not gradeable.** First pitch had not happened yet. The Sunday night cycle is the
+one that grades this. Do not read "checked" as "graded".
+
 Note the ids are not sequential by date: `823191` was *Friday*, `823188`
 Saturday, `823190` Sunday. Matching by date or by "Tigers at Giants" would grade
 the wrong game. Match the id.
@@ -132,6 +136,24 @@ Monday cycle now breaks a stated promise rather than just a habit.
 
 **Ends when:** `824240` has a row committed before 6:40pm ET Tuesday.
 
+### The Pistons call resolves after the experiment's deadline
+
+**Trigger:** the 2026-27 NBA regular season ending, roughly April 2027.
+
+`entries/2026-08-09-pistons-biggest-leap.md` calls Detroit for **52 to 58 wins**.
+That is a real call and it should be graded, but note the date: the season ends
+around April 2027 and the experiment's deadline is **2027-02-08**. So this one
+cannot resolve inside the experiment, which is worth saying plainly rather than
+letting it look like a pick that quietly never got graded.
+
+It is deliberately **not** in `PICKS.md`. That ledger is game-by-game picks with
+a league game id per row, and a season win total has no gamePk and no first
+pitch. Mixing a season-long call into the game record would make the running
+record mean two different things.
+
+**Ends when:** either the season finishes and the call is graded in an entry, or
+a cycle decides season-long calls need their own ledger and builds one.
+
 ## Standing
 
 ### Land work on main, not on a branch he has to find
@@ -151,6 +173,53 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-09: the Pistons' 46-win climb, and a comparison that was backwards
+
+`entries/2026-08-09-pistons-biggest-leap.md`, the first non-baseball analysis
+piece on the site and the first Pistons entry at all. Published on a cycle with
+nothing to grade and nothing to pick, which is exactly the slot the spread-across-
+the-sports rule was written for.
+
+What came of it: Detroit's 14 to 44 to 60 climb is a gain of 46 wins per 82 and
+**no other three-season span in 995 comes within four wins of it**; the closest
+is Philadelphia 2018 at +42. The fear that a climb like that predicts a crash is
+not in the record. Fifteen comparable leapers beat their matched control by a
+median of +2.7 wins, nine of fifteen, sign test p = 0.30, bootstrap interval
+minus 2.0 to plus 7.2 with zero inside it. Sensitivity dropping every shortened
+season leaves ten cases, median +2.8, seven of ten, the same non-answer. What
+does apply is the plain base rate: of 86 team-seasons within three wins of a
+60-win pace, the median lost 5.2 the next year, 62 of 86 declined, and 24 of 86
+fell below 50. The call is 52 to 58 wins, chosen narrow because "fewer than 60"
+would be right 62 times in 86 and is a hedge rather than a call.
+
+**The first answer was wrong and it was the flattering one.** Unmatched, the
+leapers looked *better* than good teams (median -1.0 against -6.0). That gap was
+an artifact of comparing a group whose median peak is 53 wins against a group of
+all 58-plus teams. Caught before publishing, and the corrected version is the
+published one.
+
+**The skeptic pass returned "not publishable" with five required fixes and three
+were real bugs I could not have found by rereading prose.** A franchise join on
+ESPN abbreviations silently dropped every span crossing a relocation, deleting a
+qualifying leaper (Seattle 2008 to Oklahoma City 2010, +30) from the sample and
+changing five published numbers; `RELOCATED` in `nba_leaps.py` now bridges the
+four moves, with a season bound on Charlotte because ESPN reuses `CHA` for two
+different franchises. The chart cut a three-way tie at +32 with a plain list
+slice, keeping the negative outcome and dropping both positives, underneath a
+caption claiming the column had no pattern. And the per-82 conversion was
+presenting San Antonio 1999 as a 61-win team that actually won 37, unflagged.
+All three fixed in the scripts rather than patched in the prose.
+
+Also cut: an unsourced claim that Cunningham "got four nos" recruiting a second
+scorer, which traced back to one recruited player plus a front-office interest
+list.
+
+New tooling: `scripts/nba_leaps.py` (relocation-aware span builder, matched
+control, sign test, bootstrap, shortened-season sensitivity) and
+`scripts/nba_leap_chart.py` (tie-inclusive ranked bars with next-year outcomes,
+importing `bar_path` rather than copying it). Standings cached in
+`scripts/nba_standings_cache.json`, 36 seasons.
 
 ### 2026-08-09: Detroit vs Cleveland, and the answer was "there is no reason"
 

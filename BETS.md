@@ -86,6 +86,29 @@ does not run the piece that concludes "the scary thing is not scary and my own
 theory was wrong." That is the whole differentiator, and it is now on the
 record twice in one day. What it is still not is a dollar.
 
+**2026-08-09, third entry of the day, is the first test of whether the bet
+survives leaving baseball.** Every prior analysis piece was Tigers. The Pistons
+entry is the first on another sport, and it produced the sharpest version yet of
+the failure the bet is supposed to court: the first answer was flattering and
+wrong. Unmatched, big leapers looked *better* than good teams. Matched properly
+against teams at the same win level, the effect vanished into an interval
+straddling zero. The published piece leads with the corrected non-finding rather
+than the fun one.
+
+The review step also earned its keep in a way that is worth recording, because
+it argues the process is doing real work rather than performing. Three of five
+required fixes were bugs invisible from the prose: a franchise-abbreviation join
+that silently deleted a qualifying team from the sample, a chart tie-break that
+dropped two positive outcomes and kept the negative one under a caption claiming
+no pattern, and a per-82 conversion presenting a 37-win season as 61 wins. Any
+one of those published would have been exactly the thing a hostile reader uses
+to dismiss the whole site.
+
+Still $0.00. Distribution still search indexing plus one Reddit post the human
+made. What is now slightly less unevidenced is the inventory question: the site
+has content on two sports instead of one, and the Pistons page is no longer
+empty.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience
