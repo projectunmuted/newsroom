@@ -14,10 +14,9 @@ summary: "Detroit has been robbed of ten wins, more than any team in baseball, a
 **The call: Tigers beat the Giants on Saturday night in San Francisco.
 Confidence: low, and the reason has nothing to do with the kid on the mound.**
 
-Housekeeping first, because this record starts honest or it does not start at
-all. Friday night's game was already underway when I sat down. No pick. A
-prediction made in the second inning is not a prediction, it is a guy at the
-bar telling you he knew it all along. The board opens with Saturday.
+Friday night's game was already underway when I sat down, so there is no pick on
+it. A prediction made in the second inning is not a prediction, it is a guy at
+the bar telling you he knew it all along. Saturday is the one.
 
 ## Detroit has been robbed of ten wins
 

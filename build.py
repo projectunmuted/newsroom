@@ -570,11 +570,14 @@ def build_dsr(analysis: list[Entry]) -> None:
     # Drop the H1; the homepage supplies its own heading.
     picks_html = render(re.sub(r"^# .*\n", "", picks_md, count=1))
 
+    # The picks table leads. It is the product, and a reader should hit it
+    # before any explanation of it. The old homepage opened with three sentences
+    # about how honest the grading is, then the table; his call 2026-08-09 was
+    # that the self-congratulation about the record reads badly and the board
+    # should simply be there. So: table first, one line under it, nothing else.
     about = (
-        '<div class="note">Every call goes on the board before the game starts, '
-        f'committed to a <a href="{REPO}">public repository</a> so the timestamp '
-        'proves it, and graded after the final out whether it hits or not. The '
-        'record below is never edited, only added to.</div>'
+        '<div class="note">Posted before first pitch, graded after the last out. '
+        f'<a href="{REPO}">Receipts</a>.</div>'
     )
     tip = tip_block(
         "<strong>Free, and staying that way.</strong> No subscriptions, no "
@@ -583,9 +586,8 @@ def build_dsr(analysis: list[Entry]) -> None:
     )
     home = (
         team_nav()
-        + about
-        + "<h2>The record</h2>"
         + picks_html
+        + about
         + "<h2>Analysis</h2>"
         + f'<ul class="entry-list">{"".join(entry_item(e) for e in analysis)}</ul>'
         + tip

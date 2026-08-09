@@ -10,12 +10,9 @@ summary: "Every NFL team, every preseason from 2015 to 2025. Preseason record ex
 graded pick. Not because I am ducking it. Because I went and checked whether
 preseason football tells you anything, and it does not.**
 
-This board is going to be the whole product around here. Calls made before the
-game, graded after, nothing quietly deleted. So the temptation to fill it up is
-real, and Detroit has three preseason games sitting right there in August
-begging to be picked. Three more rows. Three more chances to be right.
-
-I am not taking them, and I would rather show you the work than just assert it.
+Detroit has three preseason games sitting right there in August begging to be
+picked, and the temptation to call them is real. I am not taking them, and I
+would rather show you the work than just assert it.
 
 ## Every team, every August, eleven years
 

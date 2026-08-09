@@ -4,6 +4,52 @@ Newest at top.
 
 ---
 
+## 2026-08-09 (Sunday) — Lanes, three agents, and the record talk comes off the site
+
+His read after a day of output: the content is working, the volume is aimed
+wrong, and the self-congratulation is grating. Three separate fixes.
+
+**The picks table now leads the DSR homepage.** It used to open with three
+sentences about how honest the grading is, then the board. `PICKS.md` opened
+with three more of the same, and it renders straight onto the homepage, so a
+visitor met roughly six sentences of throat-clearing before a single prediction.
+Now: the record line, the table, the confidence key, and one line underneath
+reading "Posted before first pitch, graded after the last out. Receipts." with
+the repo behind the last word. Everything else is gone.
+
+**Writing about the record is now a hard style rule, banned outright.** His
+words: "all the talk about the record is a little annoying and I don't like to
+see it." The board is the argument. I also trimmed the two worst offenders in
+already-published entries: the Pick 1 piece opened with "this record starts
+honest or it does not start at all," and the preseason piece had a paragraph
+about the board being the whole product. Both were meta rather than analysis and
+neither touched a call, a number or a grade. **No prediction was edited**; that
+rule stands untouched and git history shows both diffs.
+
+**Cycles now pick a lane and name it in the LOG.** Short lane is game-day work:
+grade, pick, a tight piece tied to today. Long lane ships nothing and builds:
+tooling, a backtest worth trusting, distribution, research for a piece that runs
+later. Roughly alternate, and two publishing cycles in a row means the next one
+builds. Written because 2026-08-09 published three Tigers pieces in a day, which
+is three cycles doing the same thing rather than three cycles doing their jobs.
+Coverage rules attached: one analysis piece per team per day, spread across the
+sports, and covering all four teams is explicitly not an obligation.
+
+**Three agents now live in `.claude/agents/`.**
+
+- `editorial-planner` runs before writing. Returns three ranked options with the
+  data source and query already identified, and is required to say when the
+  honest answer is "publish nothing, build instead."
+- `skeptic` runs on every draft. Re-derives numbers from primary sources rather
+  than trusting the draft's arithmetic, attacks the inference for claims the
+  data does not support, and enforces house style including the new record-talk
+  ban.
+- `site-designer` runs for anything touching layout, judging both sites as a
+  stranger arriving on a phone rather than as the person who built them.
+
+**Lane for this cycle: long.** Nothing published. The next cycle picks up the
+short lane with the reader-objection piece already queued.
+
 ## 2026-08-09 (Sunday, 5:49am ET) — Went looking for why the Tigers cannot beat Cleveland, found out there is probably no why
 
 **Nothing to grade and nothing to pick, which is exactly the trigger the

@@ -59,8 +59,50 @@ Everything else is yours to decide — decide and log, don't ask.
    pick is worth nothing. The call, the reasoning, the confidence, pushed
    before first pitch; the commit timestamp is the proof. Never edit a
    published prediction; grade it as written.
-3. Then whatever most advances the dollar: a deeper analysis piece,
-   distribution, tooling for the above.
+3. Then the lane for this cycle. See below; not every cycle publishes.
+
+## Cycle lanes (the human's rule, 2026-08-09)
+
+**Three cycles a day is not three articles a day.** Grading and picking happen
+whenever a game demands them. What comes after should alternate, and the site
+was publishing three Tigers pieces in a single day when this rule was written.
+
+Pick a lane and say which one in the LOG entry:
+
+- **Short lane, game-day work.** The grade, the pick, a tight piece tied to
+  something happening today. Fast, specific, out the door.
+- **Long lane, build work.** Nothing publishes. Tooling, a backtest worth
+  trusting, distribution, site structure, a piece researched today and published
+  later. **A cycle that ships nothing but leaves the project stronger is a good
+  cycle**, and saying so in the LOG is the whole point of having lanes.
+
+**Roughly alternate.** Two publishing cycles in a row means the next one builds,
+unless a game forces a grade or a pick.
+
+### What gets covered
+
+- **One analysis piece per team per day, maximum.** Grades do not count and stay
+  short.
+- **Spread across the sports.** If the last two pieces were baseball, the next
+  should not be, absent a game to grade or pick. The Lions, Pistons and Red
+  Wings all have calendars.
+- **Covering every team is not an obligation.** Four teams do not require four
+  pieces. A thin piece written to fill a slot is worse than no piece.
+- **A reader objection outranks anything picked unprompted.** If someone argued
+  the analysis was wrong, testing that is the best available piece, published
+  whichever way it lands.
+
+### The agents
+
+Three live in `.claude/agents/`. Use them; that is what they are for.
+
+- **`editorial-planner`** at the start of a cycle, before writing. Returns three
+  ranked options with the evidence angle already worked out, and will tell you
+  when the honest answer is to publish nothing.
+- **`skeptic`** on every draft before it publishes. Re-derives the numbers,
+  attacks the inference, enforces house style.
+- **`site-designer`** for anything touching how either site looks or what a page
+  leads with.
 
 **Data sources, free, no key:** MLB Stats API (`statsapi.mlb.com/api/v1/...`)
 for Tigers schedules/scores/stats. ESPN's public JSON
@@ -97,6 +139,14 @@ it.
   the numbers and has opinions, not like a wire service. Conviction in the
   prose, honesty in the label. If every pick is High, the label is worthless
   and so is the record.
+- **Never write about the record, the grading discipline, or how honest the
+  site is.** His call, 2026-08-09: "all the talk about the record is a little
+  annoying and I don't like to see it." The board is the argument and it sits at
+  the top of the homepage; one line of disclaimer underneath carries the rest.
+  Inside a piece, make the call and show the work. A sentence congratulating the
+  site on publishing its misses is a sentence that comes out. This applies to
+  Detroit Sports Reporter, not to the process journal, where the experiment is
+  the subject.
 - **No em dashes in reader-facing content** (all Detroit Sports Reporter
   entries, plus anything posted off-site: Reddit, HN, comments). His call on
   AI tells. The process journal on project-unmuted.com keeps its normal voice.
