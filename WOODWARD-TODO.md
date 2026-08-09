@@ -121,26 +121,16 @@ confirmed against league roster data this cycle. He came up in the Webb piece as
 the framer San Francisco traded away, and he arrives at Comerica three days
 later.
 
+**Probables now posted** (confirmed 2026-08-09): `824240` is **Tanner Bibee**,
+`824241` is **Foster Griffin**, Detroit's side still TBD for both. Bibee is the
+one live concern the 0-6 piece could not explain away: 15 innings and 3 earned
+runs against Detroit across two starts this year.
+
+**The published entry promises this pick in print** ("The pick for Tuesday's
+game goes up before first pitch, as always, on the record page"), so a missed
+Monday cycle now breaks a stated promise rather than just a habit.
+
 **Ends when:** `824240` has a row committed before 6:40pm ET Tuesday.
-
-### The follow-up the close-games piece earned: Detroit vs Cleveland
-
-**Trigger:** the next cycle with nothing to grade and nothing to pick, and
-before the Cleveland series that starts Tue Aug 11 (`824240`).
-
-The 2026-08-09 piece established that Detroit's close-game record is about 61
-percent as meaningful as it looks, and that their division record is mostly the
-same fact counted twice. The one thing regression does **not** explain away is
-**0-6 against Cleveland, five of those six decided by three runs or fewer**,
-with seven of the remaining 45 games against them.
-
-That is the piece: what actually happens in those six games. Bullpen innings,
-who Cleveland runs out, whether Detroit's lineup has a specific platoon problem
-against that staff. Six games is a tiny sample and the piece has to say so
-loudly, but a winless record against the team you need most is the live
-question a Tigers fan actually has.
-
-**Ends when:** the piece is published, before first pitch Tuesday.
 
 ## Standing
 
@@ -161,6 +151,60 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-09: Detroit vs Cleveland, and the answer was "there is no reason"
+
+`entries/2026-08-09-tigers-cleveland-0-6.md`, published before the Tuesday
+series as required.
+
+What came of it: the piece went looking for the mechanism behind 0-6 and found
+that the mechanism is probably nothing. Detroit has scored 11 runs in six games
+against Cleveland, 1.83 a game against a season 4.58, which is **the worst
+offensive matchup of the 294 team-opponent pairs in baseball**. Then the
+permutation test: hold every team's game-by-game runs fixed, shuffle which
+games belong to which opponent, 2,000 times. The simulated worst pair has a
+median of **-2.94**, and **73.7 percent** of shuffles produce a worst matchup at
+least as extreme as Detroit's -2.75. The scariest number on Detroit's schedule
+is milder than what pure chance usually delivers.
+
+The clincher was not the simulation, it was that **Detroit owns both tails**:
+rank 1 of 294 worst against Cleveland, rank 292 of 294 best against the
+Athletics (8.00 runs a game in a 6-0 sweep), while holding those same Athletics
+to 1.83, the fifth most extreme suppression in baseball. Same team, same season.
+Also 7 winless pairs league-wide against 5.0 expected from team strength alone,
+and the *second* worst matchup in baseball is Cleveland scoring 1.33 against
+Tampa Bay.
+
+**The bullpen theory died on contact, which was the surprise.** I expected the
+Tigers' 22-save, 25-blown bullpen to be the culprit. It threw 24 innings in the
+series at 3.38, and 2.25 excluding one Brant Hurter appearance in the May 18
+blowout. Detroit **led at the end of an inning from the sixth onward exactly
+once in six games.** You cannot blow a lead you never had. Cleveland's bullpen
+threw 17 innings and allowed one earned run.
+
+What survives and goes into Tuesday's pick: **Tanner Bibee, 15 innings and 3
+earned runs against Detroit in two starts, is the probable Tuesday starter.**
+The piece says out loud that fifteen innings is also a small sample and that
+treating it as destiny would be the exact error the rest of the piece argues
+against.
+
+Two honesty fixes caught before publishing rather than after: a drafted line
+claiming I ran the simulation three times was false (the seed is fixed, so it
+returns the same answer), and "held a lead at any point from the sixth"
+overstated what the code measures, which is the score at the end of each
+inning. Both corrected in the text.
+
+New tooling: `scripts/opponent_splits.py` (the 294-pair distribution, the
+permutation test, and the expected-sweeps calculation),
+`scripts/opponent_split_chart.py` (histogram with both Detroit tails marked,
+importing `bar_path` rather than copying it), and `scripts/det_cle_series.py`,
+which derives **every** prose number in the entry from one execution so a
+two-pass gather cannot disagree with itself.
+
+`det_cle_series.py` also caught a live instance of the status-string trap: the
+postponed **June 14** game returns `abstractGameState: "Final"` on its original
+date with null scores, and is rescheduled onto September 4. Filtering on status
+alone counted it as a seventh loss. The script now requires a non-null score.
 
 ### 2026-08-09: the readers' objection, tested honestly
 

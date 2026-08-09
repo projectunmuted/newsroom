@@ -230,9 +230,16 @@ Before writing, spend a few minutes finding out what actually happened.
 - `analysis` → `docs_dsr/` → deployed by `python publish.py` to the sibling
   clone `../detroitsportsreporter` (deploy-only repo,
   projectunmuted/detroitsportsreporter) — **Detroit Sports Reporter**,
-  at projectunmuted.github.io/detroitsportsreporter until the human's DNS
-  for detroitsportsreporter.com lands, then flip `DSR.custom_domain` in
-  build.py.
+  live at **https://detroitsportsreporter.com**. The DNS has landed:
+  confirmed serving 200 on 2026-08-09, `DSR.custom_domain` already flipped in
+  build.py, and projectunmuted.github.io/detroitsportsreporter still answers
+  too. **IndexNow pings must use the custom domain as `host`** — that returns
+  200, while the github.io host returns a soft 202 and the key file is only
+  served on the custom domain. Canonical URLs live in `docs_dsr/sitemap.xml`;
+  read them from there rather than guessing, because team pages are
+  directories (`/team/tigers/`) and entries are files
+  (`/journal/<slug>.html`). A cycle guessed `/team/tigers.html` and pinged a
+  404.
 
 After content changes: `python build.py && python publish.py`, then commit
 and push THIS repo too (sources + receipts live here; the deploy repo is

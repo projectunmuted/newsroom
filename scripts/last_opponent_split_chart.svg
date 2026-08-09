@@ -1,0 +1,37 @@
+<svg viewBox="0 0 640 310" width="100%" role="img" aria-labelledby="split-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="split-title">Distribution of offensive performance by opponent across all team-opponent pairs in MLB, 2026</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">How much every team's offense changes by opponent</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">Each bar counts team-opponent pairs. Horizontal axis is runs per game in that matchup</text>
+<text x="0" y="48" fill="var(--muted)" font-size="11">minus that team's runs per game for the season. Pairs of six games or more.</text>
+<rect x="40.8" y="238.4" width="37.1" height="13.6" fill="var(--chart-neg)" opacity="0.55" rx="1.5"><title>4 pairs between -3.0 and -2.5</title></rect>
+<rect x="79.5" y="214.7" width="37.1" height="37.3" fill="var(--chart-neg)" opacity="0.55" rx="1.5"><title>11 pairs between -2.5 and -2.0</title></rect>
+<rect x="118.1" y="197.7" width="37.1" height="54.3" fill="var(--chart-neg)" opacity="0.55" rx="1.5"><title>16 pairs between -2.0 and -1.5</title></rect>
+<rect x="156.8" y="143.4" width="37.1" height="108.6" fill="var(--chart-neg)" opacity="0.55" rx="1.5"><title>32 pairs between -1.5 and -1.0</title></rect>
+<rect x="195.5" y="62.0" width="37.1" height="190.0" fill="var(--chart-neg)" opacity="0.55" rx="1.5"><title>56 pairs between -1.0 and -0.5</title></rect>
+<rect x="234.1" y="116.3" width="37.1" height="135.7" fill="var(--chart-neg)" opacity="0.55" rx="1.5"><title>40 pairs between -0.5 and +0.0</title></rect>
+<rect x="272.8" y="102.7" width="37.1" height="149.3" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>44 pairs between +0.0 and +0.5</title></rect>
+<rect x="311.5" y="133.2" width="37.1" height="118.8" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>35 pairs between +0.5 and +1.0</title></rect>
+<rect x="350.1" y="197.7" width="37.1" height="54.3" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>16 pairs between +1.0 and +1.5</title></rect>
+<rect x="388.8" y="177.4" width="37.1" height="74.6" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>22 pairs between +1.5 and +2.0</title></rect>
+<rect x="427.5" y="228.2" width="37.1" height="23.8" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>7 pairs between +2.0 and +2.5</title></rect>
+<rect x="466.1" y="231.6" width="37.1" height="20.4" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>6 pairs between +2.5 and +3.0</title></rect>
+<rect x="504.8" y="241.8" width="37.1" height="10.2" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>3 pairs between +3.0 and +3.5</title></rect>
+<rect x="543.5" y="248.6" width="37.1" height="3.4" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>1 pairs between +3.5 and +4.0</title></rect>
+<rect x="582.1" y="248.6" width="37.1" height="3.4" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>1 pairs between +4.0 and +4.5</title></rect>
+<line x1="40" y1="252" x2="620" y2="252" stroke="var(--rule)" stroke-width="1"/>
+<line x1="272.0" y1="58" x2="272.0" y2="252" stroke="var(--rule)" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="40.0" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">-3</text>
+<text x="117.3" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">-2</text>
+<text x="194.7" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">-1</text>
+<text x="272.0" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">+0</text>
+<text x="349.3" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">+1</text>
+<text x="426.7" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">+2</text>
+<text x="504.0" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">+3</text>
+<text x="581.3" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">+4</text>
+<line x1="59.5" y1="60" x2="59.5" y2="252" stroke="var(--chart-neg)" stroke-width="2"/>
+<text x="65.5" y="286" text-anchor="start" fill="var(--fg)" font-size="11" font-weight="600">Tigers vs Cleveland</text>
+<text x="65.5" y="300" text-anchor="start" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">-2.75 runs/game</text>
+<line x1="536.4" y1="60" x2="536.4" y2="252" stroke="var(--chart-pos)" stroke-width="2"/>
+<text x="530.4" y="286" text-anchor="end" fill="var(--fg)" font-size="11" font-weight="600">Tigers vs Athletics</text>
+<text x="530.4" y="300" text-anchor="end" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">+3.42 runs/game</text>
+</svg>
