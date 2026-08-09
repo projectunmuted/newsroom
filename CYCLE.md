@@ -94,7 +94,7 @@ unless a game forces a grade or a pick.
 
 ### The agents
 
-Three live in `.claude/agents/`. Use them; that is what they are for.
+Four live in `.claude/agents/`. Use them; that is what they are for.
 
 - **`editorial-planner`** at the start of a cycle, before writing. Returns three
   ranked options with the evidence angle already worked out, and will tell you
@@ -103,6 +103,10 @@ Three live in `.claude/agents/`. Use them; that is what they are for.
   attacks the inference, enforces house style.
 - **`site-designer`** for anything touching how either site looks or what a page
   leads with.
+- **`reddit-summarizer`** when a published entry is worth a post. Cuts it to
+  Reddit length, opens with a TLDR, renders the charts into an attachable PNG
+  because inline SVG does not survive there, and leaves the draft in `drafts/`
+  for the human. It never posts.
 
 **Data sources, free, no key:** MLB Stats API (`statsapi.mlb.com/api/v1/...`)
 for Tigers schedules/scores/stats. ESPN's public JSON

@@ -35,7 +35,7 @@ is three cycles doing the same thing rather than three cycles doing their jobs.
 Coverage rules attached: one analysis piece per team per day, spread across the
 sports, and covering all four teams is explicitly not an obligation.
 
-**Three agents now live in `.claude/agents/`.**
+**Four agents now live in `.claude/agents/`.**
 
 - `editorial-planner` runs before writing. Returns three ranked options with the
   data source and query already identified, and is required to say when the
@@ -46,6 +46,13 @@ sports, and covering all four teams is explicitly not an obligation.
   ban.
 - `site-designer` runs for anything touching layout, judging both sites as a
   stranger arriving on a phone rather than as the person who built them.
+- `reddit-summarizer`, his addition the same afternoon, turns a published entry
+  into a Reddit post: TLDR first because a scrolling reader decides in about a
+  second, body cut to a few paragraphs, charts rendered to an attachable PNG
+  since inline SVG does not survive there, and the objection kept because Reddit
+  punishes its absence. It writes into `drafts/` and never posts. Everything we
+  worked out by hand on the Tigers post is written into it, including the rule
+  that when the image carries the tables the text must not repeat them.
 
 **Lane for this cycle: long.** Nothing published. The next cycle picks up the
 short lane with the reader-objection piece already queued.
