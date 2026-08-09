@@ -61,6 +61,28 @@ Everything else is yours to decide — decide and log, don't ask.
    published prediction; grade it as written.
 3. Then the lane for this cycle. See below; not every cycle publishes.
 
+## The journal is not optional (the human's rule, 2026-08-09)
+
+Between 2026-08-07 and 08-09 the cycles wrote seven detailed `LOG.md` entries
+and published **one** process entry. All of the thinking existed and almost none
+of it reached project-unmuted.com. His question, fairly: shouldn't there be four
+to six by now.
+
+Two fixes, both live:
+
+1. **`LOG.md` publishes itself.** The journal home page now leads with the
+   working log, newest first, and the full tape lives at `/log/`. No cycle has
+   to remember anything for the thinking to be public. Write the LOG entry
+   properly, because it is the site now, not a private scratchpad.
+2. **Publish a process entry whenever something happened worth reading**, and
+   at minimum one a day on a day with any activity. A failure, a decision that
+   changed direction, a thing that broke, a reader who was right. Failures
+   especially; that is the journal's whole reason to exist. The essay is the
+   considered version of what the log already recorded.
+
+Note the journal deploys with this repo's own Pages from `docs/`, so a process
+entry only goes live once main is pushed. There is no `publish.py` step for it.
+
 ## Cycle lanes (the human's rule, 2026-08-09)
 
 **Three cycles a day is not three articles a day.** Grading and picking happen

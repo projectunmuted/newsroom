@@ -366,6 +366,8 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .stat .n{display:block;font-size:1.6rem;line-height:1.1;letter-spacing:-.02em}
 .stat .k{display:block;font-size:.7rem;text-transform:uppercase;
   letter-spacing:.07em;color:var(--muted);margin-top:.3rem}
+.sub{color:var(--muted);margin:-.4rem 0 1.4rem}
+.more{margin:1.6rem 0 2.4rem}
 .entry-list{list-style:none;padding:0;margin:0}
 .entry-list li{padding:1.4rem 0;border-bottom:1px solid var(--rule)}
 .entry-list a{text-decoration:none;color:inherit;display:block}
@@ -502,6 +504,8 @@ def write_common(site: Site, entries: list[Entry], home: str) -> None:
     pages = [""] + [e.url for e in entries]
     if site.key == "dsr":
         pages += [f"team/{slug}/" for slug, *_ in TEAMS]
+    else:
+        pages += ["log/"]
     urls = "\n".join(f"  <url><loc>{site.base_url}/{p}</loc></url>" for p in pages)
     (site.out / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -522,6 +526,47 @@ def tip_block(text: str) -> str:
 </div>"""
 
 
+def newest_first(md: str) -> str:
+    """Reverse the data rows of every markdown table, header row kept in place.
+
+    PICKS.md is append-only, so pick 1 is the first row in the file. A reader
+    wants the most recent call at the top instead, and reversing here means the
+    ledger never has to be rewritten to get that.
+    """
+    out, table = [], []
+
+    def flush():
+        if not table:
+            return
+        if len(table) > 2:
+            out.extend(table[:2] + list(reversed(table[2:])))
+        else:
+            out.extend(table)
+        table.clear()
+
+    for line in md.split("\n"):
+        if line.lstrip().startswith("|"):
+            table.append(line)
+        else:
+            flush()
+            out.append(line)
+    flush()
+    return "\n".join(out)
+
+
+def split_log(log_md: str, keep: int) -> tuple[str, int]:
+    """Most recent `keep` log sections, plus how many were left behind.
+
+    LOG.md is newest-first and one `## ` heading per cycle, so splitting on the
+    heading preserves order without parsing dates.
+    """
+    body = re.sub(r"^# .*\n", "", log_md, count=1).lstrip()
+    body = re.sub(r"^Newest at top\.\s*\n+(---\s*\n+)?", "", body)
+    parts = re.split(r"\n(?=## )", body)
+    parts = [p for p in parts if p.strip() and p.strip() != "---"]
+    return "\n".join(parts[:keep]), max(0, len(parts) - keep)
+
+
 def build_journal(process: list[Entry]) -> None:
     site = JOURNAL
     if site.out.exists():
@@ -538,6 +583,43 @@ def build_journal(process: list[Entry]) -> None:
 <div class="stat"><span class="n">{len(process)}</span><span class="k">Entries</span></div>
 </div>"""
 
+    # The working log publishes itself. Entries are curated and take effort to
+    # write, so relying on a cycle to remember means the journal goes quiet for
+    # days at a time, which is what happened 2026-08-08 to 08-09. LOG.md is
+    # written every cycle regardless, so rendering it as a page means the
+    # thinking is always up, even when nobody wrote an essay about it.
+    log_md = (ROOT / "LOG.md").read_text(encoding="utf-8")
+    log_body = (
+        '<div class="note">This is the raw working log, written by the machine '
+        "at the end of every cycle: what got done, what failed, what it decided "
+        "and why. Unedited, newest first. The entries on the home page are the "
+        "considered version; this is the tape.</div>"
+        + render(re.sub(r"^# .*\n", "", log_md, count=1))
+    )
+    (site.out / "log").mkdir(parents=True, exist_ok=True)
+    (site.out / "log" / "index.html").write_text(
+        page(site, f"Working log{site.title_sep}{site.title}", log_body, depth=1),
+        encoding="utf-8",
+    )
+
+    # The home page IS the log, newest first (his call 2026-08-09). Only the
+    # most recent entries render inline so the page stays loadable; the rest
+    # live on /log/. Everything that used to sit above the fold, the scoreboard,
+    # the intro, the notes, the tip rail, now sits underneath it.
+    recent_md, older = split_log(log_md, keep=6)
+    log_lead = (
+        "<h2>Working log</h2>"
+        + '<p class="sub">What each cycle did, what failed, and what it decided. '
+        "Unedited, newest first.</p>"
+        + render(recent_md)
+        + (
+            f'<p class="more"><a href="log/">Older entries, all {older} of '
+            "them</a></p>"
+            if older
+            else ""
+        )
+    )
+
     intro = render((ROOT / "intro.md").read_text(encoding="utf-8"))
     dsr_note = (
         '<div class="note"><strong>Looking for the picks?</strong> The sports '
@@ -551,9 +633,13 @@ def build_journal(process: list[Entry]) -> None:
         "worth it. If this experiment is worth following, that's the entire ask."
     )
     home = (
-        scoreboard + intro + dsr_note + tip
-        + "<h2>The process journal</h2>"
+        log_lead
+        + "<h2>Longer pieces</h2>"
         + f'<ul class="entry-list">{"".join(entry_item(e) for e in process)}</ul>'
+        + scoreboard
+        + intro
+        + dsr_note
+        + tip
     )
     write_common(site, process, home)
 
@@ -568,7 +654,12 @@ def build_dsr(analysis: list[Entry]) -> None:
 
     picks_md = (ROOT / "PICKS.md").read_text(encoding="utf-8")
     # Drop the H1; the homepage supplies its own heading.
-    picks_html = render(re.sub(r"^# .*\n", "", picks_md, count=1))
+    picks_md = re.sub(r"^# .*\n", "", picks_md, count=1)
+    # Cycles append new picks to the bottom of the file, which is right for an
+    # append-only ledger and wrong for a reader: by October the newest call
+    # would be a long scroll down. Reverse the rows at render time so the file
+    # stays append-only and the page shows newest first. His call 2026-08-09.
+    picks_html = render(newest_first(picks_md))
 
     # The picks table leads. It is the product, and a reader should hit it
     # before any explanation of it. The old homepage opened with three sentences
