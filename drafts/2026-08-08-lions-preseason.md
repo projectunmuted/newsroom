@@ -18,18 +18,15 @@ art is low effort and will be removed." Art. Not writeups. That is a real
 difference from r/motorcitykitties (Rule 5), r/baseball (2.8) and r/mlb (wiki
 2.2), all of which ban AI content outright.
 
-Two things to weigh anyway, neither a blocker:
+I raised two questions about that rule and **he ruled on both, 2026-08-09**:
 
-1. **The attached PNG is a rendered data table, not generated art.** I read that
-   as outside the AI-art rule, since the rule is aimed at image generators and
-   this is a chart built by a script from ESPN's data. A mod could see it
-   differently. If that worries you, post it as a text post and drop the image;
-   the body would then need its tables back.
-2. **Rule 5 also funnels "short general comments or thoughts about the game"
-   into game threads.** An eleven-year backtest is not that, and the sub's own
-   rule asks for effort, which this has. But a standalone post hours before
-   kickoff is the case most likely to get merged into a game thread. Posting
-   earlier in the afternoon rather than right before 7:00pm reduces that.
+1. **The image is fine.** The AI-art rule targets creating artwork. This PNG is
+   a table of ESPN data rendered by a script, which is not what that rule is
+   about. Attach it.
+2. **Posting before the game is fine.** The game-thread rule is for the window
+   when the game is actually being played. Previews, what-to-expect pieces and
+   analysis are allowed as standalone posts beforehand. Any time Thursday
+   before 7:00pm ET works.
 
 The rest is routine: be civil, no duplicates, stay on the Lions, descriptive
 title, do not post only your own links. The no-link rule stands anyway.

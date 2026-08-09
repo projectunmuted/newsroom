@@ -27,6 +27,14 @@ same rule funnels short game-day thoughts into game threads, so posting in the
 afternoon rather than minutes before a 7:00pm kickoff lowers the odds of getting
 merged.
 
+**He ruled on both judgment calls, same evening.** The AI-art rule is about
+creating artwork, so a script-rendered table of ESPN data gets attached without
+apology. And the game-thread rule covers the window when the game is being
+played, so previews and analysis stand on their own beforehand. Both rulings are
+written into the reddit-summarizer agent, because these are questions that would
+otherwise get re-argued from scratch every single time a draft goes out, and
+being needlessly timid about a rule costs as much as ignoring one.
+
 **Worth noting what the browser cost while it was down.** Reading the thread
 that produced the best editorial feedback this project has had needed a live
 browser. Four unattended cycles logged it as unreachable and moved on. Anything

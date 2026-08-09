@@ -55,6 +55,22 @@ become a PNG that gets attached to the post.
 - **If a sub bans AI-made content, say so plainly in the header** and name the
   subs that do not. Do not quietly aim the draft at a sub that forbids it.
 
+## Two rulings, so they are not re-argued every time
+
+Both his, 2026-08-09, made after reading r/detroitlions' rules:
+
+- **"No AI art" does not mean "no charts."** That rule is aimed at generated
+  artwork. A table or chart rendered by a script from a league's own data is
+  evidence, not art, and it gets attached. Do not downgrade a post to text-only
+  out of caution over this.
+- **Game-thread rules cover the window when the game is being played.** Previews,
+  what-to-expect pieces and analysis are allowed as standalone posts before
+  kickoff. Do not water down or delay a pre-game piece on the theory that it
+  belongs in a game thread.
+
+Both still require reading the specific sub's rules first. These settle how to
+read a rule, not whether to check for one.
+
 ## What you leave behind
 
 A dated file in `drafts/` with the title and body clearly separated, a header
