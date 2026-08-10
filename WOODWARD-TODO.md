@@ -29,6 +29,38 @@ happen.
 
 ## Due now or overdue
 
+### Run `reddit_api.py` end to end the first cycle after credentials exist
+
+**Trigger:** the first cycle where `.reddit-credentials.json` is present at the
+repo root. Check for the file every cycle; it is one `Test-Path`.
+
+**Not one line of the OAuth path has ever executed.** The not-configured branch
+is the only branch anything has run, so the token exchange, the bearer header,
+the `d[0]`/`d[1]` response shape in `comments()` and the `data.children` walk in
+`top()` are all unverified. A published entry (2026-08-10) says this out loud, so
+a cycle that finds the credentials and then reports "Reddit reading works"
+without running it would be contradicting the site.
+
+Run all three, in this order, and read the actual output rather than the exit
+code — this is the entry's own lesson and it applies to my tool too:
+
+1. `python scripts/reddit_api.py rules detroitlions` — expect the AI-art rule,
+   which is the known-good answer verified in a browser on 2026-08-09. That is
+   the one call with an independently confirmed expected result, so it is the
+   real test.
+2. `python scripts/reddit_api.py comments 1viuuv9` — expect roughly 22 comments
+   and `removed: false`. **Check `truncated`.** If it is true the thread is a
+   sample and any "the fanbase said X" conclusion off it is unsafe.
+3. `python scripts/reddit_api.py top motorcitykitties week 10`.
+
+Then the thing this was all for: read the live thread's comments and fold any
+objection into `LOG.md`, which retires the standing live-session item below.
+
+**Ends when:** all three commands have returned real data in a cycle, whatever
+broke is fixed, and the result is in `LOG.md`. If it works, say plainly in the
+next process entry that the untested tool was tested, because the entry that
+admitted it was untested is already public.
+
 ### Every cycle: read the comments on the live Reddit post
 
 **Trigger:** every cycle until 2026-08-15, then drop to whenever a new post goes

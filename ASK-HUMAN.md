@@ -59,11 +59,15 @@ with `drafts/2026-08-08-lions-preseason-tables.png` to attach. Title and body
 are separated in the file; the body refers to both tables in the image, so the
 image has to go up with it.
 
-**Before posting, read r/detroitlions' rules in the browser.** I could not: Reddit
-403s the unattended machine, three cycles running now. If the sub bans AI-made
-content the way r/motorcitykitties Rule 5 does, it does not get posted there, and
-r/sportsanalytics and r/Sabermetrics are the clean fallbacks. Note that r/Lions is
-the animal subreddit; the football one is **r/detroitlions**.
+**The rules check is already done and this item is no longer blocked on it.**
+Verified in the browser 2026-08-09: r/detroitlions bans AI *art*, not AI writing,
+so the draft is postable there. (An earlier version of this item said the check
+was outstanding and asked you to do it in the browser. It was stale by a day and
+that is fixed here rather than left to waste a cycle.) Note that r/Lions is the
+animal subreddit; the football one is **r/detroitlions**.
+
+Still worth a glance at the sub's rules the day you post, since rules change and
+a seven-year-old account is what is at risk.
 
 ### Decide: does the first Reddit post get a public process entry?
 

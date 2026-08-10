@@ -4,6 +4,99 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday, 10am) — Four cycles of thinking, zero published, so this one published
+
+**Lane: short.** The last three cycles were all long lane and shipped nothing to
+readers. Today has produced a reframed deadline, a rewritten schedule, a Reddit
+policy, a sync task and a 403 investigation, and **not one process entry**. That
+is precisely the gap the journal rule was written to close yesterday, recurring
+the day after it was written. So the lane picked itself.
+
+**Nothing to grade, nothing to pick, and both checked rather than assumed.**
+Confirmed against the MLB schedule on `gameType=R`: Detroit's next four games are
+`824240` Tue, `824241` Wed, `824238` Thu, `824237` Fri, all `Preview`. Monday is
+an off day. Pick 3 on `824240` is already committed. The 26-hour look-ahead from
+10am today reaches Tuesday noon, and the only game inside it is the one already
+on the board. `824241` is due at a Tuesday cycle, per WOODWARD-TODO.
+
+**Published: `entries/2026-08-10-the-dependency-list.html`**, process track. The
+subject is the dependency list the milestone reframing implies — what still needs
+his hands, itemised — anchored on the one that is mechanically blocking.
+
+**The finding worth having: `old.reddit.com` is a trap, and which trap depends on
+your HTTP client.** Re-ran the matrix first-hand rather than trusting the
+previous cycle's transcription. Every primary host 403s under both a bare and a
+browser user agent, so the UA theory stays dead. But `old.reddit.com/.json`
+returns **302**, not 403, which reads exactly like a working fallback. Following
+it:
+
+- Python `urllib`, default UA: **200**, 315,615 bytes, `JSONDecodeError`. The
+  document title is `Welcome to Reddit`.
+- curl, no UA: **403**, 189,908 bytes.
+
+So the login wall is honest to curl and dishonest to Python, and Python is what
+every script in this repo is written in. A fallback checking `status == 200`
+would have reported that it fetched r/detroitlions' rules and, with the `except`
+clause such code always has, returned an empty rule list. **An empty rule list is
+indistinguishable from a sub with no rules against AI content**, which is the
+exact fact it would have been checking. I had not written that fallback yet; I
+found this while deciding whether to.
+
+**The skeptic pass returned ten required fixes and I had earned every one.** Four
+were false claims of fact in an entry about honesty, which is the worst place to
+put them:
+
+1. "Actually blocking: one thing." There are **two** open asks, and the one I
+   missed is a *judgment* call from 08-08 (does the first Reddit post get a
+   public entry) that no tooling can ever retire. I had no bucket for
+   "waiting on a human decision" and so my list quietly omitted the category.
+2. "`build.py` and `publish.py` push both sites." Neither is true.
+   `build.py` runs no git at all; `publish.py` pushes only the DSR deploy clone.
+   The journal ships when main ships.
+3. The 200-byte transcript was presented as coming from the curl run that
+   produced the table. It came from a different client, and under curl-with-no-UA
+   that same URL 403s. Naming the client turned out to *strengthen* the piece:
+   the wall's honesty depends on which library you are holding.
+4. "As of last night, an hourly sync." It landed at **08:55 this morning**,
+   three hours before I wrote that. Also: the at-logon trigger is **not**
+   registered, elevation having failed, and `CYCLE.md` still claimed "hourly and
+   at logon". Fixed in `CYCLE.md` so the next cycle does not inherit it.
+
+Plus one invented detail — Ko-fi "took his card details", when the record says he
+connected a payout account — and one overstatement, the entry's closing
+generalisation that auth walls "rarely announce themselves with an error", which
+is refuted by the four 403s in its own table six lines above. The surviving,
+narrower claim is that **the fallback path** is where the silent failure lives.
+
+**Two silent-failure bugs found in my own fix, which is the part that stings.**
+`reddit_api.py` promised "every comment". It calls with `limit=100` and its
+walker did `if kind != "t1": continue`, which throws away Reddit's `more` stubs
+without a word, so a truncated thread came back looking complete. A tool
+reporting "no objections" off a thread whose objections were on page two is the
+identical failure mode to the 200-with-a-login-page, sitting inside the fix for
+it. It now counts withheld comments and sets `truncated`. Also `removed_by_category`
+covers author deletion, automod and spam filtering, so it no longer claims a
+moderator did it.
+
+**And the strongest objection now sits in the entry rather than being dodged:
+not one line of that OAuth path has ever executed.** The credentials file does
+not exist, so the not-configured branch is the only branch anything has ever
+run. "The tool is written" was doing real work in the draft and a reader would
+rightly have read it as "the tool works."
+
+**Also fixed, unglamorously: `ASK-HUMAN.md` was stale.** It still told him to go
+read r/detroitlions' rules in the browser, a job finished on 08-09 (the sub bans
+AI art, not AI writing). A queue that asks for work already done is how a cycle
+wastes a human, and it is the same disease as the stale Done pile that file
+already carries a warning about.
+
+**Honest accounting: this cycle retired no dependency.** It diagnosed one, found
+the trap in its workaround, fixed two bugs in its own tool, and left two minutes
+of work queued for him. The entry says so in those words rather than claiming the
+win.
+
+---
+
 ## 2026-08-10 (Monday) — The PC and GitHub now stay in step on their own
 
 His requirement: he checks on this from GitHub when he is away and from the

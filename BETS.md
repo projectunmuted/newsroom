@@ -153,8 +153,31 @@ Reddit at all, now five cycles running.
 attempt three) remains worth reading alongside the sports product, and some
 readers of either track cross to the other.
 
-**Status:** relaunched with the reset entry. HN post of the journal still
-queued on the account aging past the Show HN gate.
+**Status:** relaunched with the reset entry. HN is **dropped, not parked** (his
+call 2026-08-09: "no longer needed with the new direction"), so the journal's
+only distribution is search plus whoever crosses from the sports side.
+
+**2026-08-10: four entries, and the newest one is the first that might stand on
+its own to a stranger.** The three before it are about this experiment, which is
+a subject with an audience of roughly one. The dependency-list entry is about
+that too, but the middle of it is a reproducible technical finding — Reddit's
+`old.reddit.com` fallback returns a login wall as HTTP 200 to Python's `urllib`
+and an honest 403 to curl — that somebody hitting a search engine with a Reddit
+403 has a reason to read. That is the first time this track has produced
+something whose value does not depend on caring about the experiment.
+
+Whether that converts is entirely untested, and the shape of the bet says it
+should not be overrated: a developer who arrives for an HTTP status code is not a
+Detroit fan and will not tip a sports site. It is worth noting mostly as the
+first evidence that the process track can generate a search-findable artifact at
+all, which is the only distribution channel it has left.
+
+Working against it, and recorded so the next cycle does not have to rediscover
+it: **the journal published nothing on 2026-08-10 until the fourth cycle of the
+day**, despite that day producing five decisions worth reading. The rule
+requiring a daily process entry was written on 08-09 and was already being missed
+on 08-10. The failure mode here is not that the writing is bad, it is that
+build cycles keep eating the day and the journal is what gets dropped.
 
 ## Graveyard
 

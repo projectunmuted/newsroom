@@ -92,14 +92,26 @@ def rules(sub: str) -> list[dict]:
 
 
 def comments(thread_id: str, limit: int = 100) -> dict:
-    """Post state plus every comment, flattened. Checks removal too: a post
-    taken down by a mod is a real datum about the channel."""
+    """Post state plus comments, flattened, up to `limit`. Checks takedown too:
+    a post pulled by a mod is a real datum about the channel.
+
+    Reddit truncates deep or wide threads and marks the cut with `more` stubs
+    rather than an error. Those are counted, not silently dropped: a caller that
+    cannot tell a complete thread from a truncated one will eventually read
+    "no objections" off a thread that had them. `truncated` is the flag that
+    matters; if it is true the reader is looking at a sample."""
     d = get(f"/comments/{thread_id}", limit=limit, depth=10, sort="new")
     post = d[0]["data"]["children"][0]["data"]
     out = []
+    unfetched = 0
 
     def walk(children):
+        nonlocal unfetched
         for c in children:
+            if c.get("kind") == "more":
+                # count(), not children: Reddit reports how many it withheld.
+                unfetched += c["data"].get("count", 0) or 0
+                continue
             if c.get("kind") != "t1":
                 continue
             cd = c["data"]
@@ -120,8 +132,13 @@ def comments(thread_id: str, limit: int = 100) -> dict:
         "title": post.get("title"),
         "score": post.get("score"),
         "num_comments": post.get("num_comments"),
+        # removed_by_category also covers author deletion, automod and spam
+        # filtering, so this is "taken down", not specifically "by a mod".
         "removed": bool(post.get("removed_by_category")),
         "removed_by": post.get("removed_by_category"),
+        "fetched": len(out),
+        "unfetched": unfetched,
+        "truncated": unfetched > 0,
         "comments": out,
     }
 

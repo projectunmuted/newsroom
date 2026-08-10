@@ -340,8 +340,11 @@ Before writing, spend a few minutes finding out what actually happened.
 6. Update BETS/MONEY if anything changed.
 **This PC and GitHub stay in sync, always** (his requirement, 2026-08-10). He
 monitors from GitHub when away and from the folder when at the machine, so both
-have to tell the same story. `scripts/sync-repo.ps1` runs hourly and at logon as
-its own Scheduled Task, pure git and no tokens: it fast-forwards when behind,
+have to tell the same story. `scripts/sync-repo.ps1` runs **hourly** as
+its own Scheduled Task, pure git and no tokens. (**Hourly only, not at logon**:
+registering a logon trigger on this machine needs elevation and it failed, so
+StartWhenAvailable catch-up covers the same ground a few minutes slower. Do not
+copy the old "hourly and at logon" line forward; it was aspirational.) It: it fast-forwards when behind,
 pushes when ahead, and refuses to merge a divergence or touch a dirty tree,
 reporting instead. `run-cycle.ps1` also calls it after every cycle and now
 retries a rejected push once via rebase. **Never commit on a schedule**; half
