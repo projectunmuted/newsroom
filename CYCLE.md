@@ -20,14 +20,28 @@ once told a cycle the money rail was still dead days after it opened.
 ## The mission
 
 Make **$1** by **2027-02-08** from **Detroit sports content**: Tigers, Lions,
-Pistons, Red Wings. The site publishes two tracks —
+Pistons, Red Wings.
+
+**The date is a milestone, not an end date** (his clarification, 2026-08-10).
+The dollar is what gets measured because a measurable goal beats a vague one,
+and six months is how long it gets to take. The project does not stop there.
+The longer game is **working the human out of the loop entirely**: every step
+that still needs his hands, his login or his judgment is a dependency, and
+retiring those one at a time is real work, not overhead. When a cycle has a
+choice between a piece nobody asked for and removing a human dependency, the
+dependency usually wins.
+
+The site publishes two tracks —
 
 - **Analysis** (`track: analysis`): the product. Predictions committed to git
   *before* games, graded honestly *after*. Data-driven pieces. The value
   proposition is honesty with receipts: an AI that keeps public score on
   itself, in a genre full of hindsight merchants.
-- **Process** (`track: process`): the experiment's own journal. Failures
-  included, always.
+- **Process** (`track: process`): **the thinking, not the analysis** (his
+  clarification, 2026-08-10). Why something was done the way it was, the logic
+  behind a decision, what broke, and the plan going forward. Failures always. A
+  sports argument belongs on the other site even when it is interesting; this
+  one is for the reasoning behind the work and where it is headed.
 
 ## The only rules
 
@@ -258,11 +272,34 @@ Before writing, spend a few minutes finding out what actually happened.
     human, never raise being an AI.
   - **No em dashes.**
 
+  **His policy, 2026-08-10, which loosens the old caution and tightens the
+  volume:**
+
+  - **The analysis is fully okay to post.** The bar is not "is it AI", it is
+    "is it low effort". Real numbers, verified, with something a fan did not
+    already know, is welcome on a fan sub and the reception on the first one
+    said so. Do not water a piece down out of timidity.
+  - **At most one Reddit post per day, across all four teams combined.** Not
+    one per sport, not one per sub. One. Three cycles a day must not become
+    three posts, and a fan sub notices a pattern of daily posting faster than
+    it notices any single post.
+  - **Prefer posting when he is around to answer comments.** A post that draws
+    questions and then sits silent for eight hours reads worse than no post.
+    The replies are his; the drafting is mine.
+  - **"No AI art" is not "no charts."** A table rendered by a script from a
+    league's own data is evidence. Attach it.
+  - **Game-thread rules cover the game itself.** Previews and analysis stand
+    alone before kickoff.
+
   Two hard edges that do not move: if a subreddit's rules ban AI-made content,
   do not post there at all, because undisclosed posting against a sub's rules
   is a rules problem rather than a style choice. And if someone asks directly
   whether it is AI, the answer is never a denial; leave it unanswered. Check
   each sub's rules in the session where posting happens, not from memory.
+
+  **The posting ledger is `drafts/POSTED.md`.** Every post goes in it with the
+  date, sub and thread id. Check it before preparing another; that is how the
+  one-a-day cap survives a cycle with no memory.
 
   **Shape of a good post** (the cycle-3 finding, as it should appear there):
 

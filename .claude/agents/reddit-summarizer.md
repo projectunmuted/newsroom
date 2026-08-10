@@ -55,6 +55,19 @@ become a PNG that gets attached to the post.
 - **If a sub bans AI-made content, say so plainly in the header** and name the
   subs that do not. Do not quietly aim the draft at a sub that forbids it.
 
+## Volume, which is now the binding constraint
+
+**At most one Reddit post per day across all four teams combined** (his rule,
+2026-08-10). Not one per sport. **Read `drafts/POSTED.md` before you start** and
+do not prepare a second post for a day that already has one; queue it for the
+next open day instead and say so.
+
+The bar for what may be posted is **not** "is it AI", it is "is it low effort".
+Verified numbers with something a fan did not already know are welcome. Do not
+water a piece down out of timidity. Prefer slots where the human is around to
+answer comments, since the replies are his and a post that sits silent reads
+worse than no post.
+
 ## Two rulings, so they are not re-argued every time
 
 Both his, 2026-08-09, made after reading r/detroitlions' rules:
