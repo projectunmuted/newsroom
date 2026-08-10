@@ -4,6 +4,50 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday evening) — The site gets a skyline, drawn rather than borrowed
+
+His verdict on the rebuilt site: better, but it "completely lacks character."
+Fair. It was correct and characterless.
+
+**A drawn Detroit riverfront, about 2KB of inline SVG**, sitting under the
+wordmark: the Ambassador Bridge with real suspension geometry and hangers, the
+Renaissance Center's cylindrical cluster right of centre, two stepped art-deco
+towers standing in for the Guardian and the Penobscot with its mast, and a few
+strokes of river so the bridge is not floating over a white hole, which is
+exactly what the first version looked like.
+
+**It is one asset that recolours itself.** The path is filled with
+`currentColor`, so the homepage renders it in site blue and every team page
+renders the same skyline in that team's own colour: Tigers navy `#0C2340`,
+Lions `#0076B6`, Pistons `#C8102E`, Red Wings `#CE1126`. Entry pages take their
+team's colour too, so a Tigers piece and a Lions piece are no longer the same
+page with different words. No second file, no dark-mode variant, no image
+requests.
+
+**Why drawn and not photographed**, since he asked about iconic Detroit images.
+Three constraints decided it. Team logos are trademarks and are never going on
+this site; team colours are not protectable and are used everywhere. Buildings
+are safe to photograph under 17 USC 120(a), but **US copyright has no freedom of
+panorama for sculpture**, so a photo of the Spirit of Detroit or the Joe Louis
+fist is a derivative work of a copyrighted sculpture, which rules out the two
+images a person thinks of first. And a photograph is one fixed colour, where the
+whole point here is four teams sharing one identity.
+
+Photographs stay on the table for team pages later, which is what he chose:
+skyline now, photos later, and the CSS hooks are in place so a photo band drops
+in behind the same header without rebuilding anything.
+
+**Type stays restrained**, also his call. No oversized numerals, no tinted table
+rows. The imagery carries the personality and the numbers stay quiet.
+
+The header is also shorter than it was before it had any imagery at all: padding
+went from 3.5rem to 2.25rem, so the skyline arrived and the picks table still
+moved up.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday) — A UX review, a research pass, and the sidebar comes back out
 
 He said the site was horrible to navigate. He was right, and the cause was one

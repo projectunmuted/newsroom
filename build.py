@@ -329,8 +329,13 @@ body{margin:0;background:var(--bg);color:var(--fg);
   font:17px/1.65 Georgia,"Iowan Old Style","Times New Roman",serif;
   overflow-x:hidden}
 .wrap{max-width:40rem;margin:0 auto;padding:0 1.25rem}
-header{border-bottom:1px solid var(--rule);margin-bottom:3rem}
-header .wrap{padding-top:3.5rem;padding-bottom:2rem}
+header{border-bottom:1px solid var(--rule);margin-bottom:2.5rem}
+.band{overflow:hidden;line-height:0;color:var(--accent)}
+.band .skyline{display:block;width:100%;height:auto;max-height:104px;
+  opacity:.9}
+@media(max-width:44rem){.band .skyline{max-height:64px}}
+@media(prefers-reduced-motion:no-preference){.band .skyline{transition:color .2s}}
+header .wrap{padding-top:2.25rem;padding-bottom:1.25rem}
 h1{font-size:2.1rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.02em}
 h1 a{color:inherit;text-decoration:none}
 .tagline{color:var(--muted);font-size:1.05rem;margin:0}
@@ -431,6 +436,23 @@ def css_for(site: Site) -> str:
     )
 
 
+SKYLINE = """<svg class="skyline" viewBox="0 0 1200 110" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M40 110V52h9V30h5v22h9v58Z"/><path d="M232 110V52h9V30h5v22h9v58Z"/><path d="M49 32Q145 92 241 32" fill="none" stroke="currentColor" stroke-width="3"/><path d="M49 32Q145 92 241 32" fill="none" stroke="currentColor" stroke-width="0" /><g stroke="currentColor" stroke-width="1.6" opacity=".75"><path d="M73 44V70M97 55V70M121 62V70M145 64V70M169 62V70M193 55V70M217 44V70"/></g><rect x="30" y="69" width="222" height="4"/><g stroke="currentColor" stroke-width="2" opacity=".22"><path d="M74 86h64M156 86h58M96 96h56M170 96h44M66 106h40M124 106h72"/></g><path d="M0 110V86h26V74h14v36Z" opacity=".9"/><path d="M264 110V80h22V66h12v44Z" opacity=".9"/><path d="M310 110V58h20V44l10-12 10 12v14h20v52Z"/><path d="M388 110V70h30V56h16v54Z" opacity=".9"/><path d="M448 110V40h10V24h4V10h4v14h4v16h10v70Z"/><path d="M506 110V76h34V62h12v48Z" opacity=".9"/><path d="M566 110V46h12V30h8V18h4v12h8v16h12v64Z"/><path d="M626 110V82h30V70h14v40Z" opacity=".9"/><rect x="682" y="46" width="30" height="64" rx="15"/><rect x="716" y="46" width="30" height="64" rx="15"/><rect x="694" y="16" width="46" height="94" rx="23"/><rect x="750" y="52" width="28" height="58" rx="14"/><rect x="654" y="52" width="28" height="58" rx="14"/><path d="M792 110V78h32V64h14v46Z" opacity=".9"/><path d="M852 110V54h14V38h6V26h4v12h6v16h14v56Z"/><path d="M912 110V84h30V72h14v38Z" opacity=".9"/><path d="M970 110V62h22V48h18v62Z"/><path d="M1024 110V80h28V68h14v42Z" opacity=".9"/><path d="M1080 110V56h16V42h4V30h4v12h4v14h16v54Z"/><path d="M1138 110V86h30V74h32v36Z" opacity=".9"/><rect x="0" y="106" width="1200" height="4"/></g></svg>"""
+
+
+def skyline_band(color: str = "") -> str:
+    """The one piece of imagery on the site: a drawn Detroit riverfront.
+
+    Deliberately not a photograph. It is one path set tinted by `currentColor`,
+    which means the same 2KB asset renders in the site accent on the homepage
+    and in a team's own colour on that team's page, works in light and dark
+    without a second file, needs no attribution, and carries no licensing
+    question. Team logos are trademarks and are never used; team colours are
+    not protectable and are used everywhere.
+    """
+    style = f' style="color:{color}"' if color else ""
+    return f'<div class="band"{style}>{SKYLINE}</div>'
+
+
 def home_title(site: Site) -> str:
     """The DSR homepage title was the bare brand name, which can only match a
     brand query, and nobody searches a brand they have never heard of."""
@@ -475,11 +497,15 @@ def clip(text: str, limit: int = 155) -> str:
 
 def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
          description: str = "", kind: str = "page",
-         day: "date | None" = None) -> str:
+         day: "date | None" = None, accent: str = "") -> str:
     up = "../" * depth
     layout_open, layout_close = "", ""
     main_open, main_close = '<main class="wrap">', "</main>"
     desc = clip(description or site.tagline)
+    # The skyline belongs to the sports site. The journal is about an
+    # experiment, not about Detroit, and borrowing the imagery would blur two
+    # things that are deliberately separate.
+    banner = skyline_band(accent) if site.key == "dsr" else ""
     canonical = f"{site.base_url}/{path}"
     # Every share of this site to Reddit, Discord or iMessage used to render as
     # a bare grey link: there was no og:image anywhere. Sharing is the only
@@ -536,7 +562,7 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
 <h1><a href="{up}index.html">{site.title}</a></h1>
 <p class="tagline">{site.tagline}</p>
 {site_nav(site, up)}
-</div></header>
+</div>{banner}</header>
 {layout_open}
 {main_open}
 {body}
@@ -1182,7 +1208,23 @@ def build_dsr(analysis: list[Entry]) -> None:
         (site.out / "team" / slug / "index.html").write_text(
             page(site, f"{full}{site.title_sep}{site.title}", body, depth=2,
                  path=f"team/{slug}/",
-                 description=f"Detroit {short} analysis: calls made before the game, graded after."),
+                 description=f"Detroit {short} analysis: calls made before the game, graded after.",
+                 accent=light),
+            encoding="utf-8",
+        )
+
+    # An entry takes its team's colour too, so a Tigers piece and a Lions piece
+    # are not the same page with different words. A post-pass, because
+    # write_entry_pages is shared with the journal, which has no teams.
+    for e in analysis:
+        tm = team_of(e)
+        if not tm:
+            continue
+        fp = site.out / "journal" / f"{e.slug}.html"
+        doc = fp.read_text(encoding="utf-8")
+        fp.write_text(
+            doc.replace('<div class="band">',
+                        f'<div class="band" style="color:{tm[3]}">', 1),
             encoding="utf-8",
         )
 
