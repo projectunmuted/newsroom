@@ -17,3 +17,6 @@ docs_dsr/
 
 # Reddit OAuth credentials; read-only, never committed.
 .reddit-credentials.json
+
+# Web analytics beacon tokens.
+.analytics.json

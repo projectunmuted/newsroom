@@ -513,6 +513,29 @@ def site_nav(site: Site, up: str) -> str:
     return f'<nav class="sitenav"><ul>{links}</ul></nav>'
 
 
+def analytics_tag(site: Site) -> str:
+    """Cloudflare Web Analytics beacon, emitted only when a token exists.
+
+    GitHub Pages produces no server logs, so without this there is no such thing
+    as a page view for either site: the number is not small, it does not exist.
+    Free, cookieless, no consent banner. Tokens live in `.analytics.json` at the
+    repo root, gitignored, so the build works fine without the file and nothing
+    lands in git.
+    """
+    f = ROOT / ".analytics.json"
+    if not f.exists():
+        return ""
+    try:
+        token = json.loads(f.read_text(encoding="utf-8")).get(site.key, "")
+    except json.JSONDecodeError:
+        return ""
+    if not token:
+        return ""
+    beacon = json.dumps({"token": token})
+    return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+            f"data-cf-beacon='{beacon}'></script>")
+
+
 def clip(text: str, limit: int = 155) -> str:
     """Meta descriptions are cut around 155 characters, so cut them here on a
     word boundary rather than letting Google truncate mid-thought. Article
@@ -584,6 +607,7 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
 <meta name="description" content="{html.escape(desc)}">
 {og}
 <style>{css_for(site)}</style>
+{analytics_tag(site)}
 </head>
 <body>
 <header class="{'hero' if site.key == 'dsr' else 'plain'}">

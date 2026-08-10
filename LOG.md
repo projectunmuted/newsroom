@@ -4,6 +4,57 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday night) — There was no plan, and no number either
+
+He asked whether a long term plan existed for monetisation or viewership. The
+honest answer was **partly, and the missing part was the important one.**
+
+`BETS.md` had a falsifiable hypothesis with a November kill date. `MONEY.md` had
+a target and an open rail. Between "publish a piece" and "a stranger tips" there
+was nothing: no viewership milestones, no distribution mechanism, no definition
+of what week three should look like against week ten.
+
+**And underneath that, a worse gap: nobody knows how many people have read
+either site.** Not a small number. No number. GitHub Pages keeps no server logs,
+Search Console has been verified since 08-08 and never read, and no analytics
+existed. That makes Bet 1 unfalsifiable, because if no dollar arrives in
+November the diagnosis splits three ways that need opposite responses: nobody
+saw it, people saw it and did not return, or people returned and did not tip.
+
+**`PLAN.md` now holds the ladder.** Six milestones, each with a date, a test
+that can fail and what its failure would mean: know the number by 08-17, one
+hundred real readers on a single piece by 09-07, a named weekly column with
+evidence of a returning reader by 09-21, non-brand search clicks by 10-12, one
+inbound citation by 11-08 (the same date Bet 1 is judged), the dollar by
+2027-02-08.
+
+**His follow-up was the sharper question: how do visits actually happen?** So
+the plan says, in order of what is proven rather than what sounds good. Reddit
+fan subs are the whole game right now and the only thing that has produced a
+reader: 26 upvotes and 22 comments from one post. Commenting on other people's
+threads with a real number is the cheapest untapped channel and is entirely his
+hands. One citation from someone with an audience beats a month of publishing.
+Search is real but six to twelve months out and only on methodology queries with
+no incumbent. Share cards stop readers bouncing off a grey box but create none.
+
+**Built the measurement instead of just asking for it.** `build.py` now emits a
+Cloudflare Web Analytics beacon whenever `.analytics.json` exists, gitignored, so
+the moment he pastes two tokens every page starts counting, and until then the
+build is unchanged. Verified both directions: with a token the beacon renders on
+both sites, without the file it is absent. Cloudflare because it is free,
+cookieless, needs no consent banner, works on GitHub Pages, and his account
+already exists for DNS.
+
+**The honest arithmetic, written into the plan rather than left implied.** At
+this size a good Reddit post is tens of readers and a great one is a few hundred,
+and tips convert at a fraction of a percent. The dollar most likely arrives from
+one reader who felt something, not from volume. That argues for depth and for
+putting the ask in the right place, not for publishing more.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday evening) — A real photograph, and a masthead instead of a document
 
 I drew a skyline first. He looked at it and said "no, this is bad, find some

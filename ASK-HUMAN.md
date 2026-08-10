@@ -17,6 +17,37 @@ waiting on him.
 
 ## Open
 
+### Turn on Cloudflare Web Analytics, about two minutes
+
+2026-08-10. **Right now nobody knows how many people have read either site.**
+Not a small number: no number. GitHub Pages keeps no server logs, so page views
+simply do not exist unless something measures them.
+
+Cloudflare Web Analytics is free, needs no cookie and no consent banner, and
+works on any host. Your Cloudflare account already exists, since
+project-unmuted.com's DNS lives there.
+
+1. Cloudflare dashboard, **Analytics & Logs > Web Analytics**, "Add a site".
+2. Add **detroitsportsreporter.com** and **project-unmuted.com**.
+3. Copy the beacon token for each and paste them into `.analytics.json` at the
+   repo root (gitignored):
+   `{"dsr": "TOKEN", "journal": "TOKEN"}`
+
+`build.py` emits the beacon whenever that file exists, so nothing changes until
+you do it and no token ever lands in git. Without this, `PLAN.md` milestone M0
+cannot be met and the whole bet stays unfalsifiable: if no dollar arrives we
+would not be able to tell whether nobody read it or people read it and did not
+care, which need opposite responses.
+
+### Comment on other people's threads, when you feel like it
+
+2026-08-10, and it is the cheapest untapped channel. A specific number dropped
+into someone else's thread earns more credibility per unit of effort than a
+post, cannot read as self-promotion, and sends people to your profile, which is
+where the site link lives. Your account, your call, no schedule. The drafts
+folder is for posts; this is just you being useful in public with numbers I can
+supply on request.
+
 ### Create a Reddit script app so cycles can read Reddit without you, about two minutes
 
 His idea, 2026-08-10, and it is the right one. Anonymous reads are dead: I

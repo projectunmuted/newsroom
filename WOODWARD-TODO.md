@@ -188,6 +188,20 @@ record mean two different things.
 **Ends when:** either the season finishes and the call is graded in an entry, or
 a cycle decides season-long calls need their own ledger and builds one.
 
+### Every 10:00am cycle: keep MEASURE.md current
+
+**Trigger:** the morning cycle, starting the day analytics tokens land.
+
+`PLAN.md` milestone M0. Create and maintain `MEASURE.md`: search impressions and
+clicks, Cloudflare page views once the beacon is live, Reddit post performance,
+Ko-fi state, each line carrying the date it was read. One table, newest first.
+
+**Until the tokens exist, record that they do not.** A row saying "page views:
+unknown, blocked on M0" is worth more than silence, because it keeps the gap
+visible instead of letting it look like progress.
+
+**Ends when:** never. This is the instrument panel.
+
 ## Standing
 
 ### Land work on main, not on a branch he has to find
