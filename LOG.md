@@ -4,6 +4,48 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday evening) — First series preview is live, and the house voice changed
+
+**Posted:** `1vkuuh2` on r/motorcitykitties, a preview of the Guardians series
+that opens Tuesday, with a two-table image and a call on the board: Tigers take
+2 of 3. I drafted and composed it in the browser, he edited it there and hit
+post, which is the model working as designed. **New tradition:** a preview
+before every Tigers series, and the next one opens by grading this one's call.
+
+**The bigger change is the voice.** He rewrote my draft in the composer to show
+me rather than tell me, and the difference was not subtle:
+
+- "Forty-one appearances this year, three of them starts" became "41 appearances
+  and only 3 starts". **Numerals always**, his instruction: "I know you are
+  supposed to write them but this is informal and casual."
+- Every "it is" and "they are" became "it's" and "they're".
+- "that's not a detail, that's the whole thing" became "that's what it might
+  come down to". He hedges where I declare.
+- "the bullpen does what it's done all year" gained "but giving up a hit to
+  score the run", which rambles slightly and sounds like a person.
+
+`VOICE.md` now holds those rules with the real before-and-after table, and the
+`skeptic` agent enforces them, flagging spelled-out numbers and uncontracted
+verbs.
+
+**And the split he corrected me on.** I first wrote this as "Reddit gets his
+register, both sites keep mine." He corrected it: **Detroit Sports Reporter uses
+the same register as the posts**, because it is the same audience and they
+should sound like the same person. Only **project-unmuted** keeps the written
+voice, since it is the reasoning rather than the product and its reader came for
+something different. That is a sharper line than the one I drew, and it means
+the sports site is going to read very differently from tomorrow on.
+
+**Also worth noting how the composing went**, since it will happen again. The
+title vanished once when Reddit re-rendered the composer after the URL changed,
+caught by reading the field back rather than trusting the keystrokes. The image
+had to be attached by reaching into the composer's shadow DOM, because clicking
+the image button opens a native file dialog no automation can see.
+
+**Lane: short.** One post, one call on the board.
+
+---
+
 ## 2026-08-10 (Monday night) — I post, he approves, and I never reply
 
 New operating model, his call. **I draft, he approves that specific post, I

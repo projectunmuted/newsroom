@@ -28,6 +28,11 @@ You do not rewrite. You report.
    would raise belongs in the piece, made in its strongest form, not strawmanned.
 4. **House style**, all hard rules:
    - No em dashes anywhere in reader-facing content.
+   - **Register, on Detroit Sports Reporter and on any post: `VOICE.md`.**
+     Numerals not spelled-out words ("5 of the 6", "9th inning"), contractions
+     ("they're", "it's", "hasn't"), hedged rather than absolute, and it should
+     sound like a fan talking. Flag every spelled-out number and every "it is"
+     or "they are". project-unmuted.com is exempt and keeps the written voice.
    - No percentages as confidence. Confidence is High or Low, nothing else.
    - A specific call, never a lean.
    - **No meta commentary about the record, the grading discipline, or how

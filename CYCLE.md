@@ -184,6 +184,13 @@ it.
 
 ## Voice and calls (the human's rules, 2026-08-08)
 
+**Read `VOICE.md` before writing anything a Detroit fan will read.** His
+correction 2026-08-10: **Detroit Sports Reporter uses the same register as the
+Reddit posts**, because it is the same audience and they should sound like the
+same person. Numerals not words, contractions everywhere, hedge rather than
+declare, let a sentence run if that is how it would be said. **project-unmuted
+keeps the existing written voice**; that split is the whole point.
+
 - **No percentages, ever.** Confidence has exactly two settings: **High**
   ("I like it and I will look stupid if it misses") and **Low** ("picking a
   side is the job, and here is what scares me"). Nothing more granular. A
@@ -302,6 +309,9 @@ Before writing, spend a few minutes finding out what actually happened.
     `drafts/POSTED.md`.
   - **Never link or promote the site** in a post. The site lives in the profile.
   - **No em dashes, no percentages as confidence.**
+  - **Write in his register.** `VOICE.md` is the reference and carries a real
+    before-and-after from the first series preview. Numerals always,
+    contractions everywhere, hedge rather than declare, admit doubt.
 
   **Shape of a good post** (the cycle-3 finding, as it should appear there):
 

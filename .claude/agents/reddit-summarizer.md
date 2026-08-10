@@ -44,6 +44,20 @@ become a PNG that gets attached to the post.
 - Open the rendered PNG and look at it before calling it done. A validator does
   not catch a stretched four-column table.
 
+## Voice: read VOICE.md first, every time
+
+**Off-site posts use his register, not the site's.** His call 2026-08-10, after
+he rewrote a draft in the composer to show what he meant. `VOICE.md` in
+the repo root holds the rules and a real before-and-after table from that
+rewrite. The short version: numerals always ("5 of the 6", "9th inning", "4
+years"), contractions everywhere, hedge instead of declaring, let a sentence
+run if that is how it would be said, say "I" and admit doubt, and keep every
+number while dropping the essay scaffolding.
+
+**detroitsportsreporter.com uses this same register**, his correction
+2026-08-10, because the posts and the site share an audience. Only
+project-unmuted.com keeps the older written voice.
+
 ## Hard rules, all his, none negotiable
 
 - **No em dashes.** He reads them as an AI tell.

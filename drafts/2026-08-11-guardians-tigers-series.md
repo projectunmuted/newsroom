@@ -1,4 +1,12 @@
-# Reddit draft, 2026-08-11 series preview — NOT POSTED
+# Reddit draft, 2026-08-11 series preview — POSTED
+
+**Live at `1vkuuh2`**, posted by him 2026-08-10 evening after editing it in the
+composer. His edits are the reference sample in `VOICE.md`: he capitalised the
+title and added a full stop, softened "that's the whole thing" to "that's what
+it might come down to", expanded "the last 10 favor Detroit" to "the last 10
+games for each team favor Detroit", and let the closing sentence run on with
+"but giving up a hit to score the run". The draft below is the pre-edit
+version, kept so the difference stays visible.
 
 **For r/motorcitykitties**, his call 2026-08-10, made knowing the sub's Rule 5
 bans AI writeups. Flagged once, not relitigated.
@@ -9,9 +17,13 @@ tables in it and carries none of its own.
 **Post Monday evening or Tuesday before 6:40pm ET**, first pitch of the opener.
 After that the Tuesday result is known and the preview is stale.
 
-**The tradition this starts:** a preview before every Tigers series. Next one
+**The tradition this starts:** a preview before every Tigers series. The next one
 should open with a one-line result of this call, which turns it into a running
 record rather than a recurring opinion.
+
+**Structure note:** the strong/weak/matchup/spotlight/call shape is the format,
+his call 2026-08-11. Run differential gets used but never leaned on: it is
+mentioned once, with the caveat attached, and the six games do the arguing.
 
 Source: MLB Stats API, 2026-08-10. Regenerate the image with
 `python scripts/make_series_image.py`.
@@ -19,19 +31,21 @@ Source: MLB Stats API, 2026-08-10. Regenerate the image with
 ---
 
 TITLE:
-Series preview: the Guardians are in town, and Detroit has scored 11 runs against them all year
+Series preview: Guardians at Comerica, and the team Detroit cannot score on
 
 BODY:
-TLDR: Detroit is 0-6 against Cleveland this season and has scored 11 runs in those six games. Five of the six were one or two run losses. Tables in the image.
+TLDR: Detroit is 0-6 against Cleveland this year and has scored 11 runs in those six games. Five of the six were decided by one or two runs. Tables in the image.
 
-First, the run differential thing, because it has been posted here enough. It is a stat. Wins are the thing that matters, and plus 87 has not won Detroit a single game against Cleveland. That is the honest version, and it is exactly why this series is the one worth watching: the case that Detroit is better than its record rests on games against everyone else.
+Where Detroit is strong: run prevention. Team ERA 3.49, best in the division, and they come in 7-3 in their last ten. The plus 87 run differential belongs here too, with the obvious caveat that it is a measurement and not a win, and against Cleveland specifically it has bought exactly nothing.
 
-What the six games actually looked like: 2, 3, 2, 1, 2, 1. Under two runs a game against a pitching staff that is fourth in the division in ERA. Only one of the six was a blowout. The rest were the kind of game where one swing or one bullpen inning decides it, and Cleveland won every one of them.
+Where Detroit is weak: the ninth inning. 23 saves in 49 chances, 26 blown. In a series where five of the six previous meetings were decided by one or two runs, that is not a detail, that is the series.
 
-The matchup that decides this series is Thursday afternoon. Parker Messick has a 2.57 ERA and a 1.04 WHIP, the best arm anybody runs out this week, and he draws a lineup that has not managed two runs a game against his team. Tuesday is Tanner Bibee, who is 4-11 but with a 1.13 WHIP, which tells you what kind of run support he has had.
+Where Cleveland is strong: the back end and the basepaths. 34 saves in 48 chances, 14 blown, and 116 stolen bases to Detroit's 35. They get a runner on, they move him, and a single scores him.
 
-The other number that decides it is on the second table. Cleveland has 116 stolen bases to Detroit's 35 and converts 34 of 48 save chances. Detroit converts 23 of 49. In one run games, that is not a footnote, that is the result.
+Where Cleveland is weak: scoring at all. .232 average, .682 OPS, fewest runs in the division, and 3-7 in their last ten.
 
-Player spotlight: Drew Anderson starts the opener. Forty-one appearances this year, three of them starts. Detroit released him in April 2024 and he spent four years in Japan and Korea before this. He is what the rotation looks like after the deadline.
+The matchup that decides it: Thursday afternoon, Parker Messick. A 2.57 ERA and a 1.04 WHIP, the best arm either team runs out this week, against a lineup that has not managed two runs a game against his team.
 
-The call: Tigers take two of three. They are home, they are 7-3 in their last ten, and Cleveland has scored the fewest runs in the division. The way it goes wrong is the way it always has: tied in the eighth, somebody steals second, and we all know the rest.
+Player spotlight: Drew Anderson starts Tuesday. Forty-one appearances this year, three of them starts. Detroit released him in April 2024 and he spent four years in Japan and Korea. He is what the rotation looks like after the deadline, and he draws Tanner Bibee in the opener.
+
+How it goes: Tigers take two of three. They are home, Cleveland cannot score, and the last ten favor Detroit. The way it goes wrong is familiar: a one run game in the eighth, a runner steals second, and the bullpen does what it has done all season.
