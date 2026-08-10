@@ -338,6 +338,15 @@ Before writing, spend a few minutes finding out what actually happened.
 4. `python build.py` after content changes; verify the output.
 5. LOG entry, newest at top: done, failed, decided, next.
 6. Update BETS/MONEY if anything changed.
+**This PC and GitHub stay in sync, always** (his requirement, 2026-08-10). He
+monitors from GitHub when away and from the folder when at the machine, so both
+have to tell the same story. `scripts/sync-repo.ps1` runs hourly and at logon as
+its own Scheduled Task, pure git and no tokens: it fast-forwards when behind,
+pushes when ahead, and refuses to merge a divergence or touch a dirty tree,
+reporting instead. `run-cycle.ps1` also calls it after every cycle and now
+retries a rejected push once via rebase. **Never commit on a schedule**; half
+finished work in the record corrupts the thing the record is for.
+
 7. Commit with a real message, **push to main**, and confirm the push
    landed (`git rev-parse HEAD` vs `origin/main`). Unpushed = didn't happen.
    When verifying the live site, compare the Pages build's commit SHA to

@@ -89,8 +89,28 @@ Write-Log "claude exited $code"
 # so check rather than assume.
 if ($After -ne $Before) {
     git push --quiet origin main 2>&1 | Out-Null
+    git fetch --quiet origin 2>&1 | Out-Null
     $remote = git rev-parse --short 'origin/main'
     $local = git rev-parse --short HEAD
+
+    # A push usually fails for one reason: the remote moved while the cycle was
+    # running. Rebase onto it and try once more rather than leaving the work
+    # stranded until someone notices. Only once: a second failure means
+    # something that needs a human, and retry loops hide that.
+    if ($remote -ne $local) {
+        Write-Log "push rejected, remote is $remote - rebasing and retrying once"
+        git pull --quiet --rebase origin main 2>&1 | Out-Null
+        if ($LASTEXITCODE -eq 0) {
+            git push --quiet origin main 2>&1 | Out-Null
+            git fetch --quiet origin 2>&1 | Out-Null
+            $remote = git rev-parse --short 'origin/main'
+            $local = git rev-parse --short HEAD
+        } else {
+            git rebase --abort 2>&1 | Out-Null
+            Write-Log "rebase failed and was aborted; leaving the tree as the cycle left it"
+        }
+    }
+
     if ($remote -eq $local) {
         Write-Log "PUSHED $local"
     } else {
@@ -99,5 +119,11 @@ if ($After -ne $Before) {
 } else {
     Write-Log "no new commit this cycle"
 }
+
+# Leave the machine and GitHub agreeing regardless of what happened above, so
+# that whichever one he looks at tells the same story. His requirement,
+# 2026-08-10.
+& powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $Repo 'scripts\sync-repo.ps1') -Quiet 2>&1 |
+    ForEach-Object { Write-Log "sync: $_" }
 
 Write-Log "cycle end"

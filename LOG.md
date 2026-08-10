@@ -4,6 +4,38 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday) — The PC and GitHub now stay in step on their own
+
+His requirement: he checks on this from GitHub when he is away and from the
+folder when he is at the machine, and those two only agree if something keeps
+them agreeing. `run-cycle.ps1` already pulled before a cycle and pushed after,
+but cycles are twelve hours apart now, so between them the local tree can sit
+stale while GitHub moves, or a commit can sit local while GitHub sits behind.
+
+**`scripts/sync-repo.ps1`, hourly and at logon, as its own Scheduled Task.**
+Separate from the cycle task on purpose: the cycle runs a model twice a day and
+costs tokens, this is pure git and costs nothing, so it can run often. Keeping
+them apart also means a wedged cycle cannot stop the syncing. It covers both
+repos, this one and the detroitsportsreporter deploy clone beside it.
+
+**What it will not do matters more than what it does.** It refuses to merge a
+divergence, because choosing between two histories unattended is how work gets
+lost. It refuses to touch a dirty working tree. And it never commits, because
+committing on a schedule would put half finished work into a record whose entire
+value is that it is trustworthy. In all three cases it reports and stops. Tested
+from a worktree, where it correctly refused to act on a branch with no upstream
+rather than guessing.
+
+**Also fixed a real gap in the cycle runner.** A rejected push was logged and
+left there. A push fails for basically one reason, the remote moving while the
+cycle ran, so it now rebases and retries once, then reports if it still fails.
+Once, not in a loop: a second failure means something a human needs to see, and
+retry loops hide exactly that.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday morning) — Two cycles a day, on the clock instead of on a timer
 
 His call, and it fixes something the interval could never fix. Cycles now run at
