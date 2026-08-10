@@ -274,50 +274,34 @@ Before writing, spend a few minutes finding out what actually happened.
   publishing new pages (key in `build.py`, POST to api.indexnow.org). Google
   Search Console is queued for the human.
 - **The human's Reddit account** (u/ICantSpellorWrite, real sports-posting
-  history since 2019) is available per his offer of 2026-08-08 — live sessions
-  only, the login is his. Rules, all his, all standing:
+  history since 2019). **Posting model, his call 2026-08-10:**
 
-  - **Be brief.** Reddit is not the site. A few sentences, the number, the
-    point. No headings, no sourcing paragraph, no essay. If it reads like a
-    blog post it is too long. Post the single most interesting finding and
-    stop.
-  - **Never link or promote the site in a post or comment.** Most Detroit subs
-    remove self-promo on sight and it puts a seven-year-old account at risk.
-    The site lives in the **profile** instead, which is the accepted norm and
-    the only place it belongs. Accept that this makes Reddit a slow
-    credibility play rather than a traffic source; that trade is deliberate.
-  - **Authorship goes unmentioned in both directions.** Never claim to be
-    human, never raise being an AI.
-  - **No em dashes.**
+  **I draft, he approves, I post, I never reply.** Each post is submitted by me
+  through the browser only after he has approved that specific post in chat.
+  Approval is per post, never standing, and never inferred from an earlier yes.
 
-  **His policy, 2026-08-10, which loosens the old caution and tightens the
-  volume:**
-
-  - **The analysis is fully okay to post.** The bar is not "is it AI", it is
-    "is it low effort". Real numbers, verified, with something a fan did not
-    already know, is welcome on a fan sub and the reception on the first one
-    said so. Do not water a piece down out of timidity.
-  - **At most one Reddit post per day, across all four teams combined.** Not
-    one per sport, not one per sub. One. Two cycles a day must not become two
-    posts, and a fan sub notices a pattern of daily posting faster than
-    it notices any single post.
-  - **Prefer posting when he is around to answer comments.** A post that draws
-    questions and then sits silent for eight hours reads worse than no post.
-    The replies are his; the drafting is mine.
-  - **"No AI art" is not "no charts."** A table rendered by a script from a
-    league's own data is evidence. Attach it.
-  - **Game-thread rules cover the game itself.** Previews and analysis stand
-    alone before kickoff.
-
-  Two hard edges that do not move: if a subreddit's rules ban AI-made content,
-  do not post there at all, because undisclosed posting against a sub's rules
-  is a rules problem rather than a style choice. And if someone asks directly
-  whether it is AI, the answer is never a denial; leave it unanswered. Check
-  each sub's rules in the session where posting happens, not from memory.
-
-  **The posting ledger is `drafts/POSTED.md`.** Every post goes in it with the
-  date, sub and thread id. Check it before preparing another; that is how the
-  one-a-day cap survives a cycle with no memory.
+  - **Never reply to a comment. Ever.** Not to thank, not to correct, not to
+    clarify. Replies are his alone. If a comment deserves an answer, surface it
+    to him and let him decide.
+  - **Read every comment and mine it for two things:** feedback that should
+    change the analysis, and requests for analysis. Both go in writing;
+    requests go to `REQUESTS.md`.
+  - **A reader who was right outranks anything I would have written.** The
+    first post produced three objections better than the piece; one of them,
+    11-18 inside the division, undercut its central claim.
+  - **What approval does and does not settle.** It settles consent to use his
+    account. It does not change a subreddit's rules. If a sub bans AI-made
+    content, say so plainly when presenting the draft, name the subs that do
+    not, and let him choose with the tradeoff in front of him. Known as of
+    2026-08-10: r/motorcitykitties (Rule 5), r/baseball (2.8) and r/mlb (wiki
+    2.2) ban AI content; r/detroitlions bans AI **art** only; r/Sabermetrics
+    and r/sportsanalytics have no such rule.
+  - **If asked directly whether it is AI, never deny.** Leave it unanswered and
+    tell him it was asked. Unchanged, and not negotiable.
+  - **At most one post per day across all four teams**, tracked in
+    `drafts/POSTED.md`.
+  - **Never link or promote the site** in a post. The site lives in the profile.
+  - **No em dashes, no percentages as confidence.**
 
   **Shape of a good post** (the cycle-3 finding, as it should appear there):
 

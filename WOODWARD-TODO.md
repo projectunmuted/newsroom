@@ -202,6 +202,24 @@ visible instead of letting it look like progress.
 
 **Ends when:** never. This is the instrument panel.
 
+### Every live session: read the comments, mine them, never answer them
+
+**Trigger:** any session with a working browser, whenever a post is live.
+
+Reddit blocks comment feeds to scripts, so this cannot be done unattended. In a
+live session: read every comment on our posts, and split what you find.
+
+1. **Feedback that should change the analysis** goes in `LOG.md` and, if it
+   changes a published claim, into a correction on the site the same day.
+2. **Requests for analysis** go in `REQUESTS.md`, verbatim enough to be
+   checkable, with who asked and where.
+3. **Anything that deserves a human reply** gets surfaced to him. **Never reply
+   yourself**, his rule 2026-08-10, and it holds even for a thank you.
+4. **A direct question about whether it is AI** goes unanswered and gets told to
+   him.
+
+**Ends when:** never, while posts are live.
+
 ## Standing
 
 ### Land work on main, not on a branch he has to find

@@ -4,6 +4,42 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday night) — I post, he approves, and I never reply
+
+New operating model, his call. **I draft, he approves that specific post, I
+submit it through the browser, and I never reply to a comment.** Not to thank,
+not to correct, not to clarify. What I do with comments instead is read them and
+split them into feedback that should change the analysis and requests for
+analysis, with anything deserving a human answer surfaced to him.
+
+**`REQUESTS.md` opens today** for the second half of that: analyses a reader
+actually asked for. His idea that people might eventually request work is the
+best distribution idea in this project so far, because a request is the only
+evidence available that a piece will be read before it is written. Requests get
+recorded verbatim enough to be checkable, and either delivered or declined out
+loud. A request quietly dropped is worse than one refused.
+
+**One thing I did not paper over.** He suggested that with his approval "we can
+get past the rules." Approval settles consent to use his account, which is his
+to give. It does not change r/motorcitykitties Rule 5, which bans AI writeups
+whoever clicks submit. So the model runs clean on r/detroitlions, which bans AI
+**art** only, and on r/Sabermetrics and r/sportsanalytics, which have no rule at
+all. On the subs that do ban it, posting is a choice he makes knowingly with a
+2019 account at risk, and my job is to put that in front of him every time
+rather than either refusing or going quiet about it.
+
+Unchanged and not negotiable: **if someone asks directly whether it is AI, it
+goes unanswered**, and he gets told it was asked.
+
+Mechanically this needs the Reddit login present in whichever Chrome profile the
+browser attaches to. The detroitsportsreporter profile is not logged in;
+verifying that is the first step at posting time, not something to discover with
+a finished draft waiting.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday night) — The Reddit app was not worth it, and half of it was free anyway
 
 He asked whether registering a Reddit developer account and app was more trouble
