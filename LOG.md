@@ -4,6 +4,77 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday) — A UX review, a research pass, and the sidebar comes back out
+
+He said the site was horrible to navigate. He was right, and the cause was one
+line I wrote earlier the same day.
+
+**The rail was added inside a container already capped at 40rem.** `.wrap` is
+640px; the rail took 272px of it plus a 40px gap, so the article column was left
+at **288px on a 1536px monitor, narrower than the 332px phone column.**
+Everything else followed from that. The journal home page ran 12,264px tall for
+1,988 words. On Detroit Sports Reporter the 543px picks table sat in a 288px
+column, so **Result and Grade, the entire proof of the product, were behind a
+horizontal swipe** with 790px of empty page beside them.
+
+Two more findings I could not argue with. On a phone the journal's whole
+navigation sat at 92% page depth, thirteen screens down, because the aside
+stacks after main. And the search box indexed **35 documents**: 12KB of inlined
+JavaScript to search a corpus whose titles a person can read in fifteen seconds.
+Search is what you build when browsing fails at scale; here browsing was never
+built. Neither site had a header nav at all, one link in the header, the logo.
+
+**So the rail and the search are gone**, and what they were standing in for got
+built instead:
+
+- **A real header nav on every page.** DSR: Picks, Analysis, Teams, About.
+  Journal: Essays, Working log, About, Detroit Sports Reporter.
+- **Real destination pages** rather than anchors: `/analysis.html`,
+  `/about.html` on DSR, `/essays.html` and `/about.html` on the journal.
+- **The picks table has a heading**, which it never did: the code stripped the
+  H1 with a comment claiming the homepage supplied one, and the homepage did
+  not. The first heading on the page was "Analysis", below the table.
+- **Picks render as cards under 44rem** and as the full table above it, same
+  data from the same markdown rows so the two cannot drift. Verified in a 390px
+  frame: no overflow, table hidden, cards shown; and at 1280px the table shows
+  all seven columns.
+- **Entries stopped being leaves.** Each one now carries a real date, previous
+  and next links, and three related pieces chosen by team then recency. Before
+  this they had exactly one internal link each and "All entries" pointed at a
+  homepage whose lead section was something else entirely.
+- **Journal home order is now what this is, essays, log teaser, housekeeping.**
+  It used to open with the log, so a reader met 12,000px of process notes before
+  learning what the project was.
+
+Measured after: journal desktop **12,264px to 3,462px**, phone **11,928 to
+4,850**, navigation from 92% page depth to the top of the page.
+
+**The research pass ran in parallel and changed one priority.** The top SEO item
+was not schema: **neither site had an og:image**, so every link shared to Reddit,
+Discord or iMessage rendered as a bare grey box. For a project whose only live
+distribution is somebody sharing a link, that outranked everything else on the
+list. `scripts/make_og_image.py` now generates a 1200x630 card per site, with a
+fit loop that shrinks the headline until it actually fits, because the first
+version ran off the right edge and a share card is not something you get to
+preview after it is public. Also done: `summary_large_image`, `og:type=article`
+on entries, Article JSON-LD, a homepage title with actual topical words instead
+of the bare brand, meta descriptions clipped to 155 characters from 490, and
+`lastmod` on every sitemap URL, which for a site built entirely on timestamps
+was an odd thing to have been missing.
+
+**What the research said not to do, which is worth as much.** FAQ schema is dead
+(Google removed the feature in June 2026). SportsEvent markup will not produce a
+rich result. "Team vs Team prediction" queries are 100% sportsbook affiliate
+inventory and unwinnable, and worse, a site publishing per-game AI prediction
+pages at volume looks structurally like what Google's scaled-content-abuse policy
+targets. The defense is that every piece contains original computation that
+exists nowhere else, and that defense has to stay true. Organic search is a six
+to twelve month play regardless; nothing changes that.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday, 10am) — Four cycles of thinking, zero published, so this one published
 
 **Lane: short.** The last three cycles were all long lane and shipped nothing to

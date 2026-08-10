@@ -376,7 +376,11 @@ finished work in the record corrupts the thing the record is for.
   (`/journal/<slug>.html`). A cycle guessed `/team/tigers.html` and pinged a
   404.
 
-After content changes: `python build.py && python publish.py`, then commit
+After content changes: `python build.py && python scripts/make_og_image.py &&
+python publish.py`. **The og image step is not optional**: `build.py` wipes the
+output directories, so skipping it ships pages whose `og:image` 404s, and the
+share card is the only thing standing between a link on Reddit and a bare grey
+box, then commit
 and push THIS repo too (sources + receipts live here; the deploy repo is
 build output only, never edited by hand). PICKS.md renders onto the DSR
 homepage — it is the record.

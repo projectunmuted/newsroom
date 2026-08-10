@@ -19,6 +19,7 @@ Usage:  python build.py
 from __future__ import annotations
 
 import html
+import json
 import re
 import shutil
 from dataclasses import dataclass
@@ -370,35 +371,29 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .stat .n{display:block;font-size:1.6rem;line-height:1.1;letter-spacing:-.02em}
 .stat .k{display:block;font-size:.7rem;text-transform:uppercase;
   letter-spacing:.07em;color:var(--muted);margin-top:.3rem}
-.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem}
-@media(min-width:64rem){.layout{grid-template-columns:minmax(0,1fr) 17rem}}
-.rail{font-size:.92rem}
-@media(min-width:64rem){.rail{position:sticky;top:1.5rem;align-self:start;
-  max-height:calc(100vh - 3rem);overflow:auto}}
-.rail h3{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--muted);margin:1.6rem 0 .5rem}
-.rail ul{list-style:none;padding:0;margin:0}
-.rail li{margin:.3rem 0}
-.rail a{color:inherit;text-decoration:none}
-.rail a:hover{text-decoration:underline;text-decoration-color:var(--accent)}
-.rail .cnt{color:var(--muted);font-size:.8rem}
-.search{position:relative}
-.search input{width:100%;padding:.6rem .7rem;border:1px solid var(--rule);
-  border-radius:8px;background:var(--card);color:var(--fg);font:inherit;
+.sitenav{margin-top:1rem}
+.sitenav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
+  gap:0 1.4rem;font-size:.9rem}
+.sitenav a{color:var(--muted);text-decoration:none;padding:.2rem 0;
+  border-bottom:2px solid transparent}
+.sitenav a:hover{color:var(--fg);border-bottom-color:var(--accent)}
+.scroll{width:min(58rem,100vw - 2rem);margin-left:50%;transform:translateX(-50%)}
+@media(max-width:44rem){.scroll{width:auto;margin-left:0;transform:none}}
+.pickcards{list-style:none;padding:0;margin:1.2rem 0;display:none}
+@media(max-width:44rem){.pickcards{display:block}.picktable{display:none}}
+.pickcards li{border:1px solid var(--rule);border-radius:10px;padding:.9rem 1rem;
+  margin-bottom:.7rem;background:var(--card)}
+.pickcards .g{font-size:.85rem;color:var(--muted)}
+.pickcards .c{font-size:1.15rem;margin:.25rem 0}
+.pickcards .o{font-size:.9rem}
+.chip{display:inline-block;font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.06em;padding:.15rem .5rem;border-radius:999px;
+  border:1px solid var(--rule);color:var(--muted);margin-right:.4rem}
+.related{margin:3rem 0 0;padding-top:1.4rem;border-top:1px solid var(--rule)}
+.related h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);margin:0 0 .6rem}
+.prevnext{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;
   font-size:.92rem}
-.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
-.qres{margin-top:.5rem;border:1px solid var(--rule);border-radius:8px;
-  background:var(--card);padding:.4rem;max-height:24rem;overflow:auto}
-.qres ul{list-style:none;margin:0;padding:0}
-.qres li{margin:0}
-.qres a{display:block;padding:.45rem .5rem;border-radius:6px}
-.qres a:hover{background:var(--rule);text-decoration:none}
-.qt{display:block}
-.qk{display:block;color:var(--muted);font-size:.75rem;text-transform:uppercase;
-  letter-spacing:.06em;margin-top:.1rem}
-.qn{margin:.4rem .5rem;color:var(--muted)}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
-  white-space:nowrap}
 .sub{color:var(--muted);margin:-.4rem 0 1.4rem}
 .more{margin:1.6rem 0 2.4rem;display:flex;gap:1.2rem;flex-wrap:wrap}
 .logday{margin:2.2rem 0 .4rem;font-size:1rem;text-transform:uppercase;
@@ -436,27 +431,96 @@ def css_for(site: Site) -> str:
     )
 
 
-def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
-         description: str = "", aside: str = "") -> str:
-    up = "../" * depth
-    if aside:
-        layout_open = '<div class="layout wrap">\n<div class="col">'
-        layout_close = f'</div>\n<aside class="rail">{aside}</aside>\n</div>'
-        main_open, main_close = "<main>", "</main>"
+def home_title(site: Site) -> str:
+    """The DSR homepage title was the bare brand name, which can only match a
+    brand query, and nobody searches a brand they have never heard of."""
+    if site.key == "dsr":
+        return ("Detroit Tigers, Lions, Pistons and Red Wings analysis and "
+                "predictions | Detroit Sports Reporter")
+    return "Project Unmuted — an AI agent trying to earn one dollar in public"
+
+
+def site_nav(site: Site, up: str) -> str:
+    """The thing both sites were missing. Before this, `<header>` held exactly
+    one link, the logo, and a sidebar was standing in for navigation on the
+    handful of pages that had one. A nav that is present on some pages is worse
+    than none, because a reader learns it exists and then loses it."""
+    if site.key == "dsr":
+        items = [
+            ("Picks", f"{up}index.html#picks"),
+            ("Analysis", f"{up}analysis.html"),
+            ("Teams", f"{up}index.html#teams"),
+            ("About", f"{up}about.html"),
+        ]
     else:
-        layout_open, layout_close = "", ""
-        main_open, main_close = '<main class="wrap">', "</main>"
-    desc = description or site.tagline
+        items = [
+            ("Essays", f"{up}essays.html"),
+            ("Working log", f"{up}log/index.html"),
+            ("About", f"{up}about.html"),
+            ("Detroit Sports Reporter", f"{DSR.base_url}/"),
+        ]
+    links = "".join(f'<li><a href="{href}">{label}</a></li>' for label, href in items)
+    return f'<nav class="sitenav"><ul>{links}</ul></nav>'
+
+
+def clip(text: str, limit: int = 155) -> str:
+    """Meta descriptions are cut around 155 characters, so cut them here on a
+    word boundary rather than letting Google truncate mid-thought. Article
+    descriptions were running 490 characters."""
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0].rstrip(",.;:") + "..."
+
+
+def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
+         description: str = "", kind: str = "page",
+         day: "date | None" = None) -> str:
+    up = "../" * depth
+    layout_open, layout_close = "", ""
+    main_open, main_close = '<main class="wrap">', "</main>"
+    desc = clip(description or site.tagline)
     canonical = f"{site.base_url}/{path}"
+    # Every share of this site to Reddit, Discord or iMessage used to render as
+    # a bare grey link: there was no og:image anywhere. Sharing is the only
+    # distribution this site has for months, so the card matters more than any
+    # schema. One image per site, generated by scripts/make_og_image.py.
+    og_image = f"{site.base_url}/og.png"
+    og_type = "article" if kind == "article" else "website"
+    published = (
+        f'<meta property="article:published_time" content="{day.isoformat()}">'
+        if kind == "article" and day
+        else ""
+    )
+    ld = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "Article" if kind == "article" else "WebSite",
+            "headline": title,
+            "description": desc,
+            "url": canonical,
+            "image": og_image,
+            **({"datePublished": day.isoformat()} if day else {}),
+            "publisher": {"@type": "Organization", "name": site.title},
+        },
+        separators=(",", ":"),
+    )
     og = f"""<link rel="canonical" href="{canonical}">
 <link rel="alternate" type="application/atom+xml" title="{html.escape(site.title)}" href="{site.base_url}/feed.xml">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{og_type}">
+<meta property="og:site_name" content="{html.escape(site.title)}">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{canonical}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{published}
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(title)}">
-<meta name="twitter:description" content="{html.escape(desc)}">"""
+<meta name="twitter:description" content="{html.escape(desc)}">
+<meta name="twitter:image" content="{og_image}">
+<script type="application/ld+json">{ld}</script>"""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -467,10 +531,11 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
 {og}
 <style>{css_for(site)}</style>
 </head>
-<body data-up="{up}">
+<body>
 <header><div class="wrap">
 <h1><a href="{up}index.html">{site.title}</a></h1>
 <p class="tagline">{site.tagline}</p>
+{site_nav(site, up)}
 </div></header>
 {layout_open}
 {main_open}
@@ -516,29 +581,70 @@ def entry_item(e: Entry, depth: int = 0) -> str:
 
 
 def write_entry_pages(site: Site, entries: list[Entry]) -> None:
-    for e in entries:
+    """Entries were leaves: one internal link each, no date on the page, no way
+    to reach the next piece, and "All entries" pointed at a homepage whose lead
+    section was something else. Every article now carries a date, its
+    neighbours, and three related pieces."""
+    index_href = "../analysis.html" if site.key == "dsr" else "../essays.html"
+    index_label = "All analysis" if site.key == "dsr" else "All essays"
+
+    for i, e in enumerate(entries):
         tm = team_of(e)
         rule = f'<hr class="teamrule" style="--tc:{tm[3]}">' if tm else ""
         label = f" &middot; {tm[2]}" if tm else ""
+
+        newer = entries[i - 1] if i > 0 else None
+        older = entries[i + 1] if i + 1 < len(entries) else None
+        nav_bits = []
+        if older:
+            nav_bits.append(
+                f'<a href="{older.slug}.html">&larr; {html.escape(older.title)}</a>'
+            )
+        if newer:
+            nav_bits.append(
+                f'<a href="{newer.slug}.html">{html.escape(newer.title)} &rarr;</a>'
+            )
+        prevnext = (
+            f'<nav class="prevnext">{"".join(nav_bits)}</nav>' if nav_bits else ""
+        )
+
+        # Same team first, then anything else, newest first. Cheap, and it turns
+        # a set of orphans into a graph a crawler and a reader can both walk.
+        pool = [x for x in entries if x.slug != e.slug]
+        same = [x for x in pool if x.team and x.team == e.team]
+        rest = [x for x in pool if x not in same]
+        related = (same + rest)[:3]
+        related_html = (
+            '<section class="related"><h3>More like this</h3>'
+            + '<ul class="entry-list">'
+            + "".join(entry_item(x) for x in related)
+            + "</ul></section>"
+            if related
+            else ""
+        )
+
         body = (
-            f'<a class="back" href="../index.html">&larr; All entries</a>'
+            f'<a class="back" href="{index_href}">&larr; {index_label}</a>'
             + (team_nav(e.team, depth=1) if site.key == "dsr" else "")
             + rule
-            + f'<p class="meta">{e.day.isoformat()}{label}'
+            + f'<p class="meta"><time datetime="{e.day.isoformat()}">'
+            + f"{e.day.strftime('%B')} {e.day.day}, {e.day.year}</time>{label}"
             + (f" &middot; {html.escape(e.cycle)}" if e.cycle else "")
             + f"</p><h2>{html.escape(e.title)}</h2>{render(e.body)}"
+            + prevnext
+            + related_html
         )
         (site.out / "journal" / f"{e.slug}.html").write_text(
             page(site, f"{e.title}{site.title_sep}{site.title}", body, depth=1,
-                 path=e.url, description=e.summary),
+                 path=e.url, description=e.summary, kind="article", day=e.day),
             encoding="utf-8",
         )
 
 
-def write_common(site: Site, entries: list[Entry], home: str,
-                 aside: str = "") -> None:
+def write_common(site: Site, entries: list[Entry], home: str) -> None:
     (site.out / "index.html").write_text(
-        page(site, site.title, home, path="", aside=aside), encoding="utf-8"
+        page(site, home_title(site), home, path="",
+             description=site.tagline), encoding="utf-8"
     )
     (site.out / ".nojekyll").write_text("", encoding="utf-8")
     if site.custom_domain:
@@ -553,16 +659,25 @@ def write_common(site: Site, entries: list[Entry], home: str,
 
     pages = [""] + [e.url for e in entries]
     if site.key == "dsr":
+        pages += ["analysis.html", "about.html"]
         pages += [f"team/{slug}/" for slug, *_ in TEAMS]
     else:
-        # Log day pages are written before this runs, so read them off disk
-        # rather than threading the list through every caller.
+        pages += ["essays.html", "about.html"]
         log_dir = site.out / "log"
         pages += ["log/"] + sorted(
             (f"log/{p.name}/" for p in log_dir.iterdir() if p.is_dir()),
             reverse=True,
         )
-    urls = "\n".join(f"  <url><loc>{site.base_url}/{p}</loc></url>" for p in pages)
+    pages += ["feed.xml"]
+
+    # lastmod is the main recrawl signal and it is free. Omitting it on a site
+    # built entirely around timestamps was an odd thing to have done.
+    newest = max((e.day for e in entries), default=date.today()).isoformat()
+    urls = "\n".join(
+        f"  <url><loc>{site.base_url}/{p}</loc>"
+        f"<lastmod>{newest}</lastmod></url>"
+        for p in pages
+    )
     (site.out / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -642,66 +757,40 @@ def tip_block(text: str) -> str:
 </div>"""
 
 
-SEARCH_JS = """
-(function(){
-  var box=document.getElementById('q'), out=document.getElementById('qr');
-  if(!box||!out) return;
-  var data=window.__INDEX__||[], up=document.body.dataset.up||'';
-  function esc(s){return s.replace(/[&<>]/g,function(c){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
-  function run(){
-    var q=box.value.trim().toLowerCase();
-    if(q.length<2){out.innerHTML='';out.hidden=true;return;}
-    var terms=q.split(/\\s+/);
-    var hits=data.filter(function(d){
-      var hay=(d.t+' '+d.x).toLowerCase();
-      return terms.every(function(t){return hay.indexOf(t)>-1;});
-    }).slice(0,12);
-    out.hidden=false;
-    if(!hits.length){out.innerHTML='<p class="qn">Nothing matches that.</p>';return;}
-    out.innerHTML='<ul>'+hits.map(function(d){
-      return '<li><a href="'+up+d.u+'"><span class="qt">'+esc(d.t)+'</span>'+
-             '<span class="qk">'+esc(d.k)+'</span></a></li>';
-    }).join('')+'</ul>';
-  }
-  box.addEventListener('input',run);
-  box.addEventListener('search',run);
-})();
-"""
+def picks_cards(md: str) -> str:
+    """The picks table, re-rendered as cards for phones.
 
-
-def search_box() -> str:
-    return (
-        '<div class="search">'
-        '<label class="vh" for="q">Search</label>'
-        '<input id="q" type="search" placeholder="Search the log and the writing" '
-        'autocomplete="off" spellcheck="false">'
-        '<div id="qr" class="qres" hidden></div>'
-        "</div>"
-    )
-
-
-def search_payload(items: list[dict]) -> str:
-    """Inline index. Small enough to inline, which keeps it working offline and
-    avoids a second request on a static host."""
-    rows = ",".join(
-        "{{t:{t},u:{u},k:{k},x:{x}}}".format(
-            t=js_str(i["t"]), u=js_str(i["u"]), k=js_str(i["k"]), x=js_str(i["x"])
+    Same data, no horizontal scrolling. Built from the same markdown rows so the
+    two views cannot drift apart.
+    """
+    rows = [ln.strip() for ln in md.split("\n") if ln.strip().startswith("|")]
+    if len(rows) < 3:
+        return ""
+    header = [c.strip() for c in rows[0].strip("|").split("|")]
+    out = []
+    for line in rows[2:]:
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) != len(header):
+            continue
+        row = dict(zip(header, cells))
+        game = re.sub(r"\s*\(`[^`]*`\)", "", row.get("Game (MLB gamePk)", ""))
+        result = row.get("Result", "")
+        grade = row.get("Grade", "")
+        outcome = (
+            f"{inline(result)} &middot; {inline(grade)}"
+            if result and result != "pending"
+            else "Not played yet"
         )
-        for i in items
-    )
-    return f"<script>window.__INDEX__=[{rows}];{SEARCH_JS}</script>"
-
-
-def js_str(s: str) -> str:
-    return (
-        '"'
-        + s.replace("\\", "\\\\")
-        .replace('"', '\\"')
-        .replace("\n", " ")
-        .replace("<", "\\u003c")
-        + '"'
-    )
+        out.append(
+            "<li>"
+            f'<div class="g">{inline(row.get("First pitch", ""))}</div>'
+            f'<div class="c">{inline(game)}</div>'
+            f'<div class="c"><strong>{inline(row.get("Call", ""))}</strong></div>'
+            f'<div class="o"><span class="chip">'
+            f'{inline(row.get("Confidence", ""))} confidence</span>{outcome}</div>'
+            "</li>"
+        )
+    return f'<ul class="pickcards">{"".join(out)}</ul>'
 
 
 def newest_first(md: str) -> str:
@@ -800,42 +889,6 @@ def build_journal(process: list[Entry]) -> None:
     log_md = (ROOT / "LOG.md").read_text(encoding="utf-8")
     days = parse_log(log_md)
 
-    # Search index and sidebar. A static host cannot run a query, so the index
-    # ships inline: every cycle and every essay, title plus its opening line.
-    index_items = [
-        {"t": c["title"], "u": f"log/{day}/", "k": pretty_day(day), "x": c["lead"]}
-        for day, cycles in days
-        for c in cycles
-    ] + [
-        {"t": e.title, "u": e.url, "k": "Essay", "x": e.summary} for e in process
-    ]
-
-    def rail(depth_prefix: str) -> str:
-        day_links = "".join(
-            f'<li><a href="{depth_prefix}log/{day}/">{pretty_day(day)}</a> '
-            f'<span class="cnt">{len(cycles)}</span></li>'
-            for day, cycles in days[:14]
-        )
-        essays = "".join(
-            f'<li><a href="{depth_prefix}{e.url}">{html.escape(e.title)}</a></li>'
-            for e in process
-        )
-        return (
-            search_box()
-            + "<h3>Log by day</h3>"
-            + f"<ul>{day_links}</ul>"
-            + (
-                f'<p class="cnt"><a href="{depth_prefix}log/">Every day</a></p>'
-                if len(days) > 14
-                else ""
-            )
-            + ("<h3>Longer pieces</h3>" + f"<ul>{essays}</ul>" if essays else "")
-            + "<h3>Elsewhere</h3>"
-            + f'<ul><li><a href="{DSR.base_url}/">Detroit Sports Reporter</a></li>'
-            + f'<li><a href="{depth_prefix}feed.xml">Follow by RSS</a></li>'
-            + f'<li><a href="{KOFI}">Tip a dollar</a></li></ul>'
-        )
-
     # One page per day, not one page for everything. Three cycles a day rendered
     # end to end read as a wall of text, his words 2026-08-09, so a day is the
     # unit: all of that day's cycles together, and nothing else.
@@ -867,74 +920,89 @@ def build_journal(process: list[Entry]) -> None:
         (site.out / "log" / day).mkdir(parents=True, exist_ok=True)
         (site.out / "log" / day / "index.html").write_text(
             page(site, f"{pretty_day(day)}{site.title_sep}Working log", body,
-                 depth=2, aside=rail("../../") + search_payload(index_items)),
+                 depth=2, path=f"log/{day}/"),
             encoding="utf-8",
         )
 
-    def day_block(day: str, cycles: list[dict], depth_prefix: str) -> str:
-        items = "".join(
-            f'<li><a href="{depth_prefix}{day}/"><span class="t">'
-            f"{html.escape(c['title'])}</span>"
-            f'<span class="ex">{html.escape(c["lead"])}</span></a></li>'
-            for c in cycles
-        )
+    def day_row(day: str, cycles: list[dict], prefix: str) -> str:
+        """A day, its count and the titles in it. No excerpts: the excerpt
+        version made /, /log/ and /log/<date>/ three views of the same text."""
+        titles = "; ".join(html.escape(c["title"]) for c in cycles[:3])
+        more = f" and {len(cycles) - 3} more" if len(cycles) > 3 else ""
         return (
-            f'<h3 class="logday"><a href="{depth_prefix}{day}/">'
-            f"{pretty_day(day)}</a></h3>"
-            + f'<ul class="entry-list loglist">{items}</ul>'
+            f'<li><a href="{prefix}{day}/"><span class="meta">{len(cycles)} '
+            + ("cycle" if len(cycles) == 1 else "cycles")
+            + f'</span><span class="t">{pretty_day(day)}</span>'
+            + f'<span class="s">{titles}{more}</span></a></li>'
         )
 
     index_body = (
         "<h2>Working log</h2>"
-        + '<p class="sub">What each cycle did, what failed, and what it decided. '
-        "One page per day, newest first.</p>"
-        + "".join(day_block(day, cycles, "") for day, cycles in days)
+        + '<p class="sub">What each cycle did, what failed and what it decided. '
+        "One page per day, newest first. This is the raw tape; the essays are the "
+        "considered version.</p>"
+        + '<ul class="entry-list">'
+        + "".join(day_row(day, cycles, "") for day, cycles in days)
+        + "</ul>"
     )
     (site.out / "log" / "index.html").write_text(
         page(site, f"Working log{site.title_sep}{site.title}", index_body,
-             depth=1, aside=rail("../") + search_payload(index_items)),
+             depth=1, path="log/",
+             description="What each cycle of this experiment did, failed at, and decided."),
         encoding="utf-8",
     )
 
-    # Home page shows the last three days as titles plus one line each, which is
-    # scannable; the day pages carry the full text.
-    recent, rest = days[:3], days[3:]
-    log_lead = (
-        "<h2>Working log</h2>"
-        + '<p class="sub">Every cycle writes down what it did, what failed and '
-        "what it decided. Last three days.</p>"
-        + "".join(day_block(day, cycles, "log/") for day, cycles in recent)
-        + (
-            f'<p class="more"><a href="log/">Every day since the start, '
-            f"{len(rest)} more</a></p>"
-            if rest
-            else '<p class="more"><a href="log/">All days</a></p>'
-        )
+    intro_md = (ROOT / "intro.md").read_text(encoding="utf-8")
+
+    essays_body = (
+        "<h2>Essays</h2>"
+        + '<p class="sub">The considered version: why things were done the way '
+        "they were, what broke, and the plan from here.</p>"
+        + f'<ul class="entry-list">{"".join(entry_item(e) for e in process)}</ul>'
+    )
+    (site.out / "essays.html").write_text(
+        page(site, f"Essays{site.title_sep}{site.title}", essays_body,
+             path="essays.html",
+             description="Longer pieces on what this experiment is learning."),
+        encoding="utf-8",
+    )
+    (site.out / "about.html").write_text(
+        page(site, f"About{site.title_sep}{site.title}", render(intro_md),
+             path="about.html",
+             description="What this experiment is, how it works, and what it is trying to prove."),
+        encoding="utf-8",
     )
 
-    intro = render((ROOT / "intro.md").read_text(encoding="utf-8"))
-    dsr_note = (
-        '<div class="note"><strong>Looking for the picks?</strong> The sports '
-        'side of this experiment is its own publication: '
-        f'<a href="{DSR.base_url}/">Detroit Sports Reporter</a> — every call '
-        "made before the game, every grade published after.</div>"
+    intro = render(intro_md)
+    recent, rest = days[:3], days[3:]
+    log_teaser = (
+        "<h2>Working log</h2>"
+        + '<p class="sub">Every cycle writes down what it did, what failed and '
+        "what it decided. The last three days:</p>"
+        + '<ul class="entry-list">'
+        + "".join(day_row(day, cycles, "log/") for day, cycles in recent)
+        + "</ul>"
+        + '<p class="more"><a href="log/">Every day since the start'
+        + (f", {len(rest)} more" if rest else "")
+        + "</a></p>"
     )
     tip = tip_block(
         "<strong>The whole goal is one dollar.</strong> Not a subscription, not "
         "a business — one dollar, from one stranger, because something here was "
         "worth it. If this experiment is worth following, that's the entire ask."
     )
+    # Order matters and this is the order: what this is, the good writing, the
+    # raw log, then housekeeping. It used to open with the log itself, so a
+    # reader met 12,000px of process notes before learning what the project was.
     home = (
-        log_lead
-        + "<h2>Longer pieces</h2>"
+        intro
+        + "<h2>Essays</h2>"
         + f'<ul class="entry-list">{"".join(entry_item(e) for e in process)}</ul>'
+        + log_teaser
         + scoreboard
-        + intro
-        + dsr_note
         + tip
     )
-    write_common(site, process, home,
-                 aside=rail("") + search_payload(index_items))
+    write_common(site, process, home)
 
     # The feed carries the working log, not just the essays. The log is what
     # actually updates every cycle; a feed that only fired when someone wrote a
@@ -977,7 +1045,9 @@ def build_dsr(analysis: list[Entry]) -> None:
     # append-only ledger and wrong for a reader: by October the newest call
     # would be a long scroll down. Reverse the rows at render time so the file
     # stays append-only and the page shows newest first. His call 2026-08-09.
-    picks_html = render(newest_first(picks_md))
+    ordered = newest_first(picks_md)
+    picks_html = (f'<div class="picktable">{render(ordered)}</div>'
+                  + picks_cards(ordered))
 
     # The picks table leads. It is the product, and a reader should hit it
     # before any explanation of it. The old homepage opened with three sentences
@@ -993,45 +1063,90 @@ def build_dsr(analysis: list[Entry]) -> None:
         "paywall, nothing for sale. If a call or a piece was worth something to "
         "you, the tip jar is open."
     )
-    dsr_index = [
-        {"t": e.title, "u": e.url, "k": e.team.title() if e.team else "Analysis",
-         "x": e.summary}
-        for e in analysis
-    ]
     by_team = {}
     for e in analysis:
         by_team.setdefault(e.team or "", []).append(e)
-    dsr_rail = (
-        search_box()
-        + "<h3>Teams</h3>"
-        + "<ul>"
+
+    # Picks and grades are a different product from essays, and they were in one
+    # undifferentiated list where the only marker was a small grey word. Split
+    # them.
+    calls = [e for e in analysis if e.cycle.lower() in ("pick", "grade")]
+    essays = [e for e in analysis if e not in calls]
+
+    teams_block = (
+        '<h2 id="teams">By team</h2>'
+        + '<ul class="entry-list">'
         + "".join(
-            f'<li><a href="team/{slug}/">{full}</a> '
-            f'<span class="cnt">{len(by_team.get(slug, []))}</span></li>'
+            f'<li><a href="team/{slug}/"><span class="t">{full}</span>'
+            f'<span class="meta">'
+            + (
+                f"{len(by_team.get(slug, []))} piece"
+                + ("" if len(by_team.get(slug, [])) == 1 else "s")
+                if by_team.get(slug)
+                else "nothing yet; the page is waiting"
+            )
+            + "</span></a></li>"
             for slug, short, full, *_ in TEAMS
         )
         + "</ul>"
-        + "<h3>Latest</h3>"
-        + "<ul>"
-        + "".join(
-            f'<li><a href="{e.url}">{html.escape(e.title)}</a></li>'
-            for e in analysis[:6]
-        )
-        + "</ul>"
-        + '<h3>Follow</h3><ul><li><a href="feed.xml">Every call and grade by '
-          "RSS</a></li></ul>"
-        + search_payload(dsr_index)
     )
 
     home = (
         team_nav()
+        + '<h2 id="picks">Every call, before the game</h2>'
         + picks_html
         + about
-        + "<h2>Analysis</h2>"
-        + f'<ul class="entry-list">{"".join(entry_item(e) for e in analysis)}</ul>'
+        + (
+            "<h2>The calls, written up</h2>"
+            + f'<ul class="entry-list">{"".join(entry_item(e) for e in calls)}</ul>'
+            if calls
+            else ""
+        )
+        + (
+            "<h2>Analysis</h2>"
+            + f'<ul class="entry-list">{"".join(entry_item(e) for e in essays)}</ul>'
+            if essays
+            else ""
+        )
+        + teams_block
         + tip
     )
-    write_common(site, analysis, home, aside=dsr_rail)
+    write_common(site, analysis, home)
+
+    # A full analysis index, so the nav's "Analysis" goes somewhere real rather
+    # than to an anchor halfway down the homepage.
+    (site.out / "analysis.html").write_text(
+        page(site, f"All analysis{site.title_sep}{site.title}",
+             "<h2>Every piece</h2>"
+             + '<p class="sub">Calls, grades and analysis, newest first.</p>'
+             + f'<ul class="entry-list">{"".join(entry_item(e) for e in analysis)}</ul>',
+             path="analysis.html",
+             description="Every Detroit Tigers, Lions, Pistons and Red Wings piece, newest first."),
+        encoding="utf-8",
+    )
+    (site.out / "about.html").write_text(
+        page(site, f"About{site.title_sep}{site.title}",
+             "<h2>How this works</h2>"
+             + render(
+                 "Every prediction on this site is committed to a public "
+                 f"repository **before** the game starts, at [{REPO}]({REPO}). "
+                 "The commit timestamp is the proof, and git history makes any "
+                 "later edit visible.\n\n"
+                 "Every prediction is then graded after the final out, win or "
+                 "lose. Nothing is deleted and no call is quietly revised.\n\n"
+                 "Confidence has two settings. **High** means I like it and I "
+                 "will look stupid if it misses. **Low** means picking a side is "
+                 "the job, and I will tell you what worries me.\n\n"
+                 "The analysis is built from primary sources: the MLB Stats API "
+                 "for baseball and ESPN's public data for the other three "
+                 "sports. Scripts that produce the numbers live in the same "
+                 "repository, so any figure here can be re-derived.\n\n"
+                 "Nothing here is betting advice."
+             ),
+             path="about.html",
+             description="How the predictions work: committed before the game, graded after, nothing deleted."),
+        encoding="utf-8",
+    )
 
     # Analysis is already newest first, so rank by position within the day: on a
     # day with a grade and a piece, the reader gets them in the order written.
