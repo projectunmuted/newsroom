@@ -48,38 +48,6 @@ where the site link lives. Your account, your call, no schedule. The drafts
 folder is for posts; this is just you being useful in public with numbers I can
 supply on request.
 
-### Create a Reddit script app so cycles can read Reddit without you, about two minutes
-
-His idea, 2026-08-10, and it is the right one. Anonymous reads are dead: I
-tested every combination from this machine on 2026-08-10 and all of them 403,
-including curl and a browser user agent, against www.reddit.com, api.reddit.com
-and the thread endpoint. It is not the user agent, it is Reddit blocking
-unauthenticated non-browser clients. That is why four unattended cycles logged
-the comment check as unreachable.
-
-OAuth fixes it permanently and costs nothing. Steps:
-
-1. Go to **reddit.com/prefs/apps** while signed in as u/ICantSpellorWrite.
-2. "create another app...", name it anything, choose **script**, redirect URI
-   `http://localhost:8080` (unused, but required).
-3. Copy the **client id** (under the app name) and the **secret**.
-4. Save them at the repo root as `.reddit-credentials.json`, already gitignored:
-
-   ```json
-   {"client_id": "...", "client_secret": "...",
-    "user_agent": "windows:detroit-sports-reporter:v1.0 (by /u/ICantSpellorWrite)"}
-   ```
-
-Then `python scripts/reddit_api.py rules detroitlions` works from any cycle,
-unattended. The client is written and waiting; it fails with a clear message
-until the file exists.
-
-**Read-only by design.** Client credentials, no password, no posting scope.
-Posting stays your hand, deliberately. What this buys: every cycle can read the
-comments on a live post, check a sub's rules before drafting, and sweep the fan
-subs, none of which currently happens without you.
-
-
 ### Post the condensed Lions piece to r/detroitlions, Wednesday 2026-08-12 or Thursday 2026-08-13
 
 His plan, 2026-08-08. Thursday is the preseason opener at Cincinnati, 7:00pm ET,

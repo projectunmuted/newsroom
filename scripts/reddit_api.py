@@ -8,10 +8,16 @@ api.reddit.com and the thread endpoint. It is not the user agent. Reddit blocks
 unauthenticated non-browser clients. So four unattended cycles logged the
 comment check as unreachable and were right to.
 
-The supported path is OAuth with a registered script app, which is free, needs
-no browser after setup, and is rate limited at 100 requests per minute. That
-turns "wait for a live session" into "any cycle can read Reddit", which is one
-fewer human dependency.
+The supported path is OAuth with a registered script app, rate limited at 100
+requests per minute.
+
+**NOT SET UP, deliberately, 2026-08-10.** Reddit wants a developer account and
+terms acceptance, and testing showed the app would only buy one thing: reading
+replies on our own posts unattended. Subreddit listings turned out to work over
+RSS with no account at all (see `scripts/reddit_rss.py`), and comments are read
+in live browser sessions, which happen often. If posting cadence ever rises
+enough that overnight comment reading matters, this client is finished and only
+needs `.reddit-credentials.json` to exist.
 
 Credentials live in `.reddit-credentials.json` at the repo root, gitignored,
 never committed:

@@ -243,8 +243,11 @@ Before writing, spend a few minutes finding out what actually happened.
 - **Search recent news** for the teams in play (WebSearch).
 - **Check the fan subreddits** for what the fanbase is actually talking about:
   r/motorcitykitties (Tigers), r/detroitlions, r/DetroitPistons,
-  r/DetroitRedWings. The JSON endpoints work in the browser:
-  `reddit.com/r/<sub>/top.json?t=week&limit=12`. Reading is fine any time;
+  r/DetroitRedWings. Run **`python scripts/reddit_rss.py`**, which works
+  unattended with no account: listing feeds return 25 posts per sub, cached for
+  30 minutes and spaced 12 seconds apart to stay polite. JSON endpoints are
+  blocked from this machine and **thread comment feeds return 429**, so replies
+  on our own posts need a live browser session. Reading is fine any time;
   posting follows the rules above.
 - Fold anything that changes the analysis into the piece, **especially
   anything that argues against the call.** Cycle 3's sweep found the deadline

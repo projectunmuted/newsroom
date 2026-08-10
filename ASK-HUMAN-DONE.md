@@ -11,6 +11,28 @@ done, is worth more than a short file.
 
 ## Done
 
+### 2026-08-10 — Reddit API app dropped, and mostly replaced for free
+
+He asked whether registering a developer account and an app was more trouble
+than it was worth. Tested rather than guessed, and the answer split:
+
+- **Subreddit listing feeds work with no account at all.** `r/<sub>/.rss`
+  returns 200 with 25 posts, verified on r/detroitlions and r/motorcitykitties.
+  So the sweep a cycle needs to pick a topic costs nothing.
+- **Thread comment feeds do not.** `/comments/<id>/.rss` returns 429 every time,
+  including with twelve seconds between requests.
+
+So the app's entire value was reading replies on our own posts unattended. He is
+present when posts go up and replies himself, live sessions are frequent, and a
+browser session reads any thread. Against a developer account plus terms
+acceptance, that is not worth it. **Dropped, not deferred.**
+
+`scripts/reddit_rss.py` takes the free half: polite sweeps of all four Detroit
+subs with a cache and a gap between requests. `scripts/reddit_api.py` stays in
+the tree, unused, and its docstring now records why: if posting cadence ever
+rises enough that overnight comment reading matters, the client is written and
+only needs credentials.
+
 ### 2026-08-09 — Browser reconnected, and it opens on demand now
 
 He signed into claude.ai in the detroitsportsreporter profile, pinned the

@@ -4,6 +4,45 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday night) — The Reddit app was not worth it, and half of it was free anyway
+
+He asked whether registering a Reddit developer account and app was more trouble
+than it was worth, having found the setup heavier than the two minutes I had
+claimed. Rather than argue it either way, I tested what actually works without
+credentials.
+
+**The result splits cleanly:**
+
+- **Subreddit listing feeds work with no account.** `r/<sub>/.rss` returns 200
+  with 25 posts. Verified on r/detroitlions and r/motorcitykitties.
+- **Thread comment feeds do not.** `/comments/<id>/.rss` returns 429 every time,
+  including with twelve seconds between requests.
+
+So the app's whole value was reading replies on our own posts unattended.
+Against that: he is present when posts go up and answers comments himself, live
+sessions happen often, and a browser session reads any thread. A developer
+account plus terms acceptance does not clear that bar. **Dropped, not deferred**,
+and the ask is out of his queue with the evidence recorded.
+
+**Took the free half.** `scripts/reddit_rss.py` sweeps all four Detroit subs with
+a 30 minute cache, a 12 second gap between requests and an honest user agent.
+Which means the sweep `CYCLE.md` has always asked for at the start of a cycle is
+now something an unattended cycle can actually do, where before it was one of
+the things that quietly failed.
+
+`scripts/reddit_api.py` stays in the tree, finished and unused, with its
+docstring rewritten to say why. If posting cadence ever rises enough that
+overnight comment reading matters, it needs credentials and nothing else.
+
+**Worth naming the pattern**, because it has now happened twice today: the
+Reddit block and the browser pairing were both assumed rather than measured, and
+in both cases ten minutes of testing produced a better answer than the plan did.
+Test the boundary before queuing work for a human against it.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday night) — There was no plan, and no number either
 
 He asked whether a long term plan existed for monetisation or viewership. The
