@@ -96,7 +96,7 @@ JOURNAL = Site(
 DSR = Site(
     key="dsr",
     title="Detroit Sports Reporter",
-    tagline="Every call made before the game. Every grade published after. No exceptions, no deletions.",
+    tagline="Analysis and picks. Tigers, Lions, Pistons, Red Wings.",
     out=ROOT / "docs_dsr",
     accent_light="#0b6bab",   # Honolulu-blue adjacent
     accent_dark="#6db3e8",
@@ -329,16 +329,30 @@ body{margin:0;background:var(--bg);color:var(--fg);
   font:17px/1.65 Georgia,"Iowan Old Style","Times New Roman",serif;
   overflow-x:hidden}
 .wrap{max-width:40rem;margin:0 auto;padding:0 1.25rem}
-header{border-bottom:1px solid var(--rule);margin-bottom:2.5rem}
-.band{overflow:hidden;line-height:0;color:var(--accent)}
-.band .skyline{display:block;width:100%;height:auto;max-height:104px;
-  opacity:.9}
-@media(max-width:44rem){.band .skyline{max-height:64px}}
-@media(prefers-reduced-motion:no-preference){.band .skyline{transition:color .2s}}
-header .wrap{padding-top:2.25rem;padding-bottom:1.25rem}
-h1{font-size:2.1rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.02em}
-h1 a{color:inherit;text-decoration:none}
-.tagline{color:var(--muted);font-size:1.05rem;margin:0}
+header{border-bottom:1px solid var(--rule);margin-bottom:1.5rem}
+header.hero{position:relative;border-bottom:0;margin-bottom:0}
+header.plain{margin-bottom:2.5rem}
+header.plain h1{font-size:2.1rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.02em}
+header.plain h1 a{color:inherit;text-decoration:none}
+header.plain .tagline{color:var(--muted);font-size:1.05rem;margin:0}
+header.plain .hero-text{max-width:40rem;margin:0 auto;padding:2.25rem 1.25rem 1.25rem}
+.band{position:relative;line-height:0;overflow:hidden;background:var(--wash)}
+.band img{display:block;width:100%;height:230px;object-fit:cover;
+  object-position:50% 56%;filter:saturate(.95) contrast(1.02)}
+.band::after{content:"";position:absolute;inset:0;background:var(--wash);
+  mix-blend-mode:multiply;opacity:.26}
+.band::before{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.28) 42%,rgba(0,0,0,0) 78%)}
+.hero .hero-text{position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:0 1.5rem 1.1rem;line-height:1.2}
+.hero h1{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.45);font-size:2.4rem;
+  margin:0 0 .2rem}
+.hero h1 a{color:inherit}
+.hero .tagline{color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.5);
+  font-size:1rem;margin:0;letter-spacing:.01em}
+.navbar{border-bottom:1px solid var(--rule);margin-bottom:2.5rem;
+  padding:0 1.5rem}
+.navbar h1 a{color:inherit;text-decoration:none}
 h2{font-size:1.35rem;margin:2.75rem 0 .75rem;letter-spacing:-.01em}
 h3{font-size:1.1rem;margin:2rem 0 .5rem}
 a{color:var(--accent)}
@@ -376,6 +390,15 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .stat .n{display:block;font-size:1.6rem;line-height:1.1;letter-spacing:-.02em}
 .stat .k{display:block;font-size:.7rem;text-transform:uppercase;
   letter-spacing:.07em;color:var(--muted);margin-top:.3rem}
+.sitenav{margin:0}
+.navbar .sitenav ul{padding:.7rem 0}
+@media(max-width:44rem){.band img{height:168px}
+  .hero h1{font-size:1.7rem}
+  .hero .tagline{font-size:.92rem}
+  .hero .hero-text{padding:0 1.1rem .9rem}
+  .navbar{padding:0 1.1rem}}
+@media(prefers-color-scheme:dark){.band img{filter:saturate(.85) brightness(.8)}
+  .band::after{opacity:.3}}
 .sitenav{margin-top:1rem}
 .sitenav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
   gap:0 1.4rem;font-size:.9rem}
@@ -436,21 +459,26 @@ def css_for(site: Site) -> str:
     )
 
 
-SKYLINE = """<svg class="skyline" viewBox="0 0 1200 110" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M40 110V52h9V30h5v22h9v58Z"/><path d="M232 110V52h9V30h5v22h9v58Z"/><path d="M49 32Q145 92 241 32" fill="none" stroke="currentColor" stroke-width="3"/><path d="M49 32Q145 92 241 32" fill="none" stroke="currentColor" stroke-width="0" /><g stroke="currentColor" stroke-width="1.6" opacity=".75"><path d="M73 44V70M97 55V70M121 62V70M145 64V70M169 62V70M193 55V70M217 44V70"/></g><rect x="30" y="69" width="222" height="4"/><g stroke="currentColor" stroke-width="2" opacity=".22"><path d="M74 86h64M156 86h58M96 96h56M170 96h44M66 106h40M124 106h72"/></g><path d="M0 110V86h26V74h14v36Z" opacity=".9"/><path d="M264 110V80h22V66h12v44Z" opacity=".9"/><path d="M310 110V58h20V44l10-12 10 12v14h20v52Z"/><path d="M388 110V70h30V56h16v54Z" opacity=".9"/><path d="M448 110V40h10V24h4V10h4v14h4v16h10v70Z"/><path d="M506 110V76h34V62h12v48Z" opacity=".9"/><path d="M566 110V46h12V30h8V18h4v12h8v16h12v64Z"/><path d="M626 110V82h30V70h14v40Z" opacity=".9"/><rect x="682" y="46" width="30" height="64" rx="15"/><rect x="716" y="46" width="30" height="64" rx="15"/><rect x="694" y="16" width="46" height="94" rx="23"/><rect x="750" y="52" width="28" height="58" rx="14"/><rect x="654" y="52" width="28" height="58" rx="14"/><path d="M792 110V78h32V64h14v46Z" opacity=".9"/><path d="M852 110V54h14V38h6V26h4v12h6v16h14v56Z"/><path d="M912 110V84h30V72h14v38Z" opacity=".9"/><path d="M970 110V62h22V48h18v62Z"/><path d="M1024 110V80h28V68h14v42Z" opacity=".9"/><path d="M1080 110V56h16V42h4V30h4v12h4v14h16v54Z"/><path d="M1138 110V86h30V74h32v36Z" opacity=".9"/><rect x="0" y="106" width="1200" height="4"/></g></svg>"""
 
 
-def skyline_band(color: str = "") -> str:
-    """The one piece of imagery on the site: a drawn Detroit riverfront.
+def skyline_band(color: str = "", up: str = "") -> str:
+    """The Detroit riverfront at sunset, washed in the page's colour.
 
-    Deliberately not a photograph. It is one path set tinted by `currentColor`,
-    which means the same 2KB asset renders in the site accent on the homepage
-    and in a team's own colour on that team's page, works in light and dark
-    without a second file, needs no attribution, and carries no licensing
-    question. Team logos are trademarks and are never used; team colours are
-    not protectable and are used everywhere.
+    One CC0 photograph from Wikimedia Commons, cropped to a band. Team pages
+    wash it in that team's colour with a multiply blend, so the same image reads
+    as Tigers navy or Lions blue without shipping four files. A drawn skyline
+    came first and looked like any city; this one is Detroit.
     """
-    style = f' style="color:{color}"' if color else ""
-    return f'<div class="band"{style}>{SKYLINE}</div>'
+    tint = color or "var(--accent)"
+    return (
+        f'<div class="band" style="--wash:{tint}">'
+        f'<picture>'
+        f'<source media="(max-width:44rem)" srcset="{up}assets/skyline-narrow.jpg">'
+        f'<img src="{up}assets/skyline.jpg" alt="The Detroit skyline across the '
+        f'river at sunset" width="1920" height="456" loading="eager" '
+        f'decoding="async">'
+        f"</picture></div>"
+    )
 
 
 def home_title(site: Site) -> str:
@@ -505,7 +533,7 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
     # The skyline belongs to the sports site. The journal is about an
     # experiment, not about Detroit, and borrowing the imagery would blur two
     # things that are deliberately separate.
-    banner = skyline_band(accent) if site.key == "dsr" else ""
+    banner = skyline_band(accent, up) if site.key == "dsr" else ""
     canonical = f"{site.base_url}/{path}"
     # Every share of this site to Reddit, Discord or iMessage used to render as
     # a bare grey link: there was no og:image anywhere. Sharing is the only
@@ -558,11 +586,12 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
 <style>{css_for(site)}</style>
 </head>
 <body>
-<header><div class="wrap">
-<h1><a href="{up}index.html">{site.title}</a></h1>
-<p class="tagline">{site.tagline}</p>
-{site_nav(site, up)}
-</div>{banner}</header>
+<header class="{'hero' if site.key == 'dsr' else 'plain'}">
+{banner}
+<div class="hero-text"><h1><a href="{up}index.html">{site.title}</a></h1>
+<p class="tagline">{site.tagline}</p></div>
+</header>
+<div class="navbar">{site_nav(site, up)}</div>
 {layout_open}
 {main_open}
 {body}
@@ -667,7 +696,21 @@ def write_entry_pages(site: Site, entries: list[Entry]) -> None:
         )
 
 
+def copy_assets(site: Site) -> None:
+    """Static files that are not generated. `build.py` wipes the output
+    directory every run, so anything hand-made has to be copied back in."""
+    src = ROOT / "assets"
+    if not src.exists():
+        return
+    dest = site.out / "assets"
+    dest.mkdir(parents=True, exist_ok=True)
+    for f in src.iterdir():
+        if f.is_file():
+            shutil.copy2(f, dest / f.name)
+
+
 def write_common(site: Site, entries: list[Entry], home: str) -> None:
+    copy_assets(site)
     (site.out / "index.html").write_text(
         page(site, home_title(site), home, path="",
              description=site.tagline), encoding="utf-8"
@@ -1167,7 +1210,12 @@ def build_dsr(analysis: list[Entry]) -> None:
                  "for baseball and ESPN's public data for the other three "
                  "sports. Scripts that produce the numbers live in the same "
                  "repository, so any figure here can be re-derived.\n\n"
-                 "Nothing here is betting advice."
+                 "Nothing here is betting advice.\n\n"
+                 "The skyline photograph is released under CC0 and comes from "
+                 "[Wikimedia Commons]"
+                 "(https://commons.wikimedia.org/wiki/File:Detroit_Skyline_(123143197).jpeg). "
+                 "No team logos or marks appear anywhere on this site; the "
+                 "colours are just colours."
              ),
              path="about.html",
              description="How the predictions work: committed before the game, graded after, nothing deleted."),

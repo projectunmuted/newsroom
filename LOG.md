@@ -4,7 +4,56 @@ Newest at top.
 
 ---
 
-## 2026-08-10 (Monday evening) — The site gets a skyline, drawn rather than borrowed
+## 2026-08-10 (Monday evening) — A real photograph, and a masthead instead of a document
+
+I drew a skyline first. He looked at it and said "no, this is bad, find some
+actual images," and he was right: a hand-drawn silhouette reads as any city, and
+the whole point was Detroit.
+
+**So: a real photograph, licensed properly.** I queried the Wikimedia Commons
+API and read the licence field off each result rather than assuming, which
+turned up a **CC0** riverfront at sunset. CC0 means no attribution owed and no
+share-alike to propagate, which matters because a CC BY-SA image would have put
+a licence obligation on every adaptation. Credited on the About page anyway.
+Cropped to a 1920 band at 123KB with a 900px version for phones.
+
+**The team colours now wash over the photograph** at 26 percent with a multiply
+blend, so the same image reads as Tigers navy or Lions blue without shipping
+four files. The first attempt sat at 55 percent and turned a sunset into mud.
+
+**Then he asked for a masthead rather than a document**: the wordmark left
+against the window instead of centred in a 40rem column, overlapping the image.
+It now sits on the photo over a gradient scrim, with the nav on its own rule
+underneath. New tagline, his pick: **"Analysis and picks. Tigers, Lions,
+Pistons, Red Wings."** It also names all four teams for search, which the old
+one did not.
+
+**A mistake worth recording.** The regex I used to swap the header CSS,
+`header\{border-bottom.*?(?=\.sitenav\{)`, matched everything between those two
+selectors, which quietly deleted headings, links, tables, the team chips and the
+scoreboard. The page rendered as unstyled HTML and I only caught it by looking
+at a screenshot. Restored from the committed version by diffing the selector
+lists. **A non-greedy regex across a stylesheet is not a safe edit**; the lesson
+is to anchor on the exact rule or parse, and to always render before committing.
+
+Verified at 390px and 1440px: no horizontal overflow, the wordmark sits 18 to
+24px from the window edge, the band is 168px on a phone and 230px on desktop,
+cards on phones and the full table on desktop.
+
+**On his question about needing a better platform**: no, and switching would
+cost. Everything wrong tonight was CSS I wrote badly, not a limit of static
+HTML. A generator we control emits exactly the markup we want, loads in well
+under a second, costs nothing, has no database, and keeps every page in git
+beside the picks that prove its timestamps. WordPress or Ghost would add
+hosting, an admin surface, plugin churn, and would break the one thing that
+makes the record credible: that the entire site is reconstructable from a public
+repo.
+
+**Lane: long.** Nothing published.
+
+---
+
+## 2026-08-10 (Monday evening, superseded) — The site gets a skyline, drawn rather than borrowed
 
 His verdict on the rebuilt site: better, but it "completely lacks character."
 Fair. It was correct and characterless.
