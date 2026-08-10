@@ -8,6 +8,23 @@ twice a day and costs tokens; this one is pure git, costs nothing, and should
 run often. Keeping them apart means a wedged cycle cannot stop the syncing, and
 sync noise cannot be mistaken for cycle activity.
 
+REGISTERED 2026-08-10, but not by this script. `Register-ScheduledTask` returned
+Access Denied on this machine for creating a new task, while modifying an
+existing one worked fine. `schtasks.exe` created it without elevation:
+
+    $cmd = '\"powershell.exe\" -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"C:\Users\stanl\Project Folder\Claude_Experiment\scripts\sync-repo.ps1\" -Quiet'
+    schtasks.exe /Create /TN "Dollar Experiment Sync" /TR $cmd /SC HOURLY /F
+
+then StartWhenAvailable was set with Set-ScheduledTask afterwards, which is
+allowed. Note the backslash-escaped quotes: schtasks needs them and fails with
+"Invalid argument/option" without them.
+
+The at-logon trigger this script asks for also needs elevation and is NOT
+registered. Hourly plus StartWhenAvailable covers the same ground a few minutes
+slower: a laptop that slept through a cycle catches up at the next tick after
+waking. If it is ever wanted properly, run this script from an elevated
+PowerShell.
+
 Remove it with:
     Unregister-ScheduledTask -TaskName 'Dollar Experiment Sync' -Confirm:$false
 #>

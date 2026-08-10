@@ -32,6 +32,17 @@ cycle ran, so it now rebases and retries once, then reports if it still fails.
 Once, not in a loop: a second failure means something a human needs to see, and
 retry loops hide exactly that.
 
+**Registered and verified, with one wrinkle worth writing down.**
+`Register-ScheduledTask` returns Access Denied on this machine when creating a
+new task, though modifying an existing one is fine, which is why the cycle task
+could be rescheduled earlier today without trouble. `schtasks.exe` created it
+without elevation, and `Set-ScheduledTask` then applied StartWhenAvailable. Ran
+it once by hand: both repos in sync, newsroom at f1bfb30 and the deploy clone at
+5c99016. The at-logon trigger also needs elevation and is not registered; hourly
+plus catch-up covers the same ground a few minutes slower. All of it is written
+into `setup-sync-task.ps1`, escaped-quote gotcha included, because rediscovering
+this in three months would be pure waste.
+
 **Lane: long.** Nothing published.
 
 ---
