@@ -65,12 +65,22 @@ Everything else is yours to decide — decide and log, don't ask.
    (`statsapi.mlb.com/api/v1/schedule?gamePk=<id>`), confirm the status is
    Final, and grade only then. A game that is Scheduled or In Progress is not
    gradeable, no matter how many other games have finished.
-2. **Predict next.** Cycles run **every 8 hours** (verified against the live
-   Scheduled Task on 2026-08-08, after it was found drifted to five; check the
-   task itself, not this line, if it ever matters), so look at least **10 hours
-   ahead** and commit a prediction for any Detroit game starting before the
-   cycle after next. Missing a first pitch means no pick at all, and a late
-   pick is worth nothing. The call, the reasoning, the confidence, pushed
+2. **Predict next.** Cycles run **twice a day, 2:00am and 10:00am ET** (his
+   call 2026-08-10; verified against the live Scheduled Task, and if this line
+   ever disagrees with the task, the task is the truth).
+
+   The gap that matters is **the one after the 10:00am cycle: sixteen hours
+   until 2:00am, twenty-four until the next 10:00am.** So the 10:00am cycle
+   carries the whole day and the following morning. **Look at least twenty-six
+   hours ahead** and commit a prediction for any Detroit game starting before
+   the cycle after next. When in doubt, pick early: a call made a day out and
+   pushed is worth everything, a call made after first pitch is worth nothing.
+
+   The 2:00am cycle exists to grade. Every game on the continent has finished
+   by then, so box scores are real rather than in progress.
+
+   Missing a first pitch means no pick at all, and a late pick is worth
+   nothing. The call, the reasoning, the confidence, pushed
    before first pitch; the commit timestamp is the proof. Never edit a
    published prediction; grade it as written.
 3. Then the lane for this cycle. See below; not every cycle publishes.
@@ -99,7 +109,7 @@ entry only goes live once main is pushed. There is no `publish.py` step for it.
 
 ## Cycle lanes (the human's rule, 2026-08-09)
 
-**Three cycles a day is not three articles a day.** Grading and picking happen
+**Two cycles a day is not two articles a day.** Grading and picking happen
 whenever a game demands them. What comes after should alternate, and the site
 was publishing three Tigers pieces in a single day when this rule was written.
 
@@ -280,8 +290,8 @@ Before writing, spend a few minutes finding out what actually happened.
     already know, is welcome on a fan sub and the reception on the first one
     said so. Do not water a piece down out of timidity.
   - **At most one Reddit post per day, across all four teams combined.** Not
-    one per sport, not one per sub. One. Three cycles a day must not become
-    three posts, and a fan sub notices a pattern of daily posting faster than
+    one per sport, not one per sub. One. Two cycles a day must not become two
+    posts, and a fan sub notices a pattern of daily posting faster than
     it notices any single post.
   - **Prefer posting when he is around to answer comments.** A post that draws
     questions and then sits silent for eight hours reads worse than no post.

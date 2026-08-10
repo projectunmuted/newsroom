@@ -4,6 +4,41 @@ Newest at top.
 
 ---
 
+## 2026-08-10 (Monday morning) — Two cycles a day, on the clock instead of on a timer
+
+His call, and it fixes something the interval could never fix. Cycles now run at
+**2:00am and 10:00am ET** as two fixed daily triggers, replacing "every N hours
+from whenever the task was last registered", which is how the cadence quietly
+drifted to five hours in the first place. A clock time cannot drift.
+
+The times are chosen rather than round numbers. **2:00am** is after every game
+on the continent has finished, so grading works from real box scores instead of
+a game still in progress, which was already the most common reason a cycle had
+nothing to grade. **10:00am** is hours before any first pitch or kickoff, so a
+pick lands well before the game and a Reddit post has the whole day to breathe
+rather than going up at midnight.
+
+**The picking rule had to change with it, and this is the part that could have
+silently cost a pick.** Three cycles a day meant the next one was eight hours
+out and the rule said look ten hours ahead. Two cycles a day makes the gap after
+the 10:00am run **sixteen hours to the 2:00am cycle and twenty-four to the next
+10:00am**. So the look-ahead is now **twenty-six hours**, and the 10:00am cycle
+carries the whole day plus the following morning. Keeping the old ten-hour
+window would have meant an evening game getting picked at 2:00am, which is to
+say hours after it ended.
+
+Adjust ad hoc when the calendar demands it. An early international kickoff is
+the obvious case: add a one-off trigger for that day rather than reshaping the
+daily two.
+
+Verified against the live task: two triggers, 02:00 and 10:00, state Ready, next
+run 10:00 today. `setup-cycle-task.ps1` rewritten to match, so re-running it
+cannot revert the schedule to the old interval.
+
+**Lane: long.** Nothing published.
+
+---
+
 ## 2026-08-10 (Monday) — The deadline is a milestone, the journal is the thinking, and Reddit gets one post a day
 
 Four decisions from him, all of which change standing rules rather than a single

@@ -1,6 +1,6 @@
 <#
 Registers (or re-registers) the Windows Scheduled Task that runs one cycle of
-the Dollar Experiment every 8 hours.
+the Dollar Experiment twice a day, at 2:00am and 10:00am local time.
 
     powershell -File setup-cycle-task.ps1
 
@@ -37,11 +37,21 @@ $action = New-ScheduledTaskAction `
     -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$Script`"" `
     -WorkingDirectory $Repo
 
-# Every 8 hours, forever, starting 5 minutes from now. Baseball gives roughly
-# two meaningful moments a day (grade after last night, pick before tonight),
-# so 3 cycles a day covers the rhythm without generating filler.
-$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(5) `
-    -RepetitionInterval (New-TimeSpan -Hours 8)
+# Twice a day at fixed clock times, his call 2026-08-10, replacing an interval
+# that drifted with whenever the task was last registered.
+#
+#   02:00 ET - after every game on the continent has finished, so grading has
+#              real box scores rather than a game still in progress.
+#   10:00 ET - hours before first pitch or kickoff, so a pick lands before the
+#              game and a post has the whole day to breathe.
+#
+# Two is deliberately fewer than the old three. Three cycles a day produced
+# three pieces about one team in a day, and the fix was fewer, better cycles.
+# Adjust ad hoc when the calendar demands it, an early international kickoff
+# being the obvious case: add a one-off trigger, do not reshape the daily two.
+$morning = New-ScheduledTaskTrigger -Daily -At 2:00AM
+$midday = New-ScheduledTaskTrigger -Daily -At 10:00AM
+$trigger = [Microsoft.Management.Infrastructure.CimInstance[]]@($morning, $midday)
 
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
@@ -60,14 +70,14 @@ if (Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue) {
 
 Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger `
     -Settings $settings -Principal $principal `
-    -Description 'Runs one autonomous cycle of the Dollar Experiment (see CYCLE.md). Every 8 hours while logged on.' | Out-Null
+    -Description 'Runs one autonomous cycle of the Dollar Experiment (see CYCLE.md). 2:00am and 10:00am daily, while logged on.' | Out-Null
 
 $t = Get-ScheduledTask -TaskName $TaskName
 $i = $t | Get-ScheduledTaskInfo
 Write-Output "registered '$TaskName'"
 Write-Output "  state:    $($t.State)"
 Write-Output "  next run: $($i.NextRunTime)"
-Write-Output "  every:    8 hours, wakes the machine from sleep"
+Write-Output "  when:     2:00am and 10:00am daily, wakes the machine from sleep"
 Write-Output ""
 
 # WakeToRun is only honoured if the active power plan allows wake timers. Report
