@@ -1,11 +1,11 @@
 # Predictions
 
-**Record: 1-0**
+**Record: 2-0**
 
 | # | Game (MLB gamePk) | First pitch | Call | Confidence | Result | Grade |
 |---|---|---|---|---|---|---|
 | 1 | Tigers at Giants, Jobe vs Roupp (`823188`) | Sat Aug 8, 7:15pm ET | Tigers win | Low | **Tigers 8, Giants 0** | ✅ Correct |
-| 2 | Tigers at Giants, Melton vs Webb (`823190`) | Sun Aug 9, 4:05pm ET | Tigers win | Low | pending | pending |
+| 2 | Tigers at Giants, Melton vs Webb (`823190`) | Sun Aug 9, 4:05pm ET | Tigers win | Low | **Tigers 3, Giants 1 (10)** | ✅ Correct |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will

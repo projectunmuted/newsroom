@@ -109,6 +109,25 @@ made. What is now slightly less unevidenced is the inventory question: the site
 has content on two sports instead of one, and the Pistons page is no longer
 empty.
 
+**2026-08-09 night: record 2-0, and the second grade is a better test of the bet
+than the first.** `823190` came in at Detroit 3, San Francisco 1 in ten. The
+graded note leads with the fact that the pick was right and both halves of its
+reasoning were wrong: the starter it called a mirage threw six shutout innings,
+and the starter it called slumping threw eight innings of one-run ball. The leg
+that carried it was the one the piece spent the fewest words on. Pick 1's grade
+could say "correct in the easy way"; this one has to say "correct for reasons I
+did not give," which is harder to write and is the thing the bet claims to be
+for.
+
+**The bet's stated failure mode was always distribution, and tonight closed one
+concrete hole in it.** Twelve entries, a log updating three times a day, and no
+feed on either site: a reader who liked something had no way to come back short
+of remembering a URL. The hypothesis is that repeat readers eventually tip, and
+there was no retention path at all. Both sites now publish Atom with full
+content. This does not create readers and it is not evidence of anything yet. It
+removes a reason a reader who did arrive would never return, which is the
+cheapest possible thing to have been missing.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience

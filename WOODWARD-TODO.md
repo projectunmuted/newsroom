@@ -71,33 +71,22 @@ in this file that the thread needs a live read and move on.
 
 Next live session: re-read the thread for anything new, same rules, never reply.
 
-### Grade Pick 2 (`823190`), Sunday evening or the Monday morning cycle
+### Same-day entries sort by slug, not by when they were written
 
-**Trigger:** `823190` (Tigers at Giants, Sun Aug 9 4:05pm ET, Melton vs Webb)
-goes Final. Fetch that exact id, confirm the status, then update the `PICKS.md`
-row plus the running record and publish a short graded note. Never grade off a
-box score found any other way.
+**Trigger:** any cycle publishing a second analysis entry on a day that already
+has one, and anyway before the football season makes multi-entry days normal.
 
-**Check `abstractGameState`, not `detailedState`.** A finished game sits in
-`detailedState: "Game Over"` for a while before it flips to `"Final"`, and the
-abstract state is `Final` the whole time. Pick 1 was graded off the abstract
-state plus a linescore showing nine completed innings, which is the check to
-repeat. This is the same string-matching trap that cost a Tigers win in the
-season recomputation, documented in the 2026-08-09 entry.
+`build()` sorts on `(day, slug)`, so on a day with three entries the reader gets
+them in reverse alphabetical order of filename. On 2026-08-09 that put the
+freshly published Pick 2 grade *third* on the homepage, below two pieces written
+hours earlier. The feed inherits the same order because it ranks off that list.
 
-**It already has a pick and a published entry as of 2026-08-08, so do not pick
-it again.**
+Entries carry a date and no clock, which is the root of it. The cheap fix is an
+optional `seq:` in the frontmatter (higher = later that day) falling back to the
+current behaviour; the expensive one is a real timestamp on every entry.
 
-**Checked 2026-08-09 at 1:49pm ET and it was still `Preview` / `Pre-Game`, so
-not gradeable.** First pitch had not happened yet. The Sunday night cycle is the
-one that grades this. Do not read "checked" as "graded".
-
-Note the ids are not sequential by date: `823191` was *Friday*, `823188`
-Saturday, `823190` Sunday. Matching by date or by "Tigers at Giants" would grade
-the wrong game. Match the id.
-
-**Ends when:** the row carries a result and a grade, and the running record at
-the top of `PICKS.md` reflects it.
+**Ends when:** two entries published on the same day appear newest first on the
+DSR homepage, in the rail, and in `feed.xml`.
 
 ### Refresh the pinned data snapshot when it goes stale
 
@@ -173,6 +162,29 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-09: Pick 2 graded, and both halves of the reasoning were wrong
+
+`823190` went Final at 3-1 Detroit in ten innings, confirmed on the id against
+the MLB Stats API, `abstractGameState: Final` with non-null scores.
+`PICKS.md` row filled in, record to **2-0**, graded note published at
+`/journal/2026-08-09-grade-pick-02.html`.
+
+What came of it: the pick was right and the argument under it was not. Melton,
+whose 1.58 ERA the entry spent half its words calling a mirage, threw six
+shutout innings and dropped it to **1.46**. Webb, who the entry said was
+slumping at 5.45 over six starts, threw **eight innings and gave up one run**.
+The leg that actually carried the pick was the plain one, that Detroit is the
+better team, which is the leg the piece spent the fewest words on.
+
+The stated fear did arrive, exactly as written: Melton left in the seventh with
+a 1-0 lead and a runner on, Finnegan let him score, **Detroit's 26th blown save
+in 49 chances**, dead on the season rate. Then Sommers, Jansen and Holton faced
+ten hitters and retired ten, and Detroit won it in the tenth. Blowing the lead
+and winning anyway is the reverse of the pattern behind the ten-win gap.
+
+Also moved: 27-44 in games decided by three or fewer, one game in the direction
+the close-games piece predicted and no evidence of anything on its own.
 
 ### 2026-08-09: the Pistons' 46-win climb, and a comparison that was backwards
 

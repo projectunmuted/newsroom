@@ -84,7 +84,9 @@ JOURNAL = Site(
         f'receipts. The sports side of this experiment lives at '
         f'<a href="https://detroitsportsreporter.com/">'
         f'Detroit Sports Reporter</a>.</p>'
-        f'<p><a href="{KOFI}">Tip a dollar</a> if any of this was worth one.</p>'
+        f'<p><a href="https://project-unmuted.com/feed.xml">Follow by RSS</a> to '
+        f'get each cycle as it lands. '
+        f'<a href="{KOFI}">Tip a dollar</a> if any of this was worth one.</p>'
     ),
     indexnow_key="feb8794bd1ad04e35e0b665074c410f2",
     google_verify="googleda5d6072f735384c.html",
@@ -111,7 +113,9 @@ DSR = Site(
         f'<p>Every pick is committed to a <a href="{REPO}">public repository</a> '
         f'before the game starts and graded after the final out. The commit '
         f'timestamps are the receipts. Nothing here is betting advice.</p>'
-        f'<p><a href="{KOFI}">Leave a tip</a> if a pick or a piece was worth it.</p>'
+        f'<p><a href="https://detroitsportsreporter.com/feed.xml">Follow by RSS</a> '
+        f'to get every call and every grade as it posts. '
+        f'<a href="{KOFI}">Leave a tip</a> if a pick or a piece was worth it.</p>'
     ),
     indexnow_key="ab1ce51275719ae3374e8b349b967087",
     title_sep=" | ",   # no em dashes anywhere reader-facing on DSR
@@ -445,6 +449,7 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
     desc = description or site.tagline
     canonical = f"{site.base_url}/{path}"
     og = f"""<link rel="canonical" href="{canonical}">
+<link rel="alternate" type="application/atom+xml" title="{html.escape(site.title)}" href="{site.base_url}/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
@@ -567,6 +572,66 @@ def write_common(site: Site, entries: list[Entry], home: str,
     (site.out / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\nSitemap: {site.base_url}/sitemap.xml\n",
         encoding="utf-8",
+    )
+
+
+@dataclass
+class FeedItem:
+    """One thing a subscriber should be told about."""
+    title: str
+    path: str            # site-relative, e.g. "journal/foo.html" or "log/2026-08-09/"
+    day: date
+    rank: int            # position within its day; 0 is the newest that day
+    summary: str
+    html_body: str
+
+
+def rfc3339(day: date, rank: int) -> str:
+    """Entries carry a date and no clock. Feed readers sort on the timestamp, so
+    rank within the day becomes the minute: rank 0 is the latest that day. Stable
+    across rebuilds, which matters because an id whose timestamp jumps around can
+    resurface an old item as unread."""
+    minute = max(0, 59 - rank)
+    return f"{day.isoformat()}T12:{minute:02d}:00Z"
+
+
+def feed_xml(site: Site, items: list[FeedItem]) -> str:
+    """Atom 1.0. The one channel that judges the artifact rather than the author,
+    costs nothing, and needs no account on either side. Until this existed, a
+    reader who liked one piece had no way to hear about the next one."""
+    domain = site.custom_domain or "projectunmuted.github.io"
+    year = items[0].day.year if items else date.today().year
+    updated = rfc3339(items[0].day, items[0].rank) if items else rfc3339(date.today(), 0)
+
+    def entry(i: FeedItem) -> str:
+        url = f"{site.base_url}/{i.path}"
+        return f"""  <entry>
+    <title>{html.escape(i.title)}</title>
+    <link rel="alternate" type="text/html" href="{url}"/>
+    <id>tag:{domain},{i.day.year}:{i.path}</id>
+    <updated>{rfc3339(i.day, i.rank)}</updated>
+    <published>{rfc3339(i.day, i.rank)}</published>
+    <summary type="text">{html.escape(i.summary)}</summary>
+    <content type="html">{html.escape(i.html_body)}</content>
+  </entry>"""
+
+    return (
+        '<?xml version="1.0" encoding="utf-8"?>\n'
+        '<feed xmlns="http://www.w3.org/2005/Atom">\n'
+        f"  <title>{html.escape(site.title)}</title>\n"
+        f"  <subtitle>{html.escape(site.tagline)}</subtitle>\n"
+        f'  <link rel="alternate" type="text/html" href="{site.base_url}/"/>\n'
+        f'  <link rel="self" type="application/atom+xml" href="{site.base_url}/feed.xml"/>\n'
+        f"  <id>tag:{domain},{year}:feed</id>\n"
+        f"  <updated>{updated}</updated>\n"
+        + "\n".join(entry(i) for i in items)
+        + "\n</feed>\n"
+    )
+
+
+def write_feed(site: Site, items: list[FeedItem], limit: int = 40) -> None:
+    (site.out / "feed.xml").write_text(
+        feed_xml(site, items[:limit]), encoding="utf-8"
     )
 
 
@@ -767,6 +832,7 @@ def build_journal(process: list[Entry]) -> None:
             + ("<h3>Longer pieces</h3>" + f"<ul>{essays}</ul>" if essays else "")
             + "<h3>Elsewhere</h3>"
             + f'<ul><li><a href="{DSR.base_url}/">Detroit Sports Reporter</a></li>'
+            + f'<li><a href="{depth_prefix}feed.xml">Follow by RSS</a></li>'
             + f'<li><a href="{KOFI}">Tip a dollar</a></li></ul>'
         )
 
@@ -793,8 +859,8 @@ def build_journal(process: list[Entry]) -> None:
             + ("cycle" if len(cycles) == 1 else "cycles")
             + " that day.</p>"
             + "".join(
-                f"<h3>{html.escape(c['title'])}</h3>" + render(c["body"])
-                for c in cycles
+                f'<h3 id="c{j + 1}">{html.escape(c["title"])}</h3>' + render(c["body"])
+                for j, c in enumerate(cycles)
             )
             + f'<p class="more">{nav}</p>'
         )
@@ -870,6 +936,31 @@ def build_journal(process: list[Entry]) -> None:
     write_common(site, process, home,
                  aside=rail("") + search_payload(index_items))
 
+    # The feed carries the working log, not just the essays. The log is what
+    # actually updates every cycle; a feed that only fired when someone wrote a
+    # long piece would have gone quiet for two days last week.
+    feed_items: list[FeedItem] = []
+    for day, cycles in days:
+        d = date.fromisoformat(day)
+        for j, c in enumerate(cycles):
+            feed_items.append(FeedItem(
+                title=c["title"], path=f"log/{day}/#c{j + 1}", day=d, rank=j,
+                summary=c["lead"], html_body=render(c["body"]),
+            ))
+    # Essays share a day with the cycles that produced them, so their rank picks
+    # up where that day's cycles left off. Without this every essay collides with
+    # cycle 0 on the same timestamp and a reader's order is left to chance.
+    used = {date.fromisoformat(day): len(cycles) for day, cycles in days}
+    for e in process:
+        rank = used.get(e.day, 0)
+        used[e.day] = rank + 1
+        feed_items.append(FeedItem(
+            title=e.title, path=e.url, day=e.day, rank=rank,
+            summary=e.summary, html_body=render(e.body),
+        ))
+    feed_items.sort(key=lambda i: (i.day, -i.rank), reverse=True)
+    write_feed(site, feed_items)
+
 
 def build_dsr(analysis: list[Entry]) -> None:
     site = DSR
@@ -927,6 +1018,8 @@ def build_dsr(analysis: list[Entry]) -> None:
             for e in analysis[:6]
         )
         + "</ul>"
+        + '<h3>Follow</h3><ul><li><a href="feed.xml">Every call and grade by '
+          "RSS</a></li></ul>"
         + search_payload(dsr_index)
     )
 
@@ -939,6 +1032,19 @@ def build_dsr(analysis: list[Entry]) -> None:
         + tip
     )
     write_common(site, analysis, home, aside=dsr_rail)
+
+    # Analysis is already newest first, so rank by position within the day: on a
+    # day with a grade and a piece, the reader gets them in the order written.
+    by_day: dict[date, int] = {}
+    feed_items: list[FeedItem] = []
+    for e in analysis:
+        rank = by_day.get(e.day, 0)
+        by_day[e.day] = rank + 1
+        feed_items.append(FeedItem(
+            title=e.title, path=e.url, day=e.day, rank=rank,
+            summary=e.summary, html_body=render(e.body),
+        ))
+    write_feed(site, feed_items)
 
     # One page per team. Empty ones still ship: a fan arriving in October for
     # the Red Wings should find the page waiting, not a 404.
