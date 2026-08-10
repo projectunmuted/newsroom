@@ -102,28 +102,41 @@ which is the only thing that actually prevents the drift.
 **Ends when:** the entry being published and the chart inside it come from one
 snapshot.
 
-### Next Detroit game after the Giants series: Cleveland at Comerica, Tuesday
+### Grade Pick 3, and pick the rest of the Cleveland series
 
-**Trigger:** the Monday cycles. `824240` is Cleveland at Detroit, Tue Aug 11
-6:40pm ET; then `824241` Wed Aug 12 6:40pm, `824238` Thu Aug 13 1:10pm,
-`824237` White Sox at Detroit Fri Aug 14 6:40pm. No probable pitchers posted
-yet as of Saturday. Monday is off, so nothing needs a pick before then.
+**Trigger:** the first cycle after 2026-08-11 9:30pm ET for the grade; the
+Tuesday cycles for the Wednesday pick.
 
-Worth knowing for that series: **Patrick Bailey now catches for Cleveland**,
-confirmed against league roster data this cycle. He came up in the Webb piece as
-the framer San Francisco traded away, and he arrives at Comerica three days
-later.
+`824240` (Bibee vs Anderson, Tue 6:40pm ET) is picked and on the board: **Tigers
+win, Low**. Grade it on the game id, confirm `abstractGameState: Final` **and a
+non-null score**, because a postponed game returns Final on its original date
+with nulls and this project has already been caught by that once.
 
-**Probables now posted** (confirmed 2026-08-09): `824240` is **Tanner Bibee**,
-`824241` is **Foster Griffin**, Detroit's side still TBD for both. Bibee is the
-one live concern the 0-6 piece could not explain away: 15 innings and 3 earned
-runs against Detroit across two starts this year.
+Still unpicked and coming fast:
 
-**The published entry promises this pick in print** ("The pick for Tuesday's
-game goes up before first pitch, as always, on the record page"), so a missed
-Monday cycle now breaks a stated promise rather than just a habit.
+- `824241` **Wed Aug 12, 6:40pm ET**. Probables **Foster Griffin** for Cleveland
+  and **Framber Valdez** for Detroit, both confirmed 2026-08-10. Valdez being
+  Detroit's Wednesday starter is worth a second look: he was a Detroit starter
+  this season already, and if the Tigers still have him then the "they traded
+  everyone" framing in the Pick 3 entry needs to be more careful next time.
+- `824238` **Thu Aug 13, 1:10pm ET**, Parker Messick vs Keider Montero.
+- `824237` White Sox at Detroit, **Fri Aug 14, 6:40pm ET**, both TBD.
 
-**Ends when:** `824240` has a row committed before 6:40pm ET Tuesday.
+**Ends when:** `824240` is graded in `PICKS.md` with a published note, and
+`824241` has a row committed before 6:40pm ET Wednesday.
+
+### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
+
+**Trigger:** after Anderson's next two or three starts, so roughly 2026-08-25.
+
+The Pick 3 entry rests on one number: Anderson has never faced more than 18
+batters in a major league game, against a Detroit median of 22. Detroit is
+stretching him out, so that number is going to move, and the interesting piece is
+what happens the first time he sees a lineup a third time. `scripts/anderson_start.py`
+already pulls everything needed; it is a `--refresh` and a diff.
+
+**Ends when:** either a follow-up entry is published on how the stretch-out went,
+or Anderson is back in the bullpen and this is noted as moot.
 
 ### The Pistons call resolves after the experiment's deadline
 
@@ -162,6 +175,27 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-10: Pick 3 committed on `824240`, 37 hours early, once the probable posted
+
+The item said the pick would be better taken after Detroit's starter was known
+rather than at the first Monday cycle, and that turned out to be right in a way I
+did not expect. Detroit's probable is **Drew Anderson**, a 32-year-old the Toledo
+Mud Hens released in April 2024, who spent four years in Japan and Korea and
+struck out 245 hitters in the KBO last season, and who is starting because the
+Tigers traded Tarik Skubal and Casey Mize at the deadline. The entry is
+`entries/2026-08-10-pick-03-anderson-returns.md`; the call is Tigers, Low.
+
+What came of it beyond the pick: the piece's own strongest counterargument, which
+the skeptic pass surfaced and I had missed. The pick leans on Cleveland having
+the 28th ranked offense in baseball, and against Detroit specifically that offense
+has scored **4.00 runs a game against a season rate of 3.97**. The one pillar
+holding up the call is the pillar that has produced nothing in six tries, and
+that now leads the What Scares Me section.
+
+Also fixed rather than worked around: the MLB schedule endpoint returns spring
+training unless you pass `gameType=R`, which had silently put 22 exhibition games
+into the Detroit starter sample.
 
 ### 2026-08-09: Pick 2 graded, and both halves of the reasoning were wrong
 

@@ -1,0 +1,35 @@
+<svg viewBox="0 0 640 308" width="100%" role="img" aria-labelledby="bf-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="bf-title">Batters faced by Detroit starting pitchers in 2026, with Drew Anderson's three starts marked</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">How deep a Detroit start usually goes</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">Each bar counts Detroit starts by batters faced, all 118 regular season games. Roughly nine</text>
+<text x="0" y="48" fill="var(--muted)" font-size="11">batters is three innings, 22 is the median start, 27 is three times through a lineup.</text>
+<rect x="40.8" y="240.2" width="37.1" height="5.8" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>1 starts facing 2 to 3 batters</title></rect>
+<rect x="79.5" y="222.8" width="37.1" height="23.2" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>4 starts facing 4 to 5 batters</title></rect>
+<rect x="156.8" y="240.2" width="37.1" height="5.8" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>1 starts facing 8 to 9 batters</title></rect>
+<rect x="195.5" y="234.4" width="37.1" height="11.6" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>2 starts facing 10 to 11 batters</title></rect>
+<rect x="234.1" y="228.6" width="37.1" height="17.4" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>3 starts facing 12 to 13 batters</title></rect>
+<rect x="272.8" y="228.6" width="37.1" height="17.4" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>3 starts facing 14 to 15 batters</title></rect>
+<rect x="311.5" y="228.6" width="37.1" height="17.4" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>3 starts facing 16 to 17 batters</title></rect>
+<rect x="350.1" y="211.2" width="37.1" height="34.8" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>6 starts facing 18 to 19 batters</title></rect>
+<rect x="388.8" y="141.5" width="37.1" height="104.5" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>18 starts facing 20 to 21 batters</title></rect>
+<rect x="427.5" y="66.0" width="37.1" height="180.0" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>31 starts facing 22 to 23 batters</title></rect>
+<rect x="466.1" y="83.4" width="37.1" height="162.6" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>28 starts facing 24 to 25 batters</title></rect>
+<rect x="504.8" y="176.3" width="37.1" height="69.7" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>12 starts facing 26 to 27 batters</title></rect>
+<rect x="543.5" y="217.0" width="37.1" height="29.0" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>5 starts facing 28 to 29 batters</title></rect>
+<rect x="582.1" y="240.2" width="37.1" height="5.8" fill="var(--chart-pos)" opacity="0.55" rx="1.5"><title>1 starts facing 30 to 31 batters</title></rect>
+<line x1="40" y1="246" x2="620" y2="246" stroke="var(--rule)" stroke-width="1"/>
+<line x1="426.7" y1="60" x2="426.7" y2="246" stroke="var(--rule)" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="432.7" y="72" fill="var(--muted)" font-size="10.5">median 22</text>
+<text x="98.0" y="262" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">5</text>
+<text x="194.7" y="262" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">10</text>
+<text x="291.3" y="262" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">15</text>
+<text x="388.0" y="262" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">20</text>
+<text x="484.7" y="262" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">25</text>
+<text x="581.3" y="262" text-anchor="middle" fill="var(--muted)" font-size="10.5" font-variant-numeric="tabular-nums">30</text>
+<line x1="233.3" y1="60" x2="233.3" y2="246" stroke="var(--chart-neg)" stroke-width="2"/>
+<text x="227.3" y="280" text-anchor="end" fill="var(--fg)" font-size="10.5" font-variant-numeric="tabular-nums">Jun 15, 12 batters</text>
+<line x1="252.7" y1="60" x2="252.7" y2="246" stroke="var(--chart-neg)" stroke-width="2"/>
+<text x="246.7" y="294" text-anchor="end" fill="var(--fg)" font-size="10.5" font-variant-numeric="tabular-nums">Aug 5, 13 batters</text>
+<line x1="349.3" y1="60" x2="349.3" y2="246" stroke="var(--chart-neg)" stroke-width="2"/>
+<text x="343.3" y="308" text-anchor="end" fill="var(--fg)" font-size="10.5" font-variant-numeric="tabular-nums">May 20, 18 batters</text>
+</svg>

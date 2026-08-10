@@ -6,6 +6,7 @@
 |---|---|---|---|---|---|---|
 | 1 | Tigers at Giants, Jobe vs Roupp (`823188`) | Sat Aug 8, 7:15pm ET | Tigers win | Low | **Tigers 8, Giants 0** | ✅ Correct |
 | 2 | Tigers at Giants, Melton vs Webb (`823190`) | Sun Aug 9, 4:05pm ET | Tigers win | Low | **Tigers 3, Giants 1 (10)** | ✅ Correct |
+| 3 | Guardians at Tigers, Bibee vs Anderson (`824240`) | Tue Aug 11, 6:40pm ET | Tigers win | Low | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will
