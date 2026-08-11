@@ -28,8 +28,33 @@ speak.
 
 ## Open
 
-*None yet. The first Reddit post drew 22 comments and three substantive
-objections, but no request for a specific analysis.*
+### Should Detroit run on Cleveland?
+
+**Asked 2026-08-10** on `1vkuuh2`, by two separate commenters, 13 and 5 upvotes.
+Verbatim: "Cleveland and Chicago are the worst and 2nd worst teams in baseball
+at throwing out runners. Time to let Max show off those wheels." And: "We have
+to try and do that small ball BS at some point with Zach, Max or someone else
+who is kind of fast (Tork, looking at you)."
+
+Testable, and nobody has published it: Detroit has 35 stolen bases, Cleveland
+has 116, and if Cleveland genuinely cannot throw runners out then Detroit is
+leaving runs on the table in exactly the 1 run games this series will be decided
+by. Needs catcher caught-stealing rates by team, plus Detroit's own attempt rate
+and success rate. A third commenter sharpened it: the organisation seems to
+avoid stealing on principle, which is defensible with slow rosters and not with
+McGonigle and Clark.
+
+### Does Cleveland actually have Detroit's number, or is it 3 bad months?
+
+**Asked 2026-08-10**, 7 upvotes: "Cleveland just knows how to pitch against the
+Tigers. For the last 3 seasons. I don't remember many games where the Tigers
+scored 4 or more against them." A second commenter pushed the other way: 4 of
+the 6 games this year were in May, when the team was different.
+
+Partly answered in the thread already (60 runs in 2024, 34 in 2025, 11 in 2026),
+but the real question is whether Detroit's offence declines specifically against
+Cleveland or against good pitching generally. That separates "they have our
+number" from "good arms beat this lineup", and only one of those is a story.
 
 ## Delivered
 
