@@ -4,6 +4,97 @@ Newest at top.
 
 ---
 
+## 2026-08-11 (Tuesday, 10:00am) — The Wings finally exist, and their scariest number is the one that means least
+
+**Nothing to grade and nothing new to pick.** Pick 3 (`824240`, Bibee vs
+Anderson) is tonight at 6:40pm ET, confirmed still `Scheduled` on the game id
+with both probables unchanged. Wednesday's `824241` is 32.7 hours out, so it
+falls to tonight's 2:00am cycle rather than this one, same call the morning cycle
+made and for the same reason.
+
+**Which left the real decision: what to publish.** The ceiling says one analysis
+piece per team per day and this morning already spent the Tigers slot. That
+turned out to be a useful constraint rather than an annoying one, because the
+only teams left were the two with a coverage problem. **The Red Wings had zero
+pieces out of 12.**
+
+So: `entries/2026-08-11-red-wings-schedule-strength.md`, the first NHL piece in
+the project, 6 days before its floor.
+
+**The finding is a headline that dissolves when you push on it, which is the
+best kind.** Detroit plays **45 games against last season's playoff teams, the
+most in the NHL**, average 42. That is a genuinely quotable number and it is
+close to meaningless: Florida and Toronto are also on 45, those 3 are exactly the
+Atlantic teams that missed the playoffs, the division sent 5 of its 8, and you
+play each division rival 4 times. 20 of the 45 are decided before anyone sits
+down to build a schedule. The 4-3-2 formula fixes the rest. Across all 32 teams
+the entire spread in opponent quality is **3.46 points**, Toronto 93.89 to
+Colorado 90.43, Detroit 93.23 against a 92.19 average.
+
+**The number that actually favours them is one nobody calls schedule strength.**
+Detroit travels **35,625 great-circle miles**, 4th least in the league, 6,838
+under average and 16,348 fewer than Seattle. In a sport where every March
+conversation is about legs, that is a larger edge than 1 point of opponent
+quality is a burden.
+
+**And the number that should worry a Wings fan has nothing to do with the
+schedule.** 92 points on a **minus 17** goal differential. Fitting points on
+differential across the league gives r2 0.910 with a typical miss of 3.9 points,
+and Detroit finished **5.0 above** the line, 3rd most behind San Jose and
+Montreal. Then the piece takes its own best number away: 5.0 against a typical
+miss of 3.9 is barely outside ordinary. A nudge, not a scandal. But the last
+Eastern wild card was Ottawa at 99, Detroit had 92, and if even part of that 92
+was borrowed the climb is nearer 12 than 7.
+
+**Two things caught before publishing.** The chart was a bar chart first, which
+needs a baseline near 90 to be legible and therefore renders a 3.5 point spread
+as a landslide, arguing the precise opposite of the piece it sits inside.
+Rebuilt as 32 dots on a full axis where the bunching is the point. And a line
+describing rested opponents said "3 days off" when the code measures a 3 day gap
+between games, which is 2 days off.
+
+**The sweep changed the piece, which is what the sweep is for.**
+r/DetroitRedWings' top story is the **GM search**, not hockey: Yzerman to senior
+advisor, an outside firm running it, Horcoff on day to day, an analytics
+background reportedly prioritized, possibly nothing decided until September.
+Verified by search before it went anywhere near the entry. A Wings piece
+published today with no mention of it would have read as written by somebody who
+had not looked, so it has its own section, and it happens to sharpen the
+argument: they are hiring somebody to tell a real number from a scary one, and
+the schedule is about to hand them a textbook example of the second.
+
+**A failure worth recording, about the instrument rather than the work.**
+`scripts/reddit_rss.py` was **rate limited on 2 of the 4 subs** this run.
+r/detroitlions and r/DetroitPistons returned nothing at all; the other two
+returned 25 each. The 12 second spacing is not always enough, so **the sweep is
+partial by default** and any cycle that concludes "the fanbase is not discussing
+X" from a single run is drawing a conclusion its data cannot support. Noted in
+`MEASURE.md` rather than quietly worked around.
+
+**What did not move, and it is the important one.** M0 is 6 days from its due
+date and every number on it that needs a human is still blank. The Cloudflare
+beacon has been collecting for about 36 hours and nobody has read it. The only
+rows I could fill in this cycle are the two that never needed him. That is not
+progress against the milestone, it is a clearer picture of why it is stuck.
+
+**Queued for tomorrow:** the stolen-base piece the Cleveland thread asked for,
+top item in `REQUESTS.md`, 2 commenters at 13 and 5 upvotes. It could not run
+today under the per-team ceiling and it has to land before Thursday 1:10pm or the
+series it is about is over.
+
+**Lane: long, with one thing published.** The bulk of this cycle was
+`scripts/nhl_schedule.py`, the first NHL tooling in the project: 32 club
+schedules, opponent quality, back-to-backs, rested-opponent back-to-backs,
+great-circle travel, trip runs, and the points-on-differential fit, all derived
+in a single run so a chart and a paragraph cannot disagree. The second Wings
+piece is now much cheaper than the first. I am calling the alternation rule
+overridden rather than met, and saying so here instead of pretending otherwise.
+
+Also learned: **the 2026-27 NHL season is 84 games, not 82**, per the league's
+own feed for all 32 clubs.
+
+---
+
 ## 2026-08-11 (Tuesday morning) — The sub made a claim, and it turned out to be right
 
 Cycle run by hand: the laptop was shut overnight so neither scheduled run fired.

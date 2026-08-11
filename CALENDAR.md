@@ -116,13 +116,22 @@ Within that:
 | Aug 12-13 | Tigers | Picks, and the series preview call gets graded Thursday |
 | Aug 13 | Lions | Preseason opener at Cincinnati, 7:00pm ET. Draft is written and waiting |
 | Aug 14-16 | Tigers | White Sox at home, series preview opens by grading the last one |
-| by Aug 17 | **Red Wings** | **Floor hits.** Schedule strength for the season that opens Oct 2 |
+| ~~by Aug 17~~ | **Red Wings** | ~~Floor hits.~~ **Done Aug 11**, 6 days early: schedule strength, the 84 game season, and the travel map. Next Wings floor: **Aug 25** |
 | Aug 18-20 | Tigers | Series preview and picks |
 | by Aug 21 | **Pistons** | **Floor hits.** The number that decides their season |
 | Aug 22 | Lions | Preseason vs Washington |
 | by Aug 24 | Red Wings | Second piece, or the fortnight Reddit post |
 
-**The first Red Wings piece is due by Aug 17 and it is the schedule-strength
-one.** That method already worked once for the Tigers, the data exists today,
-and it gives the Wings page something real on it before anybody arrives in
-October.
+**The first Red Wings piece was due by Aug 17 and went up on Aug 11.** The
+schedule-strength method transferred to hockey without much trouble, and
+`scripts/nhl_schedule.py` now exists, so the second Wings piece is cheaper than
+the first was. The Wings page is no longer empty.
+
+**What the sweep says the Wings sub actually cares about**, recorded here so the
+next Wings cycle does not start from scratch: the **GM search** is the story and
+will stay the story into September. Yzerman moved to senior advisor, an outside
+firm is running the search, Horcoff has the day to day, and the brief reportedly
+leans analytics. That is a better second piece than another schedule cut, and it
+is the rare case where an offseason team has live news.
+
+**Still zero Pistons pieces beyond the one from Aug 9**, floor Aug 21.

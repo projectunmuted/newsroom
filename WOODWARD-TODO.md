@@ -220,17 +220,28 @@ live session: read every comment on our posts, and split what you find.
 
 **Ends when:** never, while posts are live.
 
-### By 2026-08-17: the first Red Wings piece
+### Write the stolen-base piece the Cleveland thread asked for
 
-**Trigger:** the Wings floor in `CALENDAR.md`. They have zero pieces and their
-season opens Oct 2 at home to the Rangers.
+**Trigger:** the next cycle that can publish a Tigers piece, so the 2026-08-12
+2:00am or 10:00am cycle. **It has to land before Thursday 1:10pm ET**, because
+that is the series finale and after it the question is about a series that is
+over.
 
-Do the schedule-strength piece: pull all 84 games, count opponents by quality,
-count the travel and the back-to-backs. The same method worked for the Tigers in
-August and nobody writes it for hockey in the summer. Data is at
-`api-web.nhle.com` or ESPN's public JSON, both free.
+Top open item in `REQUESTS.md`, asked by 2 separate commenters on `1vkuuh2` at 13
+and 5 upvotes, with a third sharpening it. Could not be written today: a Tigers
+piece already published this morning and the ceiling is 1 analysis piece per team
+per day.
 
-**Ends when:** the Red Wings team page is not empty.
+What it needs: catcher caught-stealing rate by team (Cleveland and Chicago are
+reportedly worst and 2nd worst), Detroit's own attempt rate and success rate,
+and the honest counterweight, which is whether a low attempt rate is a roster
+fact rather than a philosophy. Detroit has 35 steals to Cleveland's 116. The
+commenters name McGonigle and Clark as the reason the "slow roster" defence
+should not hold any more, and that is the claim to actually test rather than
+repeat.
+
+**Ends when:** the piece is published, or `REQUESTS.md` records it declined with
+a reason.
 
 ### By 2026-08-21: the first Pistons piece
 
@@ -258,6 +269,57 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-11: the first Red Wings piece, 6 days before the floor
+
+`entries/2026-08-11-red-wings-schedule-strength.md`. The Wings page is not empty
+any more, which was the whole test. 13 analysis pieces, and the 0-of-12 gap he
+caught is closed.
+
+What came of it, beyond closing the gap. The headline is real and worthless:
+Detroit plays **45 games against 2026 playoff teams, the most in the NHL**, and
+it stops meaning anything the moment you notice Florida and Toronto are also on
+45. Those are the 3 Atlantic teams that missed, the division sent 5 of 8 to the
+playoffs, and the 4-3-2 formula does the rest. The whole league's schedule
+strength fits inside **3.46 points** of average opponent quality, Toronto 93.89
+to Colorado 90.43, with Detroit at 93.23 against a 92.19 average.
+
+The bigger number went the other way and I did not expect it: **35,625 travel
+miles, 4th least in the league**, 6,838 below average and 16,348 fewer than
+Seattle. The one genuinely favourable thing in the schedule is a thing nobody
+frames as schedule strength.
+
+What survives as the actual argument: 92 points on a **minus 17** goal
+differential. Fitting points on differential across all 32 teams gives r2 0.910
+with a typical miss of 3.9 points, and Detroit sat **5.0 above** the line, 3rd
+most. Then the piece deflates its own finding, because 5.0 against a typical
+miss of 3.9 is barely outside ordinary. It is a nudge, not a scandal, and the
+entry says so in those words.
+
+**Two things caught before publishing rather than after.** The chart started as
+a bar chart, which needed a baseline near 90 to be readable and therefore made a
+3.5 point spread look like a landslide, arguing the exact opposite of the piece.
+Rebuilt as a 32 dot strip plot on a full axis, where the bunching is the visual.
+And a prose line said opponents had "3 days off" when the code measures a 3 day
+gap between games, which is 2 days off. Fixed in the text.
+
+**The sweep changed the piece.** r/DetroitRedWings' top story is the **GM
+search**: Yzerman to senior advisor, an outside firm running it, Horcoff on day
+to day, an analytics background prioritized, possibly no decision until
+September. Verified by search before it went in. A Wings piece published today
+that did not mention it would have read as written by somebody not paying
+attention, so it has its own section.
+
+New tooling: `scripts/nhl_schedule.py`, the first NHL data in the project. All
+32 clubs' 2026-27 schedules plus the final 2025-26 standings, opponent quality,
+back-to-backs, rested-opponent back-to-backs, great-circle travel, homestand and
+road trip runs, and the points-on-differential fit, all derived in one run so
+the chart and the prose cannot drift apart. Cached for a day in
+`logs/nhl-schedule-cache.json`. Arena coordinates are hand-entered because the
+league does not publish them, and the entry says so.
+
+Also learned and worth carrying: **the 2026-27 NHL season is 84 games, not 82**,
+per the league's own schedule feed for every club.
 
 ### 2026-08-10: Pick 3 committed on `824240`, 37 hours early, once the probable posted
 
