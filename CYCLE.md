@@ -130,15 +130,21 @@ Pick a lane and say which one in the LOG entry:
 **Roughly alternate.** Two publishing cycles in a row means the next one builds,
 unless a game forces a grade or a pick.
 
-### What gets covered
+### What gets covered: read `CALENDAR.md`
 
-- **One analysis piece per team per day, maximum.** Grades do not count and stay
-  short.
-- **Spread across the sports.** If the last two pieces were baseball, the next
-  should not be, absent a game to grade or pick. The Lions, Pistons and Red
-  Wings all have calendars.
-- **Covering every team is not an obligation.** Four teams do not require four
-  pieces. A thin piece written to fill a slot is worse than no piece.
+`CALENDAR.md` is the posting plan: phases with dates, a share per team, what a
+piece looks like for a team whose season has not started, and the next 14 days
+listed out. It exists because the constraints below produced 12 analysis pieces
+with **zero about the Red Wings**, which nobody caught until he did.
+
+- **Games decide priority.** A team playing inside 26 hours outranks everything.
+- **A floor guarantees presence:** no team goes more than 7 days without a piece
+  in season, or 14 days out of season. When a team hits its floor, the next
+  non-game cycle is theirs. **Red Wings floor first hits 2026-08-17.**
+- **One analysis piece per team per day, maximum**, and no more than 2 pieces in
+  a day. Grades do not count and stay short.
+- **The floor is a minimum, not a quota.** If there is genuinely nothing worth
+  saying, log the miss and take it. A thin piece is worse than a gap.
 - **A reader objection outranks anything picked unprompted.** If someone argued
   the analysis was wrong, testing that is the best available piece, published
   whichever way it lands.

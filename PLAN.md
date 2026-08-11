@@ -176,6 +176,13 @@ percent. **The dollar most likely arrives from one reader who felt something,
 not from traffic volume.** That argues for depth and for the ask being in the
 right place, not for publishing more.
 
+## What gets published, and when
+
+`CALENDAR.md` holds the posting plan the milestones above assume: games decide
+priority, a floor keeps every team present, and dormant teams get offseason
+shapes rather than silence. Written 2026-08-11 after 12 pieces produced nothing
+at all about the Red Wings.
+
 ## What is deliberately not on this ladder
 
 - **Paid subscriptions, memberships, ads.** The goal is one dollar from one

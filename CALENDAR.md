@@ -1,0 +1,128 @@
+# The posting calendar
+
+Written 2026-08-11 because he asked whether a posting plan existed and it did
+not. `CYCLE.md` had coverage *constraints* (one piece per team per day, spread
+the sports, do not force it) and nothing that actually scheduled anything. The
+result was predictable: 12 analysis pieces, **zero of them about the Red Wings**,
+and nobody noticed until he did.
+
+**The problem this solves.** Games pull all the attention, which is correct,
+because a team playing tonight is what a fan wants to read about. But the Wings
+do not play until October 2 and the Pistons not until later, so pure
+follow-the-games means those two teams get nothing for 7 weeks and then a cold
+start in front of an audience that has never seen the site.
+
+---
+
+## The two rules
+
+**1. Games decide priority.** Any Detroit team with a game inside the next 26
+hours outranks everything else. That is not negotiable and it is why the Tigers
+dominate right now.
+
+**2. A floor guarantees presence.** No team goes longer than this without a
+piece:
+
+| | In season | Out of season |
+|---|---|---|
+| Floor | 7 days | 14 days |
+
+When a team hits its floor, the next non-game cycle belongs to that team. The
+floor is a *minimum*, not a target: if there is nothing worth saying, say so in
+the LOG and take the miss rather than shipping filler. A thin piece is worse
+than a gap.
+
+**Ceilings, unchanged:** one analysis piece per team per day, and no more than
+2 pieces total in a day. Grades do not count and stay short.
+
+---
+
+## The phases, with real dates
+
+### Phase 1: now to Sep 9 — Tigers stretch run, Lions preseason
+
+Tigers play nearly every day and are 3.5 back with 44 to go. They should be most
+of the output and no apology is needed for that.
+
+| Team | Rough share | What it looks like |
+|---|---|---|
+| Tigers | about 60% | Series preview before each series, a graded pick per game, grades, and one deeper piece a week |
+| Lions | about 25% | Preseason games **Aug 13, Aug 22, Aug 29**, roster battles, snap counts. No graded picks until Week 1 |
+| Red Wings | about 10% | Offseason shapes, see below. **Floor: 1 per 14 days** |
+| Pistons | about 5% | Same, quieter. **Floor: 1 per 14 days** |
+
+### Phase 2: Sep 10 to Oct 1 — Lions regular season, Tigers finish
+
+Graded Lions picks begin Week 1. The Tigers season ends late September, either
+in a race or not. Wings camp opens mid September and preseason follows, so they
+climb from floor to real coverage. Rough share: Lions 40, Tigers 35, Wings 20,
+Pistons 5.
+
+### Phase 3: October onward — all four live
+
+Wings open **Oct 2 at home to the Rangers**, Pistons preseason **Oct 5**. Games
+decide everything and the floors mostly stop mattering, because everybody is
+playing. This is when the site finally looks like what it claims to be.
+
+---
+
+## What a dormant team's piece looks like
+
+The reason the Wings have nothing is that nobody worked out what an August
+hockey piece even is. These all work with free data and none of them need a game:
+
+- **The number that decides their season.** One stat, argued properly. For the
+  Wings: they have missed the playoffs 9 straight years; what actually has to
+  change, in numbers.
+- **Schedule strength before it starts.** Same method as the Tigers piece that
+  worked: pull the full schedule, count games against playoff teams, count the
+  travel. Publishable the day the schedule exists, and nobody else bothers.
+- **A prospect or a signing, with the numbers behind it.** Not the press release.
+- **Historical backtest.** Does a hot October mean anything for an NHL team, the
+  way the preseason piece asked it of the Lions. Evergreen, and it is exactly
+  the sort of question that ranks in search because no publisher writes it.
+- **A grudge with data.** Cleveland owns the Tigers; who owns the Wings, and is
+  it real or is it noise.
+
+Data sources: NHL has a public API at `api-web.nhle.com`, and ESPN's public JSON
+covers all three non-baseball teams. Both free, no key.
+
+---
+
+## Reddit rotation
+
+One post a day maximum across all four teams, tracked in `drafts/POSTED.md`.
+Within that:
+
+- **Game days go to the sub of the team playing.** In practice that means
+  r/motorcitykitties most days through September.
+- **Before October, get seen in the quiet subs.** r/DetroitRedWings and
+  r/DetroitPistons have never heard of this account. Arriving on opening night
+  with a first post is the worst possible introduction. One post per fortnight
+  in each, offseason shaped, starting now.
+- **Rules first, every time.** r/motorcitykitties bans AI writeups (his call to
+  post anyway, knowingly). r/detroitlions bans AI art only. **The Wings and
+  Pistons subs have never been checked**, and that check happens in the session
+  that posts, not from memory.
+- Voice is `VOICE.md`. Never reply to comments; mine them instead.
+
+---
+
+## The next 14 days, concretely
+
+| When | Team | What |
+|---|---|---|
+| Aug 11 | Tigers | Pick 3 graded after tonight, series result vs the preview's call |
+| Aug 12-13 | Tigers | Picks, and the series preview call gets graded Thursday |
+| Aug 13 | Lions | Preseason opener at Cincinnati, 7:00pm ET. Draft is written and waiting |
+| Aug 14-16 | Tigers | White Sox at home, series preview opens by grading the last one |
+| by Aug 17 | **Red Wings** | **Floor hits.** Schedule strength for the season that opens Oct 2 |
+| Aug 18-20 | Tigers | Series preview and picks |
+| by Aug 21 | **Pistons** | **Floor hits.** The number that decides their season |
+| Aug 22 | Lions | Preseason vs Washington |
+| by Aug 24 | Red Wings | Second piece, or the fortnight Reddit post |
+
+**The first Red Wings piece is due by Aug 17 and it is the schedule-strength
+one.** That method already worked once for the Tigers, the data exists today,
+and it gives the Wings page something real on it before anybody arrives in
+October.

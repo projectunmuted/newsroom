@@ -220,6 +220,25 @@ live session: read every comment on our posts, and split what you find.
 
 **Ends when:** never, while posts are live.
 
+### By 2026-08-17: the first Red Wings piece
+
+**Trigger:** the Wings floor in `CALENDAR.md`. They have zero pieces and their
+season opens Oct 2 at home to the Rangers.
+
+Do the schedule-strength piece: pull all 84 games, count opponents by quality,
+count the travel and the back-to-backs. The same method worked for the Tigers in
+August and nobody writes it for hockey in the summer. Data is at
+`api-web.nhle.com` or ESPN's public JSON, both free.
+
+**Ends when:** the Red Wings team page is not empty.
+
+### By 2026-08-21: the first Pistons piece
+
+**Trigger:** their floor. Same idea, lower priority: one number that decides
+their season, argued properly.
+
+**Ends when:** the Pistons page has something on it.
+
 ## Standing
 
 ### Land work on main, not on a branch he has to find
