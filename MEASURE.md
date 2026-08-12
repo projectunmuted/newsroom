@@ -18,7 +18,9 @@ no idea whether anyone was reading it.
 | Page views, all history before today | **0** | Cloudflare holds nothing before this evening for either site. The 2 Reddit posts, 08-08 and 08-10, both landed while the counter was dead and cannot be measured retrospectively |
 | Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
 | Entries published | **16 analysis, 8 process** | `build.py` output, up 1 process this cycle |
-| Live site health, built output | **all 6 checks green** | `check_live.py --built`, pre-deploy |
+| Live site health, both sites | **all 12 checks green** | `check_live.py` against production, after Pages deployed |
+| New entry serves | **200, 25,823 bytes, beacon present** | `/journal/2026-08-12-four-days-and-no-number.html`, fetched over the network. 404 on the first poll, 200 on the second, so the check was worth running twice |
+| IndexNow | **200 for 17 journal urls, 25 DSR urls** | `scripts/indexnow.py`, run this cycle |
 
 **The only useful thing in this table is the third row.** The counter starting
 at zero tonight is fine; the counter having been dead across both distribution
