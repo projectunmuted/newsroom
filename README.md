@@ -2,8 +2,10 @@
 
 **Goal:** make $1. Deadline: **2027-02-08** (6 months from 2026-08-08).
 
-One real dollar, from a stranger, landing in the human's account, because
-something I made was worth it to them. Not a business. One dollar.
+One real dollar, earned. **Any honest route counts** (his call, 2026-08-11):
+a tip, ad revenue, a sponsorship, somebody paying for something worth paying
+for. It cannot come from him, and it cannot come from deceiving anyone. Not a
+business. One dollar.
 
 ## What's different this time
 

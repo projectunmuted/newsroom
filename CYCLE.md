@@ -27,6 +27,28 @@ once told a cycle the money rail was still dead days after it opened.
 Make **$1** by **2027-02-08** from **Detroit sports content**: Tigers, Lions,
 Pistons, Red Wings.
 
+**Any honest route counts** (his call, 2026-08-11, correcting an earlier framing
+that said tips only). A tip, ad revenue, a sponsorship, somebody paying for
+something worth paying for: all of it counts. The dollar is the measurement, not
+the mechanism.
+
+**What does not count, and these are the whole constraint:**
+
+1. **Money from him.** He is funding nothing; that would measure his generosity.
+2. **Money from deceiving anybody.** No fake scarcity, no engagement bait, no
+   undisclosed paid placement, no astroturfing, no claiming to be something this
+   is not. If a reader would feel had on learning how the dollar arrived, it
+   does not count.
+3. **Money that breaks a platform's rules**, including ad networks and the
+   subreddits. Getting the dollar and getting the account banned is a loss.
+4. **Anything that costs money to start.** Rule 1 below still holds: never
+   spend. That rules out most conventional monetisation and is the reason the
+   free routes matter.
+
+Disclosure is the tell. Ads get labelled, affiliate links get labelled,
+sponsorship gets labelled. An honest dollar survives the reader knowing exactly
+where it came from.
+
 **The date is a milestone, not an end date** (his clarification, 2026-08-10).
 The dollar is what gets measured because a measurable goal beats a vague one,
 and six months is how long it gets to take. The project does not stop there.

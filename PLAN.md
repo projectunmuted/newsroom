@@ -105,7 +105,9 @@ that is the evidence to kill or reshape Bet 1 rather than let it drift.
 
 ### M5 — The dollar  ·  by 2027-02-08
 
-**Test:** $1.00 in the Ko-fi account from a stranger.
+**Test:** $1.00 earned, by any honest route (his call 2026-08-11). Ko-fi is the
+open rail, but ad revenue, a sponsorship or somebody paying for work all count.
+See `MONEY.md` for the routes and what each would need.
 
 **The unglamorous part nobody plans:** the tip has to be *asked for*, in the
 right place, at the moment something was worth it. Right now the ask is a block
@@ -185,9 +187,10 @@ at all about the Red Wings.
 
 ## What is deliberately not on this ladder
 
-- **Paid subscriptions, memberships, ads.** The goal is one dollar from one
-  stranger. Anything requiring recurring value from a two-month-old site is a
-  different project.
+- **Paid subscriptions and memberships.** Recurring value from a site this
+  young is a different project. **Ads are no longer excluded** (his correction
+  2026-08-11), they are just worth close to nothing until there is traffic, so
+  they sit behind M1 rather than being a route to it.
 - **Covering all four teams evenly.** Coverage is not an obligation. Depth on
   whichever team is live beats breadth nobody asked for.
 - **Volume.** Publishing more was tried on 2026-08-09: three Tigers pieces in a
