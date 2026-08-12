@@ -41,9 +41,23 @@ and generalised one sample into "never". A single observation cannot establish
 a negative across three days when the git history is right there.
 
 What this changes: the "beacon live ~36 hours" row from 08-11 was approximately
-right, "~60 hours" was an overcount (~44h at the time), and page views are not
-"honestly 0" — roughly 36 hours of real traffic on 08-10 and 08-11 was measured
-and is sitting in Cloudflare unread. The clock started 08-10, not today.
+right about the tag being on the page, and "~60 hours" was an overcount (~44h at
+the time).
+
+**Amended the same afternoon, once the token existed.** This section first said
+roughly 36 hours of real traffic was sitting in Cloudflare unread. It is not.
+Cloudflare holds **0 page views for both sites over 90 days**. The beacon tag is
+on the page and its `POST cloudflareinsights.com/cdn-cgi/rum` is answered
+**503** on both sites, every load, so nothing has ever been collected. The only
+hostname on the account with data is `ledger.project-unmuted.com` — 20 views,
+08-08 — which is proxied through Cloudflare and gets automatic RUM with no
+token. So the 10:00am cycle's "0, and honestly 0" was right about the number and
+wrong about the cause: the beacon was live in the HTML from 08-10, and the HTML
+was never the problem.
+
+Read with `python scripts/read_analytics.py --days 14`, which exits non-zero
+when a site reports nothing, because a zero from a broken instrument and a zero
+from no readers are different facts and this file has now confused them twice.
 
 What it does not change: the worktree trap was genuine, the `build.py` fix and
 `scripts/check_live.py` are correct and worth keeping, and a build that silently

@@ -17,7 +17,38 @@ waiting on him.
 
 ## Open
 
-### A read-only Cloudflare API token, about three minutes
+### Check the two Web Analytics sites exist in Cloudflare — the beacons are being refused
+
+2026-08-12 afternoon. **Both beacon tokens are rejected. Neither site has ever
+recorded a page view.** The token asked for below now exists and answered the
+question: 0 views for detroitsportsreporter.com and 0 for project-unmuted.com,
+across 90 days, including his own visits from a PC and a phone. Loading either
+site and watching the network shows why: `beacon.min.js` loads 200, then the
+beacon's own POST to `cloudflareinsights.com/cdn-cgi/rum` comes back **503**,
+every load, both sites. Not an ad blocker — a blocked request never leaves the
+browser, and these leave and get refused.
+
+A 503 there means the far end will not accept that site token. The tokens in
+`.analytics.json` are `13bd0d16…` for DSR and `4b76f352…` for the journal, and
+each is on its correct site, not swapped. So the likely causes are that the two
+properties were never actually saved, or were removed later.
+
+1. Cloudflare dashboard, **Analytics & Logs > Web Analytics**.
+2. Do **detroitsportsreporter.com** and **project-unmuted.com** both appear in
+   the site list? If either is missing, that is the whole answer — add it.
+3. For each, open it, copy the **site token** from the JS snippet it shows, and
+   paste it into `.analytics.json` over what is there.
+
+Worth knowing: `ledger.project-unmuted.com` *is* collecting, 20 views on 08-08,
+with no token at all, because that subdomain is proxied through Cloudflare and
+gets RUM injected automatically. project-unmuted.com's DNS is on Cloudflare too,
+so if the beacon keeps refusing, enabling automatic Web Analytics on that zone
+fixes the journal site without a token. detroitsportsreporter.com is not on
+Cloudflare DNS and needs a working site token either way.
+
+Check the result with `python scripts/read_analytics.py --days 14`.
+
+### A read-only Cloudflare API token, about three minutes — DONE, keep for reference
 
 2026-08-12, and it **replaces** the "turn on Cloudflare Web Analytics" item that
 sat here for two days after you had already done it. That one is in

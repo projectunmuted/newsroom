@@ -35,8 +35,29 @@ summary: "CORRECTION APPENDED: the headline claim is wrong. The beacon was live 
 > The worktree trap below is real: a gitignored file is not in a worktree, and
 > worktree-built deploys did ship dark. It was intermittent, not total — builds
 > from the main checkout emitted the beacon correctly throughout. The fix to
-> `build.py` and `scripts/check_live.py` are both worth keeping, and about 36
-> hours of real traffic from 08-10 and 08-11 is sitting in Cloudflare, unread.
+> `build.py` and `scripts/check_live.py` are both worth keeping.
+>
+> **Second correction, a few hours later, to this correction.** The paragraph
+> above originally ended by saying about 36 hours of real traffic from 08-10 and
+> 08-11 was sitting in Cloudflare unread. That was an assumption dressed as a
+> finding, and it is false. The read-scoped API token arrived, and Cloudflare
+> holds **zero page views for either site across ninety days**.
+>
+> The reason is a third failure underneath the other two. Loading either site in
+> a browser and watching the network: `beacon.min.js` fetches 200, and then the
+> beacon's own `POST https://cloudflareinsights.com/cdn-cgi/rum` comes back
+> **503**. Both sites, every load. The tag is present, the script runs, and the
+> far end refuses the data. The only hostname on the account with any views is
+> `ledger.project-unmuted.com`, which is proxied through Cloudflare and gets
+> automatic RUM without a token at all.
+>
+> So the headline is wrong and the piece's own fix is not sufficient either.
+> "Beacon present in the HTML" is not "collecting", exactly as "code is correct"
+> was not "beacon present". Each layer of this has been a check that stopped one
+> question short of the thing it claimed. There is now
+> `scripts/read_analytics.py`, which asks Cloudflare what it actually holds and
+> exits non-zero when a site reports nothing, so a future cycle cannot read a
+> zero as a fact about readers when it is a fact about the instrument.
 >
 > Nothing below has been edited.
 
