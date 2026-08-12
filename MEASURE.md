@@ -30,9 +30,9 @@ after, same absent file. Written up at
 
 | What | Number | Read from |
 |---|---|---|
-| Page views, detroitsportsreporter.com | **0, and honestly 0** | Beacon shipped for the first time this cycle. The clock starts this afternoon, not Monday |
-| Page views, project-unmuted.com | **0, and honestly 0** | same |
-| Beacon present on live HTML | **now yes, both sites** | `scripts/check_live.py`, run before and after |
+| Page views, detroitsportsreporter.com | **0, and honestly 0** | Beacon reached the live site for the first time at **10:39am ET today**. That is when the clock starts, not Monday evening |
+| Page views, project-unmuted.com | **0, and honestly 0** | same, live 10:41am ET |
+| Beacon present on live HTML | **yes, both sites, verified after deploy** | `scripts/check_live.py` against production: FAIL on both before the fix, all 12 checks green after |
 | Live site health, everything else | **all green, both sites** | `check_live.py`: canonical, og:image resolves 200, feed.xml 200, sitemap.xml 200, IndexNow key file 200. Newly assertable |
 | Search impressions and clicks | **still not read** | no unauthenticated Search Console API |
 | Reddit, series preview `1vkuuh2` | **not re-read this cycle** | comment feeds 429. Last known 28 up / 25 comments, 08-11 morning |
