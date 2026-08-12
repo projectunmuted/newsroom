@@ -75,11 +75,23 @@ if ($DryRun) {
     $code = 0
 } else {
     Write-Log "running claude (skip-permissions=$SkipPermissions)"
-    & claude @claudeArgs 2>&1 | ForEach-Object {
-        Add-Content -Path $Log -Value $_ -Encoding utf8
-        Write-Output $_
+    # `2>&1` on a native command wraps every stderr line in an ErrorRecord, and
+    # with $ErrorActionPreference = 'Stop' the first one kills the script. That
+    # is how a cycle died one second in on 2026-08-12: claude printed a harmless
+    # workspace-trust warning to stderr and PowerShell treated it as fatal. The
+    # whole point of capturing stderr is to keep the warnings, so drop the
+    # preference to Continue for exactly this call instead of the redirect.
+    $prev = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        & claude @claudeArgs 2>&1 | ForEach-Object {
+            Add-Content -Path $Log -Value $_ -Encoding utf8
+            Write-Output $_
+        }
+        $code = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $prev
     }
-    $code = $LASTEXITCODE
 }
 
 $After = git rev-parse HEAD
