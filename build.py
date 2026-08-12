@@ -549,6 +549,35 @@ def home_title(site: Site) -> str:
     return "Project Unmuted — an AI agent trying to earn one dollar in public"
 
 
+def redirect_page(site: Site, frm: str, to: str, label: str) -> str:
+    """A URL that has moved, kept alive rather than deleted.
+
+    Static hosting has no 301, so this is the honest substitute: a canonical
+    pointing at the destination so search engines consolidate rather than treat
+    the two as duplicates, a meta refresh for readers, and a real link for
+    anyone the refresh fails. `noindex` keeps it out of results while the
+    canonical does the consolidating.
+    """
+    dest = f"{site.base_url}/{to}"
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{html.escape(label)}{site.title_sep}{html.escape(site.title)}</title>
+<link rel="canonical" href="{dest}">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={dest}">
+<style>{css_for(site)}</style>
+</head>
+<body>
+<main class="wrap"><p>{html.escape(label)} moved to
+<a href="{dest}">{dest}</a>.</p></main>
+</body>
+</html>
+"""
+
+
 def site_nav(site: Site, up: str) -> str:
     """The thing both sites were missing. Before this, `<header>` held exactly
     one link, the logo, and a sidebar was standing in for navigation on the
@@ -563,7 +592,7 @@ def site_nav(site: Site, up: str) -> str:
         ]
     else:
         items = [
-            ("Essays", f"{up}essays.html"),
+            ("Essays", f"{up}index.html"),
             ("Working log", f"{up}log/index.html"),
             ("About", f"{up}about.html"),
             ("Detroit Sports Reporter", f"{DSR.base_url}/"),
@@ -731,7 +760,7 @@ def write_entry_pages(site: Site, entries: list[Entry]) -> None:
     to reach the next piece, and "All entries" pointed at a homepage whose lead
     section was something else. Every article now carries a date, its
     neighbours, and three related pieces."""
-    index_href = "../analysis.html" if site.key == "dsr" else "../essays.html"
+    index_href = "../analysis.html" if site.key == "dsr" else "../index.html"
     index_label = "All analysis" if site.key == "dsr" else "All essays"
 
     for i, e in enumerate(entries):
@@ -822,7 +851,9 @@ def write_common(site: Site, entries: list[Entry], home: str) -> None:
         pages += ["picks.html", "analysis.html", "about.html"]
         pages += [f"team/{slug}/" for slug, *_ in TEAMS]
     else:
-        pages += ["essays.html", "about.html"]
+        # essays.html is a redirect to "/" now and is deliberately absent: a
+        # sitemap should not advertise a noindex page.
+        pages += ["about.html"]
         log_dir = site.out / "log"
         pages += ["log/"] + sorted(
             (f"log/{p.name}/" for p in log_dir.iterdir() if p.is_dir()),
@@ -1151,16 +1182,13 @@ def build_journal(process: list[Entry]) -> None:
 
     intro_md = (ROOT / "intro.md").read_text(encoding="utf-8")
 
-    essays_body = (
-        "<h2>Essays</h2>"
-        + '<p class="sub">The considered version: why things were done the way '
-        "they were, what broke, and the plan from here.</p>"
-        + f'<ul class="entry-list">{"".join(entry_item(e) for e in process)}</ul>'
-    )
+    # The essays ARE the landing page; /essays.html was a second copy of the
+    # same list at a second URL, which splits inbound links and makes the nav
+    # point away from the page a reader is already on. His call 2026-08-12. It
+    # still serves, because it has been in the sitemap and submitted to IndexNow
+    # and a URL that has been advertised should not start 404ing.
     (site.out / "essays.html").write_text(
-        page(site, f"Essays{site.title_sep}{site.title}", essays_body,
-             path="essays.html",
-             description="Longer pieces on what this experiment is learning."),
+        redirect_page(site, "essays.html", "", "Essays"),
         encoding="utf-8",
     )
     (site.out / "about.html").write_text(
