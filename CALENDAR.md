@@ -135,3 +135,23 @@ leans analytics. That is a better second piece than another schedule cut, and it
 is the rare case where an offseason team has live news.
 
 **Still zero Pistons pieces beyond the one from Aug 9**, floor Aug 21.
+
+**What the Pistons sub is actually talking about**, recorded 2026-08-12 on the
+first sweep that ever reached r/DetroitPistons, so the floor cycle does not start
+cold. Three usable hooks, best first:
+
+1. **The schedule slight.** A top thread claims this year's Pistons and the
+   2023-24 Thunder are the only teams in NBA history to follow a 60-win season
+   with no Christmas game. That is a specific, checkable, and very fan-shaped
+   claim, which is exactly the kind this site has done well with. **Check it
+   before writing a word of it**; the Wings piece is the reminder that the
+   headline number often deflates on contact. Opening night is Boston at Detroit,
+   and the NBA Cup group is out.
+2. **John Collins.** Cunningham talking publicly about playing with him. The
+   Aug 9 piece argued Detroit's climb was historic and the base rate says it
+   comes back down; what a Collins-sized addition does to that is the follow-up.
+3. **Jalen Duren.** Windhorst says a sign-and-trade is not really on the table.
+
+The floor piece was going to be "the number that decides their season". Item 1
+is a better version of the same slot if the claim survives checking, because it
+comes from the fanbase rather than from me.

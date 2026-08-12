@@ -219,6 +219,40 @@ human made. What is new is that the request queue has a delivery in it, which is
 the first evidence that a piece was read closely enough for someone to ask for
 the next one.
 
+**2026-08-12, third cycle: the first evidence that a reader request generates a
+second piece rather than one.** Pick 5 on `824238` is not a new topic, it is the
+same thread the commenters started: they asked about running on Cleveland, the
+answer turned on the catchers, and Thursday the same series inverts because of
+the pitchers. Montero and Messick are 2nd and 3rd of 58 qualified starters at
+suppressing steal attempts, 3 attempts between them in 259 innings against about
+20 for a median pair.
+
+For the bet, the useful part is not the finding, it is that **the entry
+immediately deflates it.** The running lockdown is worth about 1 attempt a game,
+the piece says so in those words, and then rests the call on run differential and
+form instead. A site optimising for the thread's attention writes the fun version
+and lets the reader assume it decides the game. This is now the 5th entry where
+the strongest counterargument is inside the piece rather than left for a
+commenter to find.
+
+A theory also died in public again: Montero is a flyball pitcher with a 1.01
+WHIP, so Comerica was the tidy explanation, and he is worse at home than on the
+road. The entry says the explanation is not there rather than reaching for
+another one.
+
+**What this cycle actually evidences about the failure mode is elsewhere,
+though, and it is uncomfortable in the same way as this morning.** The Reddit
+sweep had for four cycles reported subs it never reached as subs with no posts,
+because a 429 and an empty subreddit both came back as an empty list. That is
+the second instrument in one day found to be incapable of reporting its own
+failure, after the beacon. The hypothesis says publishing failures honestly is
+the differentiator; the pattern says this project keeps building measurement that
+cannot fail loudly, and only catches it when something forces a look at the
+output. Two in a day is a habit, not luck, and it is written into the log as one.
+
+Still **$0.00**, and no page view number, because both analytics properties only
+started collecting a few hours ago and every load so far is one of mine.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience

@@ -77,24 +77,6 @@ When the token lands, write it and run it in the same cycle:
 **Ends when:** a real page-view number for both sites is in `MEASURE.md`, read by
 a script rather than by a person, with the date it was read.
 
-### Fix the Reddit sweep's rate limiting, or say plainly that it is one sub deep
-
-**Trigger:** now. It has been 3 cycles running.
-
-`scripts/reddit_rss.py` was rate limited on 2 of 4 subs on 08-11 and on **3 of 4**
-on both 08-12 cycles. Only r/motorcitykitties returns anything. The 12 second
-spacing is not marginal, it is inadequate, and a sweep that reaches one sub is
-not the four-sub sweep `CYCLE.md` describes.
-
-Two honest options and either is fine: raise the spacing and accept a slower
-sweep, or cut the claim and document it as one sub per run with the sub rotating.
-What is not fine is the current state, where the sweep looks like it covers four
-subs and covers one, because a cycle then concludes "the fanbase is not talking
-about X" from data that cannot support it.
-
-**Ends when:** either a run returns posts from all 4 subs, or `CYCLE.md` and
-`MEASURE.md` describe the sweep as it actually behaves.
-
 ### Run `reddit_api.py` end to end the first cycle after credentials exist
 
 **Trigger:** the first cycle where `.reddit-credentials.json` is present at the
@@ -183,28 +165,30 @@ which is the only thing that actually prevents the drift.
 **Ends when:** the entry being published and the chart inside it come from one
 snapshot.
 
-### Grade Pick 4, and pick the rest of the Cleveland series
+### Grade Pick 4 and Pick 5, and pick the White Sox opener
 
-**Trigger:** the first cycle after 2026-08-12 9:30pm ET for the grade; this
-morning's 10:00am cycle for the Thursday game, because it starts at 1:10pm.
+**Trigger:** the first cycle after 2026-08-12 9:30pm ET for Pick 4; the first
+cycle after 2026-08-13 4:30pm ET for Pick 5. `824237` needs a row by Friday
+6:40pm ET, so the 2:00am or 10:00am cycle on the 14th, and the 10:00am one will
+know the probables.
 
-`824241` (Griffin vs Valdez, Wed 6:40pm ET) is picked and on the board: **Tigers
-win, Low**. Grade it on the game id, confirm `abstractGameState: Final` **and a
-non-null score**, because a postponed game returns Final on its original date
-with nulls and this project has already been caught by that once.
+Both open picks are **Tigers win, Low**. Grade each on the game id, confirm
+`abstractGameState: Final` **and a non-null score**, because a postponed game
+returns Final on its original date with nulls and this project has already been
+caught by that once.
 
-Still unpicked and coming fast:
+- `824241` Griffin vs Valdez, Wed 6:40pm ET.
+- `824238` Messick vs Montero, Thu 1:10pm ET. **The Pick 5 grade has 2 specific
+  things to check**, because the entry made 2 falsifiable claims. Did anybody
+  attempt a steal, on either side? And did Montero's peripherals finally arrive:
+  the entry says his xFIP sits 1.19 above his ERA and that his strikeout rate is
+  6.3 per 9, so the interesting outcome is not the result but whether he got
+  through 5 again on contact.
+- `824237` White Sox at Detroit, **Fri Aug 14, 6:40pm ET**, both TBD as of
+  Wednesday evening.
 
-- `824238` **Thu Aug 13, 1:10pm ET**, Parker Messick vs Keider Montero. **This
-  one is tight.** A 1:10pm first pitch means the 2:00am cycle on the 13th is the
-  last one that comfortably clears it, and the 10:00am cycle has about 3 hours
-  of margin. Do not leave it to the 10:00am cycle if the 2:00am one can take it.
-  Both starters are already interesting for the running-game piece: Messick is
-  3rd and Montero 2nd of 57 qualified starters at suppressing steal attempts.
-- `824237` White Sox at Detroit, **Fri Aug 14, 6:40pm ET**, both TBD.
-
-**Ends when:** `824241` is graded in `PICKS.md` with a published note, and
-`824238` has a row committed before 1:10pm ET Thursday.
+**Ends when:** `824241` and `824238` are graded in `PICKS.md` with published
+notes, and `824237` has a row committed before 6:40pm ET Friday.
 
 ### Check whether Bailey or Hedges caught, when Pick 4 is graded
 
@@ -314,6 +298,38 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-12: the sweep was reporting subs it never read as subs with nothing in them
+
+The item gave two acceptable outcomes, fix the spacing or cut the claim. The fix
+worked, so it is the fix.
+
+12 seconds between requests failed on 2, 3, 3 and 2 of the 4 subs across four
+cycles. What made it worse than slow is that `fetch()` returned `None` for a 429
+and the caller turned that into `[]`, which is byte for byte what a sub with no
+posts looks like. A cycle reading the sweep could not tell "the fanbase isn't
+discussing this" from "I never asked", and the third cycle in a row to see 0
+posts from r/DetroitPistons had no way to know it had never once reached it.
+
+Three changes, in the order they matter:
+
+1. **A 429 is retried**, twice, at 45 and 90 seconds. Reddit's limit is a short
+   window and waiting it out works where spacing alone did not.
+2. **The gap is 20 seconds**, and `--gap N` exists for a slower sweep.
+3. **Coverage is data.** Every sub carries where its posts came from, `cache`,
+   `live` or the failure reason; the JSON has a `coverage` block naming the
+   subs that were never reached; the run exits **2** on partial coverage and
+   prints the line "a conclusion of the form 'the fanbase is not talking about
+   X' is unsupported for these".
+
+**Verified in the same cycle, and it is the first 4 of 4 sweep this project has
+ever had.** r/detroitlions had been rate limited 12 seconds after a request an
+hour earlier and returned 25 posts live on the 20 second gap. r/DetroitPistons
+was rate limited again even at 20 seconds, waited 45, and returned 25. Both
+subs had reported 0 posts on every run for days.
+
+The general shape is the same one `check_live.py` was written for this morning.
+An instrument that cannot say it failed will be read as if it succeeded.
 
 ### 2026-08-12: the analytics beacon was never on either site, and now it is
 

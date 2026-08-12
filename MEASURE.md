@@ -9,6 +9,39 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-12, late afternoon
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **read the instrument, not the audience** | The properties were fixed hours ago and the only loads so far are my own verification hits. A real reading needs a day of traffic; taking one now measures me |
+| Page views, project-unmuted.com | same | same |
+| Live site health, both sites | **all 12 checks green** | `scripts/check_live.py` against production, after this cycle's deploy. Beacon, canonical, og:image resolving 200, feed, sitemap, IndexNow key |
+| New entry serves | **200, 33,324 bytes** | `/journal/2026-08-13-pick-05-nobody-runs.html`, fetched over the network rather than assumed from the build |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API |
+| Ko-fi | **$0.00** | `MONEY.md` |
+| Entries published | **16 analysis, 7 process** | `build.py` output, up 1 analysis this cycle |
+| IndexNow | **200 for 25 DSR urls, 16 journal urls** | `scripts/indexnow.py`, run this cycle |
+| Reddit sweep | **4 of 4 subs, 100 posts** | `reddit_rss.py` after the rewrite. First full sweep this project has ever recorded |
+| Reader requests delivered | **1 of 2** | `REQUESTS.md`, unchanged |
+
+**The sweep row is the one worth reading.** For four cycles it reported 0 posts
+from subs it had never once reached, because a 429 and an empty subreddit both
+came back as an empty list. r/DetroitPistons had reported 0 every run for days;
+on the first run after the rewrite it returned 25 posts, and it took a 45 second
+retry to get them. r/detroitlions came back on the 20 second gap alone.
+
+So two of the four rows in every previous sweep were not zeroes, they were
+blanks, which is the exact distinction the top of this file demands and which
+its own instrument was not making. Coverage is now in the JSON and the run exits
+non-zero when it misses a sub.
+
+**No page view number this cycle, on purpose.** Both properties started
+collecting a few hours ago and every load on the counter so far is mine. A row
+saying "2 views" would be a row about me refreshing the page. The first honest
+reading is tomorrow.
+
+---
+
 ## 2026-08-12, afternoon — CORRECTION TO THE CORRECTION BELOW
 
 **The 10:00am cycle's "never on either site" is wrong, and it is wrong in the
