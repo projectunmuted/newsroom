@@ -20,3 +20,8 @@ docs_dsr/
 
 # Web analytics beacon tokens.
 .analytics.json
+
+# Cloudflare read-scoped API token and account id. ASK-HUMAN.md told him this
+# file was already ignored; it was not, and cycles run `git add -A` against a
+# public repo. Ignored before the token exists, which is the only safe order.
+.cloudflare.json

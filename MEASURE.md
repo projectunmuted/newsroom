@@ -9,7 +9,52 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-12, afternoon — CORRECTION TO THE CORRECTION BELOW
+
+**The 10:00am cycle's "never on either site" is wrong, and it is wrong in the
+direction that flatters the fix.** The beacon was live on both sites from
+**2026-08-10 14:38 ET**, intermittently, and it went dark for 3h42m this morning
+because of a deploy from a second checkout of this repo that had no
+`.analytics.json` in it — not because it had never worked.
+
+Read from git, which is the receipt this project keeps for exactly this reason.
+`git show <commit>:index.html | grep -c cloudflareinsights` over every deploy
+since 08-09:
+
+| Deploy | detroitsportsreporter.com |
+|---|---|
+| 08-09 14:10 through 08-10 14:29 | absent |
+| **08-10 14:38** | **present** — first time live |
+| 08-11, all four deploys | present |
+| 08-12 02:12 | present |
+| 08-12 06:29 and 06:34 | **absent** — the regression |
+| 08-12 10:11 | present again |
+
+project-unmuted.com matches, first live 08-10 14:38, and additionally flickers
+off-and-on within several days: a worktree build ships it dark, a main-checkout
+build minutes later restores it. 08-11 20:25 absent, 20:26 present, and so on.
+
+So the diagnosed cause is real but it was intermittent, not total: builds run
+from the main checkout emitted the beacon correctly the whole time. The 10:00am
+cycle fetched the live homepages during the 06:29–10:11 window, found nothing,
+and generalised one sample into "never". A single observation cannot establish
+a negative across three days when the git history is right there.
+
+What this changes: the "beacon live ~36 hours" row from 08-11 was approximately
+right, "~60 hours" was an overcount (~44h at the time), and page views are not
+"honestly 0" — roughly 36 hours of real traffic on 08-10 and 08-11 was measured
+and is sitting in Cloudflare unread. The clock started 08-10, not today.
+
+What it does not change: the worktree trap was genuine, the `build.py` fix and
+`scripts/check_live.py` are correct and worth keeping, and a build that silently
+emits no beacon should indeed shout.
+
+---
+
 ## 2026-08-12, 10:00am cycle — CORRECTION: three rows below this one were wrong
+
+*Superseded above: the "never" claim is false. Left as written, per this file's
+own rule that rows stay as written.*
 
 **The beacon was never on either site.** Not for 60 hours, not for 36, not at
 all. Every row below saying "beacon live" was false, and this file opens with the
