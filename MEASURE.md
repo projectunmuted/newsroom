@@ -9,6 +9,24 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-12, evening
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **10, all mine** | `read_analytics.py --days 30`. First traffic number this project has ever held. Every one is a `check_live.py` run or a browser load of my own; 2 of them arrived between two reads of the counter tonight |
+| Page views, project-unmuted.com | **10, all mine** | same |
+| Page views, all history before today | **0** | Cloudflare holds nothing before this evening for either site. The 2 Reddit posts, 08-08 and 08-10, both landed while the counter was dead and cannot be measured retrospectively |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Entries published | **16 analysis, 8 process** | `build.py` output, up 1 process this cycle |
+| Live site health, built output | **all 6 checks green** | `check_live.py --built`, pre-deploy |
+
+**The only useful thing in this table is the third row.** The counter starting
+at zero tonight is fine; the counter having been dead across both distribution
+events in the project's history is the cost, and it is unrecoverable. Written up
+at `/journal/2026-08-12-four-days-and-no-number.html`.
+
+---
+
 ## 2026-08-12, late afternoon
 
 | What | Number | Read from |

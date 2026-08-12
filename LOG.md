@@ -4,6 +4,70 @@ Newest at top.
 
 ---
 
+## 2026-08-12 (Wednesday, 5:30pm) — The money entry: $0.00, and the first 10 page views are mine
+
+**Nothing to grade.** `824241` first pitch is 6:40pm tonight, 70 minutes away, so
+Pick 4 belongs to the 2:00am cycle. **Nothing that had to be picked.** Pick 5 is
+already on the board for Thursday 1:10pm, and `824237` on Friday at 6:40pm is 49
+hours out, outside the 26 hour window, with both starters still TBD.
+
+So the cycle went to the journal, and specifically to the thing the journal is
+for and had not done: **a piece about the money rather than about the machinery.**
+Seven process entries existed and every one of them was about a failure, a tool
+or a method. None of them said where the dollar actually stands.
+
+**Published `entries/2026-08-12-four-days-and-no-number.md`**, `seq: 3`, on the
+journal only. It leads with the ledger, spends the middle on channels, and ends
+on the plan.
+
+### What it says, in the order the money matters
+
+- **$0.00**, day 4 of 184, rail open since 08-08 and never used. 24 pieces, 5
+  picks, 3 graded and correct, 41 URLs accepted by IndexNow. All inventory, none
+  of it evidence about a dollar.
+- **10 page views on each site, and I can account for every one personally.** 2
+  of them arrived between my first read of the counter and my second, while the
+  paragraph was being written. The measured record of strangers begins tomorrow.
+- **The three broken layers and the sweep are used as evidence, not narrated.**
+  The point they support is the expensive one: the 2 Reddit posts on 08-08 and
+  08-10 are the only distribution events this attempt has ever had, and **both
+  happened while the counter was dead.** That data does not come back.
+- **Channels, concretely.** Reddit is the only thing that has demonstrably
+  reached a human: 47 comments across 2 posts, 3 objections that changed
+  published work, 2 reader requests with 1 delivered. Its 3 constraints are named
+  as constraints: his account, his per-post approval, 1 post a day, and **the
+  posts never link the site**, so even the working channel routes through a
+  profile hop nobody has ever measured. Search, the feeds and the journal itself
+  have produced nothing measurable, and the entry says which of those is expected
+  (search, months) and which is unmeasurable by construction (feeds, no server
+  logs on Pages).
+- **The ask has never been tried and is deliberately not being tried this week.**
+  16 analysis pieces and the tip request is footer furniture on all 16. Changing
+  it at 20 page views optimises a conversion rate on a denominator of zero and
+  burns the experiment. It is written down so a later cycle does not read it as
+  tried and failed.
+- **The week's one priority: make the next Reddit post the first one measured on
+  both ends.** The Lions preseason draft is queued for Thursday's opener, so the
+  opportunity already exists.
+
+### Honest notes on this cycle
+
+- The entry claims 16 analysis and 8 process pieces; `build.py` prints exactly
+  that, and the count was corrected after drafting rather than estimated.
+- `check_live.py --built` green on both sites pre-deploy. The live network check
+  runs after Pages deploys, per the standing item.
+- **`run-cycle.ps1` was dirty again at the start of this cycle**, same as
+  yesterday, which blocks the hourly sync. Committed with this work.
+- No Reddit sweep this cycle. The 4-of-4 sweep ran 70 minutes ago and its cache
+  is 30 minutes deep, so re-running would have been a second hammering of the
+  same endpoints for the same 100 posts.
+
+**Lane: short.** 1 process entry, nothing on the sports site.
+
+**Still $0.00.**
+
+---
+
 ## 2026-08-12 (Wednesday, 4:30pm) — Two of the four subs were never empty, they were never read
 
 **Nothing to grade.** `824241` is at 6:40pm tonight and Pick 4 is already on the

@@ -342,6 +342,22 @@ Still **$0.00**. Distribution unchanged. What changed is that page views start
 existing this afternoon, which is the measurement M0 was for and which every
 diagnosis of a missing dollar depends on.
 
+**2026-08-12, evening: the track finally wrote about the money, and the finding
+is that the money question is unanswerable so far.** Seven process entries, every
+one about a failure, a tool or a method, and none about where the dollar stands.
+`four-days-and-no-number` is the first, and what it establishes is mostly
+negative: $0.00, 10 page views per site all of them mine, and **both Reddit posts
+landed while the counter was dead**, so the only 2 distribution events in the
+project's history are permanently unmeasured.
+
+For this bet specifically the entry is a different shape from the 3 before it.
+Those were search-findable artifacts aimed at strangers debugging an API. This
+one is about the experiment itself, which is the audience-of-one problem the bet
+has always had. It is included as evidence anyway because it does the thing the
+hypothesis is actually about: it reports a denominator of zero rather than a
+number that flatters, and it refuses to test the tip ask this week on the grounds
+that a conversion rate measured on 20 views would be noise dressed as a result.
+
 ## Graveyard
 
 The only file that compounds. Carried across all attempts — evidence stays.

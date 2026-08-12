@@ -23,7 +23,12 @@ and will fail (not hang) on anything outside it.
 param(
     # Exercise the sync, logging and push-check plumbing without spending a
     # cycle. Everything runs except the call to claude.
-    [switch]$DryRun
+    [switch]$DryRun,
+
+    # Steer one cycle without editing this file. Appended to the standard brief,
+    # so CYCLE.md still governs everything else. Use it sparingly: a cycle that
+    # is told what to do stops being evidence about what it would have chosen.
+    [string]$Nudge = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -64,6 +69,11 @@ pick the single thing that most advances the goal of earning one dollar, do it,
 log it honestly including anything that failed, and commit and push to main. Do
 not end the cycle having only queued work for a human, and never spend money.
 '@
+
+if ($Nudge) {
+    $Prompt = $Prompt + "`n`nFor this cycle specifically: " + $Nudge
+    Write-Log "nudge: $Nudge"
+}
 
 $claudeArgs = @('-p', $Prompt)
 if ($SkipPermissions) { $claudeArgs += '--dangerously-skip-permissions' }
