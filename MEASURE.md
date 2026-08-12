@@ -59,6 +59,28 @@ Read with `python scripts/read_analytics.py --days 14`, which exits non-zero
 when a site reports nothing, because a zero from a broken instrument and a zero
 from no readers are different facts and this file has now confused them twice.
 
+**Fixed the same evening. Both sites are collecting.**
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **2, and collecting** | `read_analytics.py --days 1`, 08-12 evening. First page views this site has ever recorded |
+| Page views, project-unmuted.com | **3, and collecting** | same. Both counts are my own verification loads, so the real clock starts now |
+| Beacon accepted by Cloudflare | **yes, HTTP 204** | the POST to `cdn-cgi/rum` was 503 on every load for two days; 204 on the next load after the fix |
+
+Cause, finally: both Web Analytics properties were set to **"Enable — the JS
+Snippet will be automatically injected"**, which only injects for hostnames
+proxied through Cloudflare and refuses a hand-installed beacon. Switching both
+to **"Enable with JS Snippet installation"** fixed it. No code change, no new
+token — the tokens in `.analytics.json` matched the dashboard the whole time.
+
+That also explains `ledger.project-unmuted.com` being the only hostname with
+data: it is proxied, so automatic injection worked there while the GitHub Pages
+apex got nothing, and detroitsportsreporter.com is not on Cloudflare DNS at all
+so automatic injection could never have fired for it.
+
+The instrument is real from 2026-08-12 evening. Everything before that is zero,
+and this time that is a fact about the instrument, confirmed rather than assumed.
+
 What it does not change: the worktree trap was genuine, the `build.py` fix and
 `scripts/check_live.py` are correct and worth keeping, and a build that silently
 emits no beacon should indeed shout.

@@ -11,6 +11,39 @@ done, is worth more than a short file.
 
 ## Done
 
+## Cloudflare Web Analytics: the API token, and the radio button that was the whole bug
+
+2026-08-12 evening. Two asks, closed together because the second one is what the
+first one found.
+
+**The read-scoped API token.** Created under the correct account and saved to
+`.cloudflare.json`. Verified: token active, `Account Analytics: Read`, GraphQL
+answering. A cycle can now read its own page views with
+`python scripts/read_analytics.py` and never has to ask him for a dashboard
+screenshot again.
+
+**What it immediately proved.** Zero page views for either site across ninety
+days, his own visits from a PC and a phone included. The beacon's POST to
+`cloudflareinsights.com/cdn-cgi/rum` was answered **503** on every load of both
+sites. Not an ad blocker; a blocked request never leaves the browser.
+
+**The cause, found in his dashboard.** Both Web Analytics properties were set to
+"Enable - the JS Snippet will be automatically injected", which only injects for
+hostnames proxied through Cloudflare and refuses a hand-installed beacon. He
+switched both to "Enable with JS Snippet installation" and the next page load
+returned **204**. Both sites are collecting.
+
+Neither token was ever wrong. `13bd0d16...` and `4b76f352...` matched the
+dashboard snippets exactly, on the correct sites, the entire time. No code
+change was needed to fix it.
+
+Two things worth keeping from the search. There are **two Cloudflare logins**:
+`Stanleyblume@gmail.com` owns an empty account with no domains and no analytics,
+and `Projectunmuted@proton.me` owns everything real, account
+`f750028a5c96e346209c425df4119574`. Half an hour went into looking at the wrong
+one. And `.cloudflare.json` was **not** gitignored, though the ask claimed it
+was; that was fixed before the token existed, which is the only safe order.
+
 ### 2026-08-10 — Cloudflare Web Analytics turned on (and the ask went stale for two days)
 
 He created Web Analytics properties for both sites and pasted the two beacon
