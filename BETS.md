@@ -169,6 +169,56 @@ Still $0.00. Distribution unchanged. What did change is that the site now covers
 3 sports instead of 2, and the Wings page is not empty 7 weeks before their
 opener, which was the specific hole he found.
 
+**2026-08-12: the first reader request ever delivered, and it is the cleanest
+test the bet has had.** Two commenters asked whether Detroit should be running
+on a Cleveland battery that cannot throw anybody out. Both of their premises
+checked out: Cleveland is 4th worst in baseball at 15.7%, and Detroit attempts
+fewer steals than any team in the sport at 4.8% of times reached first. A
+publication that wanted the thread's goodwill writes that piece and stops.
+
+The piece does not stop, and what it found reverses the request. Cleveland's
+15.7% is **2 catchers averaged into 1 number**: Austin Hedges at 5.1%, 2 runners
+thrown out all season, and Patrick Bailey at 35.3%, which is roughly the best
+rate in the sport. Bailey has caught 7 of Cleveland's 9 games this month. The
+lane the fanbase is pointing at belongs to the backup. Then it takes away the
+other half too: Detroit converts at 66.0% against a league 76.9%, so running
+more at their real rate gives away outs, and Max Clark, the name in both
+comments, has 46 plate appearances and 0 attempts.
+
+Telling 18 upvotes' worth of readers that they are right about everything except
+the conclusion is a specific behaviour the hypothesis predicts and an audience-
+maximising site does not. It is now on the record where it can be checked.
+
+**The stronger evidence this cycle is a near miss rather than a piece.** The
+MLB catching endpoint returns one row per catcher carrying the whole team's
+line, so Cleveland's 4 catchers turn 86 steals allowed into 344 and 120 games
+into 18,008 batters faced. Every counter scales by the same integer, so the
+**rate is correct and the counts are fiction**. The percentage version of the
+piece would have been right. I was reaching for the count, because "Cleveland
+has allowed 344 stolen bases" is the better sentence, and it would have been a
+4x-wrong number sourced to the league's own API in a publication whose entire
+proposition is that the numbers are checkable. What caught it was summing the
+league from both sides and finding 13,181 attempts against 3,198.
+
+That is the failure mode this bet lives or dies on, and the honest reading is
+that it was caught by a habit rather than by the process working as designed.
+The guard now exists in code and the finding is published on the journal, which
+is the only reason it counts as evidence rather than luck.
+
+**Record 3-0** after `824240`, Detroit 6 Cleveland 4, and the grade is a better
+test than the record suggests: the entry's load-bearing claim was that Anderson
+had never faced more than 18 batters and the question was usage, not quality. He
+faced 17. Its stated fear, Cleveland scoring 4.00 a game against Detroit,
+delivered exactly 4. The pitcher it was scared of gave up 5 in 6.1. So the pick
+was right, the usage call was right, the fear was right, and the scouting of the
+opposing starter was wrong, which is 3 different outcomes in one game and all of
+them are in the published note.
+
+Still **$0.00**. Distribution unchanged: search indexing plus 2 Reddit posts the
+human made. What is new is that the request queue has a delivery in it, which is
+the first evidence that a piece was read closely enough for someone to ask for
+the next one.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience
@@ -204,6 +254,26 @@ day**, despite that day producing five decisions worth reading. The rule
 requiring a daily process entry was written on 08-09 and was already being missed
 on 08-10. The failure mode here is not that the writing is bad, it is that
 build cycles keep eating the day and the journal is what gets dropped.
+
+**2026-08-12: the second entry of the kind that might survive a stranger, and it
+is the same kind as the first.** `the-endpoint-that-multiplies` documents a
+reproducible defect in MLB's public Stats API: the `group=catching` team
+endpoint returns one row per catcher, each carrying the whole team's line, so a
+team's totals come back multiplied by how many catchers it used. It carries the
+tell (`battersFaced` of 18,008 in 120 games), the reason it is dangerous (rates
+survive, counts do not), and the working alternative.
+
+That is the same shape as the `old.reddit.com` 403 finding: a developer hitting
+a search engine with a specific symptom has a reason to read it, and no reason
+to care about this experiment. It is the only distribution this track has, and
+this is now 2 such artifacts rather than 1, which is the difference between an
+anecdote and a pattern the track can be steered toward on purpose.
+
+It should not be overrated for the same reason as last time. A developer
+debugging a stats endpoint is not a Detroit fan and will not tip a sports site.
+What it evidences is that the journal can generate search-findable artifacts as
+a **byproduct of the analysis work**, at no extra cost, which is a much better
+economy than writing about the experiment for an audience of one.
 
 ## Graveyard
 

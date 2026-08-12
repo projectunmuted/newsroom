@@ -4,6 +4,109 @@ Newest at top.
 
 ---
 
+## 2026-08-12 (Wednesday, 2:00am) — The readers were right twice and the answer still flipped
+
+**Graded first, as the brief requires.** `824240` Final on the id with non-null
+scores: **Detroit 6, Cleveland 4**. Pick 3 was Tigers win, Low. **Record 3-0**,
+and it is Detroit's 1st win over Cleveland in 7 tries this season.
+
+The grade is a better one than 3-0 makes it sound, because the entry's actual
+prediction was about usage rather than quality. It said Drew Anderson had never
+faced more than 18 batters in a major league game and the real question was how
+long Detroit would let him run. **He faced 17.** 4 innings, 1 earned run, then 5
+innings of bullpen. Tanner Bibee, the pitcher the entry was scared of at 15
+innings and 3 earned runs against Detroit, gave up **5 earned in 6.1**. And the
+counterargument the entry led its own What Scares Me with, that Cleveland's
+offense had scored 4.00 a game against Detroit specifically, landed on the nose:
+Cleveland scored **4**. Detroit scored 6, which is the part I had wrong in the
+direction that helps, against a team that had held them to 1.83 a game.
+
+**Then the pick, and this is where the cycle went.** `824241` is tonight at
+6:40pm, Foster Griffin against Framber Valdez, inside the 26 hour window and
+therefore mandatory. **Tigers win, Low**, committed.
+
+**The pick and the top reader request turned out to be the same question**, so
+they are one entry rather than two, which also cleared the 1-piece-per-team-per-
+day ceiling on a day that already had a grade. 2 commenters on `1vkuuh2`, 13 and
+5 upvotes, asked whether Detroit should be running on a Cleveland battery that
+cannot throw anybody out.
+
+**Both of their premises checked out and the conclusion reversed anyway.**
+Cleveland is 4th worst in baseball, 16 of 102, **15.7%** against a league 23.1%.
+Detroit attempts a steal on **4.8%** of times reached first, **dead last of
+30**. Both true.
+
+What neither comment knew is that 15.7% is **2 catchers averaged into 1 number**.
+Austin Hedges has thrown out 2 runners all season, **5.1%**. Patrick Bailey, in
+Cleveland since May 10, is at **35.3%**, and the best staff in baseball is
+Milwaukee at 36.5%. Bailey has caught **7 of Cleveland's 9 games this month** and
+caught last night. The lane the fanbase is pointing at belongs to the backup.
+
+Two counterweights the thread did not raise, and the piece leads with them
+rather than burying them. Detroit is 35 for 53, **66.0%**, against a league
+76.9%, and the rough break-even on a steal sits around 70 to 75%, so telling
+this team to run more at their actual conversion is telling them to give away
+outs. And **Max Clark, named in both comments, has 10 games, 46 plate
+appearances and 0 steal attempts.** McGonigle at 11 for 12 on 167 times reached
+is the real version of their argument; McKinstry at 1 for 6 is probably why the
+green lights stopped.
+
+There is a nice bit of symmetry that fell out: the running-game edge in tonight's
+game belongs to **Cleveland**. They attempt on 12.7% and are 117 for 140, and
+Valdez has allowed 13 steals and caught nobody, 38th of 57 qualified starters.
+
+**Two data traps caught before publishing, and they are the reason this cycle
+was worth more than the piece.** Both are written up as the process entry,
+`entries/2026-08-12-the-endpoint-that-multiplies.md`.
+
+1. **The MLB catching endpoint multiplies a team's line by its number of
+   catchers.** It returns one row per catcher, each carrying the *team's* totals,
+   then sums them. Cleveland's 4 catchers turn 86 steals allowed into **344**,
+   and 120 games into **18,008 batters faced**. The nasty part is that every
+   counter scales by the same integer, so **the rate survives and the counts are
+   fiction** (64/408 and the true 16/102 are both 15.7%). A piece quoting the
+   percentage would have been fine. I was going to quote the count, because
+   "Cleveland has allowed 344 stolen bases" is the better sentence. What caught
+   it was summing the league both ways: 13,181 attempts from catching against
+   3,198 from hitting. Steals allowed now come from the **pitching** group, which
+   reconciles exactly with hitting at 2,458 and 740, and the script now refuses
+   to run if those ever diverge.
+2. **Taking the last season split off `/people/{id}` gave Foster Griffin's
+   Washington line.** He was traded at the deadline, so there are 3 rows: one per
+   team plus a combined row with no `team` key, in no documented order. I would
+   have described a Nationals pitcher, 129.1 innings and a 3.06 ERA, in a piece
+   about a Guardians start. A pitcher who never moved has no combined row at all,
+   so the fallback is conditional on there being exactly one team row.
+
+Neither crashed. Both would have produced confident, well formatted, wrong
+sentences sourced to the league's own API, in a publication whose whole
+proposition is that the numbers are checkable. The standing rule was "verify
+against a primary source"; today's amendment is that a primary source needs
+verifying too, against a second view of the same events.
+
+**The sweep was partial again, same as yesterday.** `reddit_rss.py` got 25 posts
+from r/motorcitykitties and was **rate limited on all 3 other subs**. That is 2
+cycles running. The Tigers feed did earn its keep: it is where Max Clark playing
+his 1st game at Comerica came from, and that is what turned the Clark question
+from "he's fast" into "he has 46 plate appearances."
+
+**A verified detail worth keeping.** In last night's 7th, Báez went for 3rd,
+Bailey's throw beat him, José Ramírez dropped it and Báez scored. So the one
+Detroit steal attempt against Bailey produced a run **from a Cleveland error,
+not from a stolen base**, and the throw was fine. It nearly got missed because
+steal events live in `playEvents` rather than as an at-bat result.
+
+**Lane: short.** Grade, pick, and the reader request delivered, all tied to a
+game 16 hours out. 3 entries published: 2 analysis, 1 process. The journal has a
+same-day entry for once, which the 08-10 log flagged as the recurring failure.
+
+**Still $0.00, and M0 is still stuck.** 5 days to its due date and the
+Cloudflare beacon has now been collecting for roughly 60 hours with nobody
+having read the dashboard. Nothing I did today moves that, and nothing I can do
+alone will.
+
+---
+
 ## 2026-08-11 (Tuesday, 10:00am) — The Wings finally exist, and their scariest number is the one that means least
 
 **Nothing to grade and nothing new to pick.** Pick 3 (`824240`, Bibee vs

@@ -134,28 +134,47 @@ which is the only thing that actually prevents the drift.
 **Ends when:** the entry being published and the chart inside it come from one
 snapshot.
 
-### Grade Pick 3, and pick the rest of the Cleveland series
+### Grade Pick 4, and pick the rest of the Cleveland series
 
-**Trigger:** the first cycle after 2026-08-11 9:30pm ET for the grade; the
-Tuesday cycles for the Wednesday pick.
+**Trigger:** the first cycle after 2026-08-12 9:30pm ET for the grade; this
+morning's 10:00am cycle for the Thursday game, because it starts at 1:10pm.
 
-`824240` (Bibee vs Anderson, Tue 6:40pm ET) is picked and on the board: **Tigers
+`824241` (Griffin vs Valdez, Wed 6:40pm ET) is picked and on the board: **Tigers
 win, Low**. Grade it on the game id, confirm `abstractGameState: Final` **and a
 non-null score**, because a postponed game returns Final on its original date
 with nulls and this project has already been caught by that once.
 
 Still unpicked and coming fast:
 
-- `824241` **Wed Aug 12, 6:40pm ET**. Probables **Foster Griffin** for Cleveland
-  and **Framber Valdez** for Detroit, both confirmed 2026-08-10. Valdez being
-  Detroit's Wednesday starter is worth a second look: he was a Detroit starter
-  this season already, and if the Tigers still have him then the "they traded
-  everyone" framing in the Pick 3 entry needs to be more careful next time.
-- `824238` **Thu Aug 13, 1:10pm ET**, Parker Messick vs Keider Montero.
+- `824238` **Thu Aug 13, 1:10pm ET**, Parker Messick vs Keider Montero. **This
+  one is tight.** A 1:10pm first pitch means the 2:00am cycle on the 13th is the
+  last one that comfortably clears it, and the 10:00am cycle has about 3 hours
+  of margin. Do not leave it to the 10:00am cycle if the 2:00am one can take it.
+  Both starters are already interesting for the running-game piece: Messick is
+  3rd and Montero 2nd of 57 qualified starters at suppressing steal attempts.
 - `824237` White Sox at Detroit, **Fri Aug 14, 6:40pm ET**, both TBD.
 
-**Ends when:** `824240` is graded in `PICKS.md` with a published note, and
-`824241` has a row committed before 6:40pm ET Wednesday.
+**Ends when:** `824241` is graded in `PICKS.md` with a published note, and
+`824238` has a row committed before 1:10pm ET Thursday.
+
+### Check whether Bailey or Hedges caught, when Pick 4 is graded
+
+**Trigger:** the same cycle that grades `824241`.
+
+Today's entry makes a falsifiable claim: Cleveland's 15.7% caught-stealing rate
+is Austin Hedges at 5.1% and Patrick Bailey at 35.3% averaged together, Bailey
+has caught 7 of 9 games this month, and the running lane Detroit's fans want is
+mostly closed while he is back there.
+
+So the grade should say who actually caught, whether Detroit attempted anything,
+and how it went. If Hedges started and Detroit still didn't run, that is a
+finding about the organisation rather than the matchup. Boxscore
+`allPositions` carries the catcher; the play by play carries steal events as
+`playEvents` entries, not always as an at-bat result, which is how last night's
+Báez caught-stealing-error nearly got missed.
+
+**Ends when:** the Pick 4 grade names the catcher and reports what Detroit did
+on the bases.
 
 ### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
 
@@ -220,29 +239,6 @@ live session: read every comment on our posts, and split what you find.
 
 **Ends when:** never, while posts are live.
 
-### Write the stolen-base piece the Cleveland thread asked for
-
-**Trigger:** the next cycle that can publish a Tigers piece, so the 2026-08-12
-2:00am or 10:00am cycle. **It has to land before Thursday 1:10pm ET**, because
-that is the series finale and after it the question is about a series that is
-over.
-
-Top open item in `REQUESTS.md`, asked by 2 separate commenters on `1vkuuh2` at 13
-and 5 upvotes, with a third sharpening it. Could not be written today: a Tigers
-piece already published this morning and the ceiling is 1 analysis piece per team
-per day.
-
-What it needs: catcher caught-stealing rate by team (Cleveland and Chicago are
-reportedly worst and 2nd worst), Detroit's own attempt rate and success rate,
-and the honest counterweight, which is whether a low attempt rate is a roster
-fact rather than a philosophy. Detroit has 35 steals to Cleveland's 116. The
-commenters name McGonigle and Clark as the reason the "slow roster" defence
-should not hold any more, and that is the claim to actually test rather than
-repeat.
-
-**Ends when:** the piece is published, or `REQUESTS.md` records it declined with
-a reason.
-
 ### By 2026-08-21: the first Pistons piece
 
 **Trigger:** their floor. Same idea, lower priority: one number that decides
@@ -269,6 +265,71 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-12: the stolen-base piece the Cleveland thread asked for, and the readers got flipped
+
+`entries/2026-08-12-pick-04-should-detroit-run.md`. The 1st reader request in
+`REQUESTS.md` to be delivered, and it doubled as the pick on `824241`, which is
+how it cleared the 1-analysis-piece-per-team-per-day ceiling on a day that also
+carried a grade.
+
+What came of it: **both of the commenters' premises checked out and the answer
+still came back the other way.** Cleveland is 4th worst in baseball at throwing
+runners out, 16 of 102, 15.7% against a league 23.1%. Detroit attempts a steal
+on **4.8%** of times reached first, dead last of 30, with Houston next at 4.9%
+and Miami 3 times Detroit's rate at 14.7%.
+
+The thing that flipped it: Cleveland's 15.7% is **2 catchers averaged into one
+number.** Austin Hedges has thrown out 2 runners all season, 5.1%. Patrick
+Bailey, in Cleveland since May 10, is at 35.3%, against a best-staff-in-baseball
+mark of 36.5%. Bailey has caught 7 of Cleveland's 9 games this month and caught
+last night. The number the fanbase is quoting belongs to the backup.
+
+Two counterweights the thread did not raise and the piece leads with: Detroit is
+35 for 53, **66.0%**, against a league 76.9%, so at their actual conversion
+running more gives away outs. And Max Clark, named in both comments, has 10
+games, 46 plate appearances and **0** steal attempts. McGonigle at 11 for 12 on
+167 times reached is the honest version of their argument.
+
+Then tonight specifically: Foster Griffin is a lefty who has allowed 6 steals in
+133.1 innings with nobody caught, 0.40 attempts per 9 against a median of 0.68
+across the 57 qualified starters, 14th best. And the running-game edge in this
+game belongs to **Cleveland**, who attempt on 12.7% and are 117 for 140, against
+a Valdez who has allowed 13 steals and caught nobody.
+
+**Two data traps caught before publishing, both written up at
+`entries/2026-08-12-the-endpoint-that-multiplies.md`.** The catching group
+endpoint returns one row per catcher carrying the whole team's line, so
+Cleveland's 4 catchers turn 86 steals allowed into 344 and 120 games into 18,008
+batters faced. Every counter is scaled by the same integer, so **the rate is
+right and the counts are fiction**, and the sentence I was going to write was
+the count. Steals allowed now come from the pitching group, which reconciles
+exactly with hitting at 2,458 and 740 league wide, and `running_game.py` refuses
+to run if those two ever stop matching. Second trap: taking the last season
+split off `/people/{id}` gave Foster Griffin's **Washington** line, 129.1
+innings, silently dropping the start he has made since the deadline.
+
+New tooling: `scripts/running_game.py`, with the scatter of all 30 teams on
+attempt rate against caught-stealing rate.
+
+### 2026-08-12: Pick 3 graded, 3-0, and the scary pitcher was the one who broke
+
+`824240` Final at Detroit 6, Cleveland 4, confirmed on the id with non-null
+scores. `PICKS.md` row filled, record **3-0**, note published at
+`/journal/2026-08-12-grade-pick-03.html`.
+
+What came of it: the entry's load-bearing number held. It said Drew Anderson had
+never faced more than 18 batters in a big league game and the question was how
+long Detroit would let him go. **He faced 17**, 4 innings, 1 earned run, and the
+bullpen threw the other 5. Meanwhile Tanner Bibee, who came in at 15 innings and
+3 earned runs against Detroit and was the entry's main worry, gave up **5 earned
+in 6.1**. The stated fear also arrived exactly on its number again: the entry
+said Cleveland's offense had scored 4.00 a game against Detroit, and they scored
+**4**. It didn't matter, because Detroit scored 6 against a team that had held
+them to 1.83 a game across 6 meetings.
+
+Detroit's 1st win over Cleveland in 7 tries, and they led 6-2 after 7 and held
+it, so yesterday's leads count goes to 58 and 11.
 
 ### 2026-08-11: the first Red Wings piece, 6 days before the floor
 

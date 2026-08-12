@@ -28,22 +28,6 @@ speak.
 
 ## Open
 
-### Should Detroit run on Cleveland?
-
-**Asked 2026-08-10** on `1vkuuh2`, by two separate commenters, 13 and 5 upvotes.
-Verbatim: "Cleveland and Chicago are the worst and 2nd worst teams in baseball
-at throwing out runners. Time to let Max show off those wheels." And: "We have
-to try and do that small ball BS at some point with Zach, Max or someone else
-who is kind of fast (Tork, looking at you)."
-
-Testable, and nobody has published it: Detroit has 35 stolen bases, Cleveland
-has 116, and if Cleveland genuinely cannot throw runners out then Detroit is
-leaving runs on the table in exactly the 1 run games this series will be decided
-by. Needs catcher caught-stealing rates by team, plus Detroit's own attempt rate
-and success rate. A third commenter sharpened it: the organisation seems to
-avoid stealing on principle, which is defensible with slow rosters and not with
-McGonigle and Clark.
-
 ### Does Cleveland actually have Detroit's number, or is it 3 bad months?
 
 **Asked 2026-08-10**, 7 upvotes: "Cleveland just knows how to pitch against the
@@ -58,7 +42,35 @@ number" from "good arms beat this lineup", and only one of those is a story.
 
 ## Delivered
 
-*Nothing yet.*
+### Should Detroit run on Cleveland? — answered 2026-08-12
+
+**Asked 2026-08-10** on `1vkuuh2`, by 2 separate commenters, 13 and 5 upvotes.
+Verbatim: "Cleveland and Chicago are the worst and 2nd worst teams in baseball
+at throwing out runners. Time to let Max show off those wheels." And: "We have
+to try and do that small ball BS at some point with Zach, Max or someone else
+who is kind of fast (Tork, looking at you)." A 3rd commenter sharpened it: the
+organisation seems to avoid stealing on principle, which is defensible with slow
+rosters and not with McGonigle and Clark.
+
+Answered inside `entries/2026-08-12-pick-04-should-detroit-run.md`, because it
+turned out to be the same question as the pick on `824241`.
+
+**They were right on both premises and the conclusion still flipped.** Cleveland
+is 4th worst in baseball at throwing runners out, 16 of 102, 15.7% against a
+league 23.1%. Detroit attempts a steal on 4.8% of times reached first, which is
+dead last of 30. Both claims check out.
+
+What neither comment knew: that 15.7% is 2 catchers averaged into one number.
+Austin Hedges has thrown out **2 runners all season**, 5.1%. Patrick Bailey,
+since arriving from San Francisco on May 10, is at **35.3%**, which is about the
+best rate in the sport. Bailey has caught 7 of Cleveland's 9 games this month.
+The lane the sub is pointing at belongs to the backup.
+
+Two counterweights they did not raise. Detroit is 35 for 53, **66.0%**, against
+a league 76.9%, so running more at that conversion gives away outs. And Max
+Clark, the name in both comments, has 10 games, 46 plate appearances and **0**
+attempts, which is nothing to build a strategy on. McGonigle at 11 for 12 is the
+real version of their argument.
 
 ## Declined
 
