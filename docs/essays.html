@@ -122,9 +122,14 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .sitenav a:hover{color:var(--fg);border-bottom-color:var(--accent)}
 .scroll{width:min(58rem,100vw - 2rem);margin-left:50%;transform:translateX(-50%)}
 @media(max-width:44rem){.scroll{width:auto;margin-left:0;transform:none}}
+/* The board breaks the reading measure the way the ledger table used to: the
+   column is 600px, so a card grid inside it can only ever be one-up, which is
+   the tall layout this was meant to replace. Same widening as .scroll. */
 .pickcards{list-style:none;padding:0;margin:1.2rem 0;display:grid;gap:.6rem;
-  grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))}
-@media(max-width:44rem){.pickcards{grid-template-columns:1fr}}
+  grid-template-columns:repeat(auto-fill,minmax(20rem,1fr));
+  width:min(58rem,100vw - 2rem);margin-left:50%;transform:translateX(-50%)}
+@media(max-width:44rem){.pickcards{grid-template-columns:1fr;width:auto;
+  margin-left:0;transform:none}}
 .pickcards li{border:1px solid var(--rule);border-radius:10px;padding:.7rem .9rem;
   background:var(--card)}
 .pickcards .g{font-size:.8rem;color:var(--muted)}
