@@ -122,13 +122,16 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .sitenav a:hover{color:var(--fg);border-bottom-color:var(--accent)}
 .scroll{width:min(58rem,100vw - 2rem);margin-left:50%;transform:translateX(-50%)}
 @media(max-width:44rem){.scroll{width:auto;margin-left:0;transform:none}}
-.pickcards{list-style:none;padding:0;margin:1.2rem 0;display:none}
-@media(max-width:44rem){.pickcards{display:block}.picktable{display:none}}
-.pickcards li{border:1px solid var(--rule);border-radius:10px;padding:.9rem 1rem;
-  margin-bottom:.7rem;background:var(--card)}
-.pickcards .g{font-size:.85rem;color:var(--muted)}
-.pickcards .c{font-size:1.15rem;margin:.25rem 0}
-.pickcards .o{font-size:.9rem}
+.pickcards{list-style:none;padding:0;margin:1.2rem 0;display:grid;gap:.6rem;
+  grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))}
+@media(max-width:44rem){.pickcards{grid-template-columns:1fr}}
+.pickcards li{border:1px solid var(--rule);border-radius:10px;padding:.7rem .9rem;
+  background:var(--card)}
+.pickcards .g{font-size:.8rem;color:var(--muted)}
+.pickcards .c{font-size:1rem;margin:.15rem 0}
+.pickcards .o{font-size:.85rem;color:var(--muted)}
+.pickcards .why{font-size:.85rem;margin-top:.35rem;display:flex;gap:.9rem;
+  flex-wrap:wrap}
 .chip{display:inline-block;font-size:.72rem;text-transform:uppercase;
   letter-spacing:.06em;padding:.15rem .5rem;border-radius:999px;
   border:1px solid var(--rule);color:var(--muted);margin-right:.4rem}
@@ -166,7 +169,7 @@ footer a{color:var(--muted)}
   text-decoration:none;border-radius:6px;padding:.55rem 1.1rem;font-size:.9rem;
   font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </style>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4b76f352bb324709b9a2ba379ff8b305"}'></script>
+
 </head>
 <body>
 <header class="plain">

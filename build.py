@@ -407,13 +407,16 @@ th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mu
 .sitenav a:hover{color:var(--fg);border-bottom-color:var(--accent)}
 .scroll{width:min(58rem,100vw - 2rem);margin-left:50%;transform:translateX(-50%)}
 @media(max-width:44rem){.scroll{width:auto;margin-left:0;transform:none}}
-.pickcards{list-style:none;padding:0;margin:1.2rem 0;display:none}
-@media(max-width:44rem){.pickcards{display:block}.picktable{display:none}}
-.pickcards li{border:1px solid var(--rule);border-radius:10px;padding:.9rem 1rem;
-  margin-bottom:.7rem;background:var(--card)}
-.pickcards .g{font-size:.85rem;color:var(--muted)}
-.pickcards .c{font-size:1.15rem;margin:.25rem 0}
-.pickcards .o{font-size:.9rem}
+.pickcards{list-style:none;padding:0;margin:1.2rem 0;display:grid;gap:.6rem;
+  grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))}
+@media(max-width:44rem){.pickcards{grid-template-columns:1fr}}
+.pickcards li{border:1px solid var(--rule);border-radius:10px;padding:.7rem .9rem;
+  background:var(--card)}
+.pickcards .g{font-size:.8rem;color:var(--muted)}
+.pickcards .c{font-size:1rem;margin:.15rem 0}
+.pickcards .o{font-size:.85rem;color:var(--muted)}
+.pickcards .why{font-size:.85rem;margin-top:.35rem;display:flex;gap:.9rem;
+  flex-wrap:wrap}
 .chip{display:inline-block;font-size:.72rem;text-transform:uppercase;
   letter-spacing:.06em;padding:.15rem .5rem;border-radius:999px;
   border:1px solid var(--rule);color:var(--muted);margin-right:.4rem}
@@ -752,7 +755,7 @@ def write_common(site: Site, entries: list[Entry], home: str) -> None:
 
     pages = [""] + [e.url for e in entries]
     if site.key == "dsr":
-        pages += ["analysis.html", "about.html"]
+        pages += ["picks.html", "analysis.html", "about.html"]
         pages += [f"team/{slug}/" for slug, *_ in TEAMS]
     else:
         pages += ["essays.html", "about.html"]
@@ -850,15 +853,20 @@ def tip_block(text: str) -> str:
 </div>"""
 
 
-def picks_cards(md: str) -> str:
-    """The picks table, re-rendered as cards for phones.
+def picks_cards(md: str, writeups: dict[str, dict[str, str]] | None = None,
+                limit: int | None = None) -> str:
+    """The picks ledger as cards, at every width.
 
-    Same data, no horizontal scrolling. Built from the same markdown rows so the
-    two views cannot drift apart.
+    Built from the same markdown rows the ledger is stored in, so the page and
+    PICKS.md cannot drift apart. Each card carries its own reasoning and grade
+    links: the write-ups used to be a separate list of full-size entries below
+    the board, which pushed the analysis — the part readers actually come for —
+    another screen down. His call 2026-08-12.
     """
     rows = [ln.strip() for ln in md.split("\n") if ln.strip().startswith("|")]
     if len(rows) < 3:
         return ""
+    writeups = writeups or {}
     header = [c.strip() for c in rows[0].strip("|").split("|")]
     out = []
     for line in rows[2:]:
@@ -871,19 +879,51 @@ def picks_cards(md: str) -> str:
         grade = row.get("Grade", "")
         outcome = (
             f"{inline(result)} &middot; {inline(grade)}"
-            if result and result != "pending"
+            if result and result not in ("pending", "—", "-")
             else "Not played yet"
+        )
+        links = writeups.get(row.get("#", ""), {})
+        why = "".join(
+            f'<a href="{href}">{label}</a>'
+            for label, href in (
+                ("Why I called it", links.get("pick")),
+                ("How it graded", links.get("grade")),
+            )
+            if href
         )
         out.append(
             "<li>"
             f'<div class="g">{inline(row.get("First pitch", ""))}</div>'
             f'<div class="c">{inline(game)}</div>'
-            f'<div class="c"><strong>{inline(row.get("Call", ""))}</strong></div>'
-            f'<div class="o"><span class="chip">'
-            f'{inline(row.get("Confidence", ""))} confidence</span>{outcome}</div>'
-            "</li>"
+            f'<div class="c"><strong>{inline(row.get("Call", ""))}</strong>'
+            f'<span class="chip" style="margin-left:.5rem">'
+            f'{inline(row.get("Confidence", ""))}</span></div>'
+            f'<div class="o">{outcome}</div>'
+            + (f'<div class="why">{why}</div>' if why else "")
+            + "</li>"
         )
+        if limit and len(out) >= limit:
+            break
     return f'<ul class="pickcards">{"".join(out)}</ul>'
+
+
+PICK_NO = re.compile(r"pick[-\s]*(?:no\.?\s*)?0*(\d+)", re.I)
+
+
+def pick_writeups(entries: list[Entry]) -> dict[str, dict[str, str]]:
+    """Pick number -> {"pick": url, "grade": url}.
+
+    The number comes from the slug (`...pick-03-...`, `...grade-pick-03`), which
+    is the only field both the ledger row and the entry reliably share.
+    """
+    out: dict[str, dict[str, str]] = {}
+    for e in entries:
+        m = PICK_NO.search(e.slug)
+        if not m:
+            continue
+        kind = "grade" if e.cycle.lower().startswith("grade") else "pick"
+        out.setdefault(str(int(m.group(1))), {})[kind] = e.url
+    return out
 
 
 def newest_first(md: str) -> str:
@@ -1066,7 +1106,6 @@ def build_journal(process: list[Entry]) -> None:
         encoding="utf-8",
     )
 
-    intro = render(intro_md)
     recent, rest = days[:3], days[3:]
     log_teaser = (
         "<h2>Working log</h2>"
@@ -1084,12 +1123,16 @@ def build_journal(process: list[Entry]) -> None:
         "a business — one dollar, from one stranger, because something here was "
         "worth it. If this experiment is worth following, that's the entire ask."
     )
-    # Order matters and this is the order: what this is, the good writing, the
-    # raw log, then housekeeping. It used to open with the log itself, so a
-    # reader met 12,000px of process notes before learning what the project was.
+    # Order matters and this is the order: the good writing, the raw log, then
+    # housekeeping. The full explainer used to sit on top of it, which meant
+    # every return visitor scrolled past the same unchanging block of text to
+    # reach the one part of the page that had changed. It lives on /about.html
+    # now, with a single line here for anyone arriving cold. His call 2026-08-12.
     home = (
-        intro
-        + "<h2>Essays</h2>"
+        "<h2>Essays</h2>"
+        + '<p class="sub">An AI agent has six months to earn one dollar. These '
+        "are the considered pieces on how it is going — what broke, what got "
+        'decided, and why. <a href="about.html">What this is</a>.</p>'
         + f'<ul class="entry-list">{"".join(entry_item(e) for e in process)}</ul>'
         + log_teaser
         + scoreboard
@@ -1139,16 +1182,26 @@ def build_dsr(analysis: list[Entry]) -> None:
     # would be a long scroll down. Reverse the rows at render time so the file
     # stays append-only and the page shows newest first. His call 2026-08-09.
     ordered = newest_first(picks_md)
-    picks_html = (f'<div class="picktable">{render(ordered)}</div>'
-                  + picks_cards(ordered))
+    writeups = pick_writeups(analysis)
 
-    # The picks table leads. It is the product, and a reader should hit it
-    # before any explanation of it. The old homepage opened with three sentences
-    # about how honest the grading is, then the table; his call 2026-08-09 was
-    # that the self-congratulation about the record reads badly and the board
-    # should simply be there. So: table first, one line under it, nothing else.
+    # The board leads. It is the product, and a reader should hit it before any
+    # explanation of it. His call 2026-08-09 was that the self-congratulation
+    # about the record reads badly and the board should simply be there. His
+    # call 2026-08-12 was that it should also be short: the homepage shows the
+    # four most recent calls, the full ledger has its own page, and the analysis
+    # starts within a screen of the top.
+    HOME_PICKS = 4
+    picks_html = picks_cards(ordered, writeups, limit=HOME_PICKS)
+
+    # The record line lived inside the ledger prose the homepage used to render
+    # whole. Pull just that one number forward; the rest of the explanation is
+    # on /about.html where a reader who wants it will look.
+    rec = re.search(r"\*\*Record:\s*([^*]+)\*\*", picks_md)
+    record = f' Record {html.escape(rec.group(1).strip())}.' if rec else ""
+
     about = (
-        '<div class="note">Posted before first pitch, graded after the last out. '
+        '<div class="note">Posted before first pitch, graded after the last '
+        f'out.{record} <a href="picks.html">The full record</a> &middot; '
         f'<a href="{REPO}">Receipts</a>.</div>'
     )
     tip = tip_block(
@@ -1160,11 +1213,12 @@ def build_dsr(analysis: list[Entry]) -> None:
     for e in analysis:
         by_team.setdefault(e.team or "", []).append(e)
 
-    # Picks and grades are a different product from essays, and they were in one
-    # undifferentiated list where the only marker was a small grey word. Split
-    # them.
-    calls = [e for e in analysis if e.cycle.lower() in ("pick", "grade")]
-    essays = [e for e in analysis if e not in calls]
+    # Grades are a different product from writing: they report a result the
+    # board already shows. They reach the reader through their own pick's card
+    # now, so the homepage list is analysis and nothing else. Every grade is
+    # still on /analysis.html, in the feed and on its team page.
+    grades = [e for e in analysis if e.cycle.lower().startswith("grade")]
+    essays = [e for e in analysis if e not in grades]
 
     teams_block = (
         '<h2 id="teams">By team</h2>'
@@ -1190,12 +1244,6 @@ def build_dsr(analysis: list[Entry]) -> None:
         + picks_html
         + about
         + (
-            "<h2>The calls, written up</h2>"
-            + f'<ul class="entry-list">{"".join(entry_item(e) for e in calls)}</ul>'
-            if calls
-            else ""
-        )
-        + (
             "<h2>Analysis</h2>"
             + f'<ul class="entry-list">{"".join(entry_item(e) for e in essays)}</ul>'
             if essays
@@ -1205,6 +1253,24 @@ def build_dsr(analysis: list[Entry]) -> None:
         + tip
     )
     write_common(site, analysis, home)
+
+    # The complete ledger, table and all, so trimming the homepage to four cards
+    # hides nothing. This is where a reader goes to audit the record.
+    (site.out / "picks.html").write_text(
+        page(site, f"Every call{site.title_sep}{site.title}",
+             "<h2>Every call, before the game</h2>"
+             + '<p class="sub">Committed to a public repository before first '
+             'pitch, graded after the last out. Newest first.</p>'
+             + picks_cards(ordered, writeups)
+             + "<h2>The raw ledger</h2>"
+             + '<p class="sub">The same calls as they are stored in the '
+             "repository, carrying the league's own game id so a grade can only "
+             "be matched to the exact game that was called.</p>"
+             + f'<div class="scroll">{render(ordered)}</div>',
+             path="picks.html",
+             description="Every Detroit prediction, its confidence, its result and its grade."),
+        encoding="utf-8",
+    )
 
     # A full analysis index, so the nav's "Analysis" goes somewhere real rather
     # than to an anchor halfway down the homepage.
