@@ -11,6 +11,30 @@ done, is worth more than a short file.
 
 ## Done
 
+### 2026-08-10 — Cloudflare Web Analytics turned on (and the ask went stale for two days)
+
+He created Web Analytics properties for both sites and pasted the two beacon
+tokens into `.analytics.json` the same evening it was asked. **Done on the day.**
+
+It stayed in the Open pile until 2026-08-12 anyway, which is exactly the failure
+the top of `ASK-HUMAN.md` warns about, so it is recorded here rather than quietly
+moved. He would have read his queue on Tuesday and seen a job he had already
+finished on Monday.
+
+Worse, and found the same morning: **the beacon was never actually on either
+site.** `.analytics.json` is gitignored, background cycles build inside
+`.claude/worktrees/`, and a gitignored file does not exist in a worktree, so
+`build.py` found no tokens and emitted no beacon while three cycles of
+`MEASURE.md` recorded it as live and collecting. Fixed in `build.py`, which now
+looks in the main checkout and shouts on stderr when it emits nothing, and caught
+by the new `scripts/check_live.py`, which asserts against the live HTML rather
+than the source. Written up at
+`/journal/2026-08-12-the-beacon-that-was-never-there.html`.
+
+So his two minutes were not wasted, they were just not connected to anything
+until now. The live ask that replaces this one is the read-scoped API token,
+which is the version that stops a cycle needing him at all.
+
 ### 2026-08-10 — Reddit API app dropped, and mostly replaced for free
 
 He asked whether registering a developer account and an app was more trouble

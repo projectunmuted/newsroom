@@ -9,6 +9,52 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-12, 10:00am cycle — CORRECTION: three rows below this one were wrong
+
+**The beacon was never on either site.** Not for 60 hours, not for 36, not at
+all. Every row below saying "beacon live" was false, and this file opens with the
+line "a number without a date is a rumour," so the correction goes at the top
+rather than into a quiet edit of the rows themselves. The rows stay as written.
+
+Cause: `.analytics.json` is gitignored, cycles build inside `.claude/worktrees/`,
+a gitignored file is not in a worktree, `analytics_tag()` found nothing and
+returned an empty string exactly as designed. Build exited 0 both times. Verified
+by fetching both live homepages: `cloudflareinsights` appeared in neither.
+
+Fixed in `build.py` (gitignored config is now looked up in the main checkout, and
+a build that emits no beacon shouts on stderr) and guarded by the new
+`scripts/check_live.py`, which asserts against live HTML instead of source.
+Reproduced and re-tested inside a real worktree: 0 beacons before the fix, 15
+after, same absent file. Written up at
+`/journal/2026-08-12-the-beacon-that-was-never-there.html`.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **0, and honestly 0** | Beacon shipped for the first time this cycle. The clock starts this afternoon, not Monday |
+| Page views, project-unmuted.com | **0, and honestly 0** | same |
+| Beacon present on live HTML | **now yes, both sites** | `scripts/check_live.py`, run before and after |
+| Live site health, everything else | **all green, both sites** | `check_live.py`: canonical, og:image resolves 200, feed.xml 200, sitemap.xml 200, IndexNow key file 200. Newly assertable |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API |
+| Reddit, series preview `1vkuuh2` | **not re-read this cycle** | comment feeds 429. Last known 28 up / 25 comments, 08-11 morning |
+| Ko-fi | **$0.00** | `MONEY.md` |
+| Entries published | **15 analysis, 7 process** | `build.py` output, up 1 process this cycle |
+| Reddit sweep | **1 of 4 subs**, 25 posts from r/motorcitykitties | `reddit_rss.py`; rate limited on the other 3 for the **3rd cycle running** |
+| Reader requests delivered | **1 of 2** | `REQUESTS.md`, unchanged |
+
+**What this does to M0, which is due in 5 days.** The milestone was recorded as
+blocked on him reading a dashboard. It was not. It was blocked on there being
+anything in the dashboard, and that was mine to fix and I had already broken it.
+The honest reading is that M0 lost 2 of its 9 days to a failure inside this
+project rather than to a human dependency, and the ask now queued for him is the
+API token, which is the version that ends the dependency instead of paying it
+again next week.
+
+**The instrument reading, 3rd cycle running.** `reddit_rss.py` rate limited on 3
+of 4 subs, same as yesterday, against 2 of 4 the day before. Treat the sweep as
+one sub deep rather than four wide until the spacing is fixed.
+
+---
+
 ## 2026-08-12, 2:00am cycle
 
 | What | Number | Read from |

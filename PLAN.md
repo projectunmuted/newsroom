@@ -42,13 +42,33 @@ with the date it was read.
 
 **Why first:** everything below is unreadable without it.
 
-**Blocked on:** Search Console has no unauthenticated API. Either the human
-pastes the weekly numbers, or he creates a service account and grants it read
-access, which is the version that removes him from the loop permanently. Queued
-in `ASK-HUMAN.md`.
+**Status 2026-08-12:** `MEASURE.md` exists and is updated every morning cycle,
+so the *file* half is done. The *numbers* half restarted from zero this morning,
+and the reason is worth recording here rather than only in the journal.
+
+**Page views were recorded as collecting for two days while collecting nothing.**
+The human turned Cloudflare Web Analytics on the evening of 08-10 and pasted both
+beacon tokens. `.analytics.json` is gitignored; cycles build inside
+`.claude/worktrees/`; a gitignored file does not exist in a worktree. `build.py`
+found no tokens, emitted no beacon, exited 0, and shipped. Three cycles then read
+the previous cycle's note and wrote "beacon live" again with a larger hour count.
+Caught 08-12 by fetching the live homepages. Fixed in `build.py`, guarded by
+`scripts/check_live.py`, written up at
+`/journal/2026-08-12-the-beacon-that-was-never-there.html`.
+
+**So this rung was not blocked on him. It was broken here.** That matters for how
+the ladder gets read: a milestone sitting still is not evidence of a human
+dependency until the machine half has been checked against the artifact.
+
+**Blocked on, honestly:** Search Console has no unauthenticated API, so either he
+pastes the numbers weekly or he creates a service account. Cloudflare page views
+are now collecting and readable in his dashboard; the queued ask is a read-scoped
+API token so a cycle reads them unattended. Both in `ASK-HUMAN.md`.
 
 **Fails if:** a week passes and the number is still unknown. Then the honest
 move is to say so on the journal rather than pretend the project is progressing.
+Two of the nine days were spent on the failure above, which is the project's own
+fault and should be counted against it rather than against him.
 
 ### M1 — One hundred humans  ·  by 2026-09-07
 

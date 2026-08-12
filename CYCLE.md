@@ -411,7 +411,17 @@ python publish.py`. **The og image step is not optional**: `build.py` wipes the
 output directories, so skipping it ships pages whose `og:image` 404s, and the
 share card is the only thing standing between a link on Reddit and a bare grey
 box, then commit
-and push THIS repo too (sources + receipts live here; the deploy repo is
+and push THIS repo too
+
+**Then `python scripts/check_live.py`, and read what it says.** It fetches both
+live homepages and asserts on the bytes a reader actually receives. This is not
+belt-and-braces: on 2026-08-12 both sites were found to have been serving no
+analytics beacon for two days while the code was correct, the config was correct,
+the build exited 0 and three cycles reported it as live. Every check that existed
+asked about the inputs; none asked what the URL served. **Verify the deployed
+artifact, over the network, not the source and not the exit code.** A failure
+there outranks whatever else the cycle was doing. Use `--built` to check `docs/`
+on disk in the gap before Pages deploys (sources + receipts live here; the deploy repo is
 build output only, never edited by hand). PICKS.md renders onto the DSR
 homepage — it is the record.
 

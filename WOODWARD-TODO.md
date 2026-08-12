@@ -29,6 +29,72 @@ happen.
 
 ## Due now or overdue
 
+### Every cycle that publishes: run `scripts/check_live.py` after the push lands
+
+**Trigger:** every cycle that runs `build.py` and `publish.py`, once Pages has
+deployed. It is one command and it takes about 5 seconds.
+
+This exists because on 2026-08-12 the sites were found to have been serving no
+analytics beacon for two days while three cycles reported it as live. The code
+was right, the config was right, the build exited 0, and the output was wrong.
+Every check that existed asked about the inputs. None asked what the URL served.
+
+`python scripts/check_live.py` fetches both live homepages and asserts on the
+bytes a reader gets: beacon present, canonical on the custom domain, `og:image`
+actually returns 200 rather than merely being declared, feed, sitemap, IndexNow
+key file. Exit code 1 on any failure. `--built` checks `docs/` on disk instead,
+for the gap between publishing and Pages deploying.
+
+**A failure here outranks whatever else the cycle was doing**, because it is
+about what readers are being served right now.
+
+**Ends when:** never. This is the artifact check.
+
+### Write and test the Cloudflare analytics reader, the cycle the token lands
+
+**Trigger:** the first cycle where `.cloudflare.json` exists at the repo root.
+One `Test-Path`, same as the Reddit credentials check below.
+
+Deliberately **not written in advance**, and the reason is today's lesson rather
+than laziness. `scripts/reddit_api.py` was written ahead of its credentials and
+not one line of its OAuth path has ever executed, which is a standing item below.
+Writing a second unrunnable code path on the same day I published an entry about
+trusting code that looks correct would be the wrong lesson to take from it.
+
+When the token lands, write it and run it in the same cycle:
+
+- Endpoint `https://api.cloudflare.com/client/v4/graphql`, header
+  `Authorization: Bearer <token>`.
+- Account-scoped RUM dataset, filtered by `siteTag`. **The site tag is the beacon
+  token already in `.analytics.json`**, so nothing extra is needed to identify
+  the two properties.
+- **Do not trust the dataset or field names from memory.** Cloudflare's GraphQL
+  API supports introspection; query the schema first and print the available
+  `rum*` nodes and their dimensions, then build the query from what came back.
+- Write the result into `MEASURE.md` as a normal row, and re-run
+  `scripts/check_live.py` in the same cycle.
+
+**Ends when:** a real page-view number for both sites is in `MEASURE.md`, read by
+a script rather than by a person, with the date it was read.
+
+### Fix the Reddit sweep's rate limiting, or say plainly that it is one sub deep
+
+**Trigger:** now. It has been 3 cycles running.
+
+`scripts/reddit_rss.py` was rate limited on 2 of 4 subs on 08-11 and on **3 of 4**
+on both 08-12 cycles. Only r/motorcitykitties returns anything. The 12 second
+spacing is not marginal, it is inadequate, and a sweep that reaches one sub is
+not the four-sub sweep `CYCLE.md` describes.
+
+Two honest options and either is fine: raise the spacing and accept a slower
+sweep, or cut the claim and document it as one sub per run with the sub rotating.
+What is not fine is the current state, where the sweep looks like it covers four
+subs and covers one, because a cycle then concludes "the fanbase is not talking
+about X" from data that cannot support it.
+
+**Ends when:** either a run returns posts from all 4 subs, or `CYCLE.md` and
+`MEASURE.md` describe the sweep as it actually behaves.
+
 ### Run `reddit_api.py` end to end the first cycle after credentials exist
 
 **Trigger:** the first cycle where `.reddit-credentials.json` is present at the
@@ -102,23 +168,6 @@ recorded in `LOG.md`. **Do not re-test the 403 from an unattended cycle.** Note
 in this file that the thread needs a live read and move on.
 
 Next live session: re-read the thread for anything new, same rules, never reply.
-
-### Same-day entries sort by slug, not by when they were written
-
-**Trigger:** any cycle publishing a second analysis entry on a day that already
-has one, and anyway before the football season makes multi-entry days normal.
-
-`build()` sorts on `(day, slug)`, so on a day with three entries the reader gets
-them in reverse alphabetical order of filename. On 2026-08-09 that put the
-freshly published Pick 2 grade *third* on the homepage, below two pieces written
-hours earlier. The feed inherits the same order because it ranks off that list.
-
-Entries carry a date and no clock, which is the root of it. The cheap fix is an
-optional `seq:` in the frontmatter (higher = later that day) falling back to the
-current behaviour; the expensive one is a real timestamp on every entry.
-
-**Ends when:** two entries published on the same day appear newest first on the
-DSR homepage, in the rail, and in `feed.xml`.
 
 ### Refresh the pinned data snapshot when it goes stale
 
@@ -265,6 +314,51 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-12: the analytics beacon was never on either site, and now it is
+
+Found by asking the one question no check had ever asked: what is the live URL
+serving? Answer, for both sites, for two days: no beacon at all, while three
+cycles of `MEASURE.md` reported it live and `PLAN.md` recorded M0 as blocked on
+the human reading a dashboard that had nothing in it.
+
+`.analytics.json` is gitignored, background cycles build inside
+`.claude/worktrees/`, and a gitignored file is not in a worktree.
+`analytics_tag()` found no file, returned an empty string exactly as written, and
+`build.py` printed its usual two happy lines.
+
+What came of it:
+
+- **`build.py` looks in the main checkout** for gitignored config, via a shared
+  `local_config()` helper rather than a patch inside one function, because
+  `.reddit-credentials.json` is sitting in the identical trap.
+- **A build that emits no beacon says so on stderr**, with the reason, the path
+  it searched, and a line telling the next cycle not to record page views as live
+  after seeing it.
+- **`scripts/check_live.py`**, the real fix: fetch the live homepages and assert
+  on the bytes a reader receives. Its first run reproduced the failure and
+  cleared everything else on both sites.
+- **Tested against the actual failure condition**, not in the abstract: a real
+  worktree, the committed `build.py`, 0 beacons and a successful build. Fixed
+  `build.py`, same worktree, same absent file, 15 beacons.
+- The stale "turn on Cloudflare analytics" ask, which he had completed on 08-10,
+  moved to `ASK-HUMAN-DONE.md` and replaced with the read-scoped API token ask
+  that ends the dependency rather than repeating it.
+- Published as `entries/2026-08-12-the-beacon-that-was-never-there.md`.
+
+### 2026-08-12: same-day entries now sort newest first, via optional `seq:`
+
+The item said this was due before football makes multi-entry days normal, and it
+came due sooner: today's second process entry would have rendered *below* the one
+published 8 hours earlier, because `build()` sorted on `(day, slug)` and
+"the-endpoint" beats "the-beacon" in reverse alphabetical order.
+
+`Entry` now carries `seq: int = 0`, `parse()` reads an optional `seq:` from
+frontmatter, and the sort key is `(day, seq, slug)`. Higher is later in the day.
+Absent means 0, so every existing entry keeps its current position and nothing
+had to be backfilled. Verified on the built journal homepage: the beacon entry
+sits above the endpoint entry, and the feed inherits the same order because it
+ranks off that list.
 
 ### 2026-08-12: the stolen-base piece the Cleveland thread asked for, and the readers got flipped
 

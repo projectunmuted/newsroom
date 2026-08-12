@@ -22,12 +22,56 @@ import html
 import json
 import re
 import shutil
+import sys
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 ENTRIES = ROOT / "entries"
+
+
+def main_worktree_root() -> "Path | None":
+    """Where the repo's *main* checkout lives, if this one is a linked worktree.
+
+    A linked worktree's `.git` is a file reading `gitdir: <main>/.git/worktrees/<name>`,
+    while the main checkout's `.git` is a directory. Returns None when this is
+    already the main checkout.
+    """
+    g = ROOT / ".git"
+    if not g.is_file():
+        return None
+    try:
+        text = g.read_text(encoding="utf-8").strip()
+    except OSError:
+        return None
+    if not text.startswith("gitdir:"):
+        return None
+    gitdir = Path(text.split(":", 1)[1].strip())
+    if gitdir.parent.name == "worktrees" and gitdir.parent.parent.name == ".git":
+        return gitdir.parent.parent.parent
+    return None
+
+
+def local_config(name: str) -> "Path | None":
+    """Find a gitignored config file, looking in the main checkout too.
+
+    This exists because of a two-day silent failure. Background cycles build
+    inside `.claude/worktrees/`, and a gitignored file by definition does not
+    exist there: only the main checkout has it. So `ROOT / ".analytics.json"`
+    came back missing, `analytics_tag` returned an empty string exactly as
+    designed, and the built pages shipped with no beacon while three cycles of
+    `MEASURE.md` reported it as live and collecting. Nothing errored. The same
+    trap is waiting for `.reddit-credentials.json`, which is why this is a
+    shared helper rather than a patch inside one function.
+    """
+    here = ROOT / name
+    if here.exists():
+        return here
+    main = main_worktree_root()
+    if main is not None and (main / name).exists():
+        return main / name
+    return None
 
 DEADLINE = date(2027, 2, 8)
 START = date(2026, 8, 8)
@@ -278,6 +322,12 @@ class Entry:
     team: str
     summary: str
     body: str
+    # Optional tiebreak within a day: higher is later. Entries carry a date and
+    # no clock, so a day with two entries used to order them by reverse
+    # alphabetical filename, which put a freshly published grade below two
+    # pieces written hours earlier. Absent means 0, which preserves the old
+    # behaviour for every entry that does not set it.
+    seq: int = 0
 
     @property
     def url(self) -> str:
@@ -302,6 +352,7 @@ def parse(path: Path) -> Entry:
         team=meta.get("team", ""),
         summary=meta.get("summary", ""),
         body=raw.strip(),
+        seq=int(meta["seq"]) if meta.get("seq", "").strip().isdigit() else 0,
     )
 
 
@@ -521,6 +572,11 @@ def site_nav(site: Site, up: str) -> str:
     return f'<nav class="sitenav"><ul>{links}</ul></nav>'
 
 
+# Every reason a beacon was not emitted this build, reported loudly at the end.
+# Silence is what let the sites run for two days collecting nothing.
+BEACON_MISSES: list[str] = []
+
+
 def analytics_tag(site: Site) -> str:
     """Cloudflare Web Analytics beacon, emitted only when a token exists.
 
@@ -530,14 +586,17 @@ def analytics_tag(site: Site) -> str:
     repo root, gitignored, so the build works fine without the file and nothing
     lands in git.
     """
-    f = ROOT / ".analytics.json"
-    if not f.exists():
+    f = local_config(".analytics.json")
+    if f is None:
+        BEACON_MISSES.append(f"{site.key}: no .analytics.json found from {ROOT}")
         return ""
     try:
         token = json.loads(f.read_text(encoding="utf-8")).get(site.key, "")
     except json.JSONDecodeError:
+        BEACON_MISSES.append(f"{site.key}: {f} is not valid JSON")
         return ""
     if not token:
+        BEACON_MISSES.append(f"{site.key}: no token for '{site.key}' in {f}")
         return ""
     beacon = json.dumps({"token": token})
     return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
@@ -1375,7 +1434,7 @@ def build_dsr(analysis: list[Entry]) -> None:
 def build() -> None:
     entries = sorted(
         (parse(p) for p in ENTRIES.glob("*.md")),
-        key=lambda e: (e.day, e.slug),
+        key=lambda e: (e.day, e.seq, e.slug),
         reverse=True,
     )
     analysis = [e for e in entries if e.track == "analysis"]
@@ -1385,6 +1444,14 @@ def build() -> None:
     build_dsr(analysis)
     print(f"journal: {len(process)} entries -> {JOURNAL.out}")
     print(f"dsr:     {len(analysis)} entries -> {DSR.out}")
+    if BEACON_MISSES:
+        print("", file=sys.stderr)
+        print("!! NO ANALYTICS BEACON IN THIS BUILD. The pages will collect "
+              "nothing and page views will not exist.", file=sys.stderr)
+        for why in dict.fromkeys(BEACON_MISSES):
+            print(f"   - {why}", file=sys.stderr)
+        print("   Do not record page views as 'live' in MEASURE.md after a "
+              "build that printed this.", file=sys.stderr)
 
 
 if __name__ == "__main__":

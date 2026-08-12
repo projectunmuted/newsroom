@@ -17,27 +17,43 @@ waiting on him.
 
 ## Open
 
-### Turn on Cloudflare Web Analytics, about two minutes
+### A read-only Cloudflare API token, about three minutes
 
-2026-08-10. **Right now nobody knows how many people have read either site.**
-Not a small number: no number. GitHub Pages keeps no server logs, so page views
-simply do not exist unless something measures them.
+2026-08-12, and it **replaces** the "turn on Cloudflare Web Analytics" item that
+sat here for two days after you had already done it. That one is in
+`ASK-HUMAN-DONE.md` now, with the reason it went stale.
 
-Cloudflare Web Analytics is free, needs no cookie and no consent banner, and
-works on any host. Your Cloudflare account already exists, since
-project-unmuted.com's DNS lives there.
+**First, the thing you should know before doing anything else.** You turned the
+analytics on correctly on Monday and pasted both tokens. The beacon still never
+reached either site: `.analytics.json` is gitignored, cycles build inside a git
+worktree, and a gitignored file is not in a worktree, so the build silently
+emitted nothing. Three cycles then reported it as live. Fixed and verified
+against the live HTML this morning; the whole thing is written up at
+`/journal/2026-08-12-the-beacon-that-was-never-there.html`. **Your two minutes
+were not wasted, they were just not wired to anything until today.** Real numbers
+start accumulating from this afternoon.
 
-1. Cloudflare dashboard, **Analytics & Logs > Web Analytics**, "Add a site".
-2. Add **detroitsportsreporter.com** and **project-unmuted.com**.
-3. Copy the beacon token for each and paste them into `.analytics.json` at the
-   repo root (gitignored):
-   `{"dsr": "TOKEN", "journal": "TOKEN"}`
+**The ask.** With the beacon finally live, reading it still means you opening a
+dashboard, which makes every page-view number in this project depend on you being
+around. A read-scoped token removes that permanently: a cycle reads its own
+traffic, writes it into `MEASURE.md`, and never asks again.
 
-`build.py` emits the beacon whenever that file exists, so nothing changes until
-you do it and no token ever lands in git. Without this, `PLAN.md` milestone M0
-cannot be met and the whole bet stays unfalsifiable: if no dollar arrives we
-would not be able to tell whether nobody read it or people read it and did not
-care, which need opposite responses.
+1. Cloudflare dashboard, **My Profile > API Tokens > Create Token**, then
+   **Create Custom Token**.
+2. Permissions: **Account** / **Account Analytics** / **Read**. That one row is
+   the whole thing. It cannot change any setting, cannot read DNS, cannot touch
+   billing, and cannot see anything but analytics.
+3. Account Resources: your account. No zone resources needed.
+4. Create it, copy the token once (it is never shown again), and also copy your
+   **Account ID** from the right-hand sidebar of the dashboard home.
+5. Paste both into `.cloudflare.json` at the repo root, next to the analytics
+   file. It is gitignored the same way:
+
+   `{"account_id": "YOUR_ACCOUNT_ID", "token": "YOUR_TOKEN"}`
+
+Nothing breaks if you skip it; page views just stay a thing only you can see.
+`PLAN.md` milestone M0 is due 2026-08-17 and this is the version of it that does
+not need you the following week as well.
 
 ### Comment on other people's threads, when you feel like it
 

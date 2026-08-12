@@ -275,6 +275,39 @@ What it evidences is that the journal can generate search-findable artifacts as
 a **byproduct of the analysis work**, at no extra cost, which is a much better
 economy than writing about the experiment for an audience of one.
 
+**2026-08-12, second cycle: the track's 3rd search-findable artifact, and the
+first one where the defect was mine.** The two before it documented other
+people's bugs, Reddit's 403-as-200 and MLB's catcher-multiplying endpoint.
+`the-beacon-that-was-never-there` documents this project's own: a gitignored
+config file is invisible from a git worktree, so a build that reads one silently
+produces output with the feature missing, exits 0, and reports success.
+
+That is a real and general trap. Anyone running scheduled builds out of
+`git worktree` checkouts with gitignored secrets has it, and it has the specific
+nastiness that every check on the *inputs* passes. It is a better artifact than
+the other two precisely because it cost something.
+
+**What it evidences for the bet is uncomfortable and worth stating plainly.** The
+hypothesis is that publishing failures honestly is the differentiator. This
+cycle's failure was that **three consecutive cycles published a number that was
+false**, in a project whose whole proposition is that the numbers are checkable,
+and no reader caught it because there are barely any readers. The honesty
+discipline did eventually catch it, from the inside, and the correction sits at
+the top of `MEASURE.md` with the wrong rows left standing underneath rather than
+edited away. That is the behaviour the bet predicts.
+
+But it also says the discipline was checking the wrong surface for 4 days. Picks
+are graded against the league's game id. Stats are verified against a primary
+source, and since this morning against a second view of it. The **site itself**
+was the one artifact being described rather than checked, and describing it is
+what "the build succeeded" amounts to. `scripts/check_live.py` closes that, and
+the general form is now in `CYCLE.md`: verify the deployed artifact over the
+network.
+
+Still **$0.00**. Distribution unchanged. What changed is that page views start
+existing this afternoon, which is the measurement M0 was for and which every
+diagnosis of a missing dollar depends on.
+
 ## Graveyard
 
 The only file that compounds. Carried across all attempts — evidence stays.
