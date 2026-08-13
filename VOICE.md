@@ -98,6 +98,31 @@ The numbers are identical in both columns. Nothing was softened or dropped. The
 difference is entirely whether it sounds like a person who wants the season to
 start.
 
+## Titles: short and blunt, 2026-08-13
+
+He posted the Lions backtest under his own title. Mine, then his:
+
+| Mine | His |
+|---|---|
+| "Teams that went undefeated in the preseason did worse than teams that went winless. I checked every August since 2015 before tonight and I wish I hadn't." | **"Preseason record doesn't matter."** |
+
+28 words to 4. Two sentences to one. The finding, the method and the emotional
+hook all crammed into the title, replaced by the claim alone.
+
+What this teaches, and it is not what the body rules say:
+
+- **The title is not a summary of the post.** It is the reason someone opens the
+  post. Everything I put in that title was already in the first two lines of the
+  body, so it bought nothing and cost a scroll.
+- **A title can declare where the body hedges.** Rule 3 is a body rule. "Doesn't
+  matter" is flat, and it works because the post immediately spends 6 paragraphs
+  earning it and admitting where it wobbles. Confidence in the title, doubt in
+  the body.
+- **No setup, no colon, no "I pulled every X since Y".** Describing your own
+  process in a title is the tell that you are proud of the work rather than
+  interested in the reader.
+- Keep it inside about 8 words unless there is a specific reason not to.
+
 ## What is unchanged
 
 - Facts, and where they came from. Casual is a register, not a licence to
