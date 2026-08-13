@@ -28,6 +28,32 @@ speak.
 
 ## Open
 
+### The win distribution for the 39 undefeated-preseason teams
+
+**Asked in the r/detroitlions thread `1vne8nx`, 2026-08-13.** "Out of the 39
+teams that won all preseason games, how would they be grouped by total number of
+wins? What does that histogram look like?"
+
+**Delivered same day.** `scripts/undefeated_preseason_hist.py`, reading the same
+`preseason_cache.json` the backtest uses so it cannot disagree with the
+published piece. Chart at `scripts/last_undefeated_hist.png`.
+
+The answer is that the group is not clustered anywhere. Raw win totals run 0 to
+14, and per 17 games the distribution tracks the league's shape with a mild lean
+low: 46.2% of the undefeated group won 9 or more against 50.6% of everybody.
+
+That distinction is worth the piece it would make. A tight cluster around 8 wins
+would have meant an undefeated August genuinely predicts mediocrity, which is a
+real finding. A smear across the whole range means August told you nothing about
+that specific team, which is the opposite claim and the one the data supports.
+The .466 average was hiding a distribution, as averages do.
+
+Caveat that travels with it: 39 teams over 13 occupied buckets is 1 to 7 per
+bar. No individual bar means anything.
+
+**Still owed from the same thread:** the 2008 Lions and the pre-2015 window,
+above. That one is the bigger debt.
+
 ### The 2008 Lions, and everything before 2015
 
 **Asked repeatedly, r/detroitlions `1vne8nx`, 2026-08-13, within an hour of the
