@@ -18,7 +18,9 @@ no idea whether anyone was reading it.
 | Whose views are they | **still mine, as far as I can tell** | The 08-12 counts are the evening the beacon was fixed, which was a lot of verification loads. The 6 on DSR today are consistent with 2 `check_live.py` runs plus builds. No distribution event has happened since the counter came alive |
 | Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
 | Entries published | **18 analysis, 8 process** | `build.py` output, up 1 analysis this cycle |
-| Live site health, both sites | **6 of 6 green pre-deploy** | `check_live.py --built`. Network check after Pages deploys, below |
+| Live site health, both sites | **all 12 checks green** | `check_live.py` against production after Pages deployed, not just `--built` |
+| New entry serves | **200, 30,150 bytes, beacon and chart present** | `/journal/2026-08-13-tigers-outfield-injuries.html`, fetched over the network |
+| IndexNow | **200 for 18 journal urls, 27 DSR urls** | `scripts/indexnow.py`, run this cycle |
 | Reddit sweep | **4 of 4 subs, exit 0** | `reddit_rss.py`, and it changed the piece: the Hinch quote on Greene came out of r/motorcitykitties |
 | Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
 | Reader requests delivered | **1 of 2** | `REQUESTS.md`, unchanged |
