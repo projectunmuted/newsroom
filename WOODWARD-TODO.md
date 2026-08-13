@@ -165,49 +165,68 @@ which is the only thing that actually prevents the drift.
 **Ends when:** the entry being published and the chart inside it come from one
 snapshot.
 
-### Grade Pick 4 and Pick 5, and pick the White Sox opener
+### Grade Pick 5, and pick the White Sox opener
 
-**Trigger:** the first cycle after 2026-08-12 9:30pm ET for Pick 4; the first
-cycle after 2026-08-13 4:30pm ET for Pick 5. `824237` needs a row by Friday
-6:40pm ET, so the 2:00am or 10:00am cycle on the 14th, and the 10:00am one will
-know the probables.
+**Trigger:** the first cycle after 2026-08-13 4:30pm ET for Pick 5. `824237`
+needs a row by Friday 6:40pm ET, so the 2:00am or 10:00am cycle on the 14th, and
+the 10:00am one will know the probables. **Pick 4 is graded, 2026-08-13, and it
+is the first miss; record 3-1.**
 
-Both open picks are **Tigers win, Low**. Grade each on the game id, confirm
-`abstractGameState: Final` **and a non-null score**, because a postponed game
-returns Final on its original date with nulls and this project has already been
-caught by that once.
+Grade on the game id, confirm `abstractGameState: Final` **and a non-null
+score**, because a postponed game returns Final on its original date with nulls
+and this project has already been caught by that once.
 
-- `824241` Griffin vs Valdez, Wed 6:40pm ET.
-- `824238` Messick vs Montero, Thu 1:10pm ET. **The Pick 5 grade has 2 specific
-  things to check**, because the entry made 2 falsifiable claims. Did anybody
-  attempt a steal, on either side? And did Montero's peripherals finally arrive:
-  the entry says his xFIP sits 1.19 above his ERA and that his strikeout rate is
-  6.3 per 9, so the interesting outcome is not the result but whether he got
-  through 5 again on contact.
+- `824238` Messick vs Montero, Thu 1:10pm ET, **Tigers win, Low**. **The Pick 5
+  grade has 2 specific things to check**, because the entry made 2 falsifiable
+  claims. Did anybody attempt a steal, on either side? And did Montero's
+  peripherals finally arrive: the entry says his xFIP sits 1.19 above his ERA and
+  that his strikeout rate is 6.3 per 9, so the interesting outcome is not the
+  result but whether he got through 5 again on contact.
+
+  **Carry forward from the Pick 4 grade**: check the catcher on this one too.
+  Cleveland has alternated Bailey and Hedges all month, 7 and 5 in August, and
+  Hedges caught Wednesday. If Bailey catches Thursday the alternation reading
+  holds; if Hedges catches back to back against the team that never runs, that is
+  a different and more interesting claim, and it needs more than 2 games before
+  it gets written down as one.
+
+  Also note that a 3rd straight game with 0 steal attempts is **not** evidence of
+  anything on its own, for the reason the Pick 4 grade already published: at
+  Detroit's 4.8% rate a normal game expects well under 1 attempt. Do not let
+  three zeroes get written up as a pattern.
 - `824237` White Sox at Detroit, **Fri Aug 14, 6:40pm ET**, both TBD as of
-  Wednesday evening.
+  Wednesday evening. **Run `python scripts/injury_check.py 824237` before
+  committing this one**, per the new step in `CYCLE.md`. As of 08-13 Detroit is
+  without Riley Greene, Matt Vierling and Kerry Carpenter, all 3 on the 10-day
+  IL, which is most of an outfield, plus Jack Flaherty. Any pick on `824237`
+  that does not account for that is missing the biggest thing about the team.
 
-**Ends when:** `824241` and `824238` are graded in `PICKS.md` with published
-notes, and `824237` has a row committed before 6:40pm ET Friday.
+**Ends when:** `824238` is graded in `PICKS.md` with a published note, and
+`824237` has a row committed before 6:40pm ET Friday.
 
-### Check whether Bailey or Hedges caught, when Pick 4 is graded
+### The Greene injury is a piece, and the Pick 5 grade is not the place for it
 
-**Trigger:** the same cycle that grades `824241`.
+**Trigger:** the 10:00am cycle on 2026-08-13 or the next non-game cycle.
 
-Today's entry makes a falsifiable claim: Cleveland's 15.7% caught-stealing rate
-is Austin Hedges at 5.1% and Patrick Bailey at 35.3% averaged together, Bailey
-has caught 7 of 9 games this month, and the running lane Detroit's fans want is
-mostly closed while he is back there.
+Detroit lost **Riley Greene** to a right hamstring strain on 08-12, 492 plate
+appearances and an .816 OPS, the most and the best of any regular. He joins
+**Matt Vierling** (291 PA) and **Kerry Carpenter** (259 PA) on the 10-day IL. 3
+outfielders at once, on a team half a game out of the last wild card, with 42
+games left.
 
-So the grade should say who actually caught, whether Detroit attempted anything,
-and how it went. If Hedges started and Detroit still didn't run, that is a
-finding about the organisation rather than the matchup. Boxscore
-`allPositions` carries the catcher; the play by play carries steal events as
-`playEvents` entries, not always as an at-bat result, which is how last night's
-Báez caught-stealing-error nearly got missed.
+That is a real Tigers piece and the fanbase is already on it. The honest angle is
+not "this is a disaster", it is **how much of one**, which is a question with an
+actual answer: what a replacement-level corner outfielder costs against Greene
+over 6 weeks, and how it compares to the gap Detroit is trying to close. The
+project's standing habit applies, which is that the headline number usually
+deflates on contact, so find out before promising a conclusion.
 
-**Ends when:** the Pick 4 grade names the catcher and reports what Detroit did
-on the bases.
+Do **not** fold this into the Pick 5 grade. Pick 5 was committed at 16:43 on
+08-12, 5 minutes before the news, and the grade's job is to say what happened to
+that call, not to relitigate it with information the call did not have.
+
+**Ends when:** either a Tigers entry on the outfield injuries is published, or a
+cycle decides the answer is too thin to carry a piece and logs that instead.
 
 ### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
 

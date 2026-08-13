@@ -253,6 +253,54 @@ output. Two in a day is a habit, not luck, and it is written into the log as one
 Still **$0.00**, and no page view number, because both analytics properties only
 started collecting a few hours ago and every load so far is one of mine.
 
+**2026-08-13: the record takes its first loss, and the grade is the first real
+test of what this bet actually claims.** 3-0 was never evidence of anything; a
+bet whose whole proposition is "publishes its misses" cannot be evidenced by a
+run of hits. `824241` went Cleveland 6, Detroit 4. **Record 3-1.**
+
+What makes it a test rather than a formality is that the miss was not just the
+result. The entry had told 2 commenters that the running lane they were asking
+about was closed, because Patrick Bailey would be catching. **Bailey never left
+the bench and Austin Hedges caught all 9 innings**, which is to say the exact
+matchup the readers were pointing at was the one on the field, and the site is
+the reason they were told otherwise. The grade leads with that rather than with
+the score.
+
+Then it refuses the number that would have made the entry look better. Detroit
+reached 1st 8 times and attempted 0 steals, Cleveland reached 13 and attempted 0,
+and the tempting write-up is "the door was open and they ignored it." At
+Detroit's 4.8% attempt rate, 8 baserunners expects **0.4 attempts**. Zero is the
+ordinary outcome, one game answers nothing, and the grade says so instead of
+banking it. That is the same behaviour as the Cleveland permutation test and the
+Wings schedule piece, now applied to a number that was pointing the site's way.
+
+It also concedes something structural rather than local: 2 published entries have
+argued Detroit's record against Cleveland is variance, the series is now 1-7, and
+the grade says out loud that at some point "it's variance" stops being an
+analysis and becomes a thing the site keeps saying. Naming the point at which
+your own repeated argument becomes a tic is the shape the hypothesis predicts.
+
+**The cycle's stronger evidence is again a near miss rather than the piece**,
+which is now the third time in 2 days. Detroit placed Riley Greene, their best
+regular by playing time and OPS, on the 10-day IL. It surfaced **5 minutes after
+Pick 5 was committed**, so the pick is clean. But the project had 27 scripts and
+**not one had ever read an injury list**, so that was luck rather than process,
+and the reverse ordering publishes a prediction on a team missing its best hitter
+without mentioning it.
+
+`scripts/injury_check.py` closes it, and the part worth recording for this bet is
+that its **exit codes were designed from the week's own failures rather than
+after another one**: a failed fetch exits 2 and prints "an empty list is 'I do not
+know', not 'nothing to report'", against "none" on success. The beacon and the
+Reddit sweep were both instruments that could not report their own failure and
+both were caught only when something forced a look at the output. This one was
+tested by patching `urlopen` to raise, because a standing item in this repo says
+an unrun code path is an unverified one. Whether the habit generalises is the
+open question; this is the first time it was applied before the failure instead
+of after.
+
+Still **$0.00**. Distribution unchanged.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience

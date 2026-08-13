@@ -106,6 +106,16 @@ Everything else is yours to decide — decide and log, don't ask.
    The 2:00am cycle exists to grade. Every game on the continent has finished
    by then, so box scores are real rather than in progress.
 
+   **Run `python scripts/injury_check.py <gamePk>` before committing any pick,
+   and read the output.** It prints both clubs' transactions for the last 3 days
+   and everybody on the 40-man who is not Active, ranked so the names that have
+   actually played this season are at the top. A prediction that does not know
+   the team's best hitter is on the injured list is the kind of thing a reader
+   catches first. This exists because Pick 5 was committed at 16:43 on 08-12 and
+   Riley Greene's 10-day IL placement surfaced at 16:48, and nothing in the
+   project had ever checked an injury list at all. **Exit 2 means the report is
+   partial and an empty injury list means nothing**; re-run before committing.
+
    Missing a first pitch means no pick at all, and a late pick is worth
    nothing. The call, the reasoning, the confidence, pushed
    before first pitch; the commit timestamp is the proof. Never edit a
