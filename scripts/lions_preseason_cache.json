@@ -1,0 +1,173 @@
+[
+ {
+  "season": 2006,
+  "pre_w": 1.0,
+  "pre_g": 4.0,
+  "reg_w": 3.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.25,
+  "reg_pct": 0.1875
+ },
+ {
+  "season": 2007,
+  "pre_w": 2.0,
+  "pre_g": 4.0,
+  "reg_w": 7.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.5,
+  "reg_pct": 0.4375
+ },
+ {
+  "season": 2008,
+  "pre_w": 4.0,
+  "pre_g": 4.0,
+  "reg_w": 0.0,
+  "reg_g": 16.0,
+  "pre_pct": 1.0,
+  "reg_pct": 0.0
+ },
+ {
+  "season": 2009,
+  "pre_w": 3.0,
+  "pre_g": 4.0,
+  "reg_w": 2.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.75,
+  "reg_pct": 0.125
+ },
+ {
+  "season": 2010,
+  "pre_w": 3.0,
+  "pre_g": 4.0,
+  "reg_w": 6.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.75,
+  "reg_pct": 0.375
+ },
+ {
+  "season": 2011,
+  "pre_w": 4.0,
+  "pre_g": 4.0,
+  "reg_w": 10.0,
+  "reg_g": 16.0,
+  "pre_pct": 1.0,
+  "reg_pct": 0.625
+ },
+ {
+  "season": 2012,
+  "pre_w": 2.0,
+  "pre_g": 4.0,
+  "reg_w": 4.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.5,
+  "reg_pct": 0.25
+ },
+ {
+  "season": 2013,
+  "pre_w": 3.0,
+  "pre_g": 4.0,
+  "reg_w": 7.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.75,
+  "reg_pct": 0.4375
+ },
+ {
+  "season": 2014,
+  "pre_w": 3.0,
+  "pre_g": 4.0,
+  "reg_w": 11.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.75,
+  "reg_pct": 0.6875
+ },
+ {
+  "season": 2015,
+  "pre_w": 3.0,
+  "pre_g": 4.0,
+  "reg_w": 7.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.75,
+  "reg_pct": 0.4375
+ },
+ {
+  "season": 2016,
+  "pre_w": 2.0,
+  "pre_g": 4.0,
+  "reg_w": 9.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.5,
+  "reg_pct": 0.5625
+ },
+ {
+  "season": 2017,
+  "pre_w": 2.0,
+  "pre_g": 4.0,
+  "reg_w": 9.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.5,
+  "reg_pct": 0.5625
+ },
+ {
+  "season": 2018,
+  "pre_w": 1.0,
+  "pre_g": 4.0,
+  "reg_w": 6.0,
+  "reg_g": 16.0,
+  "pre_pct": 0.25,
+  "reg_pct": 0.375
+ },
+ {
+  "season": 2019,
+  "pre_w": 0.0,
+  "pre_g": 4.0,
+  "reg_w": 3.5,
+  "reg_g": 16.0,
+  "pre_pct": 0.0,
+  "reg_pct": 0.21875
+ },
+ {
+  "season": 2021,
+  "pre_w": 0.0,
+  "pre_g": 3.0,
+  "reg_w": 3.5,
+  "reg_g": 17.0,
+  "pre_pct": 0.0,
+  "reg_pct": 0.20588235294117646
+ },
+ {
+  "season": 2022,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "reg_w": 9.0,
+  "reg_g": 17.0,
+  "pre_pct": 0.3333333333333333,
+  "reg_pct": 0.5294117647058824
+ },
+ {
+  "season": 2023,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "reg_w": 12.0,
+  "reg_g": 17.0,
+  "pre_pct": 0.6666666666666666,
+  "reg_pct": 0.7058823529411765
+ },
+ {
+  "season": 2024,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "reg_w": 15.0,
+  "reg_g": 17.0,
+  "pre_pct": 0.6666666666666666,
+  "reg_pct": 0.8823529411764706
+ },
+ {
+  "season": 2025,
+  "pre_w": 1.0,
+  "pre_g": 4.0,
+  "reg_w": 9.0,
+  "reg_g": 17.0,
+  "pre_pct": 0.25,
+  "reg_pct": 0.5294117647058824
+ }
+]

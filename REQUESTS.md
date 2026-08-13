@@ -28,6 +28,40 @@ speak.
 
 ## Open
 
+### Detroit only, 20 seasons, preseason vs regular season
+
+**Asked 2026-08-13, same thread.** "Is there a way to specifically show Lions
+for the last 20 seasons. What was their win percent in the offseason compared to
+win percent during the season", then "make it a scatter plot, to see if there's
+a trend line at all."
+
+**Delivered same day.** `scripts/lions_preseason_20.py`, its own cache, same
+ESPN endpoint and same rules as the league backtest so the overlapping seasons
+must agree with the published piece. Two views: paired bars per season
+(`last_lions_preseason.png`) and the scatter with a fitted line
+(`last_lions_scatter.png`).
+
+**This also pays the 2008 debt from the same thread**, which was the point of
+going back 20 years rather than 11. 2006 to 2025, 19 seasons after dropping 2020.
+
+The answer for Detroit specifically:
+
+- Correlation +0.20, r squared 3.9%. The fit rises 15 points of season win rate
+  per 100 points of preseason win rate, which across 19 dots is not
+  distinguishable from flat.
+- **Detroit's best August in 20 years is 2008 at 4-0. They went 0-16.** The
+  worst regular season in NFL history followed the best preseason this franchise
+  has had this century.
+- **The other 4-0 August was 2011, and that team went 10-6 and made the
+  playoffs.** Two perfect Augusts, one 0-16 and one a playoff berth. That is the
+  entire argument inside one franchise, and it answers both readers at once: the
+  one who raised 2008 and the one who raised 2011.
+- Mean August .535 against a mean season .428, so if anything Detroit has been
+  better in the preseason than in the games that count, which is its own joke.
+
+Worth noting the r squared is 3.9% here against 1.1% league-wide. That is not
+Detroit being more predictable, it is 19 data points instead of 320.
+
 ### The win distribution for the 39 undefeated-preseason teams
 
 **Asked in the r/detroitlions thread `1vne8nx`, 2026-08-13.** "Out of the 39

@@ -31,12 +31,15 @@ import os
 CACHE = os.path.join(os.path.dirname(__file__), "preseason_cache.json")
 OUT = os.path.join(os.path.dirname(__file__), "last_undefeated_hist.png")
 
-# Site tokens, already validated for colorblind separation and for contrast in
-# both themes. Reused rather than re-picked so every chart matches.
-POS = "#1b7a5a"
-NEG = "#b4472f"
+# Categorical slots 1 and 2. Neither series is good or bad here, so the site's
+# pos/neg tokens would be lying: this is identity, not polarity. Validated
+# together on the light surface, worst adjacent pair ΔE 24.7 protan, 33.6 normal,
+# both well clear of the floor.
+S1 = "#2a78d6"   # the 39 undefeated teams
+S2 = "#eb6834"   # every team, the reference
 INK = "#1a1a19"
 MUTE = "#6b6a66"
+RULE = "#e3e0d9"
 CARD = "#ffffff"
 
 
@@ -90,6 +93,13 @@ def report() -> None:
 
 
 def png() -> None:
+    """One histogram, with the league drawn over it as the thing to compare to.
+
+    The earlier version put the two groups in side-by-side bars, which makes a
+    reader do the comparison 18 times. The point is a single visual claim, that
+    the shapes are the same, so the league becomes one line and the eye checks
+    it in one pass.
+    """
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -102,50 +112,65 @@ def png() -> None:
     obs = [hu[w] / nu * 100 for w in xs]
     exp = [ha[w] / n * 100 for w in xs]
 
-    fig, ax = plt.subplots(figsize=(10, 5.6), dpi=120)
+    fig, ax = plt.subplots(figsize=(10, 5.8), dpi=130)
     fig.patch.set_facecolor(CARD)
     ax.set_facecolor(CARD)
 
-    ax.bar([x - 0.21 for x in xs], obs, width=0.42, color=POS,
-           label=f"Won every preseason game (n={nu})")
-    ax.bar([x + 0.21 for x in xs], exp, width=0.42, color=MUTE, alpha=0.55,
-           label=f"Every team (n={n})")
+    # Bars are the group being asked about. 0.86 leaves a surface gap between
+    # neighbours so a run of similar bars still reads as separate columns.
+    ax.bar(xs, obs, width=0.86, color=S1, zorder=3,
+           label="Teams that won every preseason game (39)")
+    # The league is a reference, not a rival series, so it sits on top as a line
+    # rather than stealing half the width of every bar.
+    ax.plot(xs, exp, color=S2, linewidth=2, marker="o", markersize=6,
+            markeredgecolor=CARD, markeredgewidth=1.5, zorder=4,
+            label="Every team (320)")
 
-    ax.set_title("Undefeated in August, then what?\nRegular season wins, "
-                 "2015 to 2025, per 17 games",
-                 fontsize=14, color=INK, loc="left", pad=14)
-    ax.set_xlabel("Regular season wins (per 17 games)", color=MUTE, fontsize=10)
-    ax.set_ylabel("Share of group", color=MUTE, fontsize=10)
+    ax.set_title("They finish everywhere, same as everybody else",
+                 fontsize=16, color=INK, loc="left", pad=32)
+    ax.text(0, 1.035, "Regular season wins after an undefeated preseason, "
+            "2015 to 2025", transform=ax.transAxes, fontsize=10.5, color=MUTE)
+    ax.set_xlabel("Regular season wins, per 17 games", color=MUTE, fontsize=10.5)
+    ax.set_ylabel("Share of group", color=MUTE, fontsize=10.5)
     ax.set_xticks(xs)
-    ax.tick_params(colors=MUTE, labelsize=9)
-    for s in ("top", "right"):
+    ax.set_xlim(-0.8, 17.8)
+    ax.tick_params(colors=MUTE, labelsize=9.5, length=0)
+    for s in ("top", "right", "left"):
         ax.spines[s].set_visible(False)
-    for s in ("left", "bottom"):
-        ax.spines[s].set_color("#e3e0d9")
+    ax.spines["bottom"].set_color(RULE)
     ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%")
-    ax.grid(axis="y", color="#e3e0d9", linewidth=0.7)
+    ax.grid(axis="y", color=RULE, linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
-    ax.legend(frameon=False, fontsize=9.5, labelcolor=INK)
+    # Headroom above the tallest bar, so the labels below have somewhere to go
+    # and the legend is not sitting on the data.
+    ax.set_ylim(0, max(max(obs), max(exp)) * 1.34)
+    ax.legend(frameon=False, fontsize=10, labelcolor=INK, loc="upper right")
 
-    worst = min(u, key=lambda r: r["reg_w"])
-    best = max(u, key=lambda r: r["reg_w"])
-    ax.annotate(f"{worst['team'].upper()} {worst['season']}: {worst['reg_w']:g}-"
-                f"{worst['reg_g'] - worst['reg_w']:g}",
-                xy=(pace(worst), hu[pace(worst)] / nu * 100), xytext=(0.6, 9),
-                fontsize=9, color=NEG,
-                arrowprops=dict(arrowstyle="-", color=NEG, lw=0.9))
-    ax.annotate(f"{best['team'].upper()} {best['season']}: {best['reg_w']:g}-"
-                f"{best['reg_g'] - best['reg_w']:g}",
-                xy=(pace(best), hu[pace(best)] / nu * 100), xytext=(13.4, 12),
-                fontsize=9, color=POS,
-                arrowprops=dict(arrowstyle="-", color=POS, lw=0.9))
+    # Only the two tails get labelled. A number on every bar would bury the one
+    # thing worth seeing, and these 2 teams are the argument by themselves.
+    worst, best = min(u, key=lambda r: r["reg_w"]), max(u, key=lambda r: r["reg_w"])
+    for r, xoff in ((worst, 1.7), (best, -1.7)):
+        x = pace(r)
+        label = (f"{r['team'].upper()} {r['season']}\n"
+                 f"went {r['reg_w']:g}-{r['reg_g'] - r['reg_w']:g}")
+        ax.annotate(label,
+                    xy=(x, hu[x] / nu * 100 + 0.3),
+                    xytext=(x + xoff, hu[x] / nu * 100 + 6.0),
+                    fontsize=9.5, color=INK, ha="center", linespacing=1.4,
+                    arrowprops=dict(arrowstyle="-", color=MUTE, lw=1,
+                                    shrinkA=2, shrinkB=3))
 
-    fig.text(0.012, 0.015,
-             "ESPN public schedule endpoint. 2020 excluded, no preseason. "
-             "Ties count as half a win. 16 and 17 game seasons both included, "
-             "so wins are shown per 17.",
-             fontsize=7.6, color=MUTE)
-    fig.tight_layout(rect=(0, 0.035, 1, 1))
+    fig.text(0.012, 0.070,
+             "Averages are close too: .466 for the undefeated teams, .505 for "
+             "the league.\nOnly 39 teams across 13 buckets, 1 to 7 per bar, so "
+             "read the shape and not any single column.",
+             fontsize=8.6, color=INK, linespacing=1.5)
+    fig.text(0.012, 0.008,
+             "ESPN public schedule endpoint. 2020 excluded, no preseason was "
+             "played. Ties count as half a win.\n16 and 17 game seasons are "
+             "both in here, so wins are shown per 17.",
+             fontsize=7.6, color=MUTE, linespacing=1.5)
+    fig.tight_layout(rect=(0, 0.145, 1, 1))
     fig.savefig(OUT, facecolor=CARD)
     print(f"wrote {OUT}")
 
