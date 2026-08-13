@@ -104,7 +104,7 @@ He posted the Lions backtest under his own title. Mine, then his:
 
 | Mine | His |
 |---|---|
-| "Teams that went undefeated in the preseason did worse than teams that went winless. I checked every August since 2015 before tonight and I wish I hadn't." | **"Preseason record doesn't matter."** |
+| "Teams that went undefeated in the preseason did worse than teams that went winless. I checked every August since 2015 before tonight and I wish I hadn't." | **"Preseason record really doesn't matter."** |
 
 28 words to 4. Two sentences to one. The finding, the method and the emotional
 hook all crammed into the title, replaced by the claim alone.

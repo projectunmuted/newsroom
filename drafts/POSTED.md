@@ -12,7 +12,7 @@ Drafts live beside this file and say plainly at the top that they are unposted.
 
 | Date | Sub | What | Thread | Reception |
 |---|---|---|---|---|
-| 2026-08-13 | r/detroitlions | Preseason backtest, 320 team-seasons, image post | *id not recorded* | Posted before the 7:00pm ET opener at Cincinnati. **He retitled it "Preseason record doesn't matter." and edited the body.** First post ever to go up with the traffic counter working. Baseline below. |
+| 2026-08-13 | r/detroitlions | Preseason backtest, 320 team-seasons, image post | `1vne8nx` | Posted before the 7:00pm ET opener at Cincinnati. **He retitled it "Preseason record really doesn't matter." and edited the body.** **5 up, 33 comments, 9K views** at 2h, not removed. The comment-to-upvote ratio is the story: it argued rather than landed. Top comment at 13 up is that the 2008 Lions went 4-0 in the preseason and 0-16, and the sample starts in 2015 so it is missing. See `REQUESTS.md`. First post ever to go up with the traffic counter working; baseline below. |
 | 2026-08-11 | r/motorcitykitties | Series preview: Guardians at Comerica, image post | `1vkuuh2` | Posted 2026-08-10 evening, before Tuesday's opener. First of the series-preview tradition. Call on the board: Tigers take 2 of 3. |
 | 2026-08-08 | r/motorcitykitties | Tigers xW-L and the schedule concentration, image post | `1viuuv9` | 26 up, 22 comments, not removed. Three objections worth more than the post; see LOG 08-08. |
 

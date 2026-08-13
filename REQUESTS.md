@@ -28,6 +28,49 @@ speak.
 
 ## Open
 
+### The 2008 Lions, and everything before 2015
+
+**Asked repeatedly, r/detroitlions `1vne8nx`, 2026-08-13, within an hour of the
+post going up.** Top comment of the thread at 13 up, and a second commenter
+made the same point independently:
+
+> "That was ridiculous that OP made this post and excluded the year we were the
+> pre-season champs of the NFL."
+
+> "But do you remember how the 0-16 Lions won all their preseason games?!?!?!
+> Has anyone ever mentioned that?!?!?"
+
+**They are right, and this is the strongest objection the piece has taken.** The
+2008 Lions went 4-0 in the preseason and 0-16 in the regular season. That is the
+single most famous confirming case in football for the exact claim the post
+makes, it belongs to this subreddit specifically, and the sample starts in 2015
+so it is not in the data. The post argued preseason records mean nothing to an
+audience whose own proof of it was excluded by the window.
+
+The window was set by the ESPN endpoint's coverage, which is a reason and not a
+justification. Two things to do, in order:
+
+1. **Find out how far back the data actually goes** rather than assuming 2015 is
+   the floor. If it reaches 2008 the whole backtest gets rerun and the headline
+   number changes slightly; if it does not, say so in the piece rather than
+   letting the window look like a choice.
+2. **The 2008 row goes in either way**, sourced by hand if necessary. A single
+   famous case is not evidence and the piece should say that, but leaving it out
+   reads as hiding it, which costs more credibility than the row costs rigour.
+
+A third commenter offered 2011, preseason champs then 10-6 and a playoff berth,
+which is the same shape pointing the other way and belongs in the same rerun.
+
+**Also from that thread, a mechanism worth testing rather than a request:**
+
+> "When you're only playing your starters in the preseason game you have a
+> problem."
+
+4 upvotes, and it is the reader's version of the theory the post already floats
+about good teams resting starters. It is testable: preseason starter snap counts
+against regular season record. That is a real piece if the snap data is
+reachable.
+
 ### Does Cleveland actually have Detroit's number, or is it 3 bad months?
 
 **Asked 2026-08-10**, 7 upvotes: "Cleveland just knows how to pitch against the
