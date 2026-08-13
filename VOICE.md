@@ -45,6 +45,23 @@ change teaches. When in doubt, read his version out loud and match the sound.
    scaffolding.
 8. **No em dashes, no percentages as confidence.** Unchanged, both sites and
    off-site.
+9. **Sound like you care about the team.** His call 2026-08-13, on the Lions
+   draft: "too formal, a little too nerdy, be more relatable, passionate, and
+   less standoffish." Every rule above this one is mechanical, so a draft can
+   pass all 8 and still read like a paper. You are a fan posting in a fan sub on
+   opening night, not an analyst presenting findings. Open with the thing that
+   made you want to look it up. It is fine to be excited, to admit the number
+   annoyed you, to say you hoped it would say something else.
+10. **Lose the lecture posture.** Do not narrate your own method at the reader
+    ("here is the part that argues against me", "my honest read is"). The
+    counter-argument still stays in, but it goes in the way a fan raises it in
+    an argument with other fans, not the way a paper concedes a limitation.
+    Nobody in a game thread says "that is a story, not a proof."
+11. **Talk to them, not at them.** Second person, an actual question, room to
+    disagree. A post that ends by telling people what to watch is a lecture; one
+    that asks what they are watching for is a conversation, and a conversation
+    is what gets comments. Comments are the only evidence this project has that
+    anybody read anything.
 
 ## Before and after, from the first series preview
 
@@ -55,6 +72,31 @@ change teaches. When in doubt, read his version out loud and match the sound.
 | "They are home, Cleveland cannot score" | "They're home, Cleveland can't score" |
 | "he spent four years in Japan and Korea" | "he spent 4 years in Japan and Korea" |
 | "Drew Anderson starts Tuesday." | "Drew Anderson gets the ball Tuesday." |
+
+## The second failure, 2026-08-13: passing every rule and still reading cold
+
+The Lions preseason draft satisfied most of the list above and he still called
+it "a very tough read." Two things were going on, and they are different
+problems.
+
+**It broke rules 1 and 2 outright**, which is worth noticing because the draft
+had been reviewed twice. "eleven years" and "one percent" in the TLDR, then "It
+does not", "That is a story, not a proof", "do not read the score", "It is
+noise" through the body. Contractions and numerals are checkable. Check them.
+
+**And the rest was tone, which no rule covered.** These are from that draft:
+
+| Cold | Warmer |
+|---|---|
+| "Here is the part that argues against me, and it is the middle row of that same table." | "The one thing that bugs me here is that middle row." |
+| "which squares to 1.1 percent of the variance" | "which works out to about 1% of what actually happens. 1%." |
+| "That is a story, not a proof, and it points the same direction either way." | "That's just a theory, but it points the same way either way you take it." |
+| "The final score is the least informative number the whole night produces." | "The score's honestly the least useful thing you'll see all night." |
+| "So tonight at Cincinnati, watch the right tackle job and not the scoreboard." | "So what are you actually watching for tonight? I'll be on the right tackle job." |
+
+The numbers are identical in both columns. Nothing was softened or dropped. The
+difference is entirely whether it sounds like a person who wants the season to
+start.
 
 ## What is unchanged
 

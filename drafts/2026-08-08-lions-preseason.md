@@ -55,24 +55,24 @@ directions.
 ---
 
 TITLE:
-Before tonight's opener: I pulled every NFL preseason since 2015. The teams that went undefeated in August did worse than the teams that went winless.
+Teams that went undefeated in the preseason did worse than teams that went winless. I checked every August since 2015 before tonight and I wish I hadn't.
 
 BODY:
-TLDR: teams that won every preseason game went .466 in the regular season. Teams that lost every preseason game went .475. Across eleven years, preseason record explains about one percent of what happens after Labor Day. Watch the right tackle job tonight, not the score.
+TLDR: teams that won every preseason game went .466 in the regular season. Teams that lost every preseason game went .475. Across 11 years, a team's August record explains about 1% of what happens once it counts.
 
-Tables are in the image. 320 team-seasons, 2015 through 2025, no 2020 because there was no preseason that year. Ties count as half a win.
+There's real football on tonight for the first time since last season and I've spent all week trying to talk myself into caring about the result. So I went and pulled every preseason since 2015, all 320 team-seasons, no 2020 since there wasn't one. I wanted it to say something. It really doesn't.
 
-Top table, first row against last row. The undefeated group finished worse than the winless group. Correlation between preseason and regular season winning percentage is +0.103, which squares to 1.1 percent of the variance. If you sorted all 32 teams by preseason record you would have done almost nothing to sort them by how good they are.
+Both tables are in the image. Top one first, and look at that top row against the bottom row. The teams that won every preseason game finished worse than the teams that didn't win any. The correlation's +0.103, which works out to about 1% of what actually happens. 1%. If you'd lined all 32 teams up by their August record you'd have learned basically nothing about who's good.
 
-Here is the part that argues against me, and it is the middle row of that same table. Teams with a winning but not perfect preseason went .561 across 93 team-seasons, which is a real gap over .500 and a bigger one than anything else on the table. If the story were clean, that group would sit between the undefeated group and the even group. It does not. The column does not climb, it bounces. My honest read is that a signal that is strong at 3-1 and reversed at 4-0 is not a signal, but if you want to argue that row is real, that is where you would plant your flag.
+The one thing that bugs me here is that middle row. Teams with a winning but not perfect preseason went .561 across 93 team-seasons, and that's not nothing, it's the biggest gap on the table and it's a lot of seasons. If this were clean that group would land somewhere between the undefeated teams and the .500 teams, and it just doesn't. The column bounces. I think something that's strong at 3-1 and backwards at 4-0 isn't really a something, but if you want to fight me on this that row is where you'd stand, and honestly I'd love for it to be real.
 
-There is at least a plausible mechanism for the inverted top row. Good teams have the least to figure out in August, so they rest starters and let the fourth string lose a game nobody remembers. Winning in August may be mild evidence a roster needed the reps. That is a story, not a proof, and it points the same direction either way: do not read the score.
+There might be a reason the top row's upside down. Good teams have the least to sort out in August, so they sit everybody and let the 4th string lose a game nobody remembers, while the teams with real questions play their bubble guys hard and long. That's just a theory, but it points the same way either way you take it.
 
-Detroit's own rows are the bottom table. The 15-2 team in 2024 went 2-1 in the preseason and opened it with a 14-3 loss to the Giants. The best preseason record on that table is the 2015 team at 3-1, and they went 7-9. But the two worst preseasons, 2019 and 2021, were also the two worst seasons, so it does not invert cleanly here either. It is noise pointing wherever it feels like.
+Our own rows are the bottom table and they're no kinder. The 15-2 team in 2024 went 2-1 in August and opened it by losing 14-3 to the Giants. Best preseason on there is 2015 at 3-1, and that got us 7-9. Elsewhere it's worse: Cleveland went 4-0 in the 2017 preseason and then 0-16, Baltimore went 4-0 in the 2019 preseason and then 14-2. Same August, completely different planets.
 
-The extremes elsewhere: Cleveland went 4-0 in the 2017 preseason and then 0-16. Baltimore went 4-0 in the 2019 preseason and then 14-2. Same August, opposite universes.
+So the score's honestly the least useful thing you'll see all night, which is a little sad for an opener. The thing I keep coming back to is right tackle. Sewell's over on the left now, so that's the spot that opened up, and Blake Miller against Larry Borom is the one job on this roster that's actually up for grabs. Miller's been running with the ones since camp started, but Campbell keeps saying the real competition doesn't start until the pads are on, so I'll be watching who's out there first, who's still out there once the starters leave, and whether the rookie holds up against a live rush without grabbing.
 
-So tonight at Cincinnati, watch the right tackle job and not the scoreboard. Blake Miller against Larry Borom is the one genuinely open competition on this roster and it protects the blind side. Who is with the ones, who is still out there after the starters leave, whether the rookie holds up against a live rush without holding. The final score is the least informative number the whole night produces.
+What are you watching for tonight?
 
 ---
 

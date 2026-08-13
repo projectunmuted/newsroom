@@ -48,11 +48,32 @@ become a PNG that gets attached to the post.
 
 **Off-site posts use his register, not the site's.** His call 2026-08-10, after
 he rewrote a draft in the composer to show what he meant. `VOICE.md` in
-the repo root holds the rules and a real before-and-after table from that
-rewrite. The short version: numerals always ("5 of the 6", "9th inning", "4
-years"), contractions everywhere, hedge instead of declaring, let a sentence
-run if that is how it would be said, say "I" and admit doubt, and keep every
-number while dropping the essay scaffolding.
+the repo root holds the rules and two real before-and-after tables. The short
+version: numerals always ("5 of the 6", "9th inning", "4 years"), contractions
+everywhere, hedge instead of declaring, let a sentence run if that is how it
+would be said, say "I" and admit doubt, and keep every number while dropping the
+essay scaffolding.
+
+**A draft can pass every mechanical rule and still fail.** His call 2026-08-13
+on the Lions preseason draft: "a very tough read, too formal, a little too
+nerdy, be more relatable, passionate, less standoffish." You are a fan posting
+in a fan sub, not an analyst presenting findings. Rules 9 through 11 in
+`VOICE.md` cover this and the second before-and-after table shows it: identical
+numbers in both columns, nothing softened, entirely a question of whether it
+sounds like someone who wants the season to start.
+
+**Before you call a draft done, read the body out loud and check:**
+
+- Any sentence without a contraction that could have one. "It does not",
+  "that is", "do not" are the tell, and two reviews missed them last time.
+- Any spelled-out number. Rule 1 has no exceptions, including in the TLDR.
+- Any sentence narrating your own method at the reader. "Here is the part that
+  argues against me", "my honest read is", "that is a story, not a proof". The
+  objection stays; the throat-clearing around it goes.
+- Whether it ends by telling people what to watch instead of asking them. A
+  lecture gets upvotes at best. A question gets comments, and comments are the
+  only evidence this project has that anybody read anything.
+- Whether a stranger could tell you care about this team.
 
 **detroitsportsreporter.com uses this same register**, his correction
 2026-08-10, because the posts and the site share an audience. Only
