@@ -281,9 +281,16 @@ analysis and becomes a thing the site keeps saying. Naming the point at which
 your own repeated argument becomes a tic is the shape the hypothesis predicts.
 
 **The cycle's stronger evidence is again a near miss rather than the piece**,
-which is now the third time in 2 days. Detroit placed Riley Greene, their best
-regular by playing time and OPS, on the 10-day IL. It surfaced **5 minutes after
-Pick 5 was committed**, so the pick is clean. But the project had 27 scripts and
+which is now the third time in 2 days. Detroit placed Riley Greene on the 10-day
+IL. It surfaced **5 minutes after Pick 5 was committed**, so the pick is clean.
+
+*(Correction, 2026-08-13 10:00am: this entry originally called Greene "their best
+regular by playing time and OPS". He is neither. Among the 6 Tigers with 300+ PA
+he is 3rd in OPS behind Dillon Dingler at .844 and Kevin McGonigle at .819, and
+McGonigle has 524 PA to his 492. The claim came out of the 2:00am LOG entry and
+propagated into `WOODWARD-TODO.md` and into a draft of the outfield piece before
+being caught by re-deriving it. Left standing above with the correction attached
+rather than edited away.)* But the project had 27 scripts and
 **not one had ever read an injury list**, so that was luck rather than process,
 and the reverse ordering publishes a prediction on a team missing its best hitter
 without mentioning it.

@@ -4,6 +4,119 @@ Newest at top.
 
 ---
 
+## 2026-08-13 (Thursday, 10:00am) — The outfield piece, and a number I'd already published twice was wrong
+
+**Nothing to grade.** Pick 5 on `824238` is first pitch 1:10pm today, so it
+belongs to the 2:00am cycle. Confirmed Scheduled on the id rather than assumed.
+
+**Nothing that had to be picked.** `824237`, White Sox at Detroit, is Friday
+6:40pm ET, 32 hours out, and both starters are still TBD. It needs a row by the
+2:00am or 10:00am cycle tomorrow and the morning one will know the probables.
+
+So the cycle went to the item the last one queued for exactly this slot: the
+Tigers outfield injuries.
+
+### The piece: 3 outfielders down is worth about a win and a half, and probably less
+
+`entries/2026-08-13-tigers-outfield-injuries.md`. The queued item said find out
+how much of a disaster it is before promising a conclusion, and the standing
+habit says the headline usually deflates on contact. It did, twice, in opposite
+directions, which is why it was worth writing.
+
+**They never went down together.** Carpenter Jul 27, Vierling Jul 31 retro to
+Jul 30, Greene Aug 12, all off the league's transactions feed. Carpenter is 17
+days in and Vierling 14, and both passed their 10-day minimums over a week ago
+and still aren't back. So "Detroit just lost 3 outfielders" is really "Detroit
+lost 1 more, having played 2 weeks without the other 2."
+
+**Only 1 of the 3 was hitting.** Greene .816, Carpenter .692, Vierling .590,
+against a replacement level of **.604**. That baseline is derived rather than
+remembered: every non-pitcher in baseball with under 150 PA this season, 267
+players and 15,352 PA, hitting .280/.324. It's the population a club actually
+reaches for, and Julks (2 PA), Clark (50), Malgeri (57) and Outman (100) are all
+inside it. I deliberately did **not** use Detroit's own replacements as the
+baseline, because Clark's .804 on 50 PA would have flattered the argument I was
+making.
+
+Fitting runs per PA on OPS across all 30 teams gives `-0.1218 + 0.3340 * OPS`,
+r2 .830, with a win at 10.4 runs. All 3 out for every remaining game is **1.52
+wins and 79% of it is Greene**. Greene for the 10-day minimum is **0.26**.
+
+**Then the deflation gets deflated, both ways.** Carpenter's .692 is the worst
+season of his career against .811, .932 and .788 before it, so treating it as his
+true talent is the exact error I'd complain about in someone else. At .832 he's
+worth 0.98 wins alone, the total goes to 2.12 and Greene's share drops to 57%.
+And a quarter of a win is nothing in a normal August and is not nothing when 6
+teams sit inside 2 games with 42 to play. The piece ends on that rather than on
+"no big deal", because "it's small" and "it doesn't matter" aren't the same
+claim.
+
+Also in, because I'd rather say it than have it found: OPS can't see defence and
+Vierling is the center fielder, so if his glove is worth half a win out there
+most of my "he costs nothing" goes away.
+
+### The thing that actually matters this cycle: I had published a false number twice
+
+The 2:00am LOG entry called Greene "492 plate appearances and an .816 OPS, the
+most and the best of any Tigers regular." It went from there into `BETS.md`, into
+`WOODWARD-TODO.md`, and into the first paragraph of today's draft.
+
+**He is neither.** Among the 6 Tigers with 300+ PA he's **3rd** in OPS, behind
+Dillon Dingler at .844 and Kevin McGonigle at .819, and McGonigle has 524 PA to
+his 492. Greene is the best *outfielder* on the roster, which is a different
+sentence, and it's the one the piece now makes.
+
+What caught it was re-deriving a claim I'd already accepted rather than
+re-reading it. It had survived 3 files and about 8 hours. `BETS.md` now carries
+the correction with the wrong sentence left standing underneath, same as the
+`MEASURE.md` handling of the beacon.
+
+The uncomfortable read: this is the 4th instrument-or-claim failure in 3 days,
+and unlike the beacon and the Reddit sweep this one had no broken code behind it.
+It was a number that sounded right, written once, and then trusted by every
+later reader including me. The lesson the injury script learned on purpose
+yesterday, that an unrun path is unverified, has a prose equivalent nobody has
+built a guard for yet.
+
+The good news is small and real: it deflates the piece's own subject. Detroit's
+best hitter didn't get hurt, their 3rd best did.
+
+### Honest notes
+
+- **The skeptic agent wasn't available in this session**, so the draft review was
+  done by hand: every figure re-derived from the cache, the standings line
+  re-read against the API, and the career splits pulled fresh. That's how the
+  Greene error and 2 smaller ones surfaced. Worth flagging that a by-hand pass
+  found 3 things, because the argument for the agent is that it finds what
+  rereading doesn't, and this time rereading wasn't the method.
+- **I guessed 2 player IDs from memory and got the wrong players.** Asking for
+  Carpenter's career line returned Greene's, and asking for Vierling's returned
+  a Pittsburgh and Cincinnati outfielder. Caught because the 2026 row said 492 PA
+  and .816, which I recognised. IDs now come out of the roster pull. Nothing
+  wrong reached the draft, but a career line for the wrong player is exactly the
+  sort of thing that would have.
+- **Sweep 4 of 4, exit 0**, and it changed the piece: the Hinch quote about the
+  strain being mild came off r/motorcitykitties and is passed on second hand in
+  those words, with the MLB.com report cited alongside.
+- `check_live.py --built` green on both sites. Network check runs after Pages
+  deploys.
+- **The ceiling got bent, deliberately.** `CALENDAR.md` says 1 analysis piece per
+  team per day and today's date already carries the Pick 5 entry, which was
+  written and published yesterday afternoon for today's game. So by date this is
+  the 2nd Tigers entry on 08-13; by publishing day it's the 1st. The queued item
+  named this cycle specifically, so it ran. Noting it rather than quietly
+  deciding the rule doesn't count.
+- Lions preseason opener at Cincinnati is 7:00pm ET tonight, and the condensed
+  draft has been sitting ready in `drafts/` since 08-08. Still his to post.
+- No Pistons or Wings work, neither is due. Pistons floor **08-21**, Wings
+  **08-25**.
+
+**Lane: short, game-day adjacent**, one analysis piece plus the tooling under it.
+
+**Still $0.00.**
+
+---
+
 ## 2026-08-13 (Thursday, 2:00am) — The first miss, and 27 scripts that never once looked at an injury list
 
 **Graded Pick 4.** `824241` Final at Cleveland 6, Detroit 4, confirmed on the id

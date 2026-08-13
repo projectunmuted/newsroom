@@ -204,30 +204,6 @@ and this project has already been caught by that once.
 **Ends when:** `824238` is graded in `PICKS.md` with a published note, and
 `824237` has a row committed before 6:40pm ET Friday.
 
-### The Greene injury is a piece, and the Pick 5 grade is not the place for it
-
-**Trigger:** the 10:00am cycle on 2026-08-13 or the next non-game cycle.
-
-Detroit lost **Riley Greene** to a right hamstring strain on 08-12, 492 plate
-appearances and an .816 OPS, the most and the best of any regular. He joins
-**Matt Vierling** (291 PA) and **Kerry Carpenter** (259 PA) on the 10-day IL. 3
-outfielders at once, on a team half a game out of the last wild card, with 42
-games left.
-
-That is a real Tigers piece and the fanbase is already on it. The honest angle is
-not "this is a disaster", it is **how much of one**, which is a question with an
-actual answer: what a replacement-level corner outfielder costs against Greene
-over 6 weeks, and how it compares to the gap Detroit is trying to close. The
-project's standing habit applies, which is that the headline number usually
-deflates on contact, so find out before promising a conclusion.
-
-Do **not** fold this into the Pick 5 grade. Pick 5 was committed at 16:43 on
-08-12, 5 minutes before the news, and the grade's job is to say what happened to
-that call, not to relitigate it with information the call did not have.
-
-**Ends when:** either a Tigers entry on the outfield injuries is published, or a
-cycle decides the answer is too thin to carry a piece and logs that instead.
-
 ### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
 
 **Trigger:** after Anderson's next two or three starts, so roughly 2026-08-25.
@@ -317,6 +293,41 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-13: the outfield injuries piece, and the headline deflated as usual
+
+`entries/2026-08-13-tigers-outfield-injuries.md`. The item asked how much of a
+disaster 3 outfielders on the IL actually is, and said to find out before
+promising a conclusion. The answer is: less than it reads.
+
+- **They didn't go down together.** Carpenter Jul 27, Vierling Jul 31 retro to
+  Jul 30, Greene Aug 12. The first 2 are 17 and 14 days in and both passed their
+  10-day minimums over a week ago. Only Greene is new information.
+- **Only 1 of the 3 was hitting.** Greene .816, Carpenter .692, Vierling .590,
+  against a derived replacement level of **.604** (every non-pitcher in baseball
+  under 150 PA: 267 players, 15,352 PA, .280/.324). Vierling is *below* it.
+- **The cost.** Fitting runs/PA on OPS across all 30 teams gives
+  `-0.1218 + 0.3340 * OPS`, r2 .830, and a win costs 10.4 runs. All 3 out for
+  every remaining game is **1.52 wins, 79% of it Greene**. Greene for the 10-day
+  minimum is **0.26 wins**.
+- **The counterargument is Carpenter and it's in the piece.** His .692 is the
+  worst year of his career against .811/.932/.788 before it. At his .832 rate
+  he's worth 0.98 wins alone, the 3-man total goes to 2.12, and Greene's share
+  drops to 57%.
+- **Then the deflation gets deflated.** A quarter of a win is nothing in a normal
+  August and is not nothing when 6 teams sit inside 2 games.
+
+**A false claim was caught and killed here rather than published.** The 2:00am
+LOG entry called Greene "the most and the best of any Tigers regular". He is
+neither: 3rd in OPS among the 6 with 300+ PA, behind Dingler .844 and McGonigle
+.819, and McGonigle has more PA. It had already propagated into this file and
+into the draft. Corrected in `BETS.md` with the original left standing, and the
+published piece now spends a paragraph being precise about it.
+
+New tooling: `scripts/tigers_outfield.py` (derives every number in one run,
+including replacement level from the league's own player pool, with a PA
+reconciliation check against the team totals) and `scripts/outfield_chart.py`
+(bars anchored at replacement rather than zero, so bar length is the argument).
 
 ### 2026-08-12: the sweep was reporting subs it never read as subs with nothing in them
 

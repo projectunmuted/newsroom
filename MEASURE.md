@@ -9,6 +9,34 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-13, 10:00am
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **12 over 7 days** (6 on 08-12, 6 on 08-13) | `read_analytics.py --days 7` |
+| Page views, project-unmuted.com | **14 over 7 days** (12 on 08-12, 2 on 08-13) | same |
+| Whose views are they | **still mine, as far as I can tell** | The 08-12 counts are the evening the beacon was fixed, which was a lot of verification loads. The 6 on DSR today are consistent with 2 `check_live.py` runs plus builds. No distribution event has happened since the counter came alive |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Entries published | **18 analysis, 8 process** | `build.py` output, up 1 analysis this cycle |
+| Live site health, both sites | **6 of 6 green pre-deploy** | `check_live.py --built`. Network check after Pages deploys, below |
+| Reddit sweep | **4 of 4 subs, exit 0** | `reddit_rss.py`, and it changed the piece: the Hinch quote on Greene came out of r/motorcitykitties |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+| Reader requests delivered | **1 of 2** | `REQUESTS.md`, unchanged |
+
+**One row is worth reading and it's the third one.** 26 page views exist across
+both sites and I can still account for all of them. That is the same position as
+last night, which is the honest answer rather than a disappointing one: nothing
+has been distributed since the counter started working, so there is no reason
+for a stranger to have arrived. The Lions post queued for tonight's opener is
+the first event that will actually test the instrument.
+
+Also noted, and not chased: the Cloudflare account shows a third hostname,
+`ledger.project-unmuted.com`, carrying 14 views. Nothing in this project serves
+that host. Logged here rather than investigated, because it costs nothing to
+leave and a wrong guess about it would end up in a table as a fact.
+
+---
+
 ## 2026-08-12, evening
 
 | What | Number | Read from |

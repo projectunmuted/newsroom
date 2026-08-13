@@ -1,0 +1,732 @@
+{
+ "teams": [
+  {
+   "name": "Los Angeles Dodgers",
+   "id": 119,
+   "pa": 4623,
+   "runs": 606,
+   "ops": 0.768,
+   "games": 121
+  },
+  {
+   "name": "Tampa Bay Rays",
+   "id": 139,
+   "pa": 4535,
+   "runs": 549,
+   "ops": 0.739,
+   "games": 120
+  },
+  {
+   "name": "Colorado Rockies",
+   "id": 115,
+   "pa": 4597,
+   "runs": 577,
+   "ops": 0.744,
+   "games": 121
+  },
+  {
+   "name": "Pittsburgh Pirates",
+   "id": 134,
+   "pa": 4751,
+   "runs": 604,
+   "ops": 0.742,
+   "games": 122
+  },
+  {
+   "name": "Washington Nationals",
+   "id": 120,
+   "pa": 4722,
+   "runs": 655,
+   "ops": 0.769,
+   "games": 122
+  },
+  {
+   "name": "Milwaukee Brewers",
+   "id": 158,
+   "pa": 4682,
+   "runs": 592,
+   "ops": 0.731,
+   "games": 121
+  },
+  {
+   "name": "Miami Marlins",
+   "id": 146,
+   "pa": 4548,
+   "runs": 534,
+   "ops": 0.732,
+   "games": 121
+  },
+  {
+   "name": "Chicago Cubs",
+   "id": 112,
+   "pa": 4792,
+   "runs": 634,
+   "ops": 0.761,
+   "games": 121
+  },
+  {
+   "name": "Atlanta Braves",
+   "id": 144,
+   "pa": 4553,
+   "runs": 591,
+   "ops": 0.734,
+   "games": 121
+  },
+  {
+   "name": "San Francisco Giants",
+   "id": 137,
+   "pa": 4528,
+   "runs": 493,
+   "ops": 0.712,
+   "games": 121
+  },
+  {
+   "name": "Boston Red Sox",
+   "id": 111,
+   "pa": 4527,
+   "runs": 531,
+   "ops": 0.721,
+   "games": 120
+  },
+  {
+   "name": "Minnesota Twins",
+   "id": 142,
+   "pa": 4623,
+   "runs": 571,
+   "ops": 0.725,
+   "games": 122
+  },
+  {
+   "name": "Houston Astros",
+   "id": 117,
+   "pa": 4626,
+   "runs": 559,
+   "ops": 0.73,
+   "games": 122
+  },
+  {
+   "name": "Kansas City Royals",
+   "id": 118,
+   "pa": 4567,
+   "runs": 503,
+   "ops": 0.705,
+   "games": 122
+  },
+  {
+   "name": "Texas Rangers",
+   "id": 140,
+   "pa": 4517,
+   "runs": 497,
+   "ops": 0.714,
+   "games": 121
+  },
+  {
+   "name": "Athletics",
+   "id": 133,
+   "pa": 4600,
+   "runs": 524,
+   "ops": 0.715,
+   "games": 121
+  },
+  {
+   "name": "Detroit Tigers",
+   "id": 116,
+   "pa": 4575,
+   "runs": 549,
+   "ops": 0.727,
+   "games": 120
+  },
+  {
+   "name": "Arizona Diamondbacks",
+   "id": 109,
+   "pa": 4613,
+   "runs": 552,
+   "ops": 0.712,
+   "games": 122
+  },
+  {
+   "name": "Toronto Blue Jays",
+   "id": 141,
+   "pa": 4544,
+   "runs": 482,
+   "ops": 0.681,
+   "games": 122
+  },
+  {
+   "name": "St. Louis Cardinals",
+   "id": 138,
+   "pa": 4574,
+   "runs": 529,
+   "ops": 0.695,
+   "games": 121
+  },
+  {
+   "name": "San Diego Padres",
+   "id": 135,
+   "pa": 4533,
+   "runs": 522,
+   "ops": 0.702,
+   "games": 122
+  },
+  {
+   "name": "Philadelphia Phillies",
+   "id": 143,
+   "pa": 4568,
+   "runs": 535,
+   "ops": 0.706,
+   "games": 122
+  },
+  {
+   "name": "Chicago White Sox",
+   "id": 145,
+   "pa": 4524,
+   "runs": 566,
+   "ops": 0.723,
+   "games": 119
+  },
+  {
+   "name": "Baltimore Orioles",
+   "id": 110,
+   "pa": 4569,
+   "runs": 543,
+   "ops": 0.715,
+   "games": 121
+  },
+  {
+   "name": "New York Mets",
+   "id": 121,
+   "pa": 4591,
+   "runs": 510,
+   "ops": 0.694,
+   "games": 122
+  },
+  {
+   "name": "Los Angeles Angels",
+   "id": 108,
+   "pa": 4535,
+   "runs": 493,
+   "ops": 0.686,
+   "games": 121
+  },
+  {
+   "name": "Cleveland Guardians",
+   "id": 114,
+   "pa": 4561,
+   "runs": 483,
+   "ops": 0.684,
+   "games": 121
+  },
+  {
+   "name": "New York Yankees",
+   "id": 147,
+   "pa": 4480,
+   "runs": 545,
+   "ops": 0.724,
+   "games": 120
+  },
+  {
+   "name": "Seattle Mariners",
+   "id": 136,
+   "pa": 4498,
+   "runs": 468,
+   "ops": 0.683,
+   "games": 121
+  },
+  {
+   "name": "Cincinnati Reds",
+   "id": 113,
+   "pa": 4465,
+   "runs": 487,
+   "ops": 0.701,
+   "games": 119
+  }
+ ],
+ "runs_allowed": {
+  "147": 455,
+  "116": 462,
+  "111": 452,
+  "158": 462,
+  "144": 467,
+  "119": 464,
+  "139": 487,
+  "114": 510,
+  "136": 495,
+  "146": 511,
+  "141": 536,
+  "145": 525,
+  "138": 530,
+  "112": 519,
+  "135": 521,
+  "109": 541,
+  "121": 557,
+  "143": 542,
+  "110": 579,
+  "140": 531,
+  "137": 557,
+  "134": 591,
+  "108": 583,
+  "113": 565,
+  "117": 586,
+  "142": 603,
+  "120": 639,
+  "118": 617,
+  "115": 693,
+  "133": 704
+ },
+ "tigers": [
+  {
+   "id": 595879,
+   "name": "Javier B\u00e1ez",
+   "pos": "SS",
+   "status": "Active",
+   "pa": 126,
+   "games": 34,
+   "ops": 0.693,
+   "obp": 0.31,
+   "slg": 0.383,
+   "avg": 0.283,
+   "hr": 2,
+   "rbi": 14
+  },
+  {
+   "id": 681481,
+   "name": "Kerry Carpenter",
+   "pos": "RF",
+   "status": "Injured 10-Day",
+   "pa": 259,
+   "games": 81,
+   "ops": 0.692,
+   "obp": 0.276,
+   "slg": 0.416,
+   "avg": 0.208,
+   "hr": 13,
+   "rbi": 36
+  },
+  {
+   "id": 703601,
+   "name": "Max Clark",
+   "pos": "CF",
+   "status": "Active",
+   "pa": 50,
+   "games": 11,
+   "ops": 0.804,
+   "obp": 0.36,
+   "slg": 0.444,
+   "avg": 0.289,
+   "hr": 1,
+   "rbi": 7
+  },
+  {
+   "id": 669360,
+   "name": "Trei Cruz",
+   "pos": "CF",
+   "status": "Reassigned to Minors",
+   "pa": 5,
+   "games": 2,
+   "ops": 0.0,
+   "obp": 0.0,
+   "slg": 0.0,
+   "avg": 0.0,
+   "hr": 0,
+   "rbi": 0
+  },
+  {
+   "id": 693307,
+   "name": "Dillon Dingler",
+   "pos": "C",
+   "status": "Active",
+   "pa": 471,
+   "games": 111,
+   "ops": 0.844,
+   "obp": 0.33,
+   "slg": 0.514,
+   "avg": 0.267,
+   "hr": 26,
+   "rbi": 80
+  },
+  {
+   "id": 682985,
+   "name": "Riley Greene",
+   "pos": "LF",
+   "status": "Injured 10-Day",
+   "pa": 492,
+   "games": 117,
+   "ops": 0.816,
+   "obp": 0.366,
+   "slg": 0.45,
+   "avg": 0.273,
+   "hr": 16,
+   "rbi": 54
+  },
+  {
+   "id": 663330,
+   "name": "Jahmai Jones",
+   "pos": "DH",
+   "status": "Traded",
+   "pa": 105,
+   "games": 57,
+   "ops": 0.44,
+   "obp": 0.219,
+   "slg": 0.221,
+   "avg": 0.137,
+   "hr": 2,
+   "rbi": 7
+  },
+  {
+   "id": 667452,
+   "name": "Corey Julks",
+   "pos": "LF",
+   "status": "Active",
+   "pa": 2,
+   "games": 1,
+   "ops": 0.0,
+   "obp": 0.0,
+   "slg": 0.0,
+   "avg": 0.0,
+   "hr": 0,
+   "rbi": 0
+  },
+  {
+   "id": 690291,
+   "name": "Jace Jung",
+   "pos": "3B",
+   "status": "Reassigned to Minors",
+   "pa": 8,
+   "games": 3,
+   "ops": 0.542,
+   "obp": 0.375,
+   "slg": 0.167,
+   "avg": 0.167,
+   "hr": 0,
+   "rbi": 0
+  },
+  {
+   "id": 690993,
+   "name": "Colt Keith",
+   "pos": "3B",
+   "status": "Active",
+   "pa": 344,
+   "games": 110,
+   "ops": 0.727,
+   "obp": 0.317,
+   "slg": 0.41,
+   "avg": 0.265,
+   "hr": 8,
+   "rbi": 31
+  },
+  {
+   "id": 701678,
+   "name": "Hao-Yu Lee",
+   "pos": "2B",
+   "status": "Active",
+   "pa": 211,
+   "games": 76,
+   "ops": 0.724,
+   "obp": 0.3,
+   "slg": 0.424,
+   "avg": 0.268,
+   "hr": 6,
+   "rbi": 28
+  },
+  {
+   "id": 701162,
+   "name": "Ben Malgeri",
+   "pos": "RF",
+   "status": "Active",
+   "pa": 57,
+   "games": 25,
+   "ops": 0.73,
+   "obp": 0.368,
+   "slg": 0.362,
+   "avg": 0.255,
+   "hr": 1,
+   "rbi": 7
+  },
+  {
+   "id": 805808,
+   "name": "Kevin McGonigle",
+   "pos": "SS",
+   "status": "Active",
+   "pa": 524,
+   "games": 116,
+   "ops": 0.819,
+   "obp": 0.391,
+   "slg": 0.428,
+   "avg": 0.286,
+   "hr": 12,
+   "rbi": 48
+  },
+  {
+   "id": 656716,
+   "name": "Zach McKinstry",
+   "pos": "2B",
+   "status": "Active",
+   "pa": 327,
+   "games": 95,
+   "ops": 0.637,
+   "obp": 0.306,
+   "slg": 0.331,
+   "avg": 0.223,
+   "hr": 4,
+   "rbi": 24
+  },
+  {
+   "id": 678009,
+   "name": "Parker Meadows",
+   "pos": "CF",
+   "status": "Injured 60-Day",
+   "pa": 39,
+   "games": 12,
+   "ops": 0.641,
+   "obp": 0.308,
+   "slg": 0.333,
+   "avg": 0.25,
+   "hr": 0,
+   "rbi": 2
+  },
+  {
+   "id": 681546,
+   "name": "James Outman",
+   "pos": "CF",
+   "status": "Active",
+   "pa": 100,
+   "games": 45,
+   "ops": 0.606,
+   "obp": 0.24,
+   "slg": 0.366,
+   "avg": 0.183,
+   "hr": 5,
+   "rbi": 14
+  },
+  {
+   "id": 672761,
+   "name": "Wenceel P\u00e9rez",
+   "pos": "RF",
+   "status": "Injured 60-Day",
+   "pa": 175,
+   "games": 53,
+   "ops": 0.594,
+   "obp": 0.246,
+   "slg": 0.348,
+   "avg": 0.18,
+   "hr": 7,
+   "rbi": 17
+  },
+  {
+   "id": 668670,
+   "name": "Jake Rogers",
+   "pos": "C",
+   "status": "Traded",
+   "pa": 110,
+   "games": 36,
+   "ops": 0.567,
+   "obp": 0.266,
+   "slg": 0.301,
+   "avg": 0.161,
+   "hr": 3,
+   "rbi": 9
+  },
+  {
+   "id": 670097,
+   "name": "Zack Short",
+   "pos": "SS",
+   "status": "Claimed",
+   "pa": 46,
+   "games": 23,
+   "ops": 0.526,
+   "obp": 0.304,
+   "slg": 0.222,
+   "avg": 0.167,
+   "hr": 0,
+   "rbi": 2
+  },
+  {
+   "id": 679529,
+   "name": "Spencer Torkelson",
+   "pos": "1B",
+   "status": "Active",
+   "pa": 472,
+   "games": 119,
+   "ops": 0.744,
+   "obp": 0.318,
+   "slg": 0.426,
+   "avg": 0.229,
+   "hr": 20,
+   "rbi": 62
+  },
+  {
+   "id": 650402,
+   "name": "Gleyber Torres",
+   "pos": "2B",
+   "status": "Active",
+   "pa": 280,
+   "games": 63,
+   "ops": 0.767,
+   "obp": 0.371,
+   "slg": 0.396,
+   "avg": 0.26,
+   "hr": 8,
+   "rbi": 31
+  },
+  {
+   "id": 680664,
+   "name": "Eduardo Valencia",
+   "pos": "C",
+   "status": "Active",
+   "pa": 43,
+   "games": 15,
+   "ops": 1.224,
+   "obp": 0.419,
+   "slg": 0.805,
+   "avg": 0.39,
+   "hr": 4,
+   "rbi": 13
+  },
+  {
+   "id": 663837,
+   "name": "Matt Vierling",
+   "pos": "CF",
+   "status": "Injured 10-Day",
+   "pa": 291,
+   "games": 92,
+   "ops": 0.59,
+   "obp": 0.255,
+   "slg": 0.335,
+   "avg": 0.207,
+   "hr": 5,
+   "rbi": 31
+  },
+  {
+   "id": 669398,
+   "name": "Gage Workman",
+   "pos": "3B",
+   "status": "Traded",
+   "pa": 38,
+   "games": 16,
+   "ops": 0.553,
+   "obp": 0.158,
+   "slg": 0.395,
+   "avg": 0.158,
+   "hr": 2,
+   "rbi": 5
+  }
+ ],
+ "active": {
+  "701162": "RF",
+  "690993": "3B",
+  "667452": "LF",
+  "693307": "C",
+  "623454": "P",
+  "805427": "P",
+  "680664": "C",
+  "646241": "P",
+  "664285": "P",
+  "650402": "2B",
+  "701678": "2B",
+  "695549": "P",
+  "621097": "P",
+  "681546": "CF",
+  "595879": "SS",
+  "672456": "P",
+  "445276": "P",
+  "805808": "SS",
+  "640448": "P",
+  "703601": "CF",
+  "679529": "1B",
+  "663432": "P",
+  "675512": "P",
+  "680744": "P",
+  "663947": "P",
+  "656716": "2B"
+ },
+ "replacement_ops": 0.604,
+ "replacement_n": 267,
+ "replacement_pa": 15352,
+ "pool_pa": 137418,
+ "wildcard": [
+  {
+   "name": "Yankees",
+   "id": 147,
+   "w": 68,
+   "l": 52,
+   "gb": "+8.5"
+  },
+  {
+   "name": "Red Sox",
+   "id": 111,
+   "w": 64,
+   "l": 56,
+   "gb": "+4.5"
+  },
+  {
+   "name": "Rangers",
+   "id": 140,
+   "w": 60,
+   "l": 61,
+   "gb": "-"
+  },
+  {
+   "name": "Twins",
+   "id": 142,
+   "w": 60,
+   "l": 62,
+   "gb": "0.5"
+  },
+  {
+   "name": "Tigers",
+   "id": 116,
+   "w": 59,
+   "l": 61,
+   "gb": "0.5"
+  },
+  {
+   "name": "Guardians",
+   "id": 114,
+   "w": 59,
+   "l": 62,
+   "gb": "1.0"
+  },
+  {
+   "name": "Blue Jays",
+   "id": 141,
+   "w": 59,
+   "l": 63,
+   "gb": "1.5"
+  },
+  {
+   "name": "Orioles",
+   "id": 110,
+   "w": 58,
+   "l": 63,
+   "gb": "2.0"
+  },
+  {
+   "name": "Mariners",
+   "id": 136,
+   "w": 56,
+   "l": 65,
+   "gb": "4.0"
+  },
+  {
+   "name": "Royals",
+   "id": 118,
+   "w": 49,
+   "l": 73,
+   "gb": "11.5"
+  },
+  {
+   "name": "Athletics",
+   "id": 133,
+   "w": 47,
+   "l": 74,
+   "gb": "13.0"
+  },
+  {
+   "name": "Angels",
+   "id": 108,
+   "w": 47,
+   "l": 74,
+   "gb": "13.0"
+  }
+ ]
+}
