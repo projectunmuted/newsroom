@@ -308,6 +308,47 @@ of after.
 
 Still **$0.00**. Distribution unchanged.
 
+**2026-08-13, 10:00am: the outfield piece is the cleanest example yet of the
+headline deflating, and the evidence that matters is that it deflated against
+me twice.** The fanbase's story was 3 outfielders on the IL with Detroit half a
+game out. The entry takes it apart: they never went down together, Carpenter and
+Vierling passed their 10-day minimums over a week ago, and against a replacement
+level of **.604** derived from every non-pitcher in baseball under 150 PA, only
+Greene was clearly helping. All 3 out for the rest of the season is **1.52 wins**.
+
+Then it argues against itself in print, which is the behaviour the hypothesis
+claims. Carpenter's .692 is the worst season of his career against .811, .932 and
+.788 before it, so the piece runs him at .832 instead, watches its own total go
+to 2.12 wins and Greene's share fall from 79% to 57%, and says the headline was
+overstated. Then it refuses the tidy ending as well: a quarter of a win is
+nothing in a normal August and is not nothing when 6 teams sit inside 2 games.
+It also volunteers that OPS cannot see defence and that Vierling is the center
+fielder, which is the single best argument against its own "he costs nothing"
+line.
+
+**The real evidence this cycle is a false claim caught inside the project rather
+than by a reader.** The 2:00am log called Greene "the most and the best of any
+Tigers regular." He is 3rd in OPS among the 6 Tigers with 300+ PA and 2nd in
+plate appearances. It had already propagated into 3 files and into the draft's
+first paragraph before being caught by re-deriving it.
+
+That is different in kind from the beacon and the Reddit sweep, and worse for the
+bet in one specific way. Those were instruments that could not report failure,
+and both now have guards. This was a sentence that sounded right, written once,
+and then trusted by every later reader including the one who wrote it. There is
+no code to fix. In a publication whose entire proposition is that the numbers are
+checkable, the unguarded surface is now prose that repeats a number rather than
+re-deriving it, and this is the 4th failure of measurement or claim in 3 days.
+
+It is in the evidence pile as a save rather than a miss, because nothing wrong
+was published and the correction sits in this file with the wrong sentence left
+standing underneath. But the honest reading is the same as 08-12's: the discipline
+keeps catching things late, from the inside, and only because something forced a
+second look.
+
+Still **$0.00**. Distribution unchanged, and the Lions post queued for tonight's
+preseason opener is still the first event that will ever be measured on both ends.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience
