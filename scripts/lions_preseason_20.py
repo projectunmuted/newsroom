@@ -167,8 +167,7 @@ def png(rows: list[dict]) -> None:
     ax.set_ylabel("Win percentage", color=MUTE, fontsize=10.5)
     ax.set_xticks(xs)
     ax.set_xticklabels([str(s) for s in seasons], rotation=45, ha="right")
-    # Headroom for the callouts, which sit above the tallest bar in their year.
-    ax.set_ylim(0, 132)
+    ax.set_ylim(0, 106)
     ax.set_yticks([0, 20, 40, 60, 80, 100])
     ax.tick_params(colors=MUTE, labelsize=9, length=0)
     for s in ("top", "right", "left"):
@@ -181,20 +180,9 @@ def png(rows: list[dict]) -> None:
     ax.legend(frameon=False, fontsize=10, labelcolor=INK, loc="lower left",
               ncols=2, bbox_to_anchor=(0, 1.005))
 
-    # Label the seasons that disagree hardest, plus every perfect August
-    # regardless of what followed. Both 4-0 preseasons are in here and they went
-    # opposite directions, which is the argument the whole chart is making.
-    for i, r in enumerate(rows):
-        gap = abs(r["pre_pct"] - r["reg_pct"])
-        if gap < 0.5 and r["pre_pct"] < 1.0:
-            continue
-        top = max(pre[i], reg[i])
-        ax.annotate(f"{r['pre_w']:g}-{r['pre_g'] - r['pre_w']:g} then "
-                    f"{r['reg_w']:g}-{r['reg_g'] - r['reg_w']:g}",
-                    xy=(i, top + 1), xytext=(i, top + 13),
-                    fontsize=8.8, color=INK, ha="center",
-                    arrowprops=dict(arrowstyle="-", color=MUTE, lw=0.9,
-                                    shrinkA=1, shrinkB=2))
+    # No per-season callouts. His call 2026-08-13. The years are on the axis,
+    # so anyone who wants 2008 can find 2008; annotating it tells a reader which
+    # bars to care about, and the point is that none of them behave.
 
     n = len(rows)
     mp = sum(r["pre_pct"] for r in rows) / n
@@ -260,20 +248,9 @@ def scatter(rows: list[dict]) -> None:
 
     ax.scatter(x, y, s=110, color=S1, zorder=4, edgecolor=CARD, linewidth=1.5)
 
-    # Label the seasons a Lions fan will look for, not all 19. 2019 and 2021
-    # land on the same point (0-4 and 0-3 are both a 0% August), so only one is
-    # labelled and it is offset sideways rather than stacked on its twin.
-    want = {2008: (0, 11), 2011: (0, 11), 2024: (0, 11), 2019: (17, 3)}
-    for r, a, b in zip(rows, x, y):
-        off = want.get(r["season"])
-        if off is None:
-            continue
-        ax.annotate(f"{r['season']}\n{r['pre_w']:g}-{r['pre_g'] - r['pre_w']:g} "
-                    f"then {r['reg_w']:g}-{r['reg_g'] - r['reg_w']:g}",
-                    xy=(a, b), xytext=(a + off[0], b + off[1]), fontsize=8.8,
-                    color=INK, ha="center", linespacing=1.4,
-                    arrowprops=dict(arrowstyle="-", color=MUTE, lw=0.9,
-                                    shrinkA=1, shrinkB=7))
+    # No labelled seasons. His call 2026-08-13, and it is right for a scatter in
+    # particular: labelling 4 dots turns a cloud into 4 anecdotes and an
+    # audience argues anecdotes. The shape of the cloud is the finding.
 
     ax.set_title("19 seasons of Lions Augusts, plotted against what followed",
                  fontsize=15.5, color=INK, loc="left", pad=34)
@@ -283,7 +260,7 @@ def scatter(rows: list[dict]) -> None:
     ax.set_xlabel("Preseason win percentage", color=MUTE, fontsize=10.5)
     ax.set_ylabel("Regular season win percentage", color=MUTE, fontsize=10.5)
     ax.set_xlim(-8, 112)
-    ax.set_ylim(-8, 118)
+    ax.set_ylim(-8, 110)
     ax.set_xticks([0, 25, 50, 75, 100])
     ax.set_yticks([0, 25, 50, 75, 100])
     ax.tick_params(colors=MUTE, labelsize=9.5, length=0)

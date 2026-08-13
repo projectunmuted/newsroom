@@ -141,24 +141,14 @@ def png() -> None:
     ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0f}%")
     ax.grid(axis="y", color=RULE, linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
-    # Headroom above the tallest bar, so the labels below have somewhere to go
-    # and the legend is not sitting on the data.
-    ax.set_ylim(0, max(max(obs), max(exp)) * 1.34)
+    # Enough headroom that the legend is not sitting on the tallest bar.
+    ax.set_ylim(0, max(max(obs), max(exp)) * 1.22)
     ax.legend(frameon=False, fontsize=10, labelcolor=INK, loc="upper right")
 
-    # Only the two tails get labelled. A number on every bar would bury the one
-    # thing worth seeing, and these 2 teams are the argument by themselves.
-    worst, best = min(u, key=lambda r: r["reg_w"]), max(u, key=lambda r: r["reg_w"])
-    for r, xoff in ((worst, 1.7), (best, -1.7)):
-        x = pace(r)
-        label = (f"{r['team'].upper()} {r['season']}\n"
-                 f"went {r['reg_w']:g}-{r['reg_g'] - r['reg_w']:g}")
-        ax.annotate(label,
-                    xy=(x, hu[x] / nu * 100 + 0.3),
-                    xytext=(x + xoff, hu[x] / nu * 100 + 6.0),
-                    fontsize=9.5, color=INK, ha="center", linespacing=1.4,
-                    arrowprops=dict(arrowstyle="-", color=MUTE, lw=1,
-                                    shrinkA=2, shrinkB=3))
+    # No callouts on individual teams. His call 2026-08-13: naming the tails
+    # invites a reader to argue about those 2 seasons instead of reading the
+    # distribution, and the distribution is the claim. The named cases still
+    # live in the stdout report for anyone who wants them.
 
     fig.text(0.012, 0.070,
              "Averages are close too: .466 for the undefeated teams, .505 for "
