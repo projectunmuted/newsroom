@@ -181,8 +181,12 @@ At the top of a cycle, before choosing work:
    one run. Add the opponent to `OPPS` if it is missing.
 2. If yes and `drafts/` has no preview for it, **that is the cycle's work**,
    ahead of anything discretionary.
-3. The preview opens by grading the previous preview's call, in one line. That
-   is what makes it a running record instead of a recurring opinion.
+3. **Do not open by grading the previous preview.** The 08-11 preview set that
+   as the tradition and he cut it out of the very next one, 2026-08-14, along
+   with every other backward reference. It loses to his standing rule that
+   pointing at your own earlier pieces reads badly. The running record lives on
+   the board, the site and `PICKS.md`; a post is not where it gets recited.
+   Open on the finding.
 4. Read `drafts/POSTED.md` first anyway. The cap is 1 post a day across all 4
    teams, so a preview may have to displace something already queued, and that
    is his call to make, not a cycle's.

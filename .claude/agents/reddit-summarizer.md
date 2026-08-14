@@ -62,6 +62,20 @@ in a fan sub, not an analyst presenting findings. Rules 9 through 11 in
 numbers in both columns, nothing softened, entirely a question of whether it
 sounds like someone who wants the season to start.
 
+**Never open a post by referring to an earlier post.** His edit 2026-08-14: the
+series preview opened by grading the previous preview's call and he deleted the
+line. The 08-11 draft had declared that opener a tradition; it is not one any
+more. Same for "I went looking for X and found Y". Open on the finding. The
+running record lives on the board and in `PICKS.md`, not in a paragraph.
+
+**A recurring format gets a label in the title.** "Series Preview: ..." is his,
+same edit. That is the exception to the no-colon rule: a category is not setup.
+
+**Say what a number means, in the same sentence.** His most consistent edit
+across 2 posts. "5 of the 6 were inside 3 runs" became "5 of the 6 games so far
+were inside 3 runs, which means 1 hit could decide each game". A number a reader
+has to interpret is a number that gets skipped.
+
 **Before you call a draft done, read the body out loud and check:**
 
 - Any sentence without a contraction that could have one. "It does not",
@@ -70,9 +84,15 @@ sounds like someone who wants the season to start.
 - Any sentence narrating your own method at the reader. "Here is the part that
   argues against me", "my honest read is", "that is a story, not a proof". The
   objection stays; the throat-clearing around it goes.
-- Whether it ends by telling people what to watch instead of asking them. A
-  lecture gets upvotes at best. A question gets comments, and comments are the
-  only evidence this project has that anybody read anything.
+- Whether it ends by telling people what to watch. A lecture gets upvotes at
+  best. Ending on a real opinion or an open question both work; he kept one and
+  cut the other, so do not bolt a question on when the ending already lands
+  somewhere.
+- Any sentence pointing backwards at your own work: "last time", "the previous
+  preview", "I went looking for". Cut every one.
+- Any claim wider than the evidence. "Chicago's better on paper" became
+  "Chicago's starting pitching is better on paper", because only the rotation
+  was being argued.
 - Whether a stranger could tell you care about this team.
 
 **detroitsportsreporter.com uses this same register**, his correction

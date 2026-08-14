@@ -123,6 +123,57 @@ What this teaches, and it is not what the body rules say:
   interested in the reader.
 - Keep it inside about 8 words unless there is a specific reason not to.
 
+## The White Sox preview, 2026-08-14: what he cut and what he added
+
+Posted at `1voamk1` after editing in the composer. The most useful sample yet,
+because 2 of his edits reverse rules written earlier the same day.
+
+**He cut the opening self-reference entirely.** The draft opened by grading the
+previous preview: "Last preview I called Tigers take 2 of 3 on Cleveland and
+that's how it landed, 2-1. So the running record on these is 1 for 1." Gone. The
+post now opens on the TLDR.
+
+This matters because the 08-11 preview's own header established "the next one
+should open with a one-line result of this call, which turns it into a running
+record rather than a recurring opinion", and `CYCLE.md` repeated it. **That rule
+is dead.** It loses to his standing instruction that referring back to your own
+previous pieces reads badly. The running record still exists, on the site, on
+the board, in the ledger. A post is not where it gets recited.
+
+He also cut "I went looking for something else and kept running into that",
+which is the same instinct: method narration about how the writer found the
+thing.
+
+**He added a title label.** "The home team has won all 6." became "Series
+Preview: The home team has won every game so far". A recurring format earns a
+prefix, because a reader scanning the sub should be able to tell what kind of
+post it is before deciding. This is a genuine exception to "no colon, no setup"
+from the 08-13 titles rule: the label is not setup, it is a category. Note he
+also went from "all 6" to "every game so far", which drops the numeral for
+plainer words and hedges with "so far".
+
+**He labelled the format sections.** "Where Detroit's strong right now:" became
+"Detroit's Strength:". Same for the weakness. The strong/weak/matchup/spotlight
+shape should be signposted, not smuggled into prose.
+
+| Mine | His | What it teaches |
+|---|---|---|
+| "5 of the 6 were inside 3 runs" | "5 of the 6 games so far were inside 3 runs, which means 1 hit could decide each game" | Say what the number *means* for the reader. He does this constantly and it is the single biggest gap in my drafts |
+| "Chicago's better on paper and it isn't close in the rotation" | "Chicago's starting pitching is better on paper" | Do not overclaim. Detroit is the hotter team; only the rotation was the point, so only the rotation gets claimed |
+| "a Saturday starter who wasn't even announced when I pulled this" | "a Saturday starter is the infamous TBD" | Fan idiom beats method language. "When I pulled this" is a writer talking about his own process again |
+| "Drew Anderson at 4 starts on Sunday" | "Drew Anderson with his 5th start of the year on Sunday" | Count forward to the game being previewed, not backward through the archive |
+| "decided by the ballpark all year" | "decided by the ballpark they are playing in" | Ambiguity costs more than words |
+| "the strangest one on the board" | "the strangest one" | "On the board" is our jargon, not a fan's |
+
+**He cut the closing question**, which the 08-13 rule 11 had just asked for. One
+sample, and the piece already ends on a real opinion about Sunday, so read this
+as "the question is optional and never mandatory" rather than as a reversal. Do
+not bolt one on when the ending already has somewhere to go.
+
+**He let the last sentence run further than I did**, adding what a bad Sunday
+actually costs: Anderson being a question mark and it leading to a lot of
+bullpen innings. Consequences, in a fan's words, after the claim.
+
 ## What is unchanged
 
 - Facts, and where they came from. Casual is a register, not a licence to
