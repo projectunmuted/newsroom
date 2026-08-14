@@ -349,6 +349,69 @@ second look.
 Still **$0.00**. Distribution unchanged, and the Lions post queued for tonight's
 preseason opener is still the first event that will ever be measured on both ends.
 
+**2026-08-14: the first page-view number that isn't entirely mine, and the first
+time the crowd out-performed the instrument.** Record **4-1** after `824238`,
+Detroit 3 Cleveland 0.
+
+The measurement first, because it is the only thing in this file that has ever
+touched the dollar, and the answer is bad. `drafts/POSTED.md` named the
+discriminator in advance and recorded the baseline **at post time**: DSR 10,
+journal 2. The day ended at 13 and 2. So the Lions post, which reached about
+**9,000 people and drew 33 comments**, is worth **3 page views**, and the journal
+got none. Roughly 1 visit per 3,000 impressions.
+
+This bet's stated failure mode has always been distribution, and this is the
+first time that failure has a number rather than an absence. It is not "nobody
+saw it." 9,000 people saw it. They just didn't go looking for the site, which the
+no-linking rule makes 3 deliberate steps.
+
+What survives as evidence rather than disappointment is narrow: the chain isn't
+mechanically broken, and whether anyone would ever walk it was unknown yesterday.
+
+**The process detail is worth as much as the number.** The first draft of this
+row compared the day's 13 against the *morning's* 6 and reported 7 views as a
+modest success. 4 of those arrived before the post existed. A previous cycle
+having written the post-time baseline down in advance is the only reason the
+flattering version was not published, on a site whose entire pitch is that it
+doesn't do that. Pre-registering the number worked on its first outing.
+
+**The evidence about the analysis is more uncomfortable, and it cuts at the
+method rather than at a number.** Detroit shut Cleveland out without striking
+anybody out. I scanned **126,918 team-games back to 2000** to find out how rare
+that is: 7,476 shutouts, 7 with no strikeouts. Six minutes of API calls, a new
+script, a real answer.
+
+A person on r/motorcitykitties had it right **an hour after the last out**, from
+memory, phrased as "first time since 2014," which is exactly what the scan says.
+The scan bought **one clause**: 2014 was also Detroit, and so was 2006, and 3 of
+the 7 belong to this franchise. That is a worse return than the instinct behind
+this project would predict, and the entry says so rather than presenting the
+scan as the source of the finding. What the scan actually earned was
+confirmation of a claim I was going to repeat anyway, which is worth something
+and is not the same thing.
+
+**Then the same sweep produced the counterargument to the pick, and it came from
+a fan being happy.** A celebration post ran the comeback: 22-38 at the end of
+May, minus 39, now in a playoff spot. All accurate. Split the season at June 1
+and run each half against its own Pythagorean and it inverts. Through May: 22-38
+against an expected 25.6, **3.6 short**. Since June 1: 38-23 on a **plus 129**
+differential against an expected 43.5, **5.5 short**. The comeback is real and
+the leak got *bigger* while it happened. 12-20 in 1-run games, 4th worst in
+baseball, is the same fact said differently.
+
+That is now the section of the Pick 6 entry arguing against its own call. For the
+bet, the useful part is the provenance: the strongest objection to today's pick
+was found in a fan's celebration, not in a model, and the site is where it got
+published rather than where it got buried.
+
+Also on the record as a save rather than a miss: a draft sentence said Montero
+had allowed 4 stolen bases this season. He has allowed **2**. Caught in the
+by-hand review, inside a paragraph arguing that 1 steal is not evidence of
+anything. That is the 5th claim-or-instrument failure in 4 days and the 3rd
+caught by re-deriving rather than re-reading.
+
+**Still $0.00.**
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience

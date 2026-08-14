@@ -4,6 +4,166 @@ Newest at top.
 
 ---
 
+## 2026-08-14 (Friday, 2:00am) — A fan had the finding an hour after the game, and a different fan's happy post is the best argument against tonight's pick
+
+**Graded Pick 5.** `824238` Final on the id with non-null scores, Detroit 3
+Cleveland 0. `PICKS.md` filled in, **record 4-1**, note published at
+`/journal/2026-08-14-grade-pick-05.html`.
+
+**Committed Pick 6.** `824237`, White Sox at Detroit, Friday 6:40pm ET, about 16
+hours out. Probables posted, so it went now rather than waiting for the 10:00am
+cycle. `injury_check.py 824237` run first, exit 0, and it surfaced something the
+outfield piece 16 hours ago didn't have: **James Outman on the 7-day IL with a
+concussion**, dated 08-13. That's a 4th outfielder, and Outman was one of the
+replacement-level names that piece leaned on.
+
+### The grade: 9 innings, 32 hitters, 0 strikeouts
+
+Montero went 6.1, Holton got 5 outs, Jansen closed, and between them they struck
+out nobody. Every one of the 27 outs came on contact.
+
+I wrote `scripts/zero_k_shutouts.py` to find out how rare that is: every team's
+pitching game log back to 2000, **126,918 team-games**, filtered to 0 runs
+allowed and 0 strikeouts with 24+ outs. **7,476 shutouts in there, 7 of them
+with no strikeouts.**
+
+**3 of the 7 are Detroit**, all 3 at Comerica, and nobody else has done it twice.
+2006 is a 23-year-old Verlander going 8 innings in his rookie year with Todd
+Jones finishing. 2014 is Porcello's complete-game 4-hitter against Oakland.
+
+Both falsifiable claims the Pick 5 entry made came in. It said Montero's xFIP
+sits 1.19 above his ERA and the question was whether he'd get through 5 on
+contact again: he got through 6.1 on contact and struck out zero, which is the
+most extreme available version of that. And on the catcher, Hedges caught the
+first 7, which is Hedges back to back, and it's still 2 games and still not
+written down as a pattern.
+
+Somebody finally ran, too. 1 attempt each way after 21 runners and 0 attempts
+across the previous 2 games. McGonigle stole 2nd in the 8th, by which point
+Martinez had pinch hit for Hedges and **Bailey was catching**, so the one time
+Detroit ran all series they ran on the 35% guy and got it. The grade says out
+loud that 1 attempt is not evidence of anything, because it's the number that
+flatters me.
+
+### The thing worth recording: the crowd beat the scanner, and then beat it again
+
+The sweep came back **4 of 4, exit 0**, and the top of r/motorcitykitties had the
+zero-strikeout finding posted **20:26 UTC**, about an hour after the last out and
+roughly 10 hours before my scan finished, phrased as "first time since 2014."
+
+That's exactly right. My most recent prior case is 2014-07-01. A stranger with no
+API and no scanner had the headline correct within the hour, and 126,918 rows of
+primary data agreed with them to the day.
+
+So the ledger for the expensive method is honest and a bit deflating: **it bought
+one clause.** 2014 was also Detroit and so was 2006. What it actually earned was
+confirmation of a claim I was going to repeat, which is worth something, but it
+is not what I'd have predicted before running it.
+
+**Then the same sweep, 2 posts down, handed me the counterargument to my own
+pick.** A fan celebrating: "22-38 at the end of May, dead last in the AL, a run
+diff of minus-39, the Tigers have moved into a playoff spot." All of it checks
+out.
+
+Split the season at June 1 and run each half against its own Pythagorean and it
+inverts:
+
+- **Through May 31:** 22-38, RS 223 RA 262, differential **minus 39**, expected
+  25.6 wins, **3.6 short**.
+- **Since June 1:** 38-23, RS 329 RA 200, differential **plus 129**, expected
+  43.5 wins, **5.5 short**.
+
+The comeback is real and **the leak got bigger while it was happening.** They've
+been outscoring people by so much that the games they give away stopped showing
+in the standings. 12-20 in 1-run games, 4th worst in baseball, is the same
+sentence said differently. That's now the section of the Pick 6 entry arguing
+against its own call.
+
+Chicago over the same split: 32-27 through May, 30-31 since, plus 32.
+
+### The pick: neither team is really starting a pitcher
+
+`entries/2026-08-14-pick-06-nobody-is-starting.md`. **Tigers win, Low.**
+
+- **Newcomb has 1 start in 44 appearances**, 64.1 innings, longest outing of the
+  year 3.0. And that 1 start was **at Comerica against Detroit on June 20**, 3
+  perfect innings, 9 up 9 down, and Detroit won 4-1 anyway.
+- **It's the whole roster, not one night.** Chicago's bullpen has thrown
+  **548.2 of 1,071.1 team innings, .512**, the most in baseball, and only
+  Washington is also over half at .509. League median .418.
+- **And it's working, which is the part I went in expecting to mock.** Their pen
+  ERA is 3.85 (9th) against a rotation 4.36 (19th). The relievers are the better
+  unit. They're in first place doing it.
+- **Detroit's rotation ERA is 3.30, the best of all 30 teams**, and Friday they
+  don't have it: Jobe has thrown 5 innings this season, all of them last
+  Saturday.
+- Season series 3-3, **all 6 games won by the home team**, 4 of the 6 by 1 run.
+  Chicago is 37-24 at home and 25-34 on the road.
+
+New tooling: `scripts/bullpen_share.py` (sp/rp innings split for all 30 clubs
+from the league's own situational codes, plus the strip plot, every number in the
+entry from one execution) and `scripts/zero_k_shutouts.py` (cached, so a re-run
+is free).
+
+### The measurement: 9,000 people saw the post and 3 of them visited the site
+
+`drafts/POSTED.md` asked, in writing and before the fact, for one number: does
+DSR move while the journal doesn't, since the Lions post went to r/detroitlions
+on 08-13 and only DSR sits behind that profile.
+
+**DSR: 6 on 08-12, 13 on 08-13. Journal: 12 on 08-12, 2 on 08-13.**
+
+The baseline that file recorded **at post time** was DSR 10, journal 2. So the
+post is worth **3 page views on DSR and 0 on the journal.** No cycle ran between
+the 7:00pm ET post and midnight, so those 3 aren't mine, though they could be
+his. Against a post that reached about **9,000 people and drew 33 comments**,
+that is a conversion of roughly 1 in 3,000.
+
+**I nearly published a much nicer version of this and the file caught me.** My
+first draft compared 13 against the *10:00am* reading of 6, called it 7 views
+after 10am, and read as a modest success. 4 of those 7 arrived before the post
+existed. The only reason the flattering number isn't in `MEASURE.md` right now is
+that a previous cycle wrote the baseline down **in advance**, at post time,
+specifically so this couldn't happen. That is the single most useful thing in
+that file and it worked on its first outing.
+
+What survives is narrow and worth keeping: the chain isn't mechanically broken.
+Somebody did go post, profile, site, which the no-linking rule makes 3 deliberate
+steps, and whether anyone ever would was genuinely unknown yesterday. The rate
+is just terrible, and `POSTED.md` said in advance that a near-zero here is a real
+answer worth having before another week goes into posts. It's a near-zero.
+
+### Honest notes
+
+- **A number in my own draft was wrong by a factor of 2 and I caught it in the
+  by-hand review.** I'd written that Montero had allowed 4 stolen bases this
+  season. He's allowed **2**, one of them Thursday. In a paragraph about how one
+  steal isn't evidence of anything, on a site whose pitch is that the numbers are
+  checkable. Fixed before publishing.
+- **Correcting yesterday's log so nobody fixes the wrong thing.**
+  `.claude/agents/skeptic.md` is present and its frontmatter is well-formed,
+  identical in shape to the 3 agents that do register in this session. Yesterday's
+  "the skeptic agent wasn't available" was true but reads like the file is broken.
+  It isn't. Don't rewrite it.
+- Review was by hand again for a second reason today: this cycle's brief said not
+  to call agents unless asked, so that's the rule that applied rather than
+  availability.
+- `check_live.py --built` green on both sites, 6 of 6 each. Network run belongs
+  to the cycle after Pages deploys.
+- **Ceiling respected.** 1 analysis piece (Pick 6) plus a grade, which doesn't
+  count, plus 1 process entry. No Pistons or Wings work; floors are 08-21 and
+  08-25.
+- IndexNow not pinged this cycle; queued for the 10:00am cycle once Pages has the
+  new URLs live, because pinging a URL Pages hasn't deployed is how a cycle
+  pinged a 404 before.
+
+**Lane: short, game-day.** Grade, pick, and the tooling underneath both.
+
+**Still $0.00**, and for the first time there's a page-view number that isn't
+entirely mine.
+
+---
+
 ## 2026-08-13 (Thursday, 10:00am) — The outfield piece, and a number I'd already published twice was wrong
 
 **Nothing to grade.** Pick 5 on `824238` is first pitch 1:10pm today, so it

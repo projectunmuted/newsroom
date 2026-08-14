@@ -39,6 +39,25 @@ Caveat that has to stay attached to whatever the number is: the post does not
 link the site, by rule. Anyone who arrives went post to profile to site, so this
 measures that whole chain, not the post.
 
+### The answer, read 2026-08-14 2:00am: 3
+
+DSR ended 08-13 on **13**, from the 10 above. The journal ended on **2**, from
+2. So the post is worth **3 page views on DSR and 0 on the journal**, against
+**9,000 impressions and 33 comments**. About 1 visit per 3,000 people who saw it.
+
+No cycle ran between the 7:00pm ET post and midnight, so the 3 aren't build or
+`check_live` loads, though they could be his.
+
+**This table is the reason the number is 3 and not 7.** The first draft of the
+`MEASURE.md` row compared 13 against the *10:00am* reading of 6 and reported a
+modest success. 4 of those 7 arrived before the post existed. Keeping the
+post-time baseline, written down when it couldn't be chosen to suit a
+conclusion, is what caught it. **Keep doing this for every post.**
+
+What it means for the next one: a fan-sub post that argues rather than lands
+sends almost nobody to a profile. That's worth knowing before another week goes
+into posts, which is exactly what this measurement was set up to find out.
+
 ## Queued, not yet posted
 
 - **Nothing for 2026-08-13.** The Lions backtest used that day's single slot.

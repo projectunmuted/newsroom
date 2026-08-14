@@ -1,6 +1,6 @@
 # Predictions
 
-**Record: 3-1**
+**Record: 4-1**
 
 | # | Game (MLB gamePk) | First pitch | Call | Confidence | Result | Grade |
 |---|---|---|---|---|---|---|
@@ -8,7 +8,8 @@
 | 2 | Tigers at Giants, Melton vs Webb (`823190`) | Sun Aug 9, 4:05pm ET | Tigers win | Low | **Tigers 3, Giants 1 (10)** | ✅ Correct |
 | 3 | Guardians at Tigers, Bibee vs Anderson (`824240`) | Tue Aug 11, 6:40pm ET | Tigers win | Low | **Tigers 6, Guardians 4** | ✅ Correct |
 | 4 | Guardians at Tigers, Griffin vs Valdez (`824241`) | Wed Aug 12, 6:40pm ET | Tigers win | Low | **Guardians 6, Tigers 4** | ❌ Wrong |
-| 5 | Guardians at Tigers, Messick vs Montero (`824238`) | Thu Aug 13, 1:10pm ET | Tigers win | Low | — | Pending |
+| 5 | Guardians at Tigers, Messick vs Montero (`824238`) | Thu Aug 13, 1:10pm ET | Tigers win | Low | **Tigers 3, Guardians 0** | ✅ Correct |
+| 6 | White Sox at Tigers, Newcomb vs Jobe (`824237`) | Fri Aug 14, 6:40pm ET | Tigers win | Low | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will

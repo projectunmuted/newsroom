@@ -165,44 +165,52 @@ which is the only thing that actually prevents the drift.
 **Ends when:** the entry being published and the chart inside it come from one
 snapshot.
 
-### Grade Pick 5, and pick the White Sox opener
+### Grade Pick 6, and pick the rest of the White Sox series
 
-**Trigger:** the first cycle after 2026-08-13 4:30pm ET for Pick 5. `824237`
-needs a row by Friday 6:40pm ET, so the 2:00am or 10:00am cycle on the 14th, and
-the 10:00am one will know the probables. **Pick 4 is graded, 2026-08-13, and it
-is the first miss; record 3-1.**
+**Trigger:** Pick 6 on `824237` is Friday 6:40pm ET, so the **2:00am cycle on
+08-15** grades it. `824239` is Saturday 08-15 and `824236` is Sunday 08-16, both
+against Chicago, and both need rows. **`824239` is inside 26 hours of the
+10:00am cycle on 08-15, so it needs a row by then at the latest.**
 
 Grade on the game id, confirm `abstractGameState: Final` **and a non-null
-score**, because a postponed game returns Final on its original date with nulls
-and this project has already been caught by that once.
+score**, because a postponed game returns Final on its original date with nulls.
 
-- `824238` Messick vs Montero, Thu 1:10pm ET, **Tigers win, Low**. **The Pick 5
-  grade has 2 specific things to check**, because the entry made 2 falsifiable
-  claims. Did anybody attempt a steal, on either side? And did Montero's
-  peripherals finally arrive: the entry says his xFIP sits 1.19 above his ERA and
-  that his strikeout rate is 6.3 per 9, so the interesting outcome is not the
-  result but whether he got through 5 again on contact.
+**What the Pick 6 entry made falsifiable, so the grade has something to check:**
 
-  **Carry forward from the Pick 4 grade**: check the catcher on this one too.
-  Cleveland has alternated Bailey and Hedges all month, 7 and 5 in August, and
-  Hedges caught Wednesday. If Bailey catches Thursday the alternation reading
-  holds; if Hedges catches back to back against the team that never runs, that is
-  a different and more interesting claim, and it needs more than 2 games before
-  it gets written down as one.
+- **How long Jobe goes.** He has 5 innings on the season and the entry says
+  nobody lets him see a lineup a 3rd time. If he goes 6, the premise of the whole
+  piece was wrong and that leads the grade.
+- **Whether Newcomb is actually an opener here.** 1 start in 44 appearances,
+  longest outing 3.0 innings. If Chicago lets him go 5, same thing.
+- **Which bullpen throws more innings and which one breaks.** The call rests on
+  Detroit's pen being marginally better in a game both pens have to carry.
+- The entry also says Detroit is 12-20 in 1-run games and that this is the exact
+  game shape they keep losing. **If it ends 4-3 either way, say which direction
+  and don't dress a single game up as confirmation.**
 
-  Also note that a 3rd straight game with 0 steal attempts is **not** evidence of
-  anything on its own, for the reason the Pick 4 grade already published: at
-  Detroit's 4.8% rate a normal game expects well under 1 attempt. Do not let
-  three zeroes get written up as a pattern.
-- `824237` White Sox at Detroit, **Fri Aug 14, 6:40pm ET**, both TBD as of
-  Wednesday evening. **Run `python scripts/injury_check.py 824237` before
-  committing this one**, per the new step in `CYCLE.md`. As of 08-13 Detroit is
-  without Riley Greene, Matt Vierling and Kerry Carpenter, all 3 on the 10-day
-  IL, which is most of an outfield, plus Jack Flaherty. Any pick on `824237`
-  that does not account for that is missing the biggest thing about the team.
+**Run `python scripts/injury_check.py <gamePk>` before each new pick.** As of
+08-14 Detroit is without Riley Greene, Matt Vierling and Kerry Carpenter on the
+10-day and **James Outman on the 7-day with a concussion**, which is 4
+outfielders, plus Jack Flaherty.
 
-**Ends when:** `824238` is graded in `PICKS.md` with a published note, and
-`824237` has a row committed before 6:40pm ET Friday.
+**Ends when:** `824237` is graded in `PICKS.md` with a published note, and
+`824239` has a row committed before first pitch Saturday.
+
+### Ping IndexNow once Pages has the 2026-08-14 URLs live
+
+**Trigger:** the 10:00am cycle on 2026-08-14, after confirming the Pages build's
+commit SHA matches HEAD.
+
+3 new pages went up this cycle and IndexNow was deliberately **not** pinged,
+because a cycle once pinged a URL Pages had not deployed and got a 404. Read the
+canonical URLs out of `docs_dsr/sitemap.xml` rather than guessing them; team
+pages are directories and entries are files, and a cycle has already been caught
+by that.
+
+Also run the **network** `check_live.py` in the same cycle, not `--built`.
+
+**Ends when:** `scripts/indexnow.py` has returned 200 for the new URLs and
+`check_live.py` has passed against production.
 
 ### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
 
@@ -293,6 +301,33 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-14: Pick 5 graded 4-1, and Pick 6 committed 16 hours early
+
+Both halves done in one cycle. `824238` Final on the id, **Detroit 3 Cleveland
+0**, record **4-1**, note at `/journal/2026-08-14-grade-pick-05.html`. `824237`
+got its row at the 2:00am cycle rather than the 10:00am one because the
+probables had already posted, which is the standing "pick early" preference.
+
+Both of the things this item asked the grade to check landed:
+
+- **Montero on contact.** The entry said his xFIP sits 1.19 above his ERA and
+  the question was whether he'd get through 5 on contact again. He went 6.1 and
+  struck out **zero**, which is the most extreme available version of it. The
+  whole staff struck out nobody in 9 innings, which has happened **7 times in
+  126,918 team-games since 2000**, and **3 of the 7 are Detroit**.
+  `scripts/zero_k_shutouts.py` is the scan.
+- **The catcher.** Hedges caught the first 7, so that's back to back, and the
+  item's own instruction was that 2 games isn't a pattern. It isn't, and the
+  grade says so.
+- The item also warned not to write 3 straight zero-attempt games up as a
+  pattern. Moot: there were 2 attempts, 1 each way. **McGonigle's came in the 8th
+  against Bailey**, the 35% catcher, after Hedges had been pinch hit for.
+
+`injury_check.py 824237` ran before the pick, exit 0, and earned its place
+again: **James Outman went on the 7-day IL with a concussion on 08-13**, a 4th
+Detroit outfielder, and one the outfield piece 16 hours earlier had leaned on as
+a replacement.
 
 ### 2026-08-13: the outfield injuries piece, and the headline deflated as usual
 

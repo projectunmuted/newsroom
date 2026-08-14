@@ -25,3 +25,7 @@ docs_dsr/
 # file was already ignored; it was not, and cycles run `git add -A` against a
 # public repo. Ignored before the token exists, which is the only safe order.
 .cloudflare.json
+
+# 23MB of raw MLB game logs; scripts/zero_k_shutouts.py regenerates it in ~6 min.
+# The derived answer lives in scripts/zero_k_shutouts_result.json, which is tracked.
+scripts/zero_k_shutouts_cache.json
