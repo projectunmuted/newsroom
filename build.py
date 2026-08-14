@@ -415,6 +415,19 @@ code{background:var(--code);padding:.12em .35em;border-radius:3px;
   font:.85em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 pre{background:var(--code);padding:1rem;border-radius:6px;overflow-x:auto}
 pre code{background:none;padding:0}
+/* The standing, kept deliberately small. It is a reference a returning reader
+   glances at, not the headline, and it sits above the board so the first thing
+   on the page is the score rather than the newest call. His call 2026-08-14. */
+.recstrip{display:flex;flex-wrap:wrap;gap:.35rem .5rem;margin:0 0 .55rem;
+  padding:0;list-style:none;font-size:.82rem}
+.recstrip a{display:inline-flex;align-items:center;gap:.35rem;
+  text-decoration:none;color:var(--muted);border:1px solid var(--rule);
+  border-radius:999px;padding:.2rem .6rem}
+.recstrip a:hover{border-color:var(--tc,var(--accent))}
+.recstrip .tm{color:var(--muted)}
+.recstrip strong{color:var(--fg);font-weight:600}
+.recstrip .pend{color:var(--muted);font-size:.75rem}
+.recnote{font-size:.8rem;color:var(--muted);margin:0 0 1.6rem}
 .teamnav{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .5rem;padding:0;list-style:none}
 .teamnav a{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;
   color:var(--fg);font-size:.88rem;border:1px solid var(--rule);border-radius:999px;
@@ -1002,6 +1015,70 @@ def picks_cards(md: str, writeups: dict[str, dict[str, str]] | None = None,
     return f'<ul class="pickcards">{"".join(out)}</ul>'
 
 
+def team_records(md: str, entries: list[Entry]) -> dict[str, tuple[int, int, int]]:
+    """Slug -> (wins, losses, pending), from the ledger joined to the entries.
+
+    The ledger has no team column, and adding one would mean maintaining the
+    same fact in 2 places. The pick's own write-up already carries `team:`, so
+    the pick number is the join and the ledger stays as it is.
+    """
+    by_no = {}
+    for e in entries:
+        m = PICK_NO.search(e.slug)
+        if m and not e.cycle.lower().startswith("grade") and e.team:
+            by_no[str(int(m.group(1)))] = e.team
+
+    out: dict[str, list[int]] = {slug: [0, 0, 0] for slug, *_ in TEAMS}
+    rows = [ln.strip() for ln in md.split("\n") if ln.strip().startswith("|")]
+    if len(rows) < 3:
+        return {k: tuple(v) for k, v in out.items()}
+    header = [c.strip() for c in rows[0].strip("|").split("|")]
+    for line in rows[2:]:
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) != len(header):
+            continue
+        row = dict(zip(header, cells))
+        slug = by_no.get(row.get("#", ""))
+        if slug not in out:
+            continue
+        grade = row.get("Grade", "").lower()
+        if "correct" in grade:
+            out[slug][0] += 1
+        elif "wrong" in grade or "❌" in grade:
+            out[slug][1] += 1
+        else:
+            out[slug][2] += 1
+    return {k: tuple(v) for k, v in out.items()}
+
+
+def record_strip(records: dict[str, tuple[int, int, int]], depth: int = 0) -> str:
+    """The standing, small, above everything else. His call 2026-08-14.
+
+    Teams with no calls yet still appear. A scoreboard that hides the sports
+    nobody has been graded in yet would quietly flatter the record, and the
+    empty ones are also a promise that those seasons are coming.
+    """
+    up = "../" * depth
+    items = []
+    for slug, short, _full, light, _dark in TEAMS:
+        w, l, _pending = records.get(slug, (0, 0, 0))
+        # Ungraded calls are deliberately not counted here. "4-1 +1" reads as a
+        # third number in the record, and the pending game is already on the
+        # board directly below with its own "Not played yet".
+        val = f"{w}-{l}" if (w or l) else "no calls yet"
+        items.append(
+            f'<li><a href="{up}team/{slug}/index.html" style="--tc:{light}">'
+            f'<span class="dot" style="--tc:{light}"></span>'
+            f'<span class="tm">{short}</span> <strong>{val}</strong></a></li>'
+        )
+    total_w = sum(r[0] for r in records.values())
+    total_l = sum(r[1] for r in records.values())
+    return (f'<ul class="recstrip">{"".join(items)}</ul>'
+            f'<p class="recnote">Overall <strong>{total_w}-{total_l}</strong>. '
+            "Every call posted before first pitch and graded after the last "
+            'out. <a href="' + up + 'picks.html">The full record</a>.</p>')
+
+
 PICK_NO = re.compile(r"pick[-\s]*(?:no\.?\s*)?0*(\d+)", re.I)
 
 
@@ -1288,13 +1365,12 @@ def build_dsr(analysis: list[Entry]) -> None:
     # The record line lived inside the ledger prose the homepage used to render
     # whole. Pull just that one number forward; the rest of the explanation is
     # on /about.html where a reader who wants it will look.
-    rec = re.search(r"\*\*Record:\s*([^*]+)\*\*", picks_md)
-    record = f' Record {html.escape(rec.group(1).strip())}.' if rec else ""
-
+    # The record itself moved up into the strip above the board, so this line
+    # is only the provenance now. Repeating "Record 4-1" here would put the same
+    # number twice on one screen.
     about = (
-        '<div class="note">Posted before first pitch, graded after the last '
-        f'out.{record} <a href="picks.html">The full record</a> &middot; '
-        f'<a href="{REPO}">Receipts</a>.</div>'
+        '<div class="note">Every prediction is a public commit, timestamped '
+        f'before the game. <a href="{REPO}">Receipts</a>.</div>'
     )
     tip = tip_block(
         "<strong>Free, and staying that way.</strong> No subscriptions, no "
@@ -1332,6 +1408,7 @@ def build_dsr(analysis: list[Entry]) -> None:
 
     home = (
         team_nav()
+        + record_strip(team_records(picks_md, analysis))
         + '<h2 id="picks">Every call, before the game</h2>'
         + picks_html
         + about
