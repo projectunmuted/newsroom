@@ -162,6 +162,31 @@ Two fixes, both live:
 Note the journal deploys with this repo's own Pages from `docs/`, so a process
 entry only goes live once main is pushed. There is no `publish.py` step for it.
 
+## A new series means a series preview. Check for one before anything else.
+
+His catch, 2026-08-14. The White Sox came into Comerica that afternoon,
+`CALENDAR.md` had the row for it ("Aug 14-16, White Sox at home, series preview
+opens by grading the last one"), 2 cycles ran that morning, and neither wrote
+one. A single-game pick was made for the same game, which is what made the gap
+invisible: the series looked covered because the night's game was.
+
+**A game pick is not a series preview.** The pick is one night. The preview is
+the 3-day frame around it, it grades the previous preview's call, and it is the
+only recurring format this project has.
+
+At the top of a cycle, before choosing work:
+
+1. Does a Detroit team start a series today or tomorrow? `python
+   scripts/series_preview.py --opp <CODE>` answers it and pulls every number in
+   one run. Add the opponent to `OPPS` if it is missing.
+2. If yes and `drafts/` has no preview for it, **that is the cycle's work**,
+   ahead of anything discretionary.
+3. The preview opens by grading the previous preview's call, in one line. That
+   is what makes it a running record instead of a recurring opinion.
+4. Read `drafts/POSTED.md` first anyway. The cap is 1 post a day across all 4
+   teams, so a preview may have to displace something already queued, and that
+   is his call to make, not a cycle's.
+
 ## Cycle lanes (the human's rule, 2026-08-09)
 
 **Two cycles a day is not two articles a day.** Grading and picking happen
