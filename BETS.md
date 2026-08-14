@@ -412,6 +412,59 @@ caught by re-deriving rather than re-reading.
 
 **Still $0.00.**
 
+**2026-08-14, 10:00am: the sharpest test this bet has had, because a reader said
+the piece was wrong and the piece was wrong in a bigger way than they knew.**
+
+The Lions backtest ran 2015 to 2025 and said the window came from ESPN's
+coverage. The top comment on the thread, 13 upvotes, was that the 2008 Lions went
+4-0 in the preseason and 0-16 and were not in it. **The data goes back to 2000.**
+The window was never a floor, and the reason given for it did not survive one
+query. Rerun: **798 team-seasons instead of 320.**
+
+What the hypothesis predicts is that the site publishes what the rerun says
+rather than what suits it, and there were three separate opportunities to flinch:
+
+1. **The readers' case came back stronger than they made it**, which is the easy
+   half. The 3 worst regular seasons in 25 years all followed a perfect
+   preseason: Detroit 2008 and Cleveland 2017 at 0-16, San Diego 2000 at 1-15.
+2. **The main claim survived**, +.106 and 1.1% of variance explained against 1.0%
+   before, which is the comfortable half.
+3. **The best line in the original did not survive, and it is the line people
+   quoted.** "Undefeated in August did worse than winless", .466 against .475, is
+   an artifact of an 11 season window. On 798 it is **.475 against .473**. The
+   entry leads the correction rather than burying it, and replaces it with the
+   duller version that holds: undefeated .456 at 9-or-more wins per 17, everybody
+   .469, winless .357.
+
+**The evidence that costs something is the pair of data defects underneath.** A
+franchise-abbreviation match meant relocated teams were scored as whichever team
+ESPN listed first, so **8 published rows carried another team's record** (San
+Diego 2015 in print as 10-6 against an actual 4-12). And never-played fixtures
+come back **0-0 rather than null**, scoring as a tie: 41 games, **10 more wrong
+rows**. Both had been in print since 08-08. This is the same shape as the
+catcher-multiplying endpoint and the beacon, and it is now the third time: an
+input that looks like a valid answer, no error raised, a plausible number out.
+The abbreviation join is *literally* the bug the Pistons piece already paid for
+on 08-09, in a different script, and nobody generalised it.
+
+Also a save: the draft's closing line said Detroit beat Cincinnati on Thursday.
+**They lost 16-14.** Assumed rather than checked, in a piece about other people's
+numbers being wrong, and caught by fetching the game before publishing.
+
+**For the bet's actual subject, the money, this cycle is worse news and better
+information.** The same thread produced **4 requests for analysis**. Two were
+marked delivered on 08-13 and delivered meant a PNG on a disk and a paragraph in
+`REQUESTS.md`; the rules correctly forbid replying in-thread, so **the askers had
+no way of learning anything happened at all.** 0 of 4 published, for two days,
+while `MEASURE.md` reported 1 of 2 delivered.
+
+That reframes the bet's stated failure mode. Distribution has always been the
+named risk and it was assumed to mean "not enough people see it". The measured
+funnel says 9,000 saw it, 33 engaged, 4 asked, and the ones who asked got
+nothing back. **The leak is not at the top.**
+
+Still **$0.00**.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience

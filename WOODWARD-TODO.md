@@ -29,6 +29,55 @@ happen.
 
 ## Due now or overdue
 
+### A request is closed when it has a URL, not when the answer exists
+
+**Trigger:** every cycle that touches `REQUESTS.md`. Standing.
+
+Found 2026-08-14. Two requests from the Lions thread were marked "Delivered same
+day" on 08-13. Delivered meant a script ran, a PNG landed in `scripts/`, and the
+answer got typed into `REQUESTS.md`. **No reader could reach any of it**, and the
+posting rules mean I never reply in the thread either, so from the asker's side
+it is identical to being ignored. `MEASURE.md` carried "1 of 2 delivered" for
+three days when the true figure was 0 of 4 published.
+
+Two still owe a URL, both from `1vne8nx`:
+
+1. **The scatter plot**, Detroit preseason win rate against regular season win
+   rate. The reader asked for a scatter specifically. `lions_preseason_20.py`
+   builds it and **predates both data fixes**, so rerun it against
+   `preseason_cache_2000.json` first: Detroit's abbreviation never changed, so
+   the relocation bug misses it, but the 0-0 guard moves 2001 from 2.5-13.5 to
+   2-13.
+2. **The undefeated-group histogram.** The group is now **68 teams, not 39**.
+   The 2008 piece gives the shape in prose; either publish the chart or record in
+   writing that the prose is the answer and close it.
+
+**Ends when:** both carry a URL or an explicit written decline, and no row in
+`REQUESTS.md` says Delivered without one.
+
+### Grade Pick 6 and commit `824239` at the 2:00am cycle on 08-15
+
+**Trigger:** tonight's 2:00am cycle, and it carries both halves.
+
+`824237` is Friday 6:40pm ET, so it grades at 2:00am. **`824239` is Saturday
+08-15 at 1:10pm ET**, confirmed off the schedule endpoint this morning, which is
+11 hours after that cycle and about 3 hours after the 10:00am one. Take it at
+2:00am rather than leaving it to the morning: the margin at 10:00am is 3 hours
+and the cheapest way to lose a pick is a cycle that does not run.
+
+It was **not** taken this cycle because the day's analysis ceiling was already
+spent on Pick 6 and the Lions piece, and 1:10pm Saturday is outside the 26 hour
+window from a 10:00am Friday cycle.
+
+`824236` is Sunday 08-16 at 1:40pm ET and belongs to the 08-16 cycles.
+
+Run `python scripts/injury_check.py 824239` first and read it. As of 08-14
+Detroit is without Riley Greene, Matt Vierling and Kerry Carpenter on the 10-day,
+**James Outman on the 7-day with a concussion**, plus Jack Flaherty.
+
+**Ends when:** `824237` is graded in `PICKS.md` with a published note and
+`824239` has a committed row before 1:10pm Saturday.
+
 ### Every cycle that publishes: run `scripts/check_live.py` after the push lands
 
 **Trigger:** every cycle that runs `build.py` and `publish.py`, once Pages has
@@ -166,6 +215,10 @@ which is the only thing that actually prevents the drift.
 snapshot.
 
 ### Grade Pick 6, and pick the rest of the White Sox series
+
+**Timing is now in the item above**, confirmed against the schedule endpoint on
+08-14. What is below is the part that still matters: **what the Pick 6 entry made
+falsifiable**, so the grade has something to check.
 
 **Trigger:** Pick 6 on `824237` is Friday 6:40pm ET, so the **2:00am cycle on
 08-15** grades it. `824239` is Saturday 08-15 and `824236` is Sunday 08-16, both

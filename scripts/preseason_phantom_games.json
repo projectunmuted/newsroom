@@ -1,0 +1,476 @@
+[
+ {
+  "team": "buf",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-12-11"
+  ]
+ },
+ {
+  "team": "car",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-11-27"
+  ]
+ },
+ {
+  "team": "dal",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-18",
+   "2000-12-25"
+  ]
+ },
+ {
+  "team": "den",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-04",
+   "2000-11-13"
+  ]
+ },
+ {
+  "team": "gb",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-11-06",
+   "2000-11-27"
+  ]
+ },
+ {
+  "team": "ind",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-25",
+   "2000-12-11"
+  ]
+ },
+ {
+  "team": "jax",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-25",
+   "2000-10-16"
+  ]
+ },
+ {
+  "team": "kc",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-10-02",
+   "2000-12-04"
+  ]
+ },
+ {
+  "team": "lar",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-04",
+   "2000-11-20",
+   "2000-12-18"
+  ]
+ },
+ {
+  "team": "lv",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-11-13"
+  ]
+ },
+ {
+  "team": "mia",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-10-23"
+  ]
+ },
+ {
+  "team": "min",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-10-09",
+   "2000-11-06"
+  ]
+ },
+ {
+  "team": "ne",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-11",
+   "2000-12-04"
+  ]
+ },
+ {
+  "team": "nyj",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-11",
+   "2000-10-23"
+  ]
+ },
+ {
+  "team": "sea",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-10-02"
+  ]
+ },
+ {
+  "team": "tb",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-10-09",
+   "2000-12-18"
+  ]
+ },
+ {
+  "team": "ten",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-10-16",
+   "2000-10-30",
+   "2000-12-25"
+  ]
+ },
+ {
+  "team": "wsh",
+  "season": 2000,
+  "seasontype": 2,
+  "dates": [
+   "2000-09-18",
+   "2000-10-30",
+   "2000-11-20"
+  ]
+ },
+ {
+  "team": "bal",
+  "season": 2001,
+  "seasontype": 1,
+  "dates": [
+   "2001-08-13"
+  ]
+ },
+ {
+  "team": "bal",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-11-13",
+   "2002-01-08"
+  ]
+ },
+ {
+  "team": "dal",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-16"
+  ]
+ },
+ {
+  "team": "den",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-09-11",
+   "2001-11-06"
+  ]
+ },
+ {
+  "team": "det",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-09"
+  ]
+ },
+ {
+  "team": "gb",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-09-25",
+   "2001-12-04"
+  ]
+ },
+ {
+  "team": "ind",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-12-11"
+  ]
+ },
+ {
+  "team": "jax",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-12-04"
+  ]
+ },
+ {
+  "team": "lar",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-09",
+   "2001-11-27",
+   "2001-12-18"
+  ]
+ },
+ {
+  "team": "lv",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-11-06"
+  ]
+ },
+ {
+  "team": "mia",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-12-11"
+  ]
+ },
+ {
+  "team": "min",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-11-20",
+   "2002-01-08"
+  ]
+ },
+ {
+  "team": "no",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-12-18"
+  ]
+ },
+ {
+  "team": "nyg",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-09-11",
+   "2001-10-23",
+   "2001-11-20"
+  ]
+ },
+ {
+  "team": "nyj",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-02"
+  ]
+ },
+ {
+  "team": "phi",
+  "season": 2001,
+  "seasontype": 1,
+  "dates": [
+   "2001-08-13"
+  ]
+ },
+ {
+  "team": "phi",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-23"
+  ]
+ },
+ {
+  "team": "pit",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-30"
+  ]
+ },
+ {
+  "team": "sf",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-02"
+  ]
+ },
+ {
+  "team": "tb",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-11-27"
+  ]
+ },
+ {
+  "team": "ten",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-10-30",
+   "2001-11-13"
+  ]
+ },
+ {
+  "team": "wsh",
+  "season": 2001,
+  "seasontype": 2,
+  "dates": [
+   "2001-09-25",
+   "2001-10-16"
+  ]
+ },
+ {
+  "team": "cin",
+  "season": 2004,
+  "seasontype": 1,
+  "dates": [
+   "2004-08-14"
+  ]
+ },
+ {
+  "team": "tb",
+  "season": 2004,
+  "seasontype": 1,
+  "dates": [
+   "2004-08-14"
+  ]
+ },
+ {
+  "team": "chi",
+  "season": 2011,
+  "seasontype": 1,
+  "dates": [
+   "2011-08-08"
+  ]
+ },
+ {
+  "team": "lar",
+  "season": 2011,
+  "seasontype": 1,
+  "dates": [
+   "2011-08-08"
+  ]
+ },
+ {
+  "team": "buf",
+  "season": 2014,
+  "seasontype": 2,
+  "dates": [
+   "2014-11-23"
+  ]
+ },
+ {
+  "team": "nyj",
+  "season": 2014,
+  "seasontype": 2,
+  "dates": [
+   "2014-11-23"
+  ]
+ },
+ {
+  "team": "gb",
+  "season": 2016,
+  "seasontype": 1,
+  "dates": [
+   "2016-08-08"
+  ]
+ },
+ {
+  "team": "ind",
+  "season": 2016,
+  "seasontype": 1,
+  "dates": [
+   "2016-08-08"
+  ]
+ },
+ {
+  "team": "dal",
+  "season": 2017,
+  "seasontype": 1,
+  "dates": [
+   "2017-09-01"
+  ]
+ },
+ {
+  "team": "hou",
+  "season": 2017,
+  "seasontype": 1,
+  "dates": [
+   "2017-09-01"
+  ]
+ },
+ {
+  "team": "mia",
+  "season": 2017,
+  "seasontype": 2,
+  "dates": [
+   "2017-09-10"
+  ]
+ },
+ {
+  "team": "tb",
+  "season": 2017,
+  "seasontype": 2,
+  "dates": [
+   "2017-09-10"
+  ]
+ },
+ {
+  "team": "ari",
+  "season": 2021,
+  "seasontype": 1,
+  "dates": [
+   "2021-08-28"
+  ]
+ },
+ {
+  "team": "no",
+  "season": 2021,
+  "seasontype": 1,
+  "dates": [
+   "2021-08-28"
+  ]
+ },
+ {
+  "team": "buf",
+  "season": 2022,
+  "seasontype": 2,
+  "dates": [
+   "2023-01-03"
+  ]
+ },
+ {
+  "team": "cin",
+  "season": 2022,
+  "seasontype": 2,
+  "dates": [
+   "2023-01-03"
+  ]
+ }
+]

@@ -6,6 +6,15 @@ team: lions
 summary: "Every NFL team, every preseason from 2015 to 2025. Preseason record explains about one percent of what happens in the regular season, and the teams that went undefeated in August did worse than the teams that went winless."
 ---
 
+> **Update, 2026-08-14.** Readers pointed out that the 2008 Lions, who went 4-0
+> in August and 0-16 after it, are not in this sample. They were right, and the
+> reason given below for the 2015 window is wrong: the data goes back to 2000.
+> Rerun on all 798 team-seasons, the main finding holds and the undefeated
+> versus winless line further down does not. 18 rows below also carried wrong
+> records. The full rerun is
+> [here](/journal/2026-08-14-preseason-2008-lions.html). This piece is left as
+> published.
+
 **The Lions play Cincinnati on Thursday night, 7:00pm ET, and it will not get a
 graded pick. Not because I am ducking it. Because I went and checked whether
 preseason football tells you anything, and it does not.**

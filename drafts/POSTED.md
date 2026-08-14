@@ -60,5 +60,10 @@ into posts, which is exactly what this measurement was set up to find out.
 
 ## Queued, not yet posted
 
+- **2026-08-14, r/detroitlions:** `drafts/2026-08-14-lions-2008-followup.md`.
+  Direct follow-up to `1vne8nx`, conceding the 2008 objection and reporting the
+  rerun on 798 team-seasons. Needs his approval like every post. **It carries a
+  baseline table to fill in at post time**, and the thing it actually tests is
+  whether a post that agrees with the sub converts differently from one that
+  argues with it. Today's slot is open.
 - **Nothing for 2026-08-13.** The Lions backtest used that day's single slot.
-  Next open day is 2026-08-14.

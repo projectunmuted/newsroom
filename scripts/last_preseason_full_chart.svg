@@ -1,0 +1,23 @@
+﻿<svg viewBox="0 0 640 290" width="100%" role="img" aria-labelledby="pre26-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="pre26-title">Regular season winning percentage by preseason record, all NFL teams, 2000 to 2025</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">How each preseason group actually did</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">Regular season winning percentage against .500. 798 team-seasons, 2000 to 2025, 2020 excluded.</text>
+<text x="0" y="49" fill="var(--muted)" font-size="11">Every season ESPN carries preseason results for.</text>
+<line x1="390.0" y1="52" x2="390.0" y2="250.0" stroke="var(--rule)" stroke-width="2"/>
+<text x="184" y="75.0" text-anchor="end" fill="var(--fg)" font-size="12.5">Won every preseason game</text>
+<path d="M388.0,58H339.16712322183787A4.0,4.0 0 0 0 335.16712322183787,62.0V80.0A4.0,4.0 0 0 0 339.16712322183787,84H388.0Z" fill="var(--chart-neg)"><title>Won every preseason game: 68 team-seasons, regular season 0.475</title></path>
+<text x="327.2" y="75.0" text-anchor="end" fill="var(--muted)" font-size="12" font-variant-numeric="tabular-nums">0.475 (n=68)</text>
+<text x="184" y="115.0" text-anchor="end" fill="var(--fg)" font-size="12.5">Winning preseason</text>
+<path d="M392.0,98H468.1250079715723A4.0,4.0 0 0 1 472.1250079715723,102.0V120.0A4.0,4.0 0 0 1 468.1250079715723,124H392.0Z" fill="var(--chart-pos)"><title>Winning preseason: 226 team-seasons, regular season 0.538</title></path>
+<text x="480.1" y="115.0" text-anchor="start" fill="var(--muted)" font-size="12" font-variant-numeric="tabular-nums">0.538 (n=226)</text>
+<text x="184" y="155.0" text-anchor="end" fill="var(--fg)" font-size="12.5">Even preseason</text>
+<path d="M392.0,138H430.81934474920376A4.0,4.0 0 0 1 434.81934474920376,142.0V160.0A4.0,4.0 0 0 1 430.81934474920376,164H392.0Z" fill="var(--chart-pos)"><title>Even preseason: 217 team-seasons, regular season 0.521</title></path>
+<text x="442.8" y="155.0" text-anchor="start" fill="var(--muted)" font-size="12" font-variant-numeric="tabular-nums">0.521 (n=217)</text>
+<text x="184" y="195.0" text-anchor="end" fill="var(--fg)" font-size="12.5">Losing preseason</text>
+<path d="M388.0,178H302.6527237032116A4.0,4.0 0 0 0 298.6527237032116,182.0V200.0A4.0,4.0 0 0 0 302.6527237032116,204H388.0Z" fill="var(--chart-neg)"><title>Losing preseason: 217 team-seasons, regular season 0.458</title></path>
+<text x="290.7" y="195.0" text-anchor="end" fill="var(--muted)" font-size="12" font-variant-numeric="tabular-nums">0.458 (n=217)</text>
+<text x="184" y="235.0" text-anchor="end" fill="var(--fg)" font-size="12.5">Lost every preseason game</text>
+<path d="M388.0,218H335.53573095905017A4.0,4.0 0 0 0 331.53573095905017,222.0V240.0A4.0,4.0 0 0 0 335.53573095905017,244H388.0Z" fill="var(--chart-neg)"><title>Lost every preseason game: 70 team-seasons, regular season 0.473</title></path>
+<text x="323.5" y="235.0" text-anchor="end" fill="var(--muted)" font-size="12" font-variant-numeric="tabular-nums">0.473 (n=70)</text>
+<text x="0" y="280" fill="var(--muted)" font-size="11">Bars right of the line beat .500, left of it missed. Nothing here is far from the line.</text>
+</svg>

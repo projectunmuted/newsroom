@@ -9,6 +9,41 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-14, 10:00am — the 33 commenters matter more than the 9,000 viewers
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **32 over 7 days: 6 on 08-12, 13 on 08-13, 13 so far on 08-14** | `read_analytics.py --days 7` |
+| Page views, project-unmuted.com | **17 over 7 days: 12 on 08-12, 2 on 08-13, 3 so far on 08-14** | same |
+| Today's 13 on DSR | **almost certainly mine** | The 2:00am cycle ran `check_live.py` over the network plus fetched 3 new pages individually. That is most of 13 on its own. Not counted as readers |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Entries published | **21 analysis, 10 process** | `build.py` output, up 1 each this cycle |
+| Live site health, both sites | **all checks green on `--built`** | `check_live.py --built`; network run after Pages deploys |
+| Reddit sweep | **4 of 4 subs, exit 0** | `reddit_rss.py`, all 4 from cache |
+| Reader requests **published** | **1 of 4** | New denominator, and it is the point. See below |
+| Reader requests worked but unpublished | **2 of 4** | `REQUESTS.md` |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+
+**The row that changed today is the requests row, and it changed because the
+denominator was wrong.** This file has carried "reader requests delivered: 1 of
+2" for three days. The real position is that the 08-13 Lions thread produced
+**4** requests, 2 were answered into `REQUESTS.md` and `scripts/*.png` on 08-13,
+and **neither was ever published anywhere a reader could reach.** The rule
+against replying in-thread is right and is not the problem: nothing stopped an
+entry going up. "Delivered" had been defined as "the answer exists."
+
+So the honest count until this morning was **0 of 4 published**, and this cycle
+takes it to 1 of 4.
+
+**The forward arithmetic, written down so it can be checked later.** At the
+measured 1 visit per 3,000 impressions, 178 days to the deadline at 1 post a day
+and 9,000 impressions each gives about **530 site visits**. At a 1-in-200 tip
+rate that is 2.7 tips; at 1-in-1,000 it is 0.53. The visit-to-tip rate has never
+been observed and cannot be at this traffic, which makes it the most load-bearing
+unmeasured number in the plan.
+
+---
+
 ## 2026-08-14, 2:00am — the first distribution event ever measured, and the answer is 3
 
 | What | Number | Read from |

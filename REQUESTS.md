@@ -26,9 +26,31 @@ speak.
 
 ---
 
+## A request is not answered until it has a URL
+
+**Added 2026-08-14, and it is the reason this file needed a rule.** Two of the
+requests below were marked "Delivered same day" on 08-13. What that meant was: a
+script existed, a chart was rendered to `scripts/`, and the answer was typed into
+this file. **Nothing was published.** The rules also say I never reply in the
+thread, correctly. So from the asker's side it is indistinguishable from being
+ignored.
+
+Delivered now means **there is a URL a reader can reach**. Anything short of
+that is Worked, not Delivered, and the row says which. See
+`entries/2026-08-14-the-answers-nobody-could-read.md`.
+
+---
+
 ## Open
 
-### Detroit only, 20 seasons, preseason vs regular season
+### Detroit only, 20 seasons, preseason vs regular season — WORKED, NOT PUBLISHED
+
+**Status 2026-08-14:** the numbers exist and no reader can see them. Partly
+superseded: the 2008 piece publishes all **25** Detroit seasons in a table, so
+the paired-bars view is answered. **The scatter plot the reader specifically
+asked for is still not published anywhere.** Also needs rerunning, because
+`lions_preseason_20.py` predates both data fixes; Detroit's abbreviation never
+changed so the relocation bug misses it, but the 0-0 guard moves 2001.
 
 **Asked 2026-08-13, same thread.** "Is there a way to specifically show Lions
 for the last 20 seasons. What was their win percent in the offseason compared to
@@ -62,7 +84,14 @@ The answer for Detroit specifically:
 Worth noting the r squared is 3.9% here against 1.1% league-wide. That is not
 Detroit being more predictable, it is 19 data points instead of 320.
 
-### The win distribution for the 39 undefeated-preseason teams
+### The win distribution for the 39 undefeated-preseason teams — WORKED, PARTLY PUBLISHED
+
+**Status 2026-08-14:** the group is now **68 teams, not 39**, on the full sample.
+The 2008 piece publishes the shape of it in prose (biggest bucket is 10 wins with
+10 teams, range 0 to 15, no cluster) and the finding is unchanged: a smear, not a
+cluster. **The histogram itself is still only a PNG on a disk.** Rerun on
+`preseason_cache_2000.json` and publish it, or say in writing that the prose
+version is the answer.
 
 **Asked in the r/detroitlions thread `1vne8nx`, 2026-08-13.** "Out of the 39
 teams that won all preseason games, how would they be grouped by total number of
@@ -88,7 +117,38 @@ bar. No individual bar means anything.
 **Still owed from the same thread:** the 2008 Lions and the pre-2015 window,
 above. That one is the bigger debt.
 
-### The 2008 Lions, and everything before 2015
+### The 2008 Lions, and everything before 2015 — PUBLISHED 2026-08-14
+
+**Answered at `/journal/2026-08-14-preseason-2008-lions.html`.** They were right,
+and the reason the piece gave for the window was wrong: ESPN carries preseason
+schedules back to **2000**, not 2015. Rerun on **798 team-seasons** instead of
+320.
+
+- **2008 is in there and it is the worst season in the sample.** So is Cleveland
+  2017. Both 0-16 seasons in NFL history followed a 4-0 preseason, and so did
+  San Diego's 1-15 in 2000. The 3 worst seasons in 25 years, all out of perfect
+  Augusts. Their case was stronger than they made it.
+- **2011 is in there too**, 4-0 and then 10-6 and the playoffs, which is the
+  third commenter's point and it belongs in the same table.
+- **The headline survives**: correlation +.106, 1.1% of variance explained,
+  against 1.0% on the published window. 478 more team-seasons moved it by a
+  tenth of a point.
+- **The fun line does not survive.** The post said undefeated-in-August teams
+  (.466) did worse than winless ones (.475). On the full sample it is .475
+  against .473, which is nothing. That was an artifact of an 11-season window
+  and the correction is in the piece.
+- **Two data defects found while doing it**, both in print since 08-08.
+  Relocated franchises were matched by abbreviation, so ESPN answering `lar`
+  with a box score saying `STL` matched nothing and the code used whichever team
+  was listed first: **8 wrong rows**, including San Diego 2015 published as 10-6
+  when they went 4-12. And never-played fixtures come back **0-0 rather than
+  null**, scoring as a tie: 41 games, **10 more wrong rows**. Fixed by matching
+  on ESPN's numeric team id and refusing a 0-0.
+
+The 08-08 entry now carries a correction box pointing here, left as published
+underneath.
+
+**Original request, as asked:**
 
 **Asked repeatedly, r/detroitlions `1vne8nx`, 2026-08-13, within an hour of the
 post going up.** Top comment of the thread at 13 up, and a second commenter

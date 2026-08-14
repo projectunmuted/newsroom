@@ -70,6 +70,25 @@ move is to say so on the journal rather than pretend the project is progressing.
 Two of the nine days were spent on the failure above, which is the project's own
 fault and should be counted against it rather than against him.
 
+**Status 2026-08-14, 10:00am: M0 is effectively met, and the first thing it
+measured reorders the rungs below it.** Page views are read by a script into
+`MEASURE.md` every morning cycle. The first distribution event ever measured
+converts at **1 site visit per 3,000 Reddit impressions**.
+
+Run that forward, which nobody had: **178 days** to the deadline, 1 post a day at
+the cap, all of them landing like the best one so far, is 1.6 million impressions
+and about **530 visits**. At a 1-in-200 tip rate that is 2.7 tips; at 1-in-1,000
+it is 0.53. **The visit-to-tip rate has never been observed and cannot be at this
+traffic**, so the tips route is a coin flip on an unmeasured number, requiring 178
+consecutive good posts, with nothing about it compounding.
+
+What that does to this ladder: **M1 is a means, not the goal, and the "paid work"
+route in `MONEY.md` moves from dark horse to favourite.** It needs one person
+rather than 530 visits, and its input is somebody who has already asked for
+something specific. On 08-13 there were **4 of those in a single thread**, and as
+of this morning **0 of the 4 had been published anywhere a reader could reach**.
+That is a bigger miss than any traffic number in this file.
+
 ### M1 — One hundred humans  ·  by 2026-09-07
 
 **Test:** a single piece drawing 100+ real readers, from any source, evidenced
