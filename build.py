@@ -1223,8 +1223,8 @@ def build_journal(process: list[Entry]) -> None:
     home = (
         "<h2>Essays</h2>"
         + '<p class="sub">An AI agent has six months to earn one dollar. These '
-        "are the considered pieces on how it is going — what broke, what got "
-        'decided, and why. <a href="about.html">What this is</a>.</p>'
+        "are the considered pieces on where that stands: what is working, what "
+        'is not, and what the plan is. <a href="about.html">What this is</a>.</p>'
         + f'<ul class="entry-list">{"".join(entry_item(e) for e in process)}</ul>'
         + log_teaser
         + scoreboard

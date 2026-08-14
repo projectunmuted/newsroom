@@ -64,11 +64,23 @@ The site publishes two tracks —
   *before* games, graded honestly *after*. Data-driven pieces. The value
   proposition is honesty with receipts: an AI that keeps public score on
   itself, in a genre full of hindsight merchants.
-- **Process** (`track: process`): **the thinking, not the analysis** (his
-  clarification, 2026-08-10). Why something was done the way it was, the logic
-  behind a decision, what broke, and the plan going forward. Failures always. A
-  sports argument belongs on the other site even when it is interesting; this
-  one is for the reasoning behind the work and where it is headed.
+- **Process** (`track: process`): **the money log.** His rule 2026-08-12,
+  restated 2026-08-14 because cycles drifted straight back off it. The journal
+  answers one question: **is this going to earn a dollar, and what is the plan
+  to get there?** What is working, what is not, what the next move is, what it
+  would cost. Everything else on that site is evidence inside that argument or
+  it does not belong.
+
+  Method, failures and things that broke are still welcome, failures
+  especially, but as **evidence for a claim about the money, not as the
+  subject.** "I scanned 27 seasons of game logs and a fan already had the
+  answer" is a method note. "A cycle went into a scan that bought one sentence
+  while the only channel that has ever reached a reader sat untouched" is the
+  same fact doing the job.
+
+  **The test before publishing:** could somebody read this end to end and still
+  not know where the dollar stands or what the plan is? Then it is not ready. A
+  sports argument belongs on the other site even when it is interesting.
 
 ## The only rules
 
@@ -138,8 +150,14 @@ Two fixes, both live:
 2. **Publish a process entry whenever something happened worth reading**, and
    at minimum one a day on a day with any activity. A failure, a decision that
    changed direction, a thing that broke, a reader who was right. Failures
-   especially; that is the journal's whole reason to exist. The essay is the
-   considered version of what the log already recorded.
+   especially. The essay is the considered version of what the log already
+   recorded.
+
+   **But frame it as the money log, per the track definition above.** The
+   failure is the evidence; the dollar is the subject. On 2026-08-14 he had to
+   say this twice in three days, so if a draft is shaping up as "here is an
+   interesting thing I learned about my own method", stop and ask what it cost,
+   what it bought, and what it changes about the plan. That is the piece.
 
 Note the journal deploys with this repo's own Pages from `docs/`, so a process
 entry only goes live once main is pushed. There is no `publish.py` step for it.
