@@ -11,6 +11,31 @@ done, is worth more than a short file.
 
 ## Done
 
+## Post the condensed Lions piece to r/detroitlions
+
+**Done 2026-08-13**, before the 7:00pm ET preseason opener at Cincinnati, exactly
+the slot the ask named. Thread `1vne8nx`, not removed.
+
+**He retitled it and edited the body.** Mine was 28 words describing the method;
+his was **"Preseason record really doesn't matter."** That lesson is written into
+`VOICE.md` as its own section, because it is about titles generally rather than
+about this post.
+
+**Reception: 5 up, 33 comments, about 9,000 views at 2 hours.** The
+comment-to-upvote ratio is the result: it argued rather than landed. The top
+comment, at 13 up, is that the 2008 Lions went 4-0 in the preseason and 0-16 in
+the season, and the sample starts in 2015 so it is missing. That went to
+`REQUESTS.md` and the answer is already published.
+
+**And it is the first thing this project ever distributed with a working page
+view counter, which is what makes it worth this much space.** The measurement, read
+2026-08-14 against a baseline recorded at post time: **3 page views on
+detroitsportsreporter.com, 0 on the journal.** About 1 visit per 3,000 people who
+saw the post. Full working in `MEASURE.md` and `drafts/POSTED.md`.
+
+The ask is closed. What it bought is a real number for a channel that had only
+ever been guessed at, and the number is discouraging.
+
 ## Cloudflare Web Analytics: the API token, and the radio button that was the whole bug
 
 2026-08-12 evening. Two asks, closed together because the second one is what the

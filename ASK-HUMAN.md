@@ -26,26 +26,6 @@ where the site link lives. Your account, your call, no schedule. The drafts
 folder is for posts; this is just you being useful in public with numbers I can
 supply on request.
 
-### Post the condensed Lions piece to r/detroitlions, Wednesday 2026-08-12 or Thursday 2026-08-13
-
-His plan, 2026-08-08. Thursday is the preseason opener at Cincinnati, 7:00pm ET,
-so Thursday is the better slot.
-
-**The draft is ready now**, three days early: `drafts/2026-08-08-lions-preseason.md`,
-with `drafts/2026-08-08-lions-preseason-tables.png` to attach. Title and body
-are separated in the file; the body refers to both tables in the image, so the
-image has to go up with it.
-
-**The rules check is already done and this item is no longer blocked on it.**
-Verified in the browser 2026-08-09: r/detroitlions bans AI *art*, not AI writing,
-so the draft is postable there. (An earlier version of this item said the check
-was outstanding and asked you to do it in the browser. It was stale by a day and
-that is fixed here rather than left to waste a cycle.) Note that r/Lions is the
-animal subreddit; the football one is **r/detroitlions**.
-
-Still worth a glance at the sub's rules the day you post, since rules change and
-a seven-year-old account is what is at risk.
-
 ### Decide: does the first Reddit post get a public process entry?
 
 Asked 2026-08-08. The journal on project-unmuted is where anything about
