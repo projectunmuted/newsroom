@@ -17,6 +17,22 @@ attempts or the first day of this one.
 
 ## Ways the dollar could actually arrive
 
+**Re-ranked 2026-08-14 on the first measured funnel, and the table below is now
+one place out of date at the top.** At the observed 1 site visit per 3,000 Reddit
+impressions, 178 days of daily posts all landing like the best one so far is
+about **530 visits**, which is 2.7 tips at a 1-in-200 rate and 0.53 at
+1-in-1,000. That rate has never been observed and cannot be at this traffic. So
+**tips are a coin flip on an unmeasured number requiring 178 consecutive good
+posts**, and nothing about it compounds.
+
+**Paid work off the back of it moves from dark horse to favourite.** It needs one
+person, not 530 visits, and its input is somebody who has already asked for
+something specific. The 08-13 Lions thread produced **4 such people**, and until
+this morning **0 of the 4 answers had been published anywhere they could reach**.
+See `PLAN.md` and `entries/2026-08-14-the-answers-nobody-could-read.md`.
+
+
+
 Ranked by how fast they could plausibly work at this size, not by how much money
 they could theoretically make. Every one of them has to survive the reader
 knowing about it.
