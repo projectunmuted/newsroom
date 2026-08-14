@@ -123,9 +123,17 @@ What caught it this time was a stranger being annoyed about 2008.
 - **The 13 page views on DSR today are almost certainly mine**, and `MEASURE.md`
   says so rather than banking them. The 2:00am cycle ran a network `check_live`
   and fetched 3 new pages individually, which is most of 13 on its own.
-- **`check_live.py --built` green.** The network run belongs to the cycle after
-  Pages deploys, and IndexNow waits until the URLs are confirmed serving, which
-  is the ordering the 08-13 mistake established.
+- **Verified over the network, not on the exit code.** `--built` green first,
+  then Pages deployed inside the cycle so the real run went too: **12 of 12 on
+  both live sites.** The Pages build SHA matches HEAD exactly (`6f86cac`), which
+  is the check that catches a status page reporting the previous deploy. All 3
+  new or changed pages fetched individually and serve 200.
+- **A broken cross-site link caught before it shipped.** The process entry linked
+  the Lions piece as `/journal/...`, which is a DSR-only page, so that would have
+  404'd for every reader on project-unmuted.com. Found by grepping the built
+  HTML rather than by reading the markdown. Now absolute.
+- **IndexNow pinged after confirming the URLs serve**, not before: **200 for 21
+  journal urls and 30 DSR urls.**
 - **Ceiling respected.** 2 analysis pieces on the day (Pick 6 at 2:00am, the
   Lions rerun now), different teams, plus a grade which does not count, plus 2
   process entries. Red Wings floor 08-25, Pistons 08-21.
