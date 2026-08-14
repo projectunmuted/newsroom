@@ -418,19 +418,6 @@ pre code{background:none;padding:0}
 /* The standing, kept deliberately small. It is a reference a returning reader
    glances at, not the headline, and it sits above the board so the first thing
    on the page is the score rather than the newest call. His call 2026-08-14. */
-/* A grid, not flex-wrap. With 4 pills of different widths, wrapping decided
-   3-then-1, which reads as a broken row rather than a scoreboard. Fixed
-   columns make it 4 across or 2x2 and never anything else. His call
-   2026-08-14. */
-.recstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;
-  margin:0 0 .55rem;padding:0;list-style:none;font-size:.8rem}
-@media(max-width:40rem){.recstrip{grid-template-columns:repeat(2,1fr)}}
-.recstrip a{display:flex;align-items:center;justify-content:center;gap:.3rem;
-  text-decoration:none;color:var(--muted);border:1px solid var(--rule);
-  border-radius:999px;padding:.22rem .5rem;white-space:nowrap}
-.recstrip a:hover{border-color:var(--tc,var(--accent))}
-.recstrip .tm{color:var(--muted)}
-.recstrip strong{color:var(--fg);font-weight:600}
 .recnote{font-size:.8rem;color:var(--muted);margin:0 0 1.6rem}
 .teamnav{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .5rem;padding:0;list-style:none}
 .teamnav a{display:inline-flex;align-items:center;gap:.45rem;text-decoration:none;
@@ -439,6 +426,13 @@ pre code{background:none;padding:0}
 .teamnav a:hover{border-color:var(--tc,var(--accent))}
 .teamnav a[aria-current="page"]{border-color:var(--tc,var(--accent));
   box-shadow:inset 0 -2px 0 var(--tc,var(--accent))}
+/* With records in it the nav stops being a wrapping row of labels and becomes a
+   scoreboard, so it gets fixed columns: 4 across, 2x2 under 40rem, never the
+   3-then-1 that flex-wrap chose on its own. His call 2026-08-14. */
+.teamnav.withrec{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem}
+@media(max-width:40rem){.teamnav.withrec{grid-template-columns:repeat(2,1fr)}}
+.teamnav.withrec a{justify-content:center;white-space:nowrap;padding:.28rem .55rem}
+.teamnav .rec{margin-left:.45rem;color:var(--fg);font-weight:600;font-size:.95em}
 .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--tc,var(--muted));
   display:inline-block;flex:none}
 .teamrule{height:3px;border:0;border-radius:2px;background:var(--tc,var(--accent));
@@ -743,17 +737,34 @@ def page(site: Site, title: str, body: str, depth: int = 0, path: str = "",
 
 
 
-def team_nav(active: str = "", depth: int = 0) -> str:
+def team_nav(active: str = "", depth: int = 0,
+             records: "dict[str, tuple[int, int, int]] | None" = None) -> str:
+    """The team switcher, carrying each team's record when one is passed.
+
+    These were 2 separate rows for a day: the switcher, then a scoreboard strip
+    directly under it with the same 4 names and the same 4 dots. His call
+    2026-08-14 was to merge them, and he is right that a reader does not need
+    the word "Tigers" twice 3 lines apart. The record rides in the pill.
+
+    A team with no graded calls says so rather than showing 0-0, which would
+    read as 0 wins rather than as nothing having happened yet.
+    """
     up = "../" * depth
     items = []
     for slug, short, _full, light, dark in TEAMS:
         cur = ' aria-current="page"' if slug == active else ""
+        rec = ""
+        if records is not None:
+            w, l, _pending = records.get(slug, (0, 0, 0))
+            val = f"{w}-{l}" if (w or l) else "none yet"
+            rec = f'<span class="rec">{val}</span>'
         items.append(
             f'<li><a href="{up}team/{slug}/index.html"{cur} '
             f'style="--tc:{light}"><span class="dot" style="--tc:{light}"></span>'
-            f'{short}</a></li>'
+            f'{short}{rec}</a></li>'
         )
-    return f'<ul class="teamnav">{"".join(items)}</ul>'
+    cls = "teamnav withrec" if records is not None else "teamnav"
+    return f'<ul class="{cls}">{"".join(items)}</ul>'
 
 
 def entry_item(e: Entry, depth: int = 0) -> str:
@@ -772,7 +783,8 @@ def entry_item(e: Entry, depth: int = 0) -> str:
     )
 
 
-def write_entry_pages(site: Site, entries: list[Entry]) -> None:
+def write_entry_pages(site: Site, entries: list[Entry],
+                      records: "dict[str, tuple[int, int, int]] | None" = None) -> None:
     """Entries were leaves: one internal link each, no date on the page, no way
     to reach the next piece, and "All entries" pointed at a homepage whose lead
     section was something else. Every article now carries a date, its
@@ -817,7 +829,8 @@ def write_entry_pages(site: Site, entries: list[Entry]) -> None:
 
         body = (
             f'<a class="back" href="{index_href}">&larr; {index_label}</a>'
-            + (team_nav(e.team, depth=1) if site.key == "dsr" else "")
+            + (team_nav(e.team, depth=1, records=records)
+               if site.key == "dsr" else "")
             + rule
             + f'<p class="meta"><time datetime="{e.day.isoformat()}">'
             + f"{e.day.strftime('%B')} {e.day.day}, {e.day.year}</time>{label}"
@@ -1055,36 +1068,28 @@ def team_records(md: str, entries: list[Entry]) -> dict[str, tuple[int, int, int
     return {k: tuple(v) for k, v in out.items()}
 
 
-def record_strip(records: dict[str, tuple[int, int, int]], depth: int = 0) -> str:
-    """The standing, small, above everything else. His call 2026-08-14.
+def record_note(records: dict[str, tuple[int, int, int]], depth: int = 0) -> str:
+    """The one line under the team nav: overall record, and where to audit it.
 
-    Teams with no calls yet still appear. A scoreboard that hides the sports
-    nobody has been graded in yet would quietly flatter the record, and the
-    empty ones are also a promise that those seasons are coming.
+    The per-team numbers ride in the nav pills now, so this carries only the
+    total and the provenance. It used to be a second row of team pills sitting
+    directly under the first; his call 2026-08-14 was to merge them.
+
+    Ungraded calls are deliberately not in the total. "4-1 +1" reads as a third
+    number in a win-loss line, and the pending game is on the board below with
+    its own "Not played yet".
     """
     up = "../" * depth
-    items = []
-    for slug, short, _full, light, _dark in TEAMS:
-        w, l, _pending = records.get(slug, (0, 0, 0))
-        # Ungraded calls are deliberately not counted here. "4-1 +1" reads as a
-        # third number in the record, and the pending game is already on the
-        # board directly below with its own "Not played yet".
-        # "no calls yet" was the honest label but it is 3 words in a cell that
-        # has to hold "Red Wings" too, and 4 across only fits if this is short.
-        val = f"{w}-{l}" if (w or l) else "none yet"
-        items.append(
-            f'<li><a href="{up}team/{slug}/index.html" style="--tc:{light}">'
-            f'<span class="dot" style="--tc:{light}"></span>'
-            f'<span class="tm">{short}</span> <strong>{val}</strong></a></li>'
-        )
     total_w = sum(r[0] for r in records.values())
     total_l = sum(r[1] for r in records.values())
-    return (f'<ul class="recstrip">{"".join(items)}</ul>'
-            f'<p class="recnote">Overall <strong>{total_w}-{total_l}</strong>. '
+    return (f'<p class="recnote">Overall <strong>{total_w}-{total_l}</strong>. '
             "Every call posted before first pitch and graded after the last "
-            'out. <a href="' + up + 'picks.html">The full record</a>.</p>')
+            f'out. <a href="{up}picks.html">The full record</a>.</p>')
 
 
+# Matches a pick number in a slug: "...pick-03-..." and "...grade-pick-03".
+# Used by both team_records() above and pick_writeups() below, which is why it
+# sits between them.
 PICK_NO = re.compile(r"pick[-\s]*(?:no\.?\s*)?0*(\d+)", re.I)
 
 
@@ -1347,9 +1352,14 @@ def build_dsr(analysis: list[Entry]) -> None:
         shutil.rmtree(site.out)
     (site.out / "journal").mkdir(parents=True)
 
-    write_entry_pages(site, analysis)
+    picks_md_raw = (ROOT / "PICKS.md").read_text(encoding="utf-8")
+    # Records first: the team nav carries them on every page of this site, so
+    # they have to exist before anything is rendered.
+    recs = team_records(picks_md_raw, analysis)
 
-    picks_md = (ROOT / "PICKS.md").read_text(encoding="utf-8")
+    write_entry_pages(site, analysis, recs)
+
+    picks_md = picks_md_raw
     # Drop the H1; the homepage supplies its own heading.
     picks_md = re.sub(r"^# .*\n", "", picks_md, count=1)
     # Cycles append new picks to the bottom of the file, which is right for an
@@ -1413,8 +1423,8 @@ def build_dsr(analysis: list[Entry]) -> None:
     )
 
     home = (
-        team_nav()
-        + record_strip(team_records(picks_md, analysis))
+        team_nav(records=recs)
+        + record_note(recs)
         + '<h2 id="picks">Every call, before the game</h2>'
         + picks_html
         + about
@@ -1512,7 +1522,7 @@ def build_dsr(analysis: list[Entry]) -> None:
                        'game and grades go up after, so this page fills in as the '
                        'season does.</div>')
         body = (
-            team_nav(slug, depth=2)
+            team_nav(slug, depth=2, records=recs)
             + f'<hr class="teamrule" style="--tc:{light}">'
             + f"<h2>{full}</h2>"
             + f'<p>Every {short} call and every grade, in one place.</p>'
