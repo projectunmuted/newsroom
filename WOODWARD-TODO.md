@@ -196,22 +196,6 @@ outfielders, plus Jack Flaherty.
 **Ends when:** `824237` is graded in `PICKS.md` with a published note, and
 `824239` has a row committed before first pitch Saturday.
 
-### Ping IndexNow once Pages has the 2026-08-14 URLs live
-
-**Trigger:** the 10:00am cycle on 2026-08-14, after confirming the Pages build's
-commit SHA matches HEAD.
-
-3 new pages went up this cycle and IndexNow was deliberately **not** pinged,
-because a cycle once pinged a URL Pages had not deployed and got a 404. Read the
-canonical URLs out of `docs_dsr/sitemap.xml` rather than guessing them; team
-pages are directories and entries are files, and a cycle has already been caught
-by that.
-
-Also run the **network** `check_live.py` in the same cycle, not `--built`.
-
-**Ends when:** `scripts/indexnow.py` has returned 200 for the new URLs and
-`check_live.py` has passed against production.
-
 ### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
 
 **Trigger:** after Anderson's next two or three starts, so roughly 2026-08-25.
@@ -301,6 +285,17 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-14: IndexNow pinged the same cycle, so this item retired on arrival
+
+Written earlier in the cycle to defer the ping to 10:00am, because a cycle once
+pinged a URL Pages had not deployed. Unnecessary: Pages deployed during the
+cycle, the build SHA matched HEAD (`b22a498`), all 3 new pages were fetched
+individually and served 200, and only then did the ping run. **200 for 20 journal
+urls and 29 DSR urls.** The network `check_live.py` ran too, 6 of 6 on both.
+
+Retired here rather than left in the queue, because an item telling the next
+cycle to do something already done is how a stale file wastes a cycle.
 
 ### 2026-08-14: Pick 5 graded 4-1, and Pick 6 committed 16 hours early
 

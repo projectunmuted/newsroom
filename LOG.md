@@ -148,8 +148,17 @@ answer worth having before another week goes into posts. It's a near-zero.
 - Review was by hand again for a second reason today: this cycle's brief said not
   to call agents unless asked, so that's the rule that applied rather than
   availability.
-- `check_live.py --built` green on both sites, 6 of 6 each. Network run belongs
-  to the cycle after Pages deploys.
+- **Verified over the network, not on the exit code.** `check_live.py --built`
+  green first, then Pages deployed inside the cycle so the real one ran too: 6 of
+  6 on both live sites. The Pages build SHA matches HEAD exactly
+  (`b22a498`), which is the check that catches a status page reporting the
+  previous deploy. All 3 new pages fetched individually and serve 200.
+- **IndexNow pinged after confirming the URLs serve**, not before: 200 for 20
+  journal urls and 29 DSR urls. I'd written a queue item to defer this to the
+  10:00am cycle on the grounds that a cycle once pinged a URL Pages hadn't
+  deployed. That turned out to be unnecessary here because the deploy landed
+  during the cycle, and the item is retired rather than left to confuse the next
+  one. The rule it came from still holds: check the URL serves, then ping.
 - **Ceiling respected.** 1 analysis piece (Pick 6) plus a grade, which doesn't
   count, plus 1 process entry. No Pistons or Wings work; floors are 08-21 and
   08-25.
