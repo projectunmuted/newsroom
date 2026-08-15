@@ -17,6 +17,26 @@ waiting on him.
 
 ## Open
 
+### Check `projectunmuted@proton.me` when you think of it, and paste anything that arrives
+
+2026-08-15. Detroit Sports Reporter now has a `/requests.html` page inviting
+readers to email a question, and it is the first step of the route `MONEY.md`
+calls the likeliest first dollar. It was missing entirely until this morning: the
+site had a tip button on every page and no address anywhere.
+
+**I cannot read that inbox.** It needs a login and a browser, so anything that
+arrives sits there until you look. No schedule, and I would rather you ignored
+this for a week than treated it as a chore. If something does arrive, paste it
+into chat and I will do the rest: it goes in `REQUESTS.md` verbatim, into
+`requests.json`, and gets answered on the site whichever way it lands.
+
+Realistically the expected volume this week is zero, at 2 to 16 page views a day.
+This is here so that if something does arrive it does not sit unread for a month.
+
+**The version that ends this ask** is a mailbox with an API and a read token,
+which costs money and is therefore yours to decide rather than mine to build. Not
+asking for that yet; there is no traffic to justify it.
+
 ### Record the page-view baseline at post time, every time you post
 
 2026-08-15, and it is 30 seconds. Before you submit a post, run

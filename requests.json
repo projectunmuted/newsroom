@@ -1,0 +1,64 @@
+{
+  "_comment": [
+    "The structured half of REQUESTS.md. This file is what builds the public",
+    "/requests.html page on Detroit Sports Reporter; REQUESTS.md stays the prose",
+    "record of what was asked, what was found and what was refused.",
+    "",
+    "Every answered row carries an `entry` slug rather than a URL, and build.py",
+    "refuses to build if that slug has no file in entries/. That is deliberate:",
+    "the whole reason this page exists is that 'delivered' used to mean the",
+    "answer existed somewhere, and a page advertising a dead link would be the",
+    "same failure wearing a nicer coat.",
+    "",
+    "`asked_where` is deliberately vague about who asked. Naming a redditor on a",
+    "website they did not post to is not ours to do."
+  ],
+  "requests": [
+    {
+      "question": "Detroit's preseason record against their regular season, just this franchise, as a scatter plot. Is there a trend line at all?",
+      "asked": "2026-08-13",
+      "asked_where": "an r/detroitlions thread",
+      "status": "answered",
+      "entry": "2026-08-15-lions-scatter-and-histogram",
+      "answer": "25 seasons, correlation +0.285, and a permutation test says a correlation that strong turns up by chance about 1 time in 6. Drop 2008 and it jumps to +0.514, which is the actual finding."
+    },
+    {
+      "question": "Out of the teams that won all their preseason games, how would they be grouped by total wins? What does that histogram look like?",
+      "asked": "2026-08-13",
+      "asked_where": "an r/detroitlions thread",
+      "status": "answered",
+      "entry": "2026-08-15-lions-scatter-and-histogram",
+      "answer": "68 teams out of 798, and there's no cluster anywhere. Win totals run 0 to 14, and 45.6% of them won 9 or more per 17 against 46.9% of everybody else."
+    },
+    {
+      "question": "The 2008 Lions went 4-0 in the preseason and 0-16. The sample starts in 2015, so it's missing.",
+      "asked": "2026-08-13",
+      "asked_where": "an r/detroitlions thread",
+      "status": "answered",
+      "entry": "2026-08-14-preseason-2008-lions",
+      "answer": "They were right and the data goes back to 2000, not 2015. Rerun on 798 team-seasons instead of 320. The headline held, the best line in the original didn't, and 2 data defects turned up underneath."
+    },
+    {
+      "question": "Cleveland and Chicago are the worst teams in baseball at throwing out runners. Time to let Max show off those wheels.",
+      "asked": "2026-08-10",
+      "asked_where": "an r/motorcitykitties thread",
+      "status": "answered",
+      "entry": "2026-08-12-pick-04-should-detroit-run",
+      "answer": "Both halves of the premise checked out and the answer still came back the other way. Cleveland's 15.7% is 2 catchers averaged into 1 number, and the good one had been catching."
+    },
+    {
+      "question": "Does Cleveland actually have Detroit's number, or is it 3 bad months?",
+      "asked": "2026-08-10",
+      "asked_where": "an r/motorcitykitties thread",
+      "status": "open",
+      "answer": "The real question is whether Detroit's offence falls off against Cleveland specifically or against good pitching generally, and only 1 of those is a story. Not started."
+    },
+    {
+      "question": "When you're only playing your starters in the preseason game you have a problem. Does starter snap count in August predict anything?",
+      "asked": "2026-08-13",
+      "asked_where": "an r/detroitlions thread",
+      "status": "open",
+      "answer": "Testable if preseason snap counts are reachable for free, which hasn't been checked yet. If they aren't, that gets said here rather than the question quietly disappearing."
+    }
+  ]
+}

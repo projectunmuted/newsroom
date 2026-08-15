@@ -29,24 +29,43 @@ happen.
 
 ## Due now or overdue
 
-### By 2026-08-16 2:00am: grade Pick 7 and commit `824236`
+### By 2026-08-16 10:00am: the Pittsburgh series preview
+
+**Trigger:** Detroit is at Pittsburgh **Mon Aug 17 (7:05pm ET), Tue Aug 18
+(6:40pm ET) and Wed Aug 19 (12:35pm ET)**, gamePks `823343`, `823341`, `823342`,
+read off the schedule endpoint this cycle. `CYCLE.md` says a series starting
+today or tomorrow is the cycle's work ahead of anything discretionary, so this
+lands on **Sunday**, either cycle, and it is the last recurring format the
+project has.
+
+`python scripts/series_preview.py --opp PIT`, and **add PIT to `OPPS` if it is
+missing**, which it probably is since Detroit has not played them yet this year.
+
+**Do not open by grading the previous preview.** He cut that out of the 08-14
+post himself and `VOICE.md` records it. Open on the finding.
+
+Check `drafts/POSTED.md` first: the cap is 1 post a day across all 4 teams and
+the 08-14 Lions 2008 follow-up is still queued and unposted, so a preview may
+have to displace it. That is his call, not mine, so present both.
+
+**Ends when:** a preview draft for the Pittsburgh series exists in `drafts/` and
+the analysis entry is published, before Monday's 7:05pm first pitch.
+
+### By 2026-08-16 2:00am: grade Pick 7, and Pick 8 is already committed
 
 **Trigger:** tonight's 2:00am cycle. `824239` is Saturday 08-15 at 1:10pm ET, so
-it is Final long before then. **`824236` is Sunday 08-16 at 1:40pm ET**, read off
-the schedule endpoint this cycle, which is about 3 hours after the 10:00am
-Sunday cycle. Take it at 2:00am for the same reason Pick 7 was taken at 2:00am:
-3 hours of margin is the shape of how a pick gets lost.
+it is Final long before then.
 
-Sunday's probables as of this cycle: **Sean Burke for Chicago, Drew Anderson for
-Detroit.** Anderson is the pitcher Pick 3 was built on, and
-`WOODWARD-TODO.md` already carries a follow-up item about his stretch-out, so
-Sunday's pick and that follow-up are probably the same piece.
+**`824236` no longer needs a pick. It was committed at the 10:00am cycle on
+08-15**, 27 hours before its 1:40pm Sunday first pitch, rather than left for
+2:00am. The probables had already posted, so there was nothing to wait for, and
+Sunday's cycles now owe a Pittsburgh series preview instead.
 
-Run `python scripts/injury_check.py 824236` first and read it. As of this cycle
-Detroit is without Riley Greene, Matt Vierling, Kerry Carpenter and Jack
-Flaherty, plus James Outman on the 7-day with a concussion. Chicago put **Davis
-Martin on the 15-day with a finger blister on 08-14** and claimed **catcher Jake
-Rogers off waivers from Boston**, which is a name a Detroit audience knows.
+**Pick 8 is White Sox, Low**, at
+`/journal/2026-08-15-pick-08-anderson-has-never-finished-a-fifth.html`. First
+pick on the board that is not Detroit. `injury_check.py 824236` ran first, exit
+0, and turned up Chicago **activating Jake Rogers** on 08-15, the day after
+claiming him, which a Detroit audience will notice.
 
 **What Pick 7 made falsifiable, so the grade has something to check:**
 
@@ -61,8 +80,35 @@ Rogers off waivers from Boston**, which is a name a Detroit audience knows.
   innings and 2 earned runs. The entry says a soft contact pitcher is exactly the
   profile that suffers on a third look.
 
-**Ends when:** `824239` is graded in `PICKS.md` with a published note and
-`824236` has a committed row before 1:40pm Sunday.
+**What Pick 8 made falsifiable**, so its grade on Monday has something to check:
+
+- **Whether Anderson gets past 14 outs.** That is his 2026 ceiling and Detroit's
+  median start is 17. If he goes 5, the load-bearing claim of the pick is dead
+  and the grade says so plainly.
+- **Whether the bullpen game is actually the problem.** Detroit is 10-10 when the
+  starter faces 18 or fewer and 50-52 otherwise. One game moves that by one row
+  and proves nothing either way; do not write it up as though it does.
+- **Whether Burke goes 6.** He has in 7 of his last 11. The pick assumes Chicago
+  gets length and Detroit does not.
+
+**Ends when:** `824239` is graded in `PICKS.md` with a published note. `824236`
+already has its committed row.
+
+### Every new request goes in two files, not one
+
+**Trigger:** any cycle that records a reader request. Standing, from 2026-08-15.
+
+`REQUESTS.md` is the prose record. **`requests.json` is what a reader sees**, via
+`/requests.html` on Detroit Sports Reporter. A request that only lands in the
+markdown is invisible to everybody outside this repository, which is the exact
+failure the file already has a rule about.
+
+`build.py` refuses to build if a row marked `answered` names an entry slug with
+no file in `entries/`, so a bad slug fails loudly rather than shipping a link to
+a 404. The guard runs before the output directories are wiped; that ordering was
+wrong on the first attempt and is tested.
+
+**Ends when:** never.
 
 ### A request is closed when it has a URL, not when the answer exists
 

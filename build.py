@@ -81,6 +81,13 @@ REPO = "https://github.com/projectunmuted/newsroom"
 # one carries the brand a reader actually arrives from.
 KOFI = "https://ko-fi.com/detroitsportsreporter"
 
+# The address a reader can actually reach. Until 2026-08-15 neither site carried
+# one: there was a button asking for a dollar and no way to ask for anything.
+# MONEY.md ranks somebody paying for a specific breakdown as the likeliest first
+# dollar, and its input is a person asking a question, so the question needed
+# somewhere to arrive.
+ASK_EMAIL = "projectunmuted@proton.me"
+
 # IndexNow ownership keys, one per domain (public by design; proves domain
 # control by serving the value at /<key>.txt). Ping api.indexnow.org after
 # publishing new pages. Covers Bing, DuckDuckGo's sources, Yandex, Seznam,
@@ -514,6 +521,13 @@ footer a{color:var(--muted)}
 .back{display:inline-block;margin-bottom:2rem;font-size:.9rem;text-decoration:none}
 .note{background:var(--card);border:1px solid var(--rule);border-radius:8px;
   padding:1rem 1.15rem;font-size:.94rem;color:var(--muted)}
+/* Reader requests. The question is the heading, because on this page the
+   question is the thing a visitor scans for, not the answer. */
+.reqs{list-style:none;margin:1.25rem 0 0;padding:0}
+.req{border-top:1px solid var(--rule);padding:1.1rem 0}
+.req .q{margin:0 0 .5rem;font-weight:600;color:var(--fg)}
+.req .a{margin:0 0 .45rem;font-size:.95rem}
+.req .meta{margin:0;font-size:.85rem;color:var(--muted)}
 .tip{background:var(--card);border:1px solid var(--rule);border-radius:8px;
   padding:1.25rem 1.35rem;margin:2.5rem 0}
 .tip p{margin:0 0 1rem;font-size:.96rem}
@@ -599,6 +613,7 @@ def site_nav(site: Site, up: str) -> str:
             ("Picks", f"{up}index.html#picks"),
             ("Analysis", f"{up}analysis.html"),
             ("Teams", f"{up}index.html#teams"),
+            ("Requests", f"{up}requests.html"),
             ("About", f"{up}about.html"),
         ]
     else:
@@ -878,7 +893,7 @@ def write_common(site: Site, entries: list[Entry], home: str) -> None:
 
     pages = [""] + [e.url for e in entries]
     if site.key == "dsr":
-        pages += ["picks.html", "analysis.html", "about.html"]
+        pages += ["picks.html", "analysis.html", "requests.html", "about.html"]
         pages += [f"team/{slug}/" for slug, *_ in TEAMS]
     else:
         # essays.html is a redirect to "/" now and is deliberately absent: a
@@ -969,6 +984,89 @@ def write_feed(site: Site, items: list[FeedItem], limit: int = 40) -> None:
     (site.out / "feed.xml").write_text(
         feed_xml(site, items[:limit]), encoding="utf-8"
     )
+
+
+def load_requests() -> list[dict]:
+    """Reader requests, as data, from requests.json.
+
+    Validated rather than trusted. A row marked answered must name an entry
+    slug that exists in entries/, and the build stops if it does not. The page
+    this feeds exists because "delivered" once meant a chart on a disk nobody
+    could reach; a published page pointing at a 404 would be that same failure
+    with better production values.
+    """
+    path = ROOT / "requests.json"
+    if not path.exists():
+        return []
+    rows = json.loads(path.read_text(encoding="utf-8")).get("requests", [])
+    for r in rows:
+        if r.get("status") != "answered":
+            continue
+        slug = r.get("entry", "")
+        if not (ROOT / "entries" / f"{slug}.md").exists():
+            raise SystemExit(
+                f"requests.json: answered request names entry '{slug}', "
+                f"which has no file in entries/. Fix the slug or mark it open."
+            )
+    return rows
+
+
+def requests_page_body(rows: list[dict]) -> str:
+    """The ask, and the evidence that asking works.
+
+    The order matters. The invitation comes first, because that is the point of
+    the page, and the answered questions come second as proof rather than as an
+    archive: a reader deciding whether it is worth typing an email wants to see
+    that the last 4 people who asked got a real answer with numbers in it.
+    """
+    answered = [r for r in rows if r.get("status") == "answered"]
+    still_open = [r for r in rows if r.get("status") != "answered"]
+
+    def card(r: dict) -> str:
+        link = (
+            f' <a href="/journal/{r["entry"]}.html">Read the answer</a>'
+            if r.get("status") == "answered" else ""
+        )
+        meta = f'Asked {r["asked"]} in {r["asked_where"]}'
+        return (
+            '<li class="req"><p class="q">'
+            f'{html.escape(r["question"])}</p>'
+            f'<p class="a">{html.escape(r.get("answer", ""))}{link}</p>'
+            f'<p class="meta">{html.escape(meta)}</p></li>'
+        )
+
+    out = [
+        "<h2>Ask for a breakdown</h2>",
+        '<p class="sub">If there is a Detroit number you want looked at '
+        "properly, ask and it gets looked at.</p>",
+        render(
+            "Something you argued about in a game thread and nobody could "
+            "settle. A stat somebody quoted that smells wrong. A thing you have "
+            "always assumed about one of these 4 teams and have never seen "
+            "checked. Those are the best questions and they make better pieces "
+            f"than anything picked unprompted.\n\n"
+            f"**[{ASK_EMAIL}](mailto:{ASK_EMAIL})**\n\n"
+            "Every question that arrives gets listed on this page, with the "
+            "answer when there is one, including the ones where the answer is "
+            "no or the data doesn't exist. Nothing gets quietly dropped. If a "
+            "question needs a lot of work, that will be said too."
+        ),
+    ]
+    if answered:
+        out += [
+            "<h2>Answered</h2>",
+            '<p class="sub">Questions readers have already asked, and where '
+            "the answer went.</p>",
+            f'<ul class="reqs">{"".join(card(r) for r in answered)}</ul>',
+        ]
+    if still_open:
+        out += [
+            "<h2>Open</h2>",
+            '<p class="sub">Asked, not answered yet. Listed so it is visible '
+            "that they have not been.</p>",
+            f'<ul class="reqs">{"".join(card(r) for r in still_open)}</ul>',
+        ]
+    return "".join(out)
 
 
 def tip_block(text: str) -> str:
@@ -1393,6 +1491,14 @@ def build_dsr(analysis: list[Entry]) -> None:
         "paywall, nothing for sale. If a call or a piece was worth something to "
         "you, the tip jar is open."
     )
+    # The ask sits above the tip jar rather than inside it, because they are
+    # different requests and pairing them makes the question look like a price
+    # list. Asking is free and always will be.
+    ask = (
+        '<div class="note">Got a Detroit number you want looked at? '
+        '<a href="requests.html">Ask for a breakdown</a>. '
+        "Every question that arrives gets listed, answered or not.</div>"
+    )
     by_team = {}
     for e in analysis:
         by_team.setdefault(e.team or "", []).append(e)
@@ -1435,6 +1541,7 @@ def build_dsr(analysis: list[Entry]) -> None:
             else ""
         )
         + teams_block
+        + ask
         + tip
     )
     write_common(site, analysis, home)
@@ -1466,6 +1573,14 @@ def build_dsr(analysis: list[Entry]) -> None:
              + f'<ul class="entry-list">{"".join(entry_item(e) for e in analysis)}</ul>',
              path="analysis.html",
              description="Every Detroit Tigers, Lions, Pistons and Red Wings piece, newest first."),
+        encoding="utf-8",
+    )
+    (site.out / "requests.html").write_text(
+        page(site, f"Requests{site.title_sep}{site.title}",
+             requests_page_body(load_requests()),
+             path="requests.html",
+             description="Ask for a Detroit breakdown, and see the questions "
+                         "readers have already asked and where the answers went."),
         encoding="utf-8",
     )
     (site.out / "about.html").write_text(
@@ -1553,6 +1668,10 @@ def build_dsr(analysis: list[Entry]) -> None:
 
 
 def build() -> None:
+    # Validated before anything is written, because build_dsr() wipes the output
+    # directory first. Discovered by testing the failure path: a bad slug in
+    # requests.json used to exit 1 having already deleted the built site.
+    load_requests()
     entries = sorted(
         (parse(p) for p in ENTRIES.glob("*.md")),
         key=lambda e: (e.day, e.seq, e.slug),

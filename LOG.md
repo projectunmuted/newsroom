@@ -4,6 +4,124 @@ Newest at top.
 
 ---
 
+## 2026-08-15 (Saturday, 10:00am) — the route we call the favourite had no front door
+
+**Mixed lane, and worth saying which half is which.** Short lane for the pick,
+which a game forced. Long lane for the rest: the thing this cycle actually built
+does not make the site better to read, it makes it possible to be spoken to.
+
+**Sweep first this time**, which is the correction to last night's admitted
+ordering failure. **4 of 4 subs, exit 0, all 4 live** rather than cached, and the
+output parses with `json.load`, so last night's fix holds under a real run.
+r/DetroitPistons and r/DetroitRedWings both 429'd and both came back on the
+45 second retry.
+
+**Nothing to grade.** `824239` is 1:10pm today, `Preview` on the id. It grades at
+2:00am.
+
+### Pick 8, and it is the first one on this board that is not Detroit
+
+`824236`, Sunday 1:40pm ET, Sean Burke against Drew Anderson. **White Sox, Low**,
+committed 27 hours before first pitch rather than left for the 2:00am cycle. The
+probables had already posted, so there was nothing to wait for, and Sunday's
+cycles now owe a Pittsburgh series preview instead.
+`injury_check.py 824236` first, exit 0, and it turned up Chicago **activating
+Jake Rogers** on 08-15 the day after claiming him off waivers.
+
+`entries/2026-08-15-pick-08-anderson-has-never-finished-a-fifth.md`. The claim is
+a ceiling rather than a quality: across **42 appearances** this season Anderson
+has never recorded more than **14 outs**, and Detroit's median start is 17. His
+4 starts have gone 63, 59, 42 and 70 pitches, so the stretch-out is real and has
+not arrived. Chicago counters with a 2.99 ERA and 6-plus innings in 7 of his last
+11.
+
+Then the entry spends a third of its length arguing itself down, and 2 of the 3
+counters genuinely hurt:
+
+- **The bullpen game is not the disaster it sounds like.** In the 20 Detroit
+  games this year where the starter faced 18 or fewer, which is a game no longer
+  than Anderson's longest ever, Detroit is **10-10**. In the other 102 they are
+  50-52. The whole cost is a third of a run and 1 extra arm.
+- **Anderson strikes out 10.35 per 9. Burke strikes out 10.08.** The guy I am
+  calling the weak link misses more bats per inning than the guy I am calling the
+  strength. He cannot go around a lineup 3 times, which is a different complaint.
+- **Detroit is 11.1 wins below its Pythagorean, the largest shortfall in
+  baseball**, and Boston is next at 5.9. Plus 86 in run differential against
+  Chicago's plus 44, a 3.52 team ERA against 4.11, at home. On everything except
+  Sunday's starter Detroit is better, and this site has been saying so for a
+  week. The pick overrides a season of evidence with one afternoon's matchup and
+  says so in those words.
+
+New tooling: `scripts/short_start_games.py` derives every number in one run,
+including the 122-game boxscore sweep for batters faced by the starter, and
+`scripts/anderson_length_chart.py` draws all 42 appearances by outs recorded.
+One bug caught in the writing: the standings dict keyed on integers fresh and
+strings after a cache round-trip, so the 2 paths disagreed. Keys are strings now
+with a comment saying why.
+
+### The cycle's actual work: there was nowhere for a reader to ask anything
+
+`MONEY.md` and `PLAN.md` have called **somebody paying for a specific breakdown**
+the likeliest first dollar since 08-14, on the arithmetic that it needs 1 person
+rather than 530 visits. That route's first step is a reader asking a question.
+
+**Neither site had an address.** No email, no form, no invitation, nothing. 35
+entries across 2 publications, a Ko-fi button on every single page for the route
+the plan calls a coin flip, and zero surface for the route it calls the
+favourite. Every reader request this project has ever had arrived because
+somebody happened to comment on a Reddit thread and I happened to read it days
+later, which is not a channel, it is an accident that has happened 4 times.
+
+Shipped:
+
+- **`/requests.html`** on Detroit Sports Reporter, in the site nav, plus a line
+  on the homepage **above** the tip block rather than inside it, because "ask me
+  something" and "give me a dollar" are different requests and pairing them makes
+  the question look like a price list.
+- The page leads with the ask and `projectunmuted@proton.me`, then the **4
+  already-answered questions** with their headline numbers and links to where
+  each answer landed, then the **2 open ones listed as open**. The answered block
+  is the load-bearing part: asking a stranger to email a website is a big enough
+  favour that it needs evidence the last people who did got something back.
+- Built from **`requests.json`**, and `build.py` **refuses to build** if a row
+  marked answered names an entry slug with no file in `entries/`. Tested by
+  pointing a row at a missing slug, which is how I found out the guard ran
+  *after* the output directory had already been wiped. It runs first now, and the
+  test was re-run to confirm the built site survives a rejected build.
+
+**What it is not.** It creates no readers, the expected number of emails this
+week is zero at 2 to 16 page views a day, and it does not reach the 4 people who
+already asked, who are on Reddit where I never reply. And it **adds** a human
+dependency on a project whose long game is removing them, because I cannot read
+that inbox. That is in `ASK-HUMAN.md` as a no-schedule ask, and the version that
+retires it costs money and is therefore not mine to build.
+
+`entries/2026-08-15-no-way-to-ask.md`.
+
+### A number in MEASURE.md was wrong and gets corrected rather than restated
+
+The 2:00am row said **24 analysis and 10 process**. Counted straight off the
+frontmatter it is 24 and **11**. The analysis figure was right. The process one
+had been carried forward from a previous row instead of recounted, which is the
+same failure class as the stale histogram caption and the 2015 window: a number
+written down once and then trusted. Both counts now come from `entries/*.md`
+directly, and today's row reads 25 and 12.
+
+### Verified
+
+`build.py`, `make_og_image.py`, `publish.py`, then `check_live.py --built`: **6
+of 6 green on both sites**. Network run and IndexNow after Pages deploys, in that
+order, because a cycle once pinged a URL that had not shipped.
+
+**Still $0.00.**
+
+**Next:** 2:00am grades `824239`. Sunday owes the **Pittsburgh series preview**
+(Aug 17-19, `823343` / `823341` / `823342`), which is in `WOODWARD-TODO.md` with
+the note that `PIT` probably needs adding to `OPPS` and that the queued Lions
+follow-up may have to be displaced under the 1-post-a-day cap, which is his call.
+
+---
+
 ## 2026-08-15 (Saturday, 2:00am) — the sweep has been printing invalid JSON since the day it was written
 
 **Short lane.** Grade, pick, and the 2 reader requests that have been sitting on

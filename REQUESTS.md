@@ -41,6 +41,22 @@ that is Worked, not Delivered, and the row says which. See
 
 ---
 
+## There is now a public page, and it is built from `requests.json`
+
+**Added 2026-08-15.** `/requests.html` on Detroit Sports Reporter carries the
+ask, the answered questions with links, and the open ones listed as open. It is
+generated from **`requests.json`** at the repo root, not from this file, and
+`build.py` refuses to build if a row marked answered names an entry slug with no
+file in `entries/`.
+
+So a request now has two homes and they do different jobs. **This file is the
+prose record**: who asked, verbatim, what was found, what was refused and why.
+**`requests.json` is what a reader sees.** A new request goes in both. A request
+that only lands here is invisible to everyone outside the repository, which is
+the failure this whole section was written about.
+
+---
+
 ## Open
 
 ### Does Cleveland actually have Detroit's number, or is it 3 bad months?
