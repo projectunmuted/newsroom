@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 270" width="100%" role="img" aria-labelledby="al-t" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="al-t">Outs recorded by Drew Anderson in each of his 42 appearances in 2026, with his 4 starts marked, against the median Detroit start of 17 outs</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">Every Drew Anderson appearance in 2026, by outs recorded</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">Filled dots are his 4 starts. The dashed line is the median Detroit start at 17 outs, which he has never reached.</text>
+<line x1="46.0" y1="70.7" x2="618.0" y2="70.7" stroke="var(--rule)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="618.0" y="64.7" text-anchor="end" fill="var(--muted)" font-size="11">median Detroit start, 17 outs</text>
+<text x="38.0" y="205.9" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums">3</text>
+<text x="38.0" y="177.8" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums">6</text>
+<text x="38.0" y="149.7" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums">9</text>
+<text x="38.0" y="121.6" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums">12</text>
+<text x="38.0" y="93.5" text-anchor="end" fill="var(--muted)" font-size="11" font-variant-numeric="tabular-nums">15</text>
+<circle cx="46.0" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-03-26, relief vs San Diego Padres: 1.1 innings, 8 batters faced</title></circle>
+<circle cx="66.7" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-03-31, relief vs Arizona Diamondbacks: 1.0 innings, 5 batters faced</title></circle>
+<circle cx="83.3" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-04, relief vs St. Louis Cardinals: 1.0 innings, 5 batters faced</title></circle>
+<circle cx="91.6" cy="145.7" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-06, relief vs Minnesota Twins: 3.0 innings, 13 batters faced</title></circle>
+<circle cx="112.3" cy="136.3" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-11, relief vs Miami Marlins: 3.1 innings, 12 batters faced</title></circle>
+<circle cx="133.0" cy="220.6" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-16, relief vs Kansas City Royals: 0.1 innings, 4 batters faced</title></circle>
+<circle cx="149.6" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-20, relief vs Boston Red Sox: 1.1 innings, 7 batters faced</title></circle>
+<circle cx="166.2" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-24, relief vs Cincinnati Reds: 1.0 innings, 3 batters faced</title></circle>
+<circle cx="170.3" cy="155.1" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-25, relief vs Cincinnati Reds: 2.2 innings, 9 batters faced</title></circle>
+<circle cx="191.1" cy="173.8" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-04-30, relief vs Atlanta Braves: 2.0 innings, 8 batters faced</title></circle>
+<circle cx="199.4" cy="164.4" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-02, relief vs Texas Rangers: 2.1 innings, 9 batters faced</title></circle>
+<circle cx="215.9" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-06, relief vs Boston Red Sox: 1.1 innings, 8 batters faced</title></circle>
+<circle cx="232.5" cy="173.8" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-10, relief vs Kansas City Royals: 2.0 innings, 11 batters faced</title></circle>
+<circle cx="245.0" cy="220.6" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-13, relief vs New York Mets: 0.1 innings, 2 batters faced</title></circle>
+<circle cx="253.2" cy="117.6" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-15, relief vs Toronto Blue Jays: 4.0 innings, 12 batters faced</title></circle>
+<circle cx="274.0" cy="98.8" r="5" fill="var(--chart-neg)"><title>2026-05-20, start vs Cleveland Guardians: 4.2 innings, 18 batters faced, 63 pitches</title></circle>
+<circle cx="290.6" cy="173.8" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-24, relief vs Baltimore Orioles: 2.0 innings, 9 batters faced</title></circle>
+<circle cx="303.0" cy="145.7" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-27, relief vs Los Angeles Angels: 3.0 innings, 9 batters faced</title></circle>
+<circle cx="311.3" cy="211.3" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-29, relief vs Chicago White Sox: 0.2 innings, 3 batters faced</title></circle>
+<circle cx="319.6" cy="211.3" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-05-31, relief vs Chicago White Sox: 0.2 innings, 6 batters faced</title></circle>
+<circle cx="332.0" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-03, relief vs Tampa Bay Rays: 1.0 innings, 3 batters faced</title></circle>
+<circle cx="340.3" cy="173.8" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-05, relief vs Seattle Mariners: 2.0 innings, 8 batters faced</title></circle>
+<circle cx="348.6" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-07, relief vs Seattle Mariners: 1.0 innings, 5 batters faced</title></circle>
+<circle cx="356.9" cy="211.3" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-09, relief vs Minnesota Twins: 0.2 innings, 3 batters faced</title></circle>
+<circle cx="369.3" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-12, relief vs Cleveland Guardians: 1.0 innings, 6 batters faced</title></circle>
+<circle cx="381.7" cy="155.1" r="5" fill="var(--chart-neg)"><title>2026-06-15, start vs Houston Astros: 2.2 innings, 12 batters faced, 59 pitches</title></circle>
+<circle cx="398.3" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-19, relief vs Chicago White Sox: 1.1 innings, 5 batters faced</title></circle>
+<circle cx="410.8" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-22, relief vs New York Yankees: 1.1 innings, 6 batters faced</title></circle>
+<circle cx="431.5" cy="211.3" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-27, relief vs Houston Astros: 0.2 innings, 5 batters faced</title></circle>
+<circle cx="439.8" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-06-29, relief vs New York Yankees: 1.0 innings, 3 batters faced</title></circle>
+<circle cx="448.1" cy="173.8" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-01, relief vs New York Yankees: 2.0 innings, 10 batters faced</title></circle>
+<circle cx="464.6" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-05, relief vs Texas Rangers: 1.0 innings, 4 batters faced</title></circle>
+<circle cx="472.9" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-07, relief vs Athletics: 1.0 innings, 7 batters faced</title></circle>
+<circle cx="489.5" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-11, relief vs Philadelphia Phillies: 1.1 innings, 4 batters faced</title></circle>
+<circle cx="522.7" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-19, relief vs Los Angeles Angels: 1.1 innings, 8 batters faced</title></circle>
+<circle cx="535.1" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-22, relief vs Chicago Cubs: 1.0 innings, 4 batters faced</title></circle>
+<circle cx="539.2" cy="201.9" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-23, relief vs Kansas City Royals: 1.0 innings, 5 batters faced</title></circle>
+<circle cx="555.8" cy="183.2" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-27, relief vs Baltimore Orioles: 1.2 innings, 5 batters faced</title></circle>
+<circle cx="564.1" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-07-29, relief vs Baltimore Orioles: 1.1 innings, 7 batters faced</title></circle>
+<circle cx="580.7" cy="192.5" r="3.5" fill="none" stroke="var(--chart-pos)" stroke-width="1.6"><title>2026-08-02, relief vs Athletics: 1.1 innings, 5 batters faced</title></circle>
+<circle cx="593.1" cy="126.9" r="5" fill="var(--chart-neg)"><title>2026-08-05, start vs Seattle Mariners: 3.2 innings, 13 batters faced, 42 pitches</title></circle>
+<circle cx="618.0" cy="117.6" r="5" fill="var(--chart-neg)"><title>2026-08-11, start vs Cleveland Guardians: 4.0 innings, 17 batters faced, 70 pitches</title></circle>
+<text x="46" y="258" fill="var(--muted)" font-size="11">2026-03-26</text>
+<text x="618" y="258" text-anchor="end" fill="var(--muted)" font-size="11">2026-08-11</text>
+<text x="0" y="48" fill="var(--muted)" font-size="11">outs</text>
+</svg>
