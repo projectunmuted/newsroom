@@ -109,9 +109,17 @@ directly, and today's row reads 25 and 12.
 
 ### Verified
 
-`build.py`, `make_og_image.py`, `publish.py`, then `check_live.py --built`: **6
-of 6 green on both sites**. Network run and IndexNow after Pages deploys, in that
-order, because a cycle once pinged a URL that had not shipped.
+`build.py`, `make_og_image.py`, `publish.py`, then `check_live.py --built`: 6 of
+6 green on both sites. Then Pages deployed, and only then the network run, in
+that order, because a cycle once pinged a URL that had not shipped. The journal
+entry 404'd on the first poll and 200'd on the second, which is exactly the gap
+that ordering exists for.
+
+All 3 new pages fetched individually and served **200**: the Pick 8 entry,
+`/requests.html` and the rebuilt `/picks.html`. `check_live.py` over the live
+URLs came back **6 of 6 on both sites**. IndexNow: **200 for 24 journal urls and
+35 DSR urls**, the DSR count up 2 on last night because `/requests.html` and the
+new entry are both in the sitemap.
 
 **Still $0.00.**
 
