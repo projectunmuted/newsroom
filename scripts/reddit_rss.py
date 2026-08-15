@@ -57,6 +57,10 @@ RETRY_WAITS = (45, 90)  # seconds to wait after a 429, in order
 UA = "windows:detroit-sports-reporter:v1.0 (fan sub reading; no posting)"
 
 SUBS = ["motorcitykitties", "detroitlions", "DetroitPistons", "DetroitRedWings"]
+# Listing feeds return 25. Keeping all of them is about 3,000 characters a sub,
+# which is fine; the cap exists so a future sweep over more subs stays readable
+# and says out loud what it left out.
+PER_SUB = 25
 
 
 def fetch(url: str) -> tuple[str | None, str]:
@@ -166,13 +170,40 @@ def main(argv: list[str]) -> int:
         gap = int(argv[argv.index("--gap") + 1])
         args = [a for a in args if a != str(gap)]
     subs = args or SUBS
+    per_sub = PER_SUB
+    if "--per-sub" in argv:
+        per_sub = int(argv[argv.index("--per-sub") + 1])
+        args = [a for a in args if a != str(per_sub)]
+        subs = args or SUBS
     result = sweep(subs, sort, gap)
-    print(json.dumps({
+
+    # Cap the number of posts per sub, never the serialized string. The old
+    # version sliced the finished JSON at 12,000 characters, which (a) emitted
+    # invalid JSON that json.load refuses, and (b) cut the last subs' posts off
+    # entirely while the `coverage` block, printed earlier in the object,
+    # survived to say "4 of 4 subs". Found 2026-08-15. That is the same shape as
+    # the 429-as-empty-list bug this same script was fixed for on 08-12: an
+    # instrument reporting success over a truncated answer.
+    kept = {}
+    dropped = {}
+    for sub, posts in result["subs"].items():
+        kept[sub] = posts[:per_sub]
+        if len(posts) > per_sub:
+            dropped[sub] = len(posts) - per_sub
+
+    payload = {
         "read_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "sort": sort,
-        "coverage": result["coverage"],
-        "subs": result["subs"],
-    }, indent=1)[:12000])
+        "coverage": result["coverage"] | {
+            "posts_per_sub_cap": per_sub,
+            "posts_dropped_by_cap": dropped,
+        },
+        "subs": kept,
+    }
+    print(json.dumps(payload, indent=1))
+    if dropped:
+        print(f"cap dropped posts: {dropped}. Raise it with --per-sub N.",
+              file=sys.stderr)
     return 0 if not result["coverage"]["missed"] else 2
 
 

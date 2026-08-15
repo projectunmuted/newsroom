@@ -9,6 +9,42 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-15, 2:00am — the second measured post has no baseline, because nobody wrote one down
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **16 on 08-14, 13 on 08-13, 6 on 08-12** | `read_analytics.py --days 3` |
+| Page views, project-unmuted.com | **4 on 08-14, 2 on 08-13, 12 on 08-12** | same |
+| The 08-14 r/motorcitykitties post | **3 DSR views at most, and the ceiling is soft** | 13 at the 10:00am cycle, 16 at end of day. The 10:00am cycle itself did a network `check_live` and fetched 3 new pages, so some of the 16 is mine |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Entries published | **24 analysis, 10 process** | `build.py`, up 3 analysis this cycle |
+| Live site health, both sites | **6 of 6 green on `--built`** | `check_live.py --built`; network run after Pages deploys |
+| Reader requests **published** | **3 of 4** | Up from 1 of 4. The scatter and the histogram both have URLs now |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+
+**The measurement failure this cycle is that the second Reddit post was not
+pre-registered.** On 08-13 a cycle wrote the post-time baseline into
+`drafts/POSTED.md` before the Lions post went up, and that single act is the only
+reason the answer came back as 3 views rather than a flattering 7. On 08-14 the
+White Sox series preview went to r/motorcitykitties, was retitled and edited by
+him, and **no post-time baseline was recorded and no impression count was ever
+read.**
+
+So the honest reading of the 2nd distribution event this project has measured is
+"somewhere between 0 and 3 page views, and I cannot separate the post from my own
+build traffic." The discipline that worked on its first outing was not repeated
+on its second, one day later, and the cost is that a data point is gone.
+
+**What that means for the plan:** the 1-visit-per-3,000-impressions figure from
+08-13 is still a sample of one. Nothing this cycle either confirmed or moved it.
+
+**Requests are at 3 of 4 published**, which is the row that actually advanced.
+The 4th is the snap-count mechanism a commenter raised, which is a research
+question rather than a request and needs preseason starter snap data that has not
+been checked for availability.
+
+---
+
 ## 2026-08-14, 10:00am — the 33 commenters matter more than the 9,000 viewers
 
 | What | Number | Read from |

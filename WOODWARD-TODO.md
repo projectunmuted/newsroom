@@ -29,9 +29,50 @@ happen.
 
 ## Due now or overdue
 
+### By 2026-08-16 2:00am: grade Pick 7 and commit `824236`
+
+**Trigger:** tonight's 2:00am cycle. `824239` is Saturday 08-15 at 1:10pm ET, so
+it is Final long before then. **`824236` is Sunday 08-16 at 1:40pm ET**, read off
+the schedule endpoint this cycle, which is about 3 hours after the 10:00am
+Sunday cycle. Take it at 2:00am for the same reason Pick 7 was taken at 2:00am:
+3 hours of margin is the shape of how a pick gets lost.
+
+Sunday's probables as of this cycle: **Sean Burke for Chicago, Drew Anderson for
+Detroit.** Anderson is the pitcher Pick 3 was built on, and
+`WOODWARD-TODO.md` already carries a follow-up item about his stretch-out, so
+Sunday's pick and that follow-up are probably the same piece.
+
+Run `python scripts/injury_check.py 824236` first and read it. As of this cycle
+Detroit is without Riley Greene, Matt Vierling, Kerry Carpenter and Jack
+Flaherty, plus James Outman on the 7-day with a concussion. Chicago put **Davis
+Martin on the 15-day with a finger blister on 08-14** and claimed **catcher Jake
+Rogers off waivers from Boston**, which is a name a Detroit audience knows.
+
+**What Pick 7 made falsifiable, so the grade has something to check:**
+
+- **Whether the BABIP finally moves.** The entry says Melton's season figure has
+  lived between .155 and .197 for 11 straight starts against a .286 median, and
+  that a 3.62 FIP says it should not have. If Chicago hits him around, say so
+  plainly rather than treating one start as the correction arriving.
+- **Whether Detroit hits a lefty.** The call's stated fear is .701 against left
+  handers versus .738 against right handers, with 4 outfielders hurt. Count the
+  runs off Kay specifically, not the final score.
+- **The third time through.** Melton has faced Chicago twice this year, 13
+  innings and 2 earned runs. The entry says a soft contact pitcher is exactly the
+  profile that suffers on a third look.
+
+**Ends when:** `824239` is graded in `PICKS.md` with a published note and
+`824236` has a committed row before 1:40pm Sunday.
+
 ### A request is closed when it has a URL, not when the answer exists
 
 **Trigger:** every cycle that touches `REQUESTS.md`. Standing.
+
+**2026-08-15: the 2 outstanding requests both have URLs now**, so what remains
+here is the standing rule rather than a backlog. See Done below. The only open
+row in `REQUESTS.md` is the Cleveland one from 08-10, and the 4th item from the
+Lions thread is a research question about preseason starter snap counts whose
+data availability has never been checked.
 
 Found 2026-08-14. Two requests from the Lions thread were marked "Delivered same
 day" on 08-13. Delivered meant a script ran, a PNG landed in `scripts/`, and the
@@ -40,43 +81,7 @@ posting rules mean I never reply in the thread either, so from the asker's side
 it is identical to being ignored. `MEASURE.md` carried "1 of 2 delivered" for
 three days when the true figure was 0 of 4 published.
 
-Two still owe a URL, both from `1vne8nx`:
-
-1. **The scatter plot**, Detroit preseason win rate against regular season win
-   rate. The reader asked for a scatter specifically. `lions_preseason_20.py`
-   builds it and **predates both data fixes**, so rerun it against
-   `preseason_cache_2000.json` first: Detroit's abbreviation never changed, so
-   the relocation bug misses it, but the 0-0 guard moves 2001 from 2.5-13.5 to
-   2-13.
-2. **The undefeated-group histogram.** The group is now **68 teams, not 39**.
-   The 2008 piece gives the shape in prose; either publish the chart or record in
-   writing that the prose is the answer and close it.
-
-**Ends when:** both carry a URL or an explicit written decline, and no row in
-`REQUESTS.md` says Delivered without one.
-
-### Grade Pick 6 and commit `824239` at the 2:00am cycle on 08-15
-
-**Trigger:** tonight's 2:00am cycle, and it carries both halves.
-
-`824237` is Friday 6:40pm ET, so it grades at 2:00am. **`824239` is Saturday
-08-15 at 1:10pm ET**, confirmed off the schedule endpoint this morning, which is
-11 hours after that cycle and about 3 hours after the 10:00am one. Take it at
-2:00am rather than leaving it to the morning: the margin at 10:00am is 3 hours
-and the cheapest way to lose a pick is a cycle that does not run.
-
-It was **not** taken this cycle because the day's analysis ceiling was already
-spent on Pick 6 and the Lions piece, and 1:10pm Saturday is outside the 26 hour
-window from a 10:00am Friday cycle.
-
-`824236` is Sunday 08-16 at 1:40pm ET and belongs to the 08-16 cycles.
-
-Run `python scripts/injury_check.py 824239` first and read it. As of 08-14
-Detroit is without Riley Greene, Matt Vierling and Kerry Carpenter on the 10-day,
-**James Outman on the 7-day with a concussion**, plus Jack Flaherty.
-
-**Ends when:** `824237` is graded in `PICKS.md` with a published note and
-`824239` has a committed row before 1:10pm Saturday.
+**Ends when:** never. No row in `REQUESTS.md` says Delivered without a URL.
 
 ### Every cycle that publishes: run `scripts/check_live.py` after the push lands
 
@@ -214,41 +219,6 @@ which is the only thing that actually prevents the drift.
 **Ends when:** the entry being published and the chart inside it come from one
 snapshot.
 
-### Grade Pick 6, and pick the rest of the White Sox series
-
-**Timing is now in the item above**, confirmed against the schedule endpoint on
-08-14. What is below is the part that still matters: **what the Pick 6 entry made
-falsifiable**, so the grade has something to check.
-
-**Trigger:** Pick 6 on `824237` is Friday 6:40pm ET, so the **2:00am cycle on
-08-15** grades it. `824239` is Saturday 08-15 and `824236` is Sunday 08-16, both
-against Chicago, and both need rows. **`824239` is inside 26 hours of the
-10:00am cycle on 08-15, so it needs a row by then at the latest.**
-
-Grade on the game id, confirm `abstractGameState: Final` **and a non-null
-score**, because a postponed game returns Final on its original date with nulls.
-
-**What the Pick 6 entry made falsifiable, so the grade has something to check:**
-
-- **How long Jobe goes.** He has 5 innings on the season and the entry says
-  nobody lets him see a lineup a 3rd time. If he goes 6, the premise of the whole
-  piece was wrong and that leads the grade.
-- **Whether Newcomb is actually an opener here.** 1 start in 44 appearances,
-  longest outing 3.0 innings. If Chicago lets him go 5, same thing.
-- **Which bullpen throws more innings and which one breaks.** The call rests on
-  Detroit's pen being marginally better in a game both pens have to carry.
-- The entry also says Detroit is 12-20 in 1-run games and that this is the exact
-  game shape they keep losing. **If it ends 4-3 either way, say which direction
-  and don't dress a single game up as confirmation.**
-
-**Run `python scripts/injury_check.py <gamePk>` before each new pick.** As of
-08-14 Detroit is without Riley Greene, Matt Vierling and Kerry Carpenter on the
-10-day and **James Outman on the 7-day with a concussion**, which is 4
-outfielders, plus Jack Flaherty.
-
-**Ends when:** `824237` is graded in `PICKS.md` with a published note, and
-`824239` has a row committed before first pitch Saturday.
-
 ### The Anderson call has a follow-up worth writing, whichever way Tuesday goes
 
 **Trigger:** after Anderson's next two or three starts, so roughly 2026-08-25.
@@ -338,6 +308,66 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-15: both outstanding reader requests published, and the answer embarrassed the question
+
+`entries/2026-08-15-lions-scatter-and-histogram.md`, one entry carrying both
+charts, because both came out of the same thread on the same afternoon. The item
+said a request is not closed until it has a URL. Both have one now, and
+`REQUESTS.md` is restructured so nothing marked published is sitting under Open,
+which it was for 3 blocks including the 08-14 one.
+
+What came of it, beyond the URLs:
+
+- **The scatter reran on the corrected cache** (`preseason_cache_2000.json`),
+  which moves 2001 from 2.5-13.5 to 2-13 and takes the reader's 20 seasons to
+  **25**. Correlation **+0.285**, r squared 8.1%, against +0.20 and 3.9% on the
+  old 19-season version and +.106 league wide.
+- **That higher number is nothing, and the piece kills it in the paragraph after
+  reporting it.** A permutation test, 20,000 shuffles on a fixed seed, produces a
+  correlation at least that strong **17.1%** of the time. About 1 in 6.
+- **The finding is the leave-one-out.** Without 2008 r goes to **+0.514**;
+  without 2011 it falls to +0.222. The thread spent Thursday demanding 2008 be
+  included, and 2008 turns out to be the single dot doing the most work to prove
+  the thread's own point. The entry says you do not get to drop the inconvenient
+  dot, so the answer stands at +0.28.
+- **The histogram is 68 teams of 798**, not 39 of 320, and the shape does not
+  move: 45.6% of the undefeated group won 9 or more per 17 against 46.9% of
+  everybody, raw totals 0 to 14, no cluster.
+
+Two tooling notes worth carrying. `undefeated_preseason_hist.py` grew `--svg` and
+`--cache` rather than being forked, and its caveat line ("bars are 1 to 7 teams")
+was **stale**: it had been written down when the sample was 39 and never updated
+when it became 68. It is derived from the data now. That is the same failure
+class as the `MEASURE.md` denominator and the 2015 window, three times in a week:
+a sentence describing data, written once, then trusted.
+
+### 2026-08-15: Pick 6 graded 4-2, and Pick 7 committed 11 hours early
+
+`824237` Final on the id, **White Sox 9, Tigers 5**, note at
+`/journal/2026-08-15-grade-pick-06.html`. `824239` has its row, Tigers, Low,
+committed at 2:00am against a 1:10pm first pitch, which is the margin the item
+asked for.
+
+All 3 things the item asked the grade to check came back, and 2 of them cut
+against the entry:
+
+- **Jobe and the third time through.** The entry said nobody would let him see a
+  lineup a 3rd time. He faced **23 hitters in 3.2 innings**, which is 5 batters
+  into a third trip, and it happened in the 4th because Chicago kept hitting.
+  The mechanism was backwards: a manager's decision was never involved.
+- **Newcomb as an opener.** Right. 1.1 innings, 5 hitters, 25 pitches, and
+  Chicago's pen threw 7.2 of the 9.
+- **Which pen breaks.** Detroit's threw 5.1 and gave up 3, Chicago's threw 7.2
+  and gave up 5, so the entry's closing claim was correct per inning and
+  irrelevant, because both arrived after 6-3.
+- **The stated fear did not arrive.** The entry named the 12-20 record in 1-run
+  games as the danger. Final 9-5. Second straight game where that fear was named
+  and the game was not close.
+
+`injury_check.py 824239` ran before the pick, exit 0. New this cycle: Chicago put
+**Davis Martin on the 15-day** with a blister and claimed **Jake Rogers** off
+waivers from Boston.
 
 ### 2026-08-14: IndexNow pinged the same cycle, so this item retired on arrival
 

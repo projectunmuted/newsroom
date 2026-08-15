@@ -28,8 +28,13 @@ import collections
 import json
 import os
 
-CACHE = os.path.join(os.path.dirname(__file__), "preseason_cache.json")
-OUT = os.path.join(os.path.dirname(__file__), "last_undefeated_hist.png")
+HERE = os.path.dirname(__file__)
+CACHE = os.path.join(HERE, "preseason_cache.json")
+# The corrected sample: 2000 onward, relocations matched on ESPN's numeric team
+# id, and 0-0 fixtures refused rather than scored as ties. `--cache full` reads
+# it. The group is 68 teams there, not 39.
+CACHE_FULL = os.path.join(HERE, "preseason_cache_2000.json")
+OUT = os.path.join(HERE, "last_undefeated_hist.png")
 
 # Categorical slots 1 and 2. Neither series is good or bad here, so the site's
 # pos/neg tokens would be lying: this is identity, not polarity. Validated
@@ -43,8 +48,8 @@ RULE = "#e3e0d9"
 CARD = "#ffffff"
 
 
-def load() -> tuple[list[dict], list[dict]]:
-    rows = [r for r in json.load(open(CACHE, encoding="utf-8")) if r["pre_g"] > 0]
+def load(path: str = CACHE) -> tuple[list[dict], list[dict]]:
+    rows = [r for r in json.load(open(path, encoding="utf-8")) if r["pre_g"] > 0]
     undefeated = [r for r in rows if r["pre_w"] == r["pre_g"]]
     return rows, undefeated
 
@@ -55,8 +60,8 @@ def pace(r: dict) -> int:
     return min(17, int(round(r["reg_pct"] * 17)))
 
 
-def report() -> None:
-    rows, u = load()
+def report(path: str = CACHE) -> None:
+    rows, u = load(path)
     n, nu = len(rows), len(u)
     hu = collections.Counter(pace(r) for r in u)
     ha = collections.Counter(pace(r) for r in rows)
@@ -86,10 +91,13 @@ def report() -> None:
         print(f"   {r['team'].upper():<4} {r['season']}  {r['reg_w']:g}-"
               f"{r['reg_g'] - r['reg_w']:g}")
 
-    # 39 across 15 occupied buckets is 2 to 3 per bucket. Any single bar moving
-    # by one team is noise, and a reader is owed that before reading the shape.
-    print(f"\nn = {nu} over {len([w for w in range(18) if hu[w]])} occupied "
-          f"buckets. Individual bars are 1 to 7 teams; do not read a bump.")
+    # A handful of teams per bucket. Any single bar moving by one team is
+    # noise, and a reader is owed that before reading the shape. Derived rather
+    # than written down, because the sample grew from 39 to 68 on 2026-08-14 and
+    # the sentence describing it did not.
+    occupied = [hu[w] for w in range(18) if hu[w]]
+    print(f"\nn = {nu} over {len(occupied)} occupied buckets. Individual bars "
+          f"are {min(occupied)} to {max(occupied)} teams; do not read a bump.")
 
 
 def png() -> None:
@@ -165,10 +173,106 @@ def png() -> None:
     print(f"wrote {OUT}")
 
 
+def svg(path: str = CACHE_FULL, width: int = 640) -> str:
+    """The same histogram as inline SVG, which is the form the site publishes.
+
+    The PNG version has existed since 2026-08-13 and no reader could reach it,
+    which is the whole reason this function is here. Same shape as the PNG: the
+    group is bars, the league is a line laid over it, because the claim is that
+    the two shapes match and a reader should check that in one pass rather than
+    eighteen.
+    """
+    rows, u = load(path)
+    n, nu = len(rows), len(u)
+    hu = collections.Counter(pace(r) for r in u)
+    ha = collections.Counter(pace(r) for r in rows)
+    xs = list(range(18))
+    obs = [hu[w] / nu * 100 for w in xs]
+    exp = [ha[w] / n * 100 for w in xs]
+
+    pad_l, pad_r, top, bottom = 42, 16, 62, 58
+    height = 330
+    plot_w = width - pad_l - pad_r
+    plot_h = height - top - bottom
+    top_pct = max(max(obs), max(exp)) * 1.12
+    slot = plot_w / len(xs)
+    to_x = lambda i: pad_l + (i + 0.5) * slot
+    to_y = lambda v: top + (1 - v / top_pct) * plot_h
+
+    out = [
+        f'<svg viewBox="0 0 {width} {height}" width="100%" role="img" '
+        f'aria-labelledby="uh-title" style="max-width:{width}px;height:auto;'
+        f'font-family:ui-sans-serif,system-ui,-apple-system,\'Segoe UI\','
+        f'Roboto,sans-serif">',
+        f'<title id="uh-title">Where the {nu} teams that won every preseason '
+        f'game finished, as a share of the group, against all {n} '
+        f'team-seasons</title>',
+        '<text x="0" y="16" fill="var(--fg)" font-size="13" '
+        'font-weight="600">They finish everywhere, same as everybody '
+        'else</text>',
+        f'<text x="0" y="34" fill="var(--muted)" font-size="11">Bars are the '
+        f'{nu} teams that went undefeated in the preseason. The line is all '
+        f'{n} team-seasons, 2000 to 2025.</text>',
+    ]
+    for g in (5, 10, 15):
+        y = to_y(g)
+        if y < top:
+            continue
+        out.append(f'<line x1="{pad_l}" y1="{y:.1f}" x2="{pad_l + plot_w}" '
+                   f'y2="{y:.1f}" stroke="var(--rule)" stroke-width="1"/>')
+        out.append(f'<text x="{pad_l - 8}" y="{y + 4:.1f}" text-anchor="end" '
+                   f'fill="var(--muted)" font-size="10.5">{g}%</text>')
+
+    for i, w in enumerate(xs):
+        h = plot_h * obs[i] / top_pct
+        if h <= 0:
+            continue
+        out.append(f'<rect x="{to_x(i) - slot * 0.42:.1f}" y="{to_y(obs[i]):.1f}" '
+                   f'width="{slot * 0.84:.1f}" height="{h:.1f}" '
+                   f'fill="var(--chart-pos)" fill-opacity="0.9">'
+                   f'<title>{hu[w]} of the {nu} undefeated teams won {w} per '
+                   f'17</title></rect>')
+
+    points = " ".join(f"{to_x(i):.1f},{to_y(exp[i]):.1f}" for i in range(len(xs)))
+    out.append(f'<polyline points="{points}" fill="none" '
+               f'stroke="var(--chart-neg)" stroke-width="2.5" '
+               f'stroke-linejoin="round"/>')
+    for i, w in enumerate(xs):
+        out.append(f'<circle cx="{to_x(i):.1f}" cy="{to_y(exp[i]):.1f}" r="3" '
+                   f'fill="var(--chart-neg)"><title>{ha[w]} of all {n} '
+                   f'team-seasons won {w} per 17</title></circle>')
+
+    out.append(f'<line x1="{pad_l}" y1="{top + plot_h:.1f}" '
+               f'x2="{pad_l + plot_w}" y2="{top + plot_h:.1f}" '
+               f'stroke="var(--rule)" stroke-width="1.5"/>')
+    for i, w in enumerate(xs):
+        out.append(f'<text x="{to_x(i):.1f}" y="{top + plot_h + 17:.1f}" '
+                   f'text-anchor="middle" fill="var(--muted)" font-size="10.5" '
+                   f'font-variant-numeric="tabular-nums">{w}</text>')
+    out.append(f'<text x="{pad_l + plot_w / 2:.1f}" y="{height - 22}" '
+               f'text-anchor="middle" fill="var(--muted)" font-size="11.5">'
+               f'Regular season wins, per 17 games</text>')
+    nine_u = sum(v for k, v in hu.items() if k >= 9) / nu * 100
+    nine_a = sum(v for k, v in ha.items() if k >= 9) / n * 100
+    out.append(f'<text x="{pad_l + plot_w:.1f}" y="{height - 4}" '
+               f'text-anchor="end" fill="var(--muted)" font-size="10.5">'
+               f'9 or more wins: {nine_u:.1f}% of the undefeated group, '
+               f'{nine_a:.1f}% of everybody</text>')
+    out.append("</svg>")
+    return "\n".join(out)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--png", action="store_true")
+    ap.add_argument("--svg", action="store_true")
+    ap.add_argument("--cache", choices=("published", "full"), default="full",
+                    help="'full' is the corrected 2000-onward sample")
     a = ap.parse_args()
-    report()
-    if a.png:
-        png()
+    path = CACHE_FULL if a.cache == "full" else CACHE
+    if a.svg:
+        print(svg(path))
+    else:
+        report(path)
+        if a.png:
+            png()

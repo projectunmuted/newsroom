@@ -43,14 +43,71 @@ that is Worked, not Delivered, and the row says which. See
 
 ## Open
 
-### Detroit only, 20 seasons, preseason vs regular season — WORKED, NOT PUBLISHED
+### Does Cleveland actually have Detroit's number, or is it 3 bad months?
 
-**Status 2026-08-14:** the numbers exist and no reader can see them. Partly
-superseded: the 2008 piece publishes all **25** Detroit seasons in a table, so
-the paired-bars view is answered. **The scatter plot the reader specifically
-asked for is still not published anywhere.** Also needs rerunning, because
-`lions_preseason_20.py` predates both data fixes; Detroit's abbreviation never
-changed so the relocation bug misses it, but the 0-0 guard moves 2001.
+**Asked 2026-08-10**, 7 upvotes: "Cleveland just knows how to pitch against the
+Tigers. For the last 3 seasons. I don't remember many games where the Tigers
+scored 4 or more against them." A second commenter pushed the other way: 4 of
+the 6 games this year were in May, when the team was different.
+
+Partly answered in the thread already (60 runs in 2024, 34 in 2025, 11 in 2026),
+but the real question is whether Detroit's offence declines specifically against
+Cleveland or against good pitching generally. That separates "they have our
+number" from "good arms beat this lineup", and only one of those is a story.
+
+## Delivered
+
+### Should Detroit run on Cleveland? — answered 2026-08-12
+
+**Asked 2026-08-10** on `1vkuuh2`, by 2 separate commenters, 13 and 5 upvotes.
+Verbatim: "Cleveland and Chicago are the worst and 2nd worst teams in baseball
+at throwing out runners. Time to let Max show off those wheels." And: "We have
+to try and do that small ball BS at some point with Zach, Max or someone else
+who is kind of fast (Tork, looking at you)." A 3rd commenter sharpened it: the
+organisation seems to avoid stealing on principle, which is defensible with slow
+rosters and not with McGonigle and Clark.
+
+Answered inside `entries/2026-08-12-pick-04-should-detroit-run.md`, because it
+turned out to be the same question as the pick on `824241`.
+
+**They were right on both premises and the conclusion still flipped.** Cleveland
+is 4th worst in baseball at throwing runners out, 16 of 102, 15.7% against a
+league 23.1%. Detroit attempts a steal on 4.8% of times reached first, which is
+dead last of 30. Both claims check out.
+
+What neither comment knew: that 15.7% is 2 catchers averaged into one number.
+Austin Hedges has thrown out **2 runners all season**, 5.1%. Patrick Bailey,
+since arriving from San Francisco on May 10, is at **35.3%**, which is about the
+best rate in the sport. Bailey has caught 7 of Cleveland's 9 games this month.
+The lane the sub is pointing at belongs to the backup.
+
+Two counterweights they did not raise. Detroit is 35 for 53, **66.0%**, against
+a league 76.9%, so running more at that conversion gives away outs. And Max
+Clark, the name in both comments, has 10 games, 46 plate appearances and **0**
+attempts, which is nothing to build a strategy on. McGonigle at 11 for 12 is the
+real version of their argument.
+
+### Detroit only, 20 seasons, preseason vs regular season — PUBLISHED 2026-08-15
+
+**Answered at `/journal/2026-08-15-lions-scatter-and-histogram.html`**, as inline
+SVG rather than a PNG on a disk, which is the difference between an answer and a
+file. Rerun on `preseason_cache_2000.json`, the same receipt behind the 798
+team-season sample, so Detroit's rows here match the rows already in print. That
+moves 2001 from 2.5-13.5 to 2-13 and extends the reader's 20 seasons to **25**,
+2000 through 2025 with 2020 absent.
+
+**The number they asked for, and the reason it needed more than a number.**
+Correlation **+0.285**, r squared 8.1%, against +0.20 and 3.9% on the older
+19-season version. That is higher than the league-wide +.106, and it is still
+nothing: a permutation test shuffling which season follows which August, 20,000
+times with a fixed seed, produces a correlation at least that strong in **17.1%**
+of shuffles.
+
+**The finding worth the piece is the leave-one-out.** Drop 2008 and r goes to
+**+0.514**, r squared 26.4%. Drop 2011 and it falls to +0.222. The season the
+thread demanded be included is the single dot doing the most work to prove the
+thread's own point, and the other perfect August is the dot pulling hardest the
+other way. `scripts/lions_scatter_svg.py` derives all of it in one run.
 
 **Asked 2026-08-13, same thread.** "Is there a way to specifically show Lions
 for the last 20 seasons. What was their win percent in the offseason compared to
@@ -84,14 +141,22 @@ The answer for Detroit specifically:
 Worth noting the r squared is 3.9% here against 1.1% league-wide. That is not
 Detroit being more predictable, it is 19 data points instead of 320.
 
-### The win distribution for the 39 undefeated-preseason teams — WORKED, PARTLY PUBLISHED
+### The win distribution for the 39 undefeated-preseason teams — PUBLISHED 2026-08-15
 
-**Status 2026-08-14:** the group is now **68 teams, not 39**, on the full sample.
-The 2008 piece publishes the shape of it in prose (biggest bucket is 10 wins with
-10 teams, range 0 to 15, no cluster) and the finding is unchanged: a smear, not a
-cluster. **The histogram itself is still only a PNG on a disk.** Rerun on
-`preseason_cache_2000.json` and publish it, or say in writing that the prose
-version is the answer.
+**Answered at `/journal/2026-08-15-lions-scatter-and-histogram.html`**, in the
+same entry as the scatter, because they came from the same thread on the same
+afternoon. The chart they asked for is now inline SVG on the site instead of
+`scripts/last_undefeated_hist.png`.
+
+Rerun on the corrected sample, so the group is **68 teams out of 798**, not 39 of
+320. The finding does not move: raw win totals run 0 to 14, the biggest bucket is
+10 wins with 10 teams in it, and **45.6%** of the undefeated group won 9 or more
+per 17 against **46.9%** of everybody. A smear, not a cluster.
+
+`undefeated_preseason_hist.py` grew a `--svg` mode and a `--cache` switch rather
+than being forked, and its "individual bars are 1 to 7 teams" caveat is now
+derived from the data instead of written down, because that sentence had already
+gone stale once when the sample grew from 39 to 68.
 
 **Asked in the r/detroitlions thread `1vne8nx`, 2026-08-13.** "Out of the 39
 teams that won all preseason games, how would they be grouped by total number of
@@ -190,50 +255,6 @@ which is the same shape pointing the other way and belongs in the same rerun.
 about good teams resting starters. It is testable: preseason starter snap counts
 against regular season record. That is a real piece if the snap data is
 reachable.
-
-### Does Cleveland actually have Detroit's number, or is it 3 bad months?
-
-**Asked 2026-08-10**, 7 upvotes: "Cleveland just knows how to pitch against the
-Tigers. For the last 3 seasons. I don't remember many games where the Tigers
-scored 4 or more against them." A second commenter pushed the other way: 4 of
-the 6 games this year were in May, when the team was different.
-
-Partly answered in the thread already (60 runs in 2024, 34 in 2025, 11 in 2026),
-but the real question is whether Detroit's offence declines specifically against
-Cleveland or against good pitching generally. That separates "they have our
-number" from "good arms beat this lineup", and only one of those is a story.
-
-## Delivered
-
-### Should Detroit run on Cleveland? — answered 2026-08-12
-
-**Asked 2026-08-10** on `1vkuuh2`, by 2 separate commenters, 13 and 5 upvotes.
-Verbatim: "Cleveland and Chicago are the worst and 2nd worst teams in baseball
-at throwing out runners. Time to let Max show off those wheels." And: "We have
-to try and do that small ball BS at some point with Zach, Max or someone else
-who is kind of fast (Tork, looking at you)." A 3rd commenter sharpened it: the
-organisation seems to avoid stealing on principle, which is defensible with slow
-rosters and not with McGonigle and Clark.
-
-Answered inside `entries/2026-08-12-pick-04-should-detroit-run.md`, because it
-turned out to be the same question as the pick on `824241`.
-
-**They were right on both premises and the conclusion still flipped.** Cleveland
-is 4th worst in baseball at throwing runners out, 16 of 102, 15.7% against a
-league 23.1%. Detroit attempts a steal on 4.8% of times reached first, which is
-dead last of 30. Both claims check out.
-
-What neither comment knew: that 15.7% is 2 catchers averaged into one number.
-Austin Hedges has thrown out **2 runners all season**, 5.1%. Patrick Bailey,
-since arriving from San Francisco on May 10, is at **35.3%**, which is about the
-best rate in the sport. Bailey has caught 7 of Cleveland's 9 games this month.
-The lane the sub is pointing at belongs to the backup.
-
-Two counterweights they did not raise. Detroit is 35 for 53, **66.0%**, against
-a league 76.9%, so running more at that conversion gives away outs. And Max
-Clark, the name in both comments, has 10 games, 46 plate appearances and **0**
-attempts, which is nothing to build a strategy on. McGonigle at 11 for 12 is the
-real version of their argument.
 
 ## Declined
 
