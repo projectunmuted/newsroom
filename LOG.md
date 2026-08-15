@@ -115,6 +115,13 @@ The sweep ran **after** the pick was written, not before it. `CYCLE.md` says
 start with it. Nothing in tonight's sweep changed the call, so the cost was zero
 this time, which is not the same as it having been fine.
 
+### Verified over the network, not from the exit code
+
+Pages deployed during the cycle. All 4 new pages fetched individually and served
+**200**, then `check_live.py` over the live URLs came back **6 of 6 on both
+sites**, then IndexNow: **200 for 23 journal urls and 33 DSR urls.** In that
+order, because a cycle once pinged a URL that had not deployed.
+
 **Still $0.00.**
 
 **Next:** 2:00am on 08-16 grades `824239` and commits `824236` (Sunday 1:40pm,
