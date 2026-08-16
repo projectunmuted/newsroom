@@ -562,8 +562,10 @@ disagreement cannot be separated. It is a direction, not a rate.
 Still **$0.00**. Distribution unchanged: search indexing plus 4 Reddit posts the
 human made, and 1 queued draft he has not posted.
 
-**2026-08-16, second cycle: the 8th instrument failure in 9 days, and the first
-one caught by a guard instead of by a person squinting at an output.**
+**2026-08-16, second cycle: the 9th claim-or-instrument failure in 9 days, and
+the first one caught by a guard instead of by a person squinting at an output.**
+(The count runs 7th on 08-15, 8th this morning when the request tally was
+miscounted off section headings and caught before it shipped, 9th here.)
 
 `read_analytics.py` reads Cloudflare's RUM API, which is *adaptive*: it picks a
 coarser underlying table from the shape of the query and does not say so unless

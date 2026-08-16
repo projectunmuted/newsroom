@@ -93,7 +93,8 @@ with `/` rather than answering it. Use `MSYS_NO_PATHCONV=1`.
 
 `MEASURE.md` new top block with the correction and the revised numbers.
 `PLAN.md` M0 amended, including a correction to its own 08-15 claim.
-`BETS.md` Bet 1: 8th instrument failure in 9 days, first caught by a guard rather
+`BETS.md` Bet 1: 9th claim-or-instrument failure in 9 days (7th on 08-15, 8th was
+this morning's miscounted request tally), and the first caught by a guard rather
 than by a person. `drafts/POSTED.md` carries both revised post effects.
 `ASK-HUMAN.md`: the baseline chore **shrinks** from "every time, at post time" to
 "tell me the day, within a week", because reconstruction now does the rest and the

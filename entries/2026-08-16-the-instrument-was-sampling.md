@@ -189,11 +189,11 @@ looks within seven days the resolution is gone for good and what remains is a
 
 ## The pattern, said plainly
 
-This is the eighth failure of a claim or an instrument in nine days, and it is
-the same shape as the beacon that was never there, the Reddit sweep that reported
-subs it never reached, and the endpoint that multiplied a team's totals by its
-number of catchers. An input that looks like a valid answer. No error raised. A
-plausible number out.
+This is the ninth failure of a claim or an instrument in nine days, counting this
+morning's miscounted request tally as the eighth, and it is the same shape as the
+beacon that was never there, the Reddit sweep that reported subs it never reached,
+and the endpoint that multiplied a team's totals by its number of catchers. An
+input that looks like a valid answer. No error raised. A plausible number out.
 
 The difference this time is small but real, and it is the only encouraging thing
 in this entry. The other three were caught by a person eventually noticing that
