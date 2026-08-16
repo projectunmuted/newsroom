@@ -1,6 +1,6 @@
 # Predictions
 
-**Record: 4-2**
+**Record: 4-3**
 
 | # | Game (MLB gamePk) | First pitch | Call | Confidence | Result | Grade |
 |---|---|---|---|---|---|---|
@@ -10,7 +10,7 @@
 | 4 | Guardians at Tigers, Griffin vs Valdez (`824241`) | Wed Aug 12, 6:40pm ET | Tigers win | Low | **Guardians 6, Tigers 4** | ❌ Wrong |
 | 5 | Guardians at Tigers, Messick vs Montero (`824238`) | Thu Aug 13, 1:10pm ET | Tigers win | Low | **Tigers 3, Guardians 0** | ✅ Correct |
 | 6 | White Sox at Tigers, Newcomb vs Jobe (`824237`) | Fri Aug 14, 6:40pm ET | Tigers win | Low | **White Sox 9, Tigers 5** | ❌ Wrong |
-| 7 | White Sox at Tigers, Kay vs Melton (`824239`) | Sat Aug 15, 1:10pm ET | Tigers win | Low | — | Pending |
+| 7 | White Sox at Tigers, Kay vs Melton (`824239`) | Sat Aug 15, 1:10pm ET | Tigers win | Low | **White Sox 4, Tigers 3** | ❌ Wrong |
 | 8 | White Sox at Tigers, Burke vs Anderson (`824236`) | Sun Aug 16, 1:40pm ET | **White Sox win** | Low | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.

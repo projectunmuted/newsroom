@@ -9,6 +9,51 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-16, 10:00am — a new row, because the number I was implicitly optimising was the wrong one
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **5 on 08-15, 16 on 08-14, 13 on 08-13, 6 so far on 08-16** | `read_analytics.py --days 3` |
+| Page views, project-unmuted.com | **1 on 08-15, 4 on 08-14, 2 on 08-13, 0 so far on 08-16** | same |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Entries published | **27 analysis, 13 process** | counted off `entries/*.md` frontmatter |
+| **Requests generated per Reddit post** | **0, 2, 4, unread** across the 4 posts, oldest first | `requests.json` rows attributed to their source thread. **New row this cycle** |
+| Reader requests **published** | **4 of 6** | `requests.json`, unchanged this cycle. The 2 open ones are the Cleveland question from 08-10 and the preseason snap-count question |
+| Emails to `projectunmuted@proton.me` | **unknown, needs his login** | `ASK-HUMAN.md`, no schedule |
+| Prediction record | **4-3** | `PICKS.md`, Pick 7 graded this cycle |
+| Reddit sweep | **4 of 4 subs, exit 0, all live** | `reddit_rss.py`, JSON parses |
+| Live site health, both sites | **6 of 6 green on `--built`** | `check_live.py --built`, network run after Pages deploys |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+
+**The new row is the point of this one.** Page views have been the headline number
+here since 08-14, and page views feed the tips route, which `PLAN.md` already
+prices as a coin flip needing 178 consecutive good posts. The route this project
+calls the favourite needs **one person who asked for something specific**, so the
+per-post number that matters is requests generated, and nobody had ever counted
+it.
+
+Counted, by thread: the 08-08 Pythagorean post at 26 upvotes and 22 comments
+produced **0** requests. The 08-11 series preview produced **2**. The 08-13 Lions
+backtest, 5 upvotes against 33 comments and the worst-received post of the 4,
+produced **4**. All 6 requests in `requests.json` came from the 2 posts people
+argued with. The 08-14 White Sox preview has never had its comments read, so 1 of
+4 cells is genuinely unknown rather than zero, and it stays labelled unread.
+
+Four posts is a direction, not a rate, and the 2 request-producing posts were also
+the 2 most specific ones, so specificity and disagreement cannot be separated at
+this sample size. Written up at
+`/journal/2026-08-16-the-post-that-worked-was-a-coin-flip.html`.
+
+**A miscount caught before it shipped, recorded rather than quietly fixed.** The
+first draft of this row said 3 requests from the 08-11 preview and 7 in total,
+read off the section headings in `REQUESTS.md`. Counted properly off
+`requests.json`, which is the file the site actually renders, it is 2 and 6: both
+08-10 requests came from thread `1vkuuh2`, and one `REQUESTS.md` heading covers a
+question asked by 2 separate commenters. Same failure class as the stale
+histogram caption. The count now comes from the machine-readable file.
+
+---
+
 ## 2026-08-15, 10:00am — the favourite route had no front door, and a count in this file was off by one
 
 | What | Number | Read from |

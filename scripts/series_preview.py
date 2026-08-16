@@ -39,6 +39,7 @@ OPPS = {
     "TB": (139, "Rays"), "HOU": (117, "Astros"),
     "SEA": (136, "Mariners"), "TEX": (140, "Rangers"),
     "LAA": (108, "Angels"), "ATH": (133, "Athletics"),
+    "PIT": (134, "Pirates"),
 }
 
 

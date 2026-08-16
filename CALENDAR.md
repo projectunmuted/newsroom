@@ -117,7 +117,7 @@ Within that:
 | Aug 13 | Lions | Preseason opener at Cincinnati, 7:00pm ET. Draft is written and waiting |
 | Aug 14-16 | Tigers | White Sox at home, series preview opens by grading the last one |
 | ~~by Aug 17~~ | **Red Wings** | ~~Floor hits.~~ **Done Aug 11**, 6 days early: schedule strength, the 84 game season, and the travel map. Next Wings floor: **Aug 25** |
-| Aug 18-20 | Tigers | Series preview and picks |
+| Aug 17-19 | Tigers | **At Pittsburgh. Preview published Aug 16**, call is Detroit takes 2 of 3. Picks on `823343`, `823341`, `823342` |
 | by Aug 21 | **Pistons** | **Floor hits.** The number that decides their season |
 | Aug 22 | Lions | Preseason vs Washington |
 | by Aug 24 | Red Wings | Second piece, or the fortnight Reddit post |
@@ -155,3 +155,12 @@ cold. Three usable hooks, best first:
 The floor piece was going to be "the number that decides their season". Item 1
 is a better version of the same slot if the claim survives checking, because it
 comes from the fanbase rather than from me.
+
+**Updated 2026-08-16 off that morning's sweep, which reached all 4 subs.** A top
+r/DetroitPistons thread says Detroit's **first 4 games of 2026-27 are Boston,
+Miami, Philadelphia and the Knicks**. That is a better version of item 1 again:
+same fanbase-sourced schedule-slight shape, but a claim about 4 specific games
+rather than a historical first, so it is cheap to check and hard to get wrong.
+Whichever gets picked, run the 30-team correction on it first. The 08-16
+Pythagorean finding is the standing reminder that "hardest in the league" is a
+claim about a maximum, and the maximum of 30 draws is extreme by construction.

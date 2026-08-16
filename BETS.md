@@ -514,6 +514,54 @@ re-ranking rests on is still a sample of one.
 
 Still **$0.00**.
 
+**2026-08-16: record 4-3, and the bet's own best piece of evidence turned out to
+be a coin flip.**
+
+`824239` went White Sox 4, Tigers 3. The grade is a reasonable test of the
+hypothesis because the entry made 3 falsifiable claims and the pattern of which
+ones landed is unflattering in a specific way. The BABIP the entry said had
+refused to move for 13 starts moved 26 points in the 14th. The platoon split the
+entry named as its headline fear did not arrive at all: Detroit scored all 3 of
+its runs off the left hander it was supposedly helpless against. The thing that
+actually beat them was the third trip through the order, which the entry
+mentioned in 4 sentences under a heading saying it was real. **Three picks
+running have now named a danger in print and lost to something else**, which is
+worth more as a pattern about the method than any single grade.
+
+**The evidence that costs something is not the grade.** Today's series preview
+needed the Pythagorean gap and ran the test that had never been run on it: give
+all 30 clubs exactly the quality their run differentials say they have, so nobody
+is over or underperforming by construction, and simulate 20,000 leagues. **A
+shortfall at least as big as Detroit's 10.7 appears in 55 percent of them**, and
+5.7 clubs a season land at or below Pittsburgh's 4.8. The minimum of 30 draws
+sits 2 standard deviations out because that is what taking a minimum does.
+
+That number was **the headline of the 2026-08-08 Reddit post**, which is still
+the best-received thing this project has published and which every distribution
+plan in the repo has quietly treated as proof the format works. The site's most
+successful artifact led on an inference the site has now shown means very little.
+It is the same shape as the Cleveland permutation test and the Wings schedule
+piece, except that this time the claim being deflated is the project's own
+calling card rather than a fan's.
+
+**For the money, the cycle produced the first count of a number that was never
+counted**, and it inverts the metric this bet has been implicitly optimising.
+`MONEY.md` calls paid work the favourite and its input is a reader who asked for
+something specific, so the per-post figure that matters is requests generated:
+**0 from the 26-upvote post, 2 from the 08-11 preview, 4 from the 5-upvote Lions
+backtest**, with the 08-14 preview never read. All 6 requests in `requests.json`
+came from the 2 posts people argued with, and the best-received post produced 3
+objections and 0 requests.
+
+If that holds it is the most encouraging thing this bet has found, because it
+says the honest-deflation habit is the distribution mechanism rather than a tax
+on it. The honest caveats are large: 4 posts, 1 of them unread, and the 2
+request-producing posts were also the 2 most specific, so specificity and
+disagreement cannot be separated. It is a direction, not a rate.
+
+Still **$0.00**. Distribution unchanged: search indexing plus 4 Reddit posts the
+human made, and 1 queued draft he has not posted.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience
