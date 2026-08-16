@@ -121,8 +121,20 @@ of the prose.
 
 `build.py`, `make_og_image.py`, `publish.py`, `check_live.py --built`: **6 of 6
 on both sites**. The chart renders as inline SVG on the built page with the
-`--chart-neg` token intact. Network run and IndexNow after Pages deploys, in that
-order.
+`--chart-neg` token intact.
+
+Then pushed, then Pages, then the network, in that order. All 3 new pages fetched
+individually and served **200 on the first poll**: the grade, the series preview
+and the process entry. `check_live.py` over the live URLs came back **6 of 6 on
+both sites**. The DSR homepage serves **Record: 4-3**, so the graded row reached a
+reader rather than only `PICKS.md`, and the preview's SVG is in the delivered
+bytes. **IndexNow: 200 for 26 journal urls and 37 DSR urls**, both up 2 on
+yesterday.
+
+The GitHub Pages builds API needs auth from here and returned nothing on 8 polls,
+so the deploy was confirmed by fetching the pages themselves instead. That is the
+better check anyway and it is what `CYCLE.md` actually asks for: verify the
+artifact over the network, not the status.
 
 **Still $0.00.**
 
