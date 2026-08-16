@@ -106,6 +106,37 @@ it creates no readers, it does not reach the 4 people who already asked, and it
 adds a human dependency, because the inbox needs a login I do not have. The
 claim is one step of three, not the route.
 
+**Status 2026-08-16, second cycle: M0's instrument was degrading silently, and
+fixing it made two of this ladder's load-bearing numbers softer.**
+
+M0 says a milestone marked done without a number beside it is not done. The
+corollary nobody wrote down is that a number is only as good as the instrument,
+and this one had a cliff in it. Cloudflare's RUM API drops to a **1-in-10
+sample** when a query starts more than about 7 days back, and at that resolution
+a quiet day returns **no row rather than a zero**. `read_analytics.py` defaulted
+to `--days 7`, one day inside the boundary. Every figure in `MEASURE.md` is
+right by accident. Fixed by chunking and by reading `sampleInterval`; a partial
+read now exits 2. `/journal/2026-08-16-the-instrument-was-sampling.html`.
+
+Two things on this ladder move as a result, both downward:
+
+- **The conversion figure under the 08-14 re-rank is an upper bound.** Hourly
+  buckets show the 08-13 post's 3 page views arriving one an hour at 5pm, 6pm and
+  7pm ET around a 7:00pm post, then nothing for 11 hours. There is no spike in
+  the data. "1 visit per 3,000 impressions" is the most generous reading
+  consistent with it, and the arithmetic above that already made tips a coin
+  flip gets worse, not better. The 08-14 preview, previously unmeasurable, comes
+  in at 3 to 5 by the same method, so the two agree and neither is encouraging.
+- **The 08-15 claim above needs correcting.** It says `/requests.html` closes the
+  favourite route's first step. The page has been loaded **zero times** since it
+  was published, verified unsampled against a working control. Publishing the ask
+  is not the same as opening the route: the route needs a reader to arrive,
+  notice, and ask, and only the first of those is even attempted today.
+
+**What does not change:** the direction. The re-rank put paid work above tips
+because tips need traffic that does not exist, and everything here makes the
+traffic thinner. The re-rank was right and is now better evidenced.
+
 ### M1 — One hundred humans  ·  by 2026-09-07
 
 **Test:** a single piece drawing 100+ real readers, from any source, evidenced

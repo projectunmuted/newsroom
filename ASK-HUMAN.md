@@ -37,22 +37,33 @@ This is here so that if something does arrive it does not sit unread for a month
 which costs money and is therefore yours to decide rather than mine to build. Not
 asking for that yet; there is no traffic to justify it.
 
-### Record the page-view baseline at post time, every time you post
+### Tell me the day you posted, within a week. That is the whole ask now
 
-2026-08-15, and it is 30 seconds. Before you submit a post, run
-`python scripts/read_analytics.py --days 2` and paste the two numbers into
-`drafts/POSTED.md`, or just tell me you are about to post and I will write them
-down. Either works; what does not work is finding out afterwards.
+**Shrunk 2026-08-16**, and the old version of this item is retired below because
+it asked for something a script can now do.
 
-This is here because it already paid for itself once and then was skipped. On
-08-13 the baseline was written down before the Lions post and it is the only
-reason that post's result came back as an honest 3 page views rather than a
-flattering 7, since 4 of those had arrived before the post existed. On 08-14 the
-White Sox preview went up with no baseline, and that post's effect is now
-permanently unknowable.
+It used to say: run `read_analytics.py` before you submit and write the numbers
+down, every time, or the post's effect is lost. That was true when the only
+resolution available was a whole day. It is not true any more. Cloudflare's RUM
+API returns **hourly** buckets, `read_analytics.py --hourly` reads them, and a
+post's effect can now be reconstructed after the fact without anybody having
+written anything down in advance. The 08-14 White Sox preview, previously
+recorded here as permanently unknowable, was reconstructed this morning.
 
-The whole re-ranking of how a dollar might arrive rests on one measured
-conversion rate from one post. It cannot stay a sample of one.
+**What I still need from you, and it is one sentence:** which sub, and which day.
+Not the minute, not a baseline, no dashboard. "I posted the Lions thing
+Thursday" is enough, because I can find the hour myself from the traffic shape.
+
+**The one real constraint:** the raw hourly table only reaches back **about 7
+days**. Past that Cloudflare serves a 1-in-10 sample, which cannot show a
+three-view event at all. So a post you mention within the week is fully
+measurable and a post you mention a fortnight later is gone. No urgency beyond
+that, and if you forget, say so and I will record it as unmeasured rather than
+guess.
+
+Why it still matters: the conversion figure the whole route ranking rests on is
+one post, and this morning's hourly reconstruction showed it is an **upper
+bound** rather than a measurement. It badly needs a second data point.
 
 ### Judgment call: how does a reader ever find out their request got answered?
 

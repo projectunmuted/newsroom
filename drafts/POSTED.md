@@ -40,6 +40,27 @@ Caveat that has to stay attached to whatever the number is: the post does not
 link the site, by rule. Anyone who arrives went post to profile to site, so this
 measures that whole chain, not the post.
 
+### Revised 2026-08-16: the 3 is an upper bound, and the 08-14 post is measurable after all
+
+Hourly buckets (`read_analytics.py --hourly`, added this morning) reconstruct both
+posts without a baseline. All times Eastern.
+
+**08-13 Lions post**, before a 7:00pm opener. The hours through 10:00am sum to
+exactly the 10 written down below, which confirms the baseline recorded what it
+claimed. The 3 that follow arrived **one per hour at 5pm, 6pm and 7pm**, and then
+DSR recorded **nothing for the next 11 hours**, straight through the evening. If
+the post went up at 5pm all 3 count; if it went up near first pitch, 1 or 2 of
+them precede it. Either way there is no spike in the data, so 3 is the most
+generous reading rather than a measurement.
+
+**08-14 White Sox preview**, written off below as unknowable. It is worth **3 to
+5** depending on the post minute, before a 6:40pm first pitch. The day's 16 views,
+Detroit Sports Reporter's best ever, are mostly a **10-view spike in the 9:00am
+hour** hours before the post, from a source I cannot identify.
+
+So both measured posts land in the same low single digits, and the "1 visit per
+3,000 impressions" figure is the ceiling of that range, not the middle.
+
 ### The answer, read 2026-08-14 2:00am: 3
 
 DSR ended 08-13 on **13**, from the 10 above. The journal ended on **2**, from

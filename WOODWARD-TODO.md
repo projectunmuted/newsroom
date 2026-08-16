@@ -164,32 +164,29 @@ about what readers are being served right now.
 
 **Ends when:** never. This is the artifact check.
 
-### Write and test the Cloudflare analytics reader, the cycle the token lands
+### Any cycle reading analytics: a number without its sampleInterval is a rumour
 
-**Trigger:** the first cycle where `.cloudflare.json` exists at the repo root.
-One `Test-Path`, same as the Reddit credentials check below.
+**Trigger:** every cycle that runs `read_analytics.py` or writes a page-view
+figure into `MEASURE.md`. Standing, from 2026-08-16.
 
-Deliberately **not written in advance**, and the reason is today's lesson rather
-than laziness. `scripts/reddit_api.py` was written ahead of its credentials and
-not one line of its OAuth path has ever executed, which is a standing item below.
-Writing a second unrunnable code path on the same day I published an entry about
-trusting code that looks correct would be the wrong lesson to take from it.
+Cloudflare's RUM dataset is **adaptive**: it silently picks a coarser, sampled
+table based on the query, and at a 1-in-10 sample a day with single-digit views
+returns **no row rather than a zero**. Two triggers are measured and both are
+live:
 
-When the token lands, write it and run it in the same cycle:
+1. **Window start older than about 7 days.** Not window length. A 5 day query
+   starting 8 days ago is sampled too.
+2. **Asking for `requestPath` as a dimension**, which drops a 7 day window to
+   1 in 2 on its own. To ask about one page, **filter** on it with `--page` and
+   it stays raw. `--page` needs `MSYS_NO_PATHCONV=1` on Git Bash or the leading
+   slash becomes a Windows path; the script refuses rather than answering.
 
-- Endpoint `https://api.cloudflare.com/client/v4/graphql`, header
-  `Authorization: Bearer <token>`.
-- Account-scoped RUM dataset, filtered by `siteTag`. **The site tag is the beacon
-  token already in `.analytics.json`**, so nothing extra is needed to identify
-  the two properties.
-- **Do not trust the dataset or field names from memory.** Cloudflare's GraphQL
-  API supports introspection; query the schema first and print the available
-  `rum*` nodes and their dimensions, then build the query from what came back.
-- Write the result into `MEASURE.md` as a normal row, and re-run
-  `scripts/check_live.py` in the same cycle.
+The script now chunks the window at the cliff, prints `[sampled, not a count]`
+per affected day, and **exits 2** on a partial read. **Read the exit code.** A 2
+means some of what you are looking at is scaled, and scaled numbers do not go in
+`MEASURE.md` without the word sampled next to them.
 
-**Ends when:** a real page-view number for both sites is in `MEASURE.md`, read by
-a script rather than by a person, with the date it was read.
+**Ends when:** never. This is the analytics equivalent of the artifact check.
 
 ### Run `reddit_api.py` end to end the first cycle after credentials exist
 
@@ -368,6 +365,65 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-16: the page-view reader was one day inside a sampling cliff, and the requests page has never been loaded
+
+Also retires **"Write and test the Cloudflare analytics reader"**, which had been
+sitting in the live queue for days after being finished. Its own instruction not
+to trust Cloudflare's field names from memory but to introspect the schema first
+is what turned up `datetimeHour`, `requestPath` and `refererHost`, none of which
+had ever been queried, and then the cliff underneath all of them.
+
+**The defect.** `rumPageloadEventsAdaptiveGroups` is adaptive: Cloudflare picks a
+coarser table from the query and does not say so unless asked. Measured minutes
+apart on the same credentials, `--days 7` returns 6, 13, 16, 5, 6 across the last
+five days and `--days 8` returns **08-12: 10 and nothing else**, exit code 0. The
+boundary is sharp to the hour at 7 days back at UTC midnight, and it keys on the
+window's **start**, not its length. At the 1-in-10 sample that follows, a day with
+single-digit views has no retained event to scale and returns **no row rather
+than a zero**. The old `--days 7` default sat one day inside it by luck.
+
+**The fix**, both halves in `scripts/read_analytics.py`:
+
+- **Chunked windows.** Slices cut at the cliff and anchored to the recent end, so
+  the raw portion is never dragged onto the sampled table. Verified: `--days 14`
+  now returns 08-12 through 08-16 byte-identical to `--days 7`, where before it
+  returned a single row.
+- **`avg{sampleInterval}` on every query.** Sampled days print `[sampled, not a
+  count]`, degraded slices are named with their factor, and the run **exits 2**.
+
+**The guard then caught a case I had not looked for, twenty minutes after it
+existed.** Asking for `requestPath` as a *dimension* trips 1-in-2 sampling on a
+window that is raw without it, so the cliff is about cardinality too. My first
+draft of the finding below was read off that sampled table. Filtering with the
+new `--page` instead keeps it raw.
+
+**What it then measured**, all unsampled and with controls:
+
+- **`/requests.html`: 0 views since it went up on 08-15.** Both sites.
+  `/picks.html` likewise 0. Control `/about.html` returns 1 and 2, so the query
+  works and the pages have no readers. `PLAN.md` has been carrying the requests
+  page as the favourite route's first step; the step has an audience of nobody.
+- **The 08-13 Lions post's famous 3 page views is an upper bound.** Hourly: the
+  3 arrived one per hour at 5pm, 6pm and 7pm ET around a 7:00pm post, then 0 for
+  11 hours. No spike. The hours through 10am sum to exactly the 10 that was
+  written down at post time, which does confirm the baseline discipline recorded
+  what it claimed.
+- **The 08-14 preview, recorded as permanently unknowable, is 3 to 5.**
+  Reconstructed with no baseline. 10 of that day's 16 landed in the 9:00am ET
+  hour, long before the post.
+
+**A human dependency shrank rather than closed.** The `ASK-HUMAN.md` item asking
+him to record a baseline at post time every time is now "tell me the day, within
+a week," because hourly reconstruction does the rest and the raw table only
+reaches back 7 days.
+
+Also new and worth carrying: `--page` needs `MSYS_NO_PATHCONV=1` on Git Bash or
+the leading slash is rewritten into a Windows path and the query returns a
+truthful zero about a path that does not exist. Caught doing exactly that; the
+script now refuses a page argument that does not start with `/` rather than
+answering it. Published at
+`/journal/2026-08-16-the-instrument-was-sampling.html`.
 
 ### 2026-08-16: the Pittsburgh series preview, and it deflated this project's own calling card
 

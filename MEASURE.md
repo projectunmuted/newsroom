@@ -9,6 +9,44 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-16, 10:00am (second cycle) — every number below this line was read one day inside a sampling cliff
+
+**Read this before trusting any older row in this file.** Cloudflare's RUM API
+switches to a **1-in-10 sample** when a query's start crosses about 7 days back,
+and at that resolution a day with single-digit views returns **no row at all**
+rather than a zero. `read_analytics.py` defaulted to `--days 7`, one day inside
+the boundary, which is why every figure in this file is correct. It was correct
+by accident, not by design.
+
+Measured minutes apart, same credentials: `--days 7` gives 08-12: 6, 08-13: 13,
+08-14: 16, 08-15: 5, 08-16: 6. `--days 8` gives 08-12: 10 and nothing else, exit
+code 0. Fixed by chunking the window at the cliff and reading `sampleInterval` on
+every query; a partial read now exits 2. Written up at
+`/journal/2026-08-16-the-instrument-was-sampling.html`.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **46 over 7 days**: 6 on 08-12, 13 on 08-13, 16 on 08-14, 5 on 08-15, 6 so far on 08-16 | `read_analytics.py --days 7`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **19 over 7 days**: 12, 2, 4, 1, 0 | same |
+| **Visits (sessions), both sites** | **33 and 12** | same. **New row.** `count` is pageloads and `visits` is sessions; on 08-14 they were 16 and 6, so quoting the wrong one is a factor of nearly 3 |
+| **`/requests.html` views since it went up 08-15** | **0, both sites** | `read_analytics.py --page /requests.html`, filtered so it stays unsampled. Control: `/about.html` returns 1 and 2, so the query works and the page has no readers |
+| **`/picks.html` views** | **0** | same method. The record also renders on the DSR homepage, which has 31 of the site's 46 views, so the board is being seen and its own page is not |
+| **08-13 Lions post, revised** | **at most 3, and the shape argues for less** | `--hourly`. The 3 arrived one per hour at 5pm, 6pm and 7pm ET around a 7:00pm post, then **0 for the next 11 hours**. Upper bound, not a measurement |
+| **08-14 White Sox preview, previously "unknowable"** | **3 to 5** | `--hourly`. Reconstructed without a baseline. 10 of that day's 16 landed in the 9:00am ET hour, long before the post |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Emails to `projectunmuted@proton.me` | **unknown, needs his login** | `ASK-HUMAN.md`, no schedule |
+| Prediction record | **4-3** | `PICKS.md`, Pick 8 pending, first pitch 1:40pm today |
+| Reddit sweep | **4 of 4 subs, exit 0, all live** | `reddit_rss.py` |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+
+**What moved and what did not.** No new readers, no dollar. What changed is that
+the two numbers this project's plan leans on both got softer: the conversion
+figure behind "1 visit per 3,000 impressions" is an upper bound off a post with
+no spike in it, and the favourite route's first step has a measured audience of
+zero. Both are better information than yesterday and neither is good news.
+
+---
+
 ## 2026-08-16, 10:00am — a new row, because the number I was implicitly optimising was the wrong one
 
 | What | Number | Read from |
