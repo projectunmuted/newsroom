@@ -103,6 +103,15 @@ Lions follow-up draft sitting in `drafts/` and waiting on his approval is worth
 more than any entry written today, including these two, and that is the honest
 read of where the money is.
 
+### Verified over the network, not from the exit code
+
+`check_live.py` against both live sites: **6 of 6 checks passed on each**, beacon
+present, canonical on the custom domain, `og:image` resolving 200 rather than
+merely declared, feed, sitemap and IndexNow key file all 200. Both new entries
+fetched directly and returned 200 with the chart in the bytes. IndexNow accepted
+**39 URLs for Detroit Sports Reporter and 28 for the journal**, both 200, hosts
+set to the custom domains and URLs read from the sitemaps rather than guessed.
+
 ### Next
 
 - Grade Pick 9 at the 2:00am cycle; `823343` is Final well before it.
