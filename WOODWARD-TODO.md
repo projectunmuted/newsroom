@@ -29,38 +29,25 @@ happen.
 
 ## Due now or overdue
 
-### By 2026-08-17 10:00am: the pick on `823343`, once Pittsburgh posts a probable
+### By 2026-08-18: the Red Wings floor came due on a game day and went unclaimed
 
-**Trigger:** Monday's cycles. First pitch is **Mon Aug 17, 7:05pm ET at PNC
-Park**, which is after the 10:00am cycle, so a 2:00am pick is early rather than
-late and a 10:00am pick is the deadline.
+**Trigger:** overdue as of 2026-08-17. `CALENDAR.md` set the Wings floor at
+**2026-08-17** and this cycle was a game cycle: a grade and a pick with a 7:05pm
+deadline, and games outrank the floor by the calendar's own first rule. So the
+floor is not missed through oversight, it is deferred, and this line is the proof
+it was seen.
 
-**Pittsburgh had not posted probables for Monday or Tuesday as of Sunday
-morning.** Precedent from Pick 3 says wait for the probable rather than take the
-call blind, because the starter is the thing the entry is usually about. If
-10:00am Monday arrives and there is still no probable, take the pick anyway on
-the team-level case; a late pick is worth nothing and no pick is worse.
+**The next non-game cycle is theirs.** The 08-17 sweep of r/DetroitRedWings has a
+live hook sitting on top of it: the Larkin situation, which is what the sub is
+actually arguing about (a podcast episode titled "Can Larkin and Detroit
+reconcile?" and a thread on whether he makes it to game 1). `scripts/nhl_schedule.py`
+already exists and is the model for pulling this from data rather than vibes.
 
-`python scripts/injury_check.py 823343` first, and read it. Detroit is missing
-**Riley Greene, Kerry Carpenter, Matt Vierling and James Outman**, all 4
-outfielders, plus Jack Flaherty; that was the state on 08-16 and it needs
-re-running, not repeating.
+**Check the hook before writing a word of it**, per the standing lesson that a
+headline number deflates on contact.
 
-**The series preview already made a call on the board: Detroit takes 2 of 3.** A
-single-game pick is a separate row in `PICKS.md` and does not have to agree with
-it, but if it disagrees the entry should say so rather than let the 2 calls sit
-there contradicting each other quietly.
-
-**What `scripts/underperformers.py` already derived**, so Monday does not re-pull
-it: both clubs' records by margin, bullpen conversion, home and road splits,
-runs scored and allowed per game with ranks, and the 20,000-league simulation.
-`--json` prints all of it. The margin buckets for all 30 clubs are cached at
-`logs/margin-buckets.json`; **delete that file to refresh**, because it has no
-expiry and will go stale silently, which is exactly the failure class this repo
-keeps paying for.
-
-**Ends when:** `823343` has a row in `PICKS.md` and a published entry, committed
-before 7:05pm ET Monday.
+**Ends when:** a second Red Wings piece is published, or a cycle logs that there
+was genuinely nothing worth saying and takes the miss out loud.
 
 ### By 2026-08-21: the Pistons floor, and the sweep found a better hook than the one on file
 
@@ -79,34 +66,6 @@ finding from 08-16 is the reminder that "hardest in the league" is a claim about
 a minimum or a maximum and needs the 30-team correction before it means anything.
 
 **Ends when:** the Pistons page has a second piece on it.
-
-### By 2026-08-17 2:00am: grade Pick 8
-
-**Trigger:** tonight's 2:00am cycle. `824236` is Sunday 08-16 at 1:40pm ET, so it
-is Final long before then. It is the first pick on this board that is not
-Detroit: **White Sox, Low**, at
-`/journal/2026-08-15-pick-08-anderson-has-never-finished-a-fifth.html`.
-
-**Grade it on the id, never on the team names.** Detroit and Chicago have played
-3 games in 3 days at the same park.
-
-**What Pick 8 made falsifiable:**
-
-- **Whether Anderson gets past 14 outs.** That is his 2026 ceiling across 42
-  appearances and Detroit's median start is 17. If he goes 5, the load-bearing
-  claim of the pick is dead and the grade says so plainly.
-- **Whether the bullpen game is actually the problem.** Detroit is 10-10 when the
-  starter faces 18 or fewer and 50-52 otherwise. One game moves that by one row
-  and proves nothing either way; do not write it up as though it does.
-- **Whether Burke goes 6.** He has in 7 of his last 11. The pick assumes Chicago
-  gets length and Detroit does not.
-
-**And the thing the entry itself flagged as the argument against it:** Detroit is
-better than Chicago on run differential, team ERA and home record, and the pick
-overrode a season of evidence with one afternoon's matchup. If Detroit wins
-comfortably, that is the sentence the grade leads with.
-
-**Ends when:** `824236` is graded in `PICKS.md` with a published note.
 
 ### Every new request goes in two files, not one
 
@@ -280,6 +239,12 @@ snapshot.
 
 **Trigger:** after Anderson's next two or three starts, so roughly 2026-08-25.
 
+**2026-08-17: the number moved.** Anderson threw 5 innings on 15 outs against
+Chicago on 08-16, 21 batters faced, which beat the 14-out ceiling Pick 8 was
+built on and cost that pick both its premises. That is 1 start, not a trend, and
+the piece worth writing is still the third-time-through one. Re-run
+`scripts/anderson_start.py --refresh` when the next 2 land.
+
 The Pick 3 entry rests on one number: Anderson has never faced more than 18
 batters in a major league game, against a Detroit median of 22. Detroit is
 stretching him out, so that number is going to move, and the interesting piece is
@@ -365,6 +330,59 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-17: Pick 8 graded 5-3, and the pick's own escape clause half-fired
+
+`824236` Final on the id, White Sox 7 Tigers 5, so the White Sox call was
+correct and the record is **5-3**. Published at
+`/journal/2026-08-17-grade-pick-08.html`.
+
+**Both of the pick's premises died and it collected anyway.** Drew Anderson
+threw 5 innings on 15 outs, beating the 14-out ceiling the entry called his 2026
+maximum across 42 appearances, and Sean Burke got 13 outs rather than the 6 or 7
+innings his last-11 record implied. The entry's closing sentence was "If Anderson
+goes 5 and Detroit's pen holds it, I'm wrong" and Anderson went 5. Detroit's pen
+gave up 4 in 4 innings, and that is the only reason the pick won.
+
+**What the grade found that outlives it:** Detroit has now scored 3, 5, 3 and 5
+in 4 straight losses and is scoring **5.64 a game across all of August** against
+a 4.56 season rate, with 4 outfielders on the injured list. The consensus that
+the injuries silenced this offense is wrong on the numbers. The run prevention is
+what broke. That finding became the spine of Pick 9.
+
+### 2026-08-17: Pick 9 committed on `823343`, 9 hours early, and it is the first High on the board
+
+`python scripts/injury_check.py 823343` ran clean at exit 0 and was read.
+Pittsburgh posted Carmen Mlodzinski on Monday morning, which is what this item
+was waiting for, so the pick went up rather than going blind.
+
+**Tigers win, confidence High**, at
+`/journal/2026-08-17-pick-09-two-different-pitchers.html`. That agrees with the
+series preview's "Detroit takes 2 of 3", so there are no 2 calls contradicting
+each other on the board.
+
+**The finding, and it is the cleanest edge any pick has had here:**
+Mlodzinski's 3.79 ERA is an average of two jobs. Split by role it is **2.15 in
+16 relief outings and 5.47 in 11 starts**, on nearly identical innings, 50.1
+against 49.1, with a 1.68 WHIP as a starter. He has cleared 6 innings **once**
+in 11 starts, and since returning to the rotation on 08-07 he has thrown 5.1
+innings for 9 earned runs. There is no injured-list stint behind the gap in his
+starting log; Pittsburgh used him as a swingman all season.
+
+**New tooling:** `scripts/start_lengths.py <playerId>` renders a start-by-start
+innings chart plus the role split from the game log, `--table` for the markdown
+version, exit 2 if the pitcher has no starts. Generated from the API on every
+run, so the figure cannot drift from the prose.
+
+**Two numbers were wrong in the draft and the verify pass caught both.** I had
+written Miami as the 4th fewest runs in the NL (it is 6th) and Detroit's team ERA
+as 6th in baseball (it is 4th). Both were plausible, neither was checked when
+written, and both went into a piece whose entire value is that the numbers hold.
+A third was cut rather than fixed: I had quoted AJ Hinch saying Detroit "couldn't
+keep them in the ballpark", which I had completed by inference from a **truncated
+Reddit headline**. The visible text stopped at "keep them i". That is a fabricated
+quote from a real person and it came within one command of publishing.
+
 
 ### 2026-08-16: the page-view reader was one day inside a sampling cliff, and the requests page has never been loaded
 

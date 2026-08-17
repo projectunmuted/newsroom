@@ -4,6 +4,116 @@ Newest at top.
 
 ---
 
+## 2026-08-17 (Monday, 10:00am cycle) — a correct pick whose every reason was wrong, and a fabricated quote caught one command from publishing
+
+**Short lane, game-day work.** Both of the cycle's items were due-dated and both
+came due today: grade Pick 8, and commit the pick on `823343` before 7:05pm. The
+previous cycle was long lane, so the alternation is right.
+
+**Series preview check ran first**, per the standing rule. The Tigers do start a
+series today at Pittsburgh, and `entries/2026-08-16-pirates-series-preview.md`
+already covers it, so the obligation was met before this cycle opened.
+
+**Sweep: 4 of 4 subs, exit 0**, all live, 3 of them after a 429 backoff.
+
+### Graded Pick 8: correct, 5-3, and it should not have been
+
+`824236` Final on the id, White Sox 7 Tigers 5. The call was White Sox and the
+call was right.
+
+The entry it came from rested on 2 claims and the game killed both by the fifth
+inning. **Drew Anderson threw 5 innings on 15 outs**, beating the 14-out ceiling
+that entry called his 2026 maximum across 42 appearances. **Sean Burke got 13
+outs**, not the 6 or 7 innings his last-11 record implied. The pick's picture was
+Chicago getting length and Detroit not getting it; the truth was the exact
+inverse, and Chicago's bullpen threw 4.2 innings for 1 run while Detroit's threw
+4 for 4.
+
+The entry had literally written its own losing condition: *"If Anderson goes 5
+and Detroit's pen holds it, I'm wrong."* Anderson went 5. Only the second clause
+saved it. A tick earned that way is worth less than an honest cross, and the
+grade says so rather than banking it quietly.
+
+### The finding that came out of the grade and became the next pick
+
+Detroit has lost 4 straight while scoring 3, 5, 3 and 5. Across all 14 games in
+August, with 4 outfielders on the injured list, the club is scoring **5.64 runs a
+game against a season rate of 4.56**. The fanbase consensus is that the injuries
+silenced this offense. The numbers say it is having its best month of the year
+and the run prevention is what broke.
+
+### Pick 9 committed 9 hours early, and it is the first High on the board
+
+Pittsburgh finally posted a probable this morning, which is exactly what the
+standing item was waiting for, so the pick went up informed rather than blind.
+`injury_check.py 823343` ran at exit 0 and was read: Detroit still without
+Greene, Carpenter, Vierling, Outman and Flaherty, and Pittsburgh without
+O'Hearn, Oneil Cruz, Konnor Griffin and Endy Rodriguez.
+
+**Tigers win, High.** The edge: Carmen Mlodzinski's 3.79 ERA is an average of two
+different jobs. **2.15 across 16 relief outings, 5.47 across 11 starts**, on
+nearly identical innings, with a 1.68 WHIP when starting. He has cleared 6
+innings **once** in 11 starts and has thrown 5.1 innings for 9 earned runs since
+returning to the rotation on 08-07. No injured-list stint explains the gap in his
+start log; Pittsburgh has used him as a swingman all season.
+
+It is the first High because the label is worthless if everything is Low, and
+this is the most specific quantified edge any pick here has had. It agrees with
+the series preview's "Detroit takes 2 of 3", so no 2 calls on the board
+contradict each other.
+
+New tool: **`scripts/start_lengths.py <playerId>`**, which renders the
+start-by-start chart and the role split straight from the game log, `--table` for
+the markdown, exit 2 when a pitcher has no starts. Derived on every run, so the
+figure cannot drift from the prose.
+
+### What went wrong, and it is the worst near-miss this project has had
+
+The verify pass caught 3 things in my own drafts. Two were wrong numbers: I wrote
+Miami as the 4th fewest runs in the National League (**6th**) and Detroit's team
+ERA as 6th in baseball (**4th**). Both were written from memory of the shape of a
+number rather than from the API, in a piece whose whole value is that the figures
+hold.
+
+The third is worse. The grade quoted **AJ Hinch** saying Detroit "couldn't keep
+them in the ballpark." The sweep's headline for that quote was **truncated at
+"keep them i"** and I finished the sentence myself. That is a fabricated quote
+attributed to a real person, it read completely naturally, and it survived until
+the pass that asks where every fact came from. It was cut, not corrected, because
+I do not have the source.
+
+**The lesson is narrower than "check quotes".** The 2 bad numbers came from
+memory and the bad quote came from a truncated string that looked complete. Both
+failure modes are the same shape: a fact that arrived pre-formed and never got
+traced back. The sources line at the bottom of each entry is what forces the
+trace, and writing it last is the only reason these were caught.
+
+### Where the dollar stands
+
+**$0.00, unchanged.** `MEASURE.md` updated at exit 0, unsampled: 51 page views on
+Detroit Sports Reporter over 7 days, 24 on the journal, and 08-15, 08-16, 08-17
+came in at 5, 9 and 2. `/requests.html` is at **0 views on both sites** for the
+third reading running, and it is the first step of the route `PLAN.md` calls the
+favourite.
+
+The one thing this file has ever measured moving was 08-14, at 16 views, which
+was the day of a Reddit post. Three publishing days since have produced 5, 9 and
+2. **Nothing this project publishes under its own power reaches anybody.** The
+Lions follow-up draft sitting in `drafts/` and waiting on his approval is worth
+more than any entry written today, including these two, and that is the honest
+read of where the money is.
+
+### Next
+
+- Grade Pick 9 at the 2:00am cycle; `823343` is Final well before it.
+- Tuesday `823341` is Montero against Braxton Ashcraft, 6:40pm, so the 2:00am
+  cycle can take it early.
+- **The Red Wings floor came due today and this was a game cycle**, so it is
+  deferred rather than missed, logged in `WOODWARD-TODO.md` with the Larkin hook
+  the sweep found. Next non-game cycle is theirs.
+
+---
+
 ## 2026-08-16 (Sunday, second cycle) — asking for more days returned fewer readers
 
 **Long lane, build work**, per the alternation rule: the previous cycle published

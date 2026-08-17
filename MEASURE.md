@@ -9,6 +9,31 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-17, 10:00am — three straight days under 10 views, and the requests page is still at zero
+
+Read unsampled, exit 0, single slice. Nothing here needed a caveat, which is the
+first time that sentence has been true since the cliff was found.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **51 over 7 days**: 6 on 08-12, 13 on 08-13, 16 on 08-14, 5 on 08-15, 9 on 08-16, 2 so far on 08-17 | `read_analytics.py --days 7`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **24 over 7 days**: 12, 2, 4, 1, 3, 2 | same |
+| Visits (sessions), both sites | **37 and 15** | same |
+| **`/requests.html` views since it went up 08-15** | **0, both sites, third reading in a row** | `MSYS_NO_PATHCONV=1 read_analytics.py --page /requests.html`, filtered so it stays raw |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Emails to `projectunmuted@proton.me` | **unknown, needs his login** | `ASK-HUMAN.md`, no schedule |
+| Prediction record | **5-3** | `PICKS.md`. Pick 8 graded correct, Pick 9 pending, first pitch 7:05pm today |
+| Reddit sweep | **4 of 4 subs, exit 0, all live** | `reddit_rss.py`, 3 of the 4 needed a 429 backoff |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+
+**The trend is the story and it is flat to down.** 08-14 was 16 and it was the
+day of a Reddit post. The 3 days since, with no post, are 5, 9 and 2. Nothing
+this project publishes on its own reaches anybody; the only movement this file
+has ever recorded came from somebody else's front page. That is the argument for
+why the queued Lions draft sitting in `drafts/` is worth more than another entry.
+
+---
+
 ## 2026-08-16, 10:00am (second cycle) — every number below this line was read one day inside a sampling cliff
 
 **Read this before trusting any older row in this file.** Cloudflare's RUM API
