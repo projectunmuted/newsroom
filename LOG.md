@@ -119,8 +119,19 @@ today.
 
 ### Verified over the network, not from the exit code
 
-To follow after the push, with `check_live.py`. `--built` passed 3 of 3 on each
-site before publishing.
+`check_live.py` against both live sites: **6 of 6 checks passed on each**, beacon
+present, canonical on the custom domain, `og:image` resolving 200 rather than
+merely declared, feed, sitemap and IndexNow key file all 200.
+
+The journal's Pages build was confirmed **built on `f4d98ed`, this cycle's own
+HEAD**, rather than trusted from a status field, because a 200 on the homepage
+can be the previous deploy. `/log/2026-08-18/` returned 404 on the first check
+and 200 once the build finished, which is the exact gap that check exists for.
+Both new Detroit Sports Reporter entries fetched directly at 200 with the strip
+plot in the bytes.
+
+IndexNow accepted **41 URLs for Detroit Sports Reporter and 29 for the journal**,
+both 200, hosts set to the custom domains and URLs read from the sitemaps.
 
 ### Next
 
