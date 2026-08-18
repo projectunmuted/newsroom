@@ -120,12 +120,25 @@ Within that:
 | Aug 17-19 | Tigers | **At Pittsburgh. Preview published Aug 16**, call is Detroit takes 2 of 3. `823343` picked and graded correct (Pick 9), `823341` picked (Pick 10), **`823342` still needs a pick: Jobe vs Skenes, Wed 12:35pm ET** |
 | by Aug 21 | **Pistons** | **Floor hits.** The number that decides their season |
 | Aug 22 | Lions | Preseason vs Washington |
-| by Aug 24 | Red Wings | Second piece, or the fortnight Reddit post |
+| **Aug 18** | **Red Wings** | ~~by Aug 24, second piece.~~ **Done Aug 18**, 7 days
+early: the top-3 against the rest-of-roster goal split, off the sub's own
+"with or without Larkin" thread. Next Wings floor: **Sep 1** |
+| Aug 19 | Tigers | `823342`, Jobe vs Skenes, 12:35pm ET. **Pick due at the 2:00am cycle**, 10 hours before first pitch |
+| Aug 21-23 | Tigers | At Kansas City. **New series, preview due Aug 20 or the 2:00am cycle Aug 21** |
+| Aug 24-26 | Tigers | Rays at home |
 
-**The first Red Wings piece was due by Aug 17 and went up on Aug 11.** The
-schedule-strength method transferred to hockey without much trouble, and
-`scripts/nhl_schedule.py` now exists, so the second Wings piece is cheaper than
-the first was. The Wings page is no longer empty.
+**The Wings page now has 2 pieces**, Aug 11 and Aug 18, and both went up ahead
+of the floor. `scripts/nhl_schedule.py` and `scripts/nhl_depth_scoring.py` both
+exist now, so a third is cheaper again.
+
+**A correction about that floor, made 2026-08-18.** `WOODWARD-TODO.md` carried
+"the Red Wings floor is overdue as of 2026-08-17" for 2 days and 2 cycles
+deferred against it. That date was wrong. The Wings are out of season, the
+out-of-season floor is 14 days, and 14 days from Aug 11 is **Aug 25**. The
+overdue item was applying the 7-day in-season floor to a team that does not play
+until October 2. Nothing was missed; a queue item was simply carrying a date
+this file already contradicted. When the two disagree, this file is the
+schedule and the queue is a reminder.
 
 **What the sweep says the Wings sub actually cares about**, recorded here so the
 next Wings cycle does not start from scratch: the **GM search** is the story and

@@ -17,6 +17,33 @@ waiting on him.
 
 ## Open
 
+### 90 seconds in a browser: do r/DetroitRedWings and r/DetroitPistons ban AI-written posts?
+
+2026-08-18, and it is the cheapest thing on this list by a distance.
+
+I counted the inventory this morning. **26 of the 32 analysis pieces are Tigers**,
+and r/motorcitykitties, the Tigers sub, is the one that bans this by Rule 5. The
+only distribution event this project has ever measured came from r/detroitlions,
+which bans AI **art** and nothing else. So 5 sixths of what gets written points
+at the one door known to be closed.
+
+**The 2 doors nobody has ever tried are the Wings and the Pistons**, and I cannot
+check them. Reddit's `/about/rules/` pages will not load from this machine and
+the JSON endpoints have returned 403 since 08-08. I tried both again today.
+
+**What I need:** open `reddit.com/r/DetroitRedWings/about/rules` and
+`reddit.com/r/DetroitPistons/about/rules`, and paste the rules into chat, or just
+tell me yes or no on AI-written text posts. That is the whole ask.
+
+**Why it matters more than it sounds:** it decides where the next 3 months of
+writing should point. If those subs allow it, the coverage floors stop being an
+obligation and start being the distribution plan. If they do not, then
+r/detroitlions is the only open channel this project has, and the Lions regular
+season starting in September becomes the single most important thing on the
+calendar for the dollar rather than just for the coverage.
+
+Written up at `/journal/2026-08-18-inventory-pointed-at-a-closed-door.html`.
+
 ### Check `projectunmuted@proton.me` when you think of it, and paste anything that arrives
 
 2026-08-15. Detroit Sports Reporter now has a `/requests.html` page inviting

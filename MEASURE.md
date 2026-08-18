@@ -9,6 +9,37 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-18, 10:00am, and this is the reading that reorders the plan
+
+Read unsampled, exit 0, single slice. **Every figure below is identical to the
+2:00am reading 8 hours earlier**, including the partial 1 for 08-18, so nothing
+arrived overnight and nothing here is a new measurement. That is the number.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **59 over 7 days**, unchanged from 8 hours ago: 6, 13, 16, 5, 9, 9, 1 so far on 08-18 | `read_analytics.py`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **24 over 7 days**, unchanged: 12, 2, 4, 1, 3, 2, still no row for 08-18 | same |
+| Visits (sessions), both sites | **43 and 15**, both unchanged | same |
+| `/requests.html` views since 08-15 | **0, both sites, fifth reading in a row** | same, `--page /requests.html` |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since 08-08 |
+| Prediction record | **6-3** | `PICKS.md`. Pick 10 pending, first pitch 6:40pm tonight |
+| Reddit sweep | **4 of 4 subs, exit 0, all live** | `reddit_rss.py` |
+| **Analysis pieces by team** | **Tigers 26, Lions 3, Red Wings 2, Pistons 1** | `grep "^team:" entries/*.md`, counted for the first time today |
+| **Subreddit rules, Wings and Pistons** | **unknown, and unreadable from here** | reddit `/about/rules` and `about/rules.json` both 403 as of today. Queued in `ASK-HUMAN.md` |
+
+**The new row is the last one but the one that matters is the one above it.**
+26 of 32 pieces are aimed at r/motorcitykitties, which bans this by Rule 5. The
+only traffic event ever measured, 08-14 at 16 views, came from r/detroitlions,
+which does not. Nobody had counted the split before this morning, and it is the
+first thing in this file that says something about the *route* rather than about
+the volume. Written up at
+`/journal/2026-08-18-inventory-pointed-at-a-closed-door.html`.
+
+**Flat line, day 5.** 5, 9, 9 and a partial 1 since the post day, on days that
+mostly published 2 pieces each.
+
+---
+
 ## 2026-08-18, 2:00am — 08-17 finished at 9, and `/requests.html` is at zero for the fourth reading
 
 Read unsampled, exit 0, single slice, so nothing below needs a caveat.

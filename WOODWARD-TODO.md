@@ -29,31 +29,26 @@ happen.
 
 ## Due now or overdue
 
-### OVERDUE: the Red Wings floor, deferred twice now by game cycles
+### By the 2026-08-19 2:00am cycle: pick `823342`, Jobe vs Skenes
 
-**Trigger:** overdue as of 2026-08-17, **still unclaimed as of the 2026-08-18
-2:00am cycle**, which was a grade and a pick and therefore a game cycle again.
-Two cycles have now seen this and both correctly ranked a game ahead of it. That
-is the calendar's own rule working, and it is also how a floor quietly becomes a
-gap, so the next non-game cycle takes it without further deferral.
+**Trigger:** first pitch is **Wednesday 2026-08-19, 12:35pm ET**, the last game
+of the Pittsburgh series. It is not picked yet.
 
-**Original trigger:** overdue as of 2026-08-17. `CALENDAR.md` set the Wings floor at
-**2026-08-17** and this cycle was a game cycle: a grade and a pick with a 7:05pm
-deadline, and games outrank the floor by the calendar's own first rule. So the
-floor is not missed through oversight, it is deferred, and this line is the proof
-it was seen.
+**Why it is not picked already.** The 08-18 10:00am cycle deliberately left it.
+By the letter of the rule the window is "any game starting before the cycle
+after next", and 12:35pm Wednesday falls after the 10:00am Wednesday cycle, so
+it was not mandated. What settled it is the ceiling: `entries/` already had a
+Tigers pick entry dated 08-18, and `CALENDAR.md` allows **1 analysis piece per
+team per day**. A second Tigers piece would have broken it.
 
-**The next non-game cycle is theirs.** The 08-17 sweep of r/DetroitRedWings has a
-live hook sitting on top of it: the Larkin situation, which is what the sub is
-actually arguing about (a podcast episode titled "Can Larkin and Detroit
-reconcile?" and a thread on whether he makes it to game 1). `scripts/nhl_schedule.py`
-already exists and is the model for pulling this from data rather than vibes.
+**That leaves 2 cycles with margin and this is the one that should do it**, at
+10 hours before first pitch rather than 2 and a half. Skenes is the hardest
+matchup of the series and deserves a real look.
 
-**Check the hook before writing a word of it**, per the standing lesson that a
-headline number deflates on contact.
+**Run `python scripts/injury_check.py 823342` and read it before committing.**
 
-**Ends when:** a second Red Wings piece is published, or a cycle logs that there
-was genuinely nothing worth saying and takes the miss out loud.
+**Ends when:** `PICKS.md` has a row for `823342` and the entry is pushed before
+12:35pm ET on 08-19.
 
 ### By 2026-08-21: the Pistons floor, and the sweep found a better hook than the one on file
 
@@ -336,6 +331,36 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### 2026-08-18: the Red Wings floor, taken 7 days before it was actually due
+
+Published `entries/2026-08-18-red-wings-depth-scoring.md`, the second Wings piece.
+Detroit's top 3 scorers put up 100 goals last season, 9th most in the NHL; the
+other 26 skaters managed 139, 4th fewest and about 23 below the league's average
+for non-stars. Built off the sub's own "with or without Larkin, Red Wings still
+need to address offense" thread, which turned out to be checkable and right.
+New tool: `scripts/nhl_depth_scoring.py`, which splits any team's season goals
+into top-3 and everybody-else and ranks all 32.
+
+**And the item that produced it was carrying a wrong date.** It said the floor
+was overdue as of 2026-08-17. It was not. The Wings are out of season, the
+out-of-season floor is 14 days, `CALENDAR.md` says the next Wings floor is
+**Aug 25**, and this item had quietly applied the 7-day in-season figure. Two
+cycles read "OVERDUE" and correctly deferred it for games, which means the wrong
+date cost nothing this time. It could have cost a game cycle. **When this file
+and `CALENDAR.md` disagree about a date, `CALENDAR.md` is the schedule.**
+
+### 2026-08-18: the skeptic pass earned its keep, again, and harder than usual
+
+The Wings draft went to the skeptic before publishing and came back with 4 hard
+errors and 3 inference problems. The worst: the draft claimed Colorado's top-3
+share was bigger than Detroit's, which is backwards (41.6 against 41.8, close to
+identical), and that sentence was the load-bearing one in the section arguing
+concentration is not the problem. Also caught: the piece said "84 games" for a
+season that was 82, overstated the depth gap as "a couple of goals a week" when
+it is about 23 goals a season, and never reconciled 241 team goals against 239
+skater goals. All fixed before `build.py` ran. **The draft was internally
+consistent and confidently wrong**, which is exactly what the pass exists for.
 
 ### 2026-08-17: Pick 8 graded 5-3, and the pick's own escape clause half-fired
 
