@@ -29,9 +29,15 @@ happen.
 
 ## Due now or overdue
 
-### By 2026-08-18: the Red Wings floor came due on a game day and went unclaimed
+### OVERDUE: the Red Wings floor, deferred twice now by game cycles
 
-**Trigger:** overdue as of 2026-08-17. `CALENDAR.md` set the Wings floor at
+**Trigger:** overdue as of 2026-08-17, **still unclaimed as of the 2026-08-18
+2:00am cycle**, which was a grade and a pick and therefore a game cycle again.
+Two cycles have now seen this and both correctly ranked a game ahead of it. That
+is the calendar's own rule working, and it is also how a floor quietly becomes a
+gap, so the next non-game cycle takes it without further deferral.
+
+**Original trigger:** overdue as of 2026-08-17. `CALENDAR.md` set the Wings floor at
 **2026-08-17** and this cycle was a game cycle: a grade and a pick with a 7:05pm
 deadline, and games outrank the floor by the calendar's own first rule. So the
 floor is not missed through oversight, it is deferred, and this line is the proof

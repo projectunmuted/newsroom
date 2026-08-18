@@ -1,0 +1,70 @@
+<svg viewBox="0 0 640 310" width="100%" role="img" aria-labelledby="es-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="es-title">Every 2026 start by each pitcher, one dot per start, placed by earned runs allowed. Keider Montero: 20 starts, worst 5 earned, 1 of 20 at 5 or more. Braxton Ashcraft: 24 starts, worst 7 earned, 5 of 24 at 5 or more.</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">One dot per start, placed by earned runs allowed</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">2026 starts only. Dots at 5 or more earned runs are the tail</text>
+<line x1="116.0" y1="42.0" x2="116.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="116.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">0</text>
+<line x1="188.0" y1="42.0" x2="188.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="188.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">1</text>
+<line x1="260.0" y1="42.0" x2="260.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="260.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">2</text>
+<line x1="332.0" y1="42.0" x2="332.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="332.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">3</text>
+<line x1="404.0" y1="42.0" x2="404.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="404.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">4</text>
+<line x1="476.0" y1="42.0" x2="476.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="476.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">5</text>
+<line x1="548.0" y1="42.0" x2="548.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="548.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">6</text>
+<line x1="620.0" y1="42.0" x2="620.0" y2="256.0" stroke="var(--rule)" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="620.0" y="270.0" text-anchor="middle" fill="var(--muted)" font-size="10">7</text>
+<text x="368.0" y="286.0" text-anchor="middle" fill="var(--muted)" font-size="10">earned runs allowed in the start</text>
+<text x="0" y="58.0" fill="var(--fg)" font-size="11.5" font-weight="600">Keider Montero</text>
+<text x="0" y="74.0" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">20 starts, 3.31</text>
+<circle cx="260.0" cy="64.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-05 vs St. Louis Cardinals: 4.1 IP, 2 ER</title></circle>
+<circle cx="116.0" cy="64.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-10 vs Miami Marlins: 6.0 IP, 0 ER</title></circle>
+<circle cx="404.0" cy="64.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-16 vs Kansas City Royals: 6.0 IP, 4 ER</title></circle>
+<circle cx="332.0" cy="64.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-21 vs Milwaukee Brewers: 5.2 IP, 3 ER</title></circle>
+<circle cx="332.0" cy="77.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-26 vs Cincinnati Reds: 5.0 IP, 3 ER</title></circle>
+<circle cx="188.0" cy="64.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-02 vs Texas Rangers: 6.2 IP, 1 ER</title></circle>
+<circle cx="188.0" cy="77.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-08 vs Kansas City Royals: 6.0 IP, 1 ER</title></circle>
+<circle cx="404.0" cy="77.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-14 vs New York Mets: 4.2 IP, 4 ER</title></circle>
+<circle cx="332.0" cy="90.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-19 vs Cleveland Guardians: 5.0 IP, 3 ER</title></circle>
+<circle cx="404.0" cy="90.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-26 vs Los Angeles Angels: 5.2 IP, 4 ER</title></circle>
+<circle cx="116.0" cy="77.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-31 vs Chicago White Sox: 6.0 IP, 0 ER</title></circle>
+<circle cx="404.0" cy="103.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-06 vs Seattle Mariners: 5.0 IP, 4 ER</title></circle>
+<circle cx="116.0" cy="90.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-11 vs Minnesota Twins: 6.1 IP, 0 ER</title></circle>
+<circle cx="332.0" cy="103.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-21 vs Chicago White Sox: 7.0 IP, 3 ER</title></circle>
+<circle cx="116.0" cy="103.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-26 vs Houston Astros: 7.0 IP, 0 ER</title></circle>
+<circle cx="188.0" cy="90.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-07-22 vs Chicago Cubs: 5.1 IP, 1 ER</title></circle>
+<circle cx="404.0" cy="116.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-07-27 vs Baltimore Orioles: 4.1 IP, 4 ER</title></circle>
+<circle cx="116.0" cy="116.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-08-02 vs Athletics: 6.0 IP, 0 ER</title></circle>
+<circle cx="476.0" cy="64.0" r="5.5" fill="var(--chart-neg)" opacity="0.85"><title>2026-08-07 vs San Francisco Giants: 6.0 IP, 5 ER</title></circle>
+<circle cx="116.0" cy="129.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-08-13 vs Cleveland Guardians: 6.1 IP, 0 ER</title></circle>
+<text x="0" y="170.0" fill="var(--fg)" font-size="11.5" font-weight="600">Braxton Ashcraft</text>
+<text x="0" y="186.0" fill="var(--muted)" font-size="10" font-variant-numeric="tabular-nums">24 starts, 3.82</text>
+<circle cx="260.0" cy="176.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-03-30 vs Cincinnati Reds: 6.0 IP, 2 ER</title></circle>
+<circle cx="188.0" cy="176.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-05 vs Baltimore Orioles: 6.0 IP, 1 ER</title></circle>
+<circle cx="188.0" cy="189.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-11 vs Chicago Cubs: 5.0 IP, 1 ER</title></circle>
+<circle cx="260.0" cy="189.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-16 vs Washington Nationals: 5.2 IP, 2 ER</title></circle>
+<circle cx="260.0" cy="202.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-04-22 vs Texas Rangers: 7.0 IP, 2 ER</title></circle>
+<circle cx="548.0" cy="176.0" r="5.5" fill="var(--chart-neg)" opacity="0.85"><title>2026-04-28 vs St. Louis Cardinals: 4.1 IP, 6 ER</title></circle>
+<circle cx="116.0" cy="176.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-03 vs Cincinnati Reds: 7.2 IP, 0 ER</title></circle>
+<circle cx="188.0" cy="202.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-09 vs San Francisco Giants: 7.0 IP, 1 ER</title></circle>
+<circle cx="404.0" cy="176.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-15 vs Philadelphia Phillies: 6.2 IP, 4 ER</title></circle>
+<circle cx="188.0" cy="215.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-21 vs St. Louis Cardinals: 7.0 IP, 1 ER</title></circle>
+<circle cx="188.0" cy="228.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-26 vs Chicago Cubs: 6.1 IP, 1 ER</title></circle>
+<circle cx="260.0" cy="215.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-05-31 vs Minnesota Twins: 6.0 IP, 2 ER</title></circle>
+<circle cx="548.0" cy="189.0" r="5.5" fill="var(--chart-neg)" opacity="0.85"><title>2026-06-06 vs Atlanta Braves: 5.0 IP, 6 ER</title></circle>
+<circle cx="260.0" cy="228.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-12 vs Miami Marlins: 5.0 IP, 2 ER</title></circle>
+<circle cx="188.0" cy="241.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-17 vs Athletics: 6.0 IP, 1 ER</title></circle>
+<circle cx="188.0" cy="254.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-06-24 vs Seattle Mariners: 6.0 IP, 1 ER</title></circle>
+<circle cx="476.0" cy="176.0" r="5.5" fill="var(--chart-neg)" opacity="0.85"><title>2026-06-29 vs Philadelphia Phillies: 6.0 IP, 5 ER</title></circle>
+<circle cx="188.0" cy="267.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-07-04 vs Washington Nationals: 5.2 IP, 1 ER</title></circle>
+<circle cx="476.0" cy="189.0" r="5.5" fill="var(--chart-neg)" opacity="0.85"><title>2026-07-11 vs Milwaukee Brewers: 5.0 IP, 5 ER</title></circle>
+<circle cx="620.0" cy="176.0" r="5.5" fill="var(--chart-neg)" opacity="0.85"><title>2026-07-20 vs New York Yankees: 3.0 IP, 7 ER</title></circle>
+<circle cx="404.0" cy="189.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-07-26 vs Chicago Cubs: 6.0 IP, 4 ER</title></circle>
+<circle cx="188.0" cy="280.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-08-01 vs Cincinnati Reds: 5.0 IP, 1 ER</title></circle>
+<circle cx="332.0" cy="176.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-08-06 vs Milwaukee Brewers: 5.0 IP, 3 ER</title></circle>
+<circle cx="188.0" cy="293.0" r="5.5" fill="var(--chart-pos)" opacity="0.85"><title>2026-08-13 vs Miami Marlins: 9.0 IP, 1 ER</title></circle>
+</svg>

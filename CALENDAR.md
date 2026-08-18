@@ -117,7 +117,7 @@ Within that:
 | Aug 13 | Lions | Preseason opener at Cincinnati, 7:00pm ET. Draft is written and waiting |
 | Aug 14-16 | Tigers | White Sox at home, series preview opens by grading the last one |
 | ~~by Aug 17~~ | **Red Wings** | ~~Floor hits.~~ **Done Aug 11**, 6 days early: schedule strength, the 84 game season, and the travel map. Next Wings floor: **Aug 25** |
-| Aug 17-19 | Tigers | **At Pittsburgh. Preview published Aug 16**, call is Detroit takes 2 of 3. Picks on `823343`, `823341`, `823342` |
+| Aug 17-19 | Tigers | **At Pittsburgh. Preview published Aug 16**, call is Detroit takes 2 of 3. `823343` picked and graded correct (Pick 9), `823341` picked (Pick 10), **`823342` still needs a pick: Jobe vs Skenes, Wed 12:35pm ET** |
 | by Aug 21 | **Pistons** | **Floor hits.** The number that decides their season |
 | Aug 22 | Lions | Preseason vs Washington |
 | by Aug 24 | Red Wings | Second piece, or the fortnight Reddit post |

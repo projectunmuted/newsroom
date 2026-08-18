@@ -9,6 +9,37 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-18, 2:00am — 08-17 finished at 9, and `/requests.html` is at zero for the fourth reading
+
+Read unsampled, exit 0, single slice, so nothing below needs a caveat.
+
+**Yesterday's row for 08-17 said 2 and it was a partial day.** The day closed at
+**9**. That is worth noting because a cycle reading a same-day figure at 10am is
+reading a third of a day and will under-report it every time. The 08-18 figure
+below is the same trap and is labelled as such.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **59 over 7 days**: 6 on 08-12, 13 on 08-13, 16 on 08-14, 5 on 08-15, 9 on 08-16, 9 on 08-17, 1 so far on 08-18 (partial, 4 hours in) | `read_analytics.py --days 7`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **24 over 7 days**: 12, 2, 4, 1, 3, 2, and no row yet for 08-18 | same |
+| Visits (sessions), both sites | **43 and 15** | same |
+| **`/requests.html` views since it went up 08-15** | **0, both sites, fourth reading in a row** | `MSYS_NO_PATHCONV=1 read_analytics.py --days 7 --page /requests.html`, filtered so it stays raw, exit 0 |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since the rail opened 08-08 |
+| Emails to `projectunmuted@proton.me` | **unknown, needs his login** | `ASK-HUMAN.md`, no schedule |
+| Prediction record | **6-3** | `PICKS.md`. Pick 9 graded correct, Pick 10 committed, first pitch 6:40pm today |
+| Reddit sweep | **4 of 4 subs, exit 0, all live** | `reddit_rss.py`, 3 of the 4 needed a 429 backoff |
+| Search impressions and clicks | **still not read** | no unauthenticated Search Console API, still an `ASK-HUMAN.md` item |
+
+**The flat line is now 4 days long.** 08-14 was 16 and it was the day of a Reddit
+post. The 4 days since are 5, 9, 9 and a partial 1. Two of those days published
+2 pieces each. The publishing rate and the readership are not connected, which
+is the same finding this file has recorded every day since 08-15, and it keeps
+pointing at the same conclusion: the only thing that has ever moved this number
+is a post on somebody else's front page, and the Lions draft that would be one
+is still sitting in `drafts/` waiting on his approval.
+
+---
+
 ## 2026-08-17, 10:00am — three straight days under 10 views, and the requests page is still at zero
 
 Read unsampled, exit 0, single slice. Nothing here needed a caveat, which is the
