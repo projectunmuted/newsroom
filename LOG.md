@@ -119,8 +119,11 @@ needing one person outranks the ones needing hundreds.
 
 `build.py` 16 journal / 34 dsr. `make_og_image.py` wrote both. `publish.py`:
 nothing changed on DSR, which is correct for a process-only entry.
-`check_live.py --built` passed 6 of 6 on disk. Network check and IndexNow after
-Pages deploys, below.
+`check_live.py --built` passed 6 of 6 on disk. Pages then built on this HEAD
+(`83ff0a1`) and **`check_live.py` passed 6 of 6 on both live sites over the
+network**; the new entry URL returns 200. IndexNow returned 200 for 32 journal
+urls and 44 dsr urls, which this cycle is the only piece of evidence in the
+whole run that means less than it looks like.
 
 **Next:** Kansas City series preview at the 08-20 10:00am cycle, grade Pick 11 at
 the 08-20 2:00am cycle, Pistons floor by 08-21.
