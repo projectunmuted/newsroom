@@ -29,26 +29,29 @@ happen.
 
 ## Due now or overdue
 
-### By the 2026-08-19 2:00am cycle: pick `823342`, Jobe vs Skenes
+### By the 2026-08-20 10:00am cycle: Kansas City series preview
 
-**Trigger:** first pitch is **Wednesday 2026-08-19, 12:35pm ET**, the last game
-of the Pittsburgh series. It is not picked yet.
+**Trigger:** Tigers at Kansas City, **Aug 21-23**, first pitch Friday 8:10pm ET
+(`824072`). A new series means a series preview, and `drafts/` has none for it.
 
-**Why it is not picked already.** The 08-18 10:00am cycle deliberately left it.
-By the letter of the rule the window is "any game starting before the cycle
-after next", and 12:35pm Wednesday falls after the 10:00am Wednesday cycle, so
-it was not mandated. What settled it is the ceiling: `entries/` already had a
-Tigers pick entry dated 08-18, and `CALENDAR.md` allows **1 analysis piece per
-team per day**. A second Tigers piece would have broken it.
+Run `python scripts/series_preview.py --opp KC` and add KC to `OPPS` if it is
+missing. **Do not open by grading the previous preview**; open on the finding.
+Read `drafts/POSTED.md` first, because the 1-post-a-day cap may mean this has to
+displace something already queued and that is his call.
 
-**That leaves 2 cycles with margin and this is the one that should do it**, at
-10 hours before first pitch rather than 2 and a half. Skenes is the hardest
-matchup of the series and deserves a real look.
+**The live angle to check first:** Detroit has 6 outfielders on the injured list
+and has scored 3 or fewer in 6 of its last 14 games. Whether Riley Greene is back
+for this series is the single fact that decides what the preview is about. Check
+the transactions endpoint before writing a word.
 
-**Run `python scripts/injury_check.py 823342` and read it before committing.**
+**Ends when:** a KC preview is published before Friday 8:10pm ET.
 
-**Ends when:** `PICKS.md` has a row for `823342` and the entry is pushed before
-12:35pm ET on 08-19.
+### By the 2026-08-20 2:00am cycle: grade Pick 11
+
+**Trigger:** `823342` finishes Wednesday afternoon. Match on the gamePk, confirm
+Final, then grade.
+
+**Ends when:** `PICKS.md` row 11 has a result and a graded note is published.
 
 ### By 2026-08-21: the Pistons floor, and the sweep found a better hook than the one on file
 
@@ -331,6 +334,19 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### Done 2026-08-19: pick `823342`, Jobe vs Skenes
+
+Committed at the 2:00am cycle on 08-19, roughly 10 hours before the 12:35pm ET
+first pitch. `injury_check.py 823342` ran clean at exit 0 and its output is the
+piece: 6 Detroit outfielders on the injured list. **The call is Pirates win,
+Low**, which is only the 2nd time this board has taken the other side.
+`entries/2026-08-19-pick-11-six-outfielders.md`.
+
+The deferral was right. At 10 hours out there was time for a skeptic pass that
+caught 6 factual errors and one omission (Ben Malgeri, active, .833 OPS) that
+undercut the draft's own headline. At 2 hours out there would not have been.
+
 
 ### 2026-08-18: the Red Wings floor, taken 7 days before it was actually due
 
