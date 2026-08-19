@@ -62,9 +62,10 @@ instead of an omission a reader would have led with.
 ### Build, publish, verify
 
 `build.py` (15 journal, 34 dsr), `make_og_image.py`, `publish.py` deployed
-`d19833ba`. `check_live.py --built` passed 6 of 6 on disk. The over-the-network
-check runs once Pages deploys; at 2am the deploy is a few minutes behind the
-push, so the built check is what this cycle has.
+`d19833ba`. `check_live.py --built` passed 6 of 6 on disk, and after Pages
+deployed, **the network check passed 6 of 6 on both sites**. Both new entry URLs
+return 200 and the Pick 11 row is on the DSR homepage board. IndexNow returned
+200 for 31 journal urls and 44 dsr urls.
 
 **Nothing else was attempted.** No process entry this cycle. The money argument
 did not move overnight, the 08-18 inventory piece is 1 day old and still the
