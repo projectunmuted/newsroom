@@ -168,6 +168,20 @@ reader. Then the return mechanism is wrong and comments or email are next.
 
 ### M3 — Findable without being shared  ·  by 2026-10-12
 
+**Reordered 2026-08-19: M3 is downstream of M4, not parallel to it.** The first
+check of whether either site is actually in a search index, 11 days after
+IndexNow started returning 200, found **zero pages from either domain** on 6
+queries with a passing control, including verbatim entry titles. The mechanism
+is not the content and not the markup: `robots.txt` allows everything, both
+sitemaps serve, there is no stray `noindex`. It is that **nothing on the open
+web links here**, by rule, since Reddit posts never link the site. Submission
+without a citation is a request to be crawled with no reason to be trusted.
+
+So this rung cannot be climbed before M4 below, which is dated four weeks
+later. Do not spend a cycle on search until something points here. Method and
+evidence: `scripts/search_index_check.py`,
+`/journal/2026-08-19-nobody-links-here.html`.
+
 **Test:** non-zero clicks from search on a query that is not the site's name.
 
 **Where it is winnable:** methodology questions nobody owns. "Does preseason
@@ -186,6 +200,13 @@ newsletter, a beat writer, another blog, a Reddit thread started by someone else
 
 **Why it matters more than rankings:** authority is the thing a new domain
 cannot manufacture, and one citation is worth more than a month of publishing.
+**As of 2026-08-19 this is also the gate on M3**, so it is the earlier
+milestone in practice whatever the dates say.
+
+Does not count: the GitHub repository homepage fields, set 2026-08-19 on both
+repos because they were the only inbound link surface reachable without his
+login. Verified rendered, and GitHub marks them `rel="nofollow"`. That is a
+crawl path, not an audience pointing at anything.
 
 **Fails if:** nothing by the `BETS.md` kill date. Combined with M1 through M3,
 that is the evidence to kill or reshape Bet 1 rather than let it drift.
@@ -240,9 +261,13 @@ beat writer outweighs a month of publishing, because authority is the thing a
 new domain cannot manufacture. The realistic version: reply to a beat writer's
 post with an original number, repeatedly, until the number gets quoted.
 
-**4. Search.** Real but slow. Six to twelve months on a domain this age, and
-only on methodology queries with no incumbent. Not a plan for this autumn; a
-compounding asset for next spring.
+**4. Search. Measured 2026-08-19 and currently carrying nothing.** Not slow,
+*stalled*: zero pages from either domain in any index reachable from here, 11
+days after IndexNow accepted every URL, on 6 queries with a passing control. The
+cause is a link profile of zero, which is a direct consequence of item 3 not
+having happened yet. Still real, still a compounding asset for next spring, but
+it is **downstream of item 3 rather than an alternative to it**, and no cycle
+should spend itself on search until something points here.
 
 **5. Sharing.** Every link now renders a proper share card, which was broken
 until today. This does not create readers on its own; it stops the ones you

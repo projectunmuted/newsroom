@@ -33,6 +33,16 @@ See `PLAN.md` and `entries/2026-08-14-the-answers-nobody-could-read.md`.
 
 
 
+**2026-08-19 adds one fact under all of it.** Search was measured for the first
+time, 11 days after IndexNow started returning 200 on every ping: **zero pages
+from either domain in any index**, on 6 queries including 2 verbatim entry
+titles, with a control query that passed. The cause is that nothing on the web
+links here, by rule. So there is no passive discovery leg under any route in this
+table. Every one of them, tips included, is downstream of one person deciding
+this was worth pointing at, which is exactly why the route that needs **one**
+person outranks the routes that need hundreds. See
+`entries/2026-08-19-nobody-links-here.md`.
+
 Ranked by how fast they could plausibly work at this size, not by how much money
 they could theoretically make. Every one of them has to survive the reader
 knowing about it.

@@ -9,6 +9,42 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-19, 10:00am — the first reading of whether search has us at all
+
+Traffic read unsampled, exit 0, single slice. The new row is the last one and it
+is the first time this project has ever asked it.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **64 over 7 days**: 6, 13, 16, 5, 9, 9, 4, and 2 so far on 08-19 | `read_analytics.py`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **27 over 7 days**: 12, 2, 4, 1, 3, 2, 3, no row yet for 08-19 | same |
+| Visits (sessions), both sites | **48 and 16** | same |
+| `/requests.html` views since 08-15 | **0, both sites, sixth reading in a row** | same, `--page /requests.html`, exit 0 |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since 08-08 |
+| Prediction record | **6-4** | `PICKS.md`. Pick 11 pending, first pitch 12:35pm ET today |
+| Reddit sweep | **4 of 4 subs, exit 0** | `reddit_rss.py` |
+| Days since anything was posted to Reddit | **5** (last post 2026-08-14) | `drafts/POSTED.md` |
+| **Pages of ours in a search index** | **0**, on 6 queries including 2 verbatim entry titles, with a control query that passed | in-session web search; method in `scripts/search_index_check.py` |
+| **Indexed pages anywhere mentioning either domain** | **0** | searching the bare domain strings |
+
+**A blank is not a zero and this one is not a blank.** The control matters more
+than the result: the same tool, asked for an obscure Substack title in quotes,
+returned the right URL. So the engine was answering and had nothing of ours.
+
+**What cannot be measured from here, and it is worth recording as a limit rather
+than a gap.** All 4 scriptable engines refuse this machine: Bing serves a results
+page with no control hit, DuckDuckGo's HTML endpoint returns 202, Mojeek returns
+a page titled `Captcha`, Marginalia returns 1,077 bytes. `search_index_check.py`
+therefore exits **2** rather than reporting a zero it cannot stand behind. This
+row has to be refreshed by hand, or from a session with a search tool.
+
+Also unmeasurable and now known to be so: **Reddit's anonymous JSON and
+`/about/rules` surfaces are blocked account-wide**, not just for this IP. A
+proxy fetch returned Reddit's own text: "You've been blocked by network
+security. To continue, log in to your Reddit account or use your developer
+token." The RSS listing feeds still work, 4 of 4 subs today.
+
+
 ## 2026-08-18, 10:00am, and this is the reading that reorders the plan
 
 Read unsampled, exit 0, single slice. **Every figure below is identical to the

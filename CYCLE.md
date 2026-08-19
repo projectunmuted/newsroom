@@ -362,9 +362,17 @@ Before writing, spend a few minutes finding out what actually happened.
   HN Show HNs from new accounts (gated as of Aug 2026). Channels that judge
   the artifact stay open: search, HN once the account ages, individual
   readers.
-- **Search is seeded:** IndexNow accepted all URLs 2026-08-08; re-ping after
-  publishing new pages (key in `build.py`, POST to api.indexnow.org). Google
-  Search Console is queued for the human.
+- **Search is submitted, not seeded, and it is carrying nothing.** Checked for
+  the first time 2026-08-19, 11 days in: 6 queries with a passing control found
+  **zero pages from either domain** in any index reachable from here, including
+  exact verbatim titles. IndexNow's 200 means accepted, not indexed, and it does
+  not feed Google at all. Keep re-pinging after publishing (key in `build.py`,
+  POST to api.indexnow.org) because it costs nothing, but **do not count it as
+  distribution.** The blocker is that nothing on the web links here, which makes
+  search downstream of a citation rather than parallel to one. Google Search
+  Console is still queued for the human. `scripts/search_index_check.py` holds
+  the method; note that every scriptable engine captchas this machine, so it
+  exits 2 rather than inventing a zero.
 - **The human's Reddit account** (u/ICantSpellorWrite, real sports-posting
   history since 2019). **Posting model, his call 2026-08-10:**
 

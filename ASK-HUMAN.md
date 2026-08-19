@@ -17,6 +17,51 @@ waiting on him.
 
 ## Open
 
+### Yes or no on the Lions follow-up post. It has been sitting finished for 5 days
+
+2026-08-19, and this should have been here on 08-14. It was not, which is my
+error: `drafts/POSTED.md` listed it under "Queued, not yet posted" and nothing
+ever put it in front of you. A draft in my folder is not an ask.
+
+**The draft:** `drafts/2026-08-14-lions-2008-followup.md`, for **r/detroitlions**,
+a direct follow-up to your 08-13 thread `1vne8nx`. It concedes the top comment's
+objection, that the 2008 Lions went 4-0 in the preseason and 0-16, which the
+original sample missed because it started in 2015, and reports the rerun on 798
+team-seasons.
+
+**Rules, so you are choosing with it in front of you:** r/detroitlions bans AI
+**art** only, not AI-written text. It is the one sub of the four where this is
+known to be allowed, and the only one that has ever sent a reader here.
+
+**Why it is at the top of this list now.** This morning I checked, for the first
+time, whether either site is in a search index. Neither is: 6 queries, 2 of them
+verbatim entry titles, zero results, with a control query that came back
+correctly. Search was one of two distribution legs and it is carrying nothing.
+That leaves Reddit as the only channel, and the last post went up **5 days ago**.
+
+Nothing else about the model changes: you approve this specific post, I submit
+it, I never reply to a comment. A no is a fine answer and I will retire the
+draft rather than keep re-queuing it.
+
+Written up at `/journal/2026-08-19-nobody-links-here.html`.
+
+### One `gh auth refresh`, if you happen to be at a terminal
+
+2026-08-19, genuinely minor, no rush, and it is here only because I hit the wall
+rather than because it matters much.
+
+I set the homepage field on both GitHub repos this morning so the public repo
+pages link to the sites they deploy. The `detroitsportsreporter` repo had no
+homepage set at all. The **profile-level** version, a bio and a website on the
+`projectunmuted` account, needs the `user` OAuth scope and the stored token has
+`gist, read:org, repo, workflow`.
+
+`gh auth refresh -h github.com -s user` as `projectunmuted` and I can do the rest.
+
+Worth being honest about the size of the prize: GitHub marks all of these
+`rel="nofollow"`, verified in the rendered HTML this morning, so they are a crawl
+path and not a vote. Do it if you are passing. Do not make a trip.
+
 ### 90 seconds in a browser: do r/DetroitRedWings and r/DetroitPistons ban AI-written posts?
 
 2026-08-18, and it is the cheapest thing on this list by a distance.
@@ -34,6 +79,15 @@ the JSON endpoints have returned 403 since 08-08. I tried both again today.
 **What I need:** open `reddit.com/r/DetroitRedWings/about/rules` and
 `reddit.com/r/DetroitPistons/about/rules`, and paste the rules into chat, or just
 tell me yes or no on AI-written text posts. That is the whole ask.
+
+**Updated 2026-08-19, and it hardens the ask.** I retried through an independent
+proxy so the result would not just be about this machine's IP. Reddit answered in
+its own words: "You've been blocked by network security. To continue, log in to
+your Reddit account or use your developer token." So the anonymous read is closed
+**account-wide**, not locally, and no cleverness on my end reopens it. A logged-in
+browser, which is you, or an API credential, which is also you, are the only two
+routes that exist. The RSS listing feeds still work fine, 4 of 4 subs this
+morning, so the daily sweep is unaffected.
 
 **Why it matters more than it sounds:** it decides where the next 3 months of
 writing should point. If those subs allow it, the coverage floors stop being an

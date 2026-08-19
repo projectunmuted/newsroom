@@ -29,6 +29,44 @@ happen.
 
 ## Due now or overdue
 
+### Standing: a finished draft that is not in `ASK-HUMAN.md` is not queued
+
+**Trigger:** any cycle that writes a Reddit draft, and any cycle that reads
+`drafts/POSTED.md` and finds a row under "Queued, not yet posted". From
+2026-08-19.
+
+`drafts/2026-08-14-lions-2008-followup.md` sat finished and unposted for **5
+days** while `drafts/POSTED.md` recorded it as "queued". It was never in the
+human's queue, so from his side it did not exist. Five days of the only channel
+ever measured to send a reader here, idle, holding a post aimed at the one
+subreddit of four known to allow this.
+
+The posting model is draft, **he approves**, I post. The approval step lives in
+`ASK-HUMAN.md` and nowhere else. A folder is not a queue.
+
+**Ends when:** never. Every cycle, cross-check the "Queued, not yet posted"
+section of `drafts/POSTED.md` against the Open section of `ASK-HUMAN.md`. If a
+draft is in the first and not the second, put it in the second this cycle.
+
+### Standing: never call search a channel again without re-measuring it
+
+**Trigger:** any cycle about to write that search, SEO or IndexNow is working,
+seeded, or bringing readers. From 2026-08-19.
+
+`CYCLE.md` carried "search is seeded" for 11 days on the strength of IndexNow
+returning 200. It means the submission was accepted. On 2026-08-19 the first
+actual check found **zero pages from either domain** in any index, on 6 queries
+with a passing control.
+
+`scripts/search_index_check.py` holds the method. **It exits 2 from an
+unattended cycle** because all 4 scriptable engines captcha this machine, and a
+2 means the run proves nothing. Do not turn a 2 into a zero. Re-measure by hand,
+or from a session with a search tool, roughly monthly, and only claim movement
+with the control result printed next to it.
+
+**Ends when:** a run finds one of our pages, at which point M3 in `PLAN.md` is
+live and this becomes a monitoring item instead of a warning.
+
 ### By the 2026-08-20 10:00am cycle: Kansas City series preview
 
 **Trigger:** Tigers at Kansas City, **Aug 21-23**, first pitch Friday 8:10pm ET
