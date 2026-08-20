@@ -1,0 +1,35 @@
+<svg viewBox="0 0 640 292" width="100%" role="img" aria-labelledby="tm-title" style="max-width:640px;height:auto;font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+<title id="tm-title">One-run games by matchup in the 2026 season through August 20. Detroit and Kansas City lead all of baseball with 8 of their 10 meetings decided by one run.</title>
+<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">Games decided by 1 run, by matchup</text>
+<text x="0" y="34" fill="var(--muted)" font-size="11">The 10 tightest of the 391 pairings that have met this season.</text>
+<text x="202" y="56.0" text-anchor="end" fill="var(--fg)" font-size="10" font-weight="700">Tigers / Royals</text>
+<rect x="210" y="46.0" width="330.0" height="12" fill="var(--chart-neg)" opacity="0.9"><title>Tigers / Royals: 8 of 10 decided by 1 run</title></rect>
+<text x="546.0" y="56.0" fill="var(--fg)" font-size="10.5" font-weight="700" font-variant-numeric="tabular-nums">8 of 10</text>
+<text x="202" y="78.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">White Sox / Guardians</text>
+<rect x="210" y="68.0" width="247.5" height="12" fill="var(--chart-neg)" opacity="0.35"><title>White Sox / Guardians: 6 of 10 decided by 1 run</title></rect>
+<text x="463.5" y="78.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">6 of 10</text>
+<text x="202" y="100.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">D-backs / Dodgers</text>
+<rect x="210" y="90.0" width="247.5" height="12" fill="var(--chart-neg)" opacity="0.35"><title>D-backs / Dodgers: 6 of 13 decided by 1 run</title></rect>
+<text x="463.5" y="100.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">6 of 13</text>
+<text x="202" y="122.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">Royals / Twins</text>
+<rect x="210" y="112.0" width="247.5" height="12" fill="var(--chart-neg)" opacity="0.35"><title>Royals / Twins: 6 of 13 decided by 1 run</title></rect>
+<text x="463.5" y="122.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">6 of 13</text>
+<text x="202" y="144.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">Brewers / Twins</text>
+<rect x="210" y="134.0" width="206.2" height="12" fill="var(--chart-neg)" opacity="0.35"><title>Brewers / Twins: 5 of 6 decided by 1 run</title></rect>
+<text x="422.2" y="144.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">5 of 6</text>
+<text x="202" y="166.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">Braves / Padres</text>
+<rect x="210" y="156.0" width="206.2" height="12" fill="var(--chart-neg)" opacity="0.35"><title>Braves / Padres: 5 of 7 decided by 1 run</title></rect>
+<text x="422.2" y="166.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">5 of 7</text>
+<text x="202" y="188.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">White Sox / Tigers</text>
+<rect x="210" y="178.0" width="206.2" height="12" fill="var(--chart-neg)" opacity="0.35"><title>White Sox / Tigers: 5 of 9 decided by 1 run</title></rect>
+<text x="422.2" y="188.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">5 of 9</text>
+<text x="202" y="210.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">White Sox / Royals</text>
+<rect x="210" y="200.0" width="206.2" height="12" fill="var(--chart-neg)" opacity="0.35"><title>White Sox / Royals: 5 of 10 decided by 1 run</title></rect>
+<text x="422.2" y="210.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">5 of 10</text>
+<text x="202" y="232.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">Cubs / Pirates</text>
+<rect x="210" y="222.0" width="206.2" height="12" fill="var(--chart-neg)" opacity="0.35"><title>Cubs / Pirates: 5 of 10 decided by 1 run</title></rect>
+<text x="422.2" y="232.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">5 of 10</text>
+<text x="202" y="254.0" text-anchor="end" fill="var(--muted)" font-size="10" font-weight="400">Reds / Cardinals</text>
+<rect x="210" y="244.0" width="206.2" height="12" fill="var(--chart-neg)" opacity="0.35"><title>Reds / Cardinals: 5 of 12 decided by 1 run</title></rect>
+<text x="422.2" y="254.0" fill="var(--muted)" font-size="10.5" font-weight="400" font-variant-numeric="tabular-nums">5 of 12</text>
+</svg>

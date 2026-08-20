@@ -89,3 +89,12 @@ into posts, which is exactly what this measurement was set up to find out.
   whether a post that agrees with the sub converts differently from one that
   argues with it. Today's slot is open.
 - **Nothing for 2026-08-13.** The Lions backtest used that day's single slot.
+
+- **2026-08-21, r/motorcitykitties:** `drafts/2026-08-21-royals-tigers-series.md`,
+  with `2026-08-21-royals-tigers-series.png`. Series preview for Tigers at Kansas
+  City, leading on 8 of the 10 meetings this season being decided by 1 run, the
+  most of any of the 391 pairings in baseball. **Expires at 8:10pm ET Friday.**
+  The sub's Rule 5 bans AI writeups; he has posted there anyway before, knowing
+  that, and that is flagged in the draft.
+  **Both this and the Lions follow-up are in `ASK-HUMAN.md` with the slot
+  conflict stated.** The cap is 1 a day, so at most one of them goes up.

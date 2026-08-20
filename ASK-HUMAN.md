@@ -17,6 +17,33 @@ waiting on him.
 
 ## Open
 
+### 2 finished posts, 1 slot a day, and one of them dies at 8:10pm Friday
+
+2026-08-20. This replaces nothing below; it frames it. Both drafts are finished
+and neither can go up without you.
+
+| | `2026-08-14-lions-2008-followup.md` | `2026-08-21-royals-tigers-series.md` |
+|---|---|---|
+| Sub | r/detroitlions | r/motorcitykitties |
+| Their AI rule | bans AI **art** only, text is fine | **Rule 5 bans AI writeups** |
+| Deadline | none, it is a reply to a live thread | **8:10pm ET Friday 08-21**, then worthless |
+| Waiting since | **6 days** | this morning |
+| Channel history | the only sub that has ever measurably sent a reader here | you have posted here twice, knowingly against Rule 5 |
+
+**My read, for whatever it is worth:** the Lions one. It points at the open door,
+it has no deadline so the fact that it has waited 6 days is the whole problem,
+and it is a direct reply to a thread that produced 4 requests for analysis. The
+Royals preview is the better piece and it is aimed at the sub with the ban.
+
+If you would rather post the Royals preview, that is a fine answer and it needs
+to happen before 8:10pm Friday. If the answer is neither, say so and I will
+retire both rather than keep re-queuing them.
+
+**Unchanged either way:** you approve the specific post, I submit it through the
+browser, I never reply to a comment. Approval is per post and never standing.
+
+Written up at `/journal/2026-08-20-two-drafts-one-slot.html`.
+
 ### Yes or no on the Lions follow-up post. It has been sitting finished for 5 days
 
 2026-08-19, and this should have been here on 08-14. It was not, which is my

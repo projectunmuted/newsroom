@@ -67,29 +67,31 @@ with the control result printed next to it.
 **Ends when:** a run finds one of our pages, at which point M3 in `PLAN.md` is
 live and this becomes a monitoring item instead of a warning.
 
-### By the 2026-08-20 10:00am cycle: Kansas City series preview
+### By the 2026-08-21 2:00am cycle: Pick 12, the Kansas City opener
 
-**Trigger:** Tigers at Kansas City, **Aug 21-23**, first pitch Friday 8:10pm ET
-(`824072`). A new series means a series preview, and `drafts/` has none for it.
+**Trigger:** `824072`, Friday 08-21 8:10pm ET at Kauffman, Melton starting for
+Detroit. Not committed on 08-20 because the game was 42 hours out and **Kansas
+City had not named a starter for any of the 3 games**, which is half the pick.
 
-Run `python scripts/series_preview.py --opp KC` and add KC to `OPPS` if it is
-missing. **Do not open by grading the previous preview**; open on the finding.
-Read `drafts/POSTED.md` first, because the 1-post-a-day cap may mean this has to
-displace something already queued and that is his call.
+Check `PICKS.md` first: as of 08-20 there is no row for `824072` and there must
+never be a second one. Run `python scripts/injury_check.py 824072` and read it;
+**Riley Greene is eligible to come off the 10-day IL on 08-22**, so his status
+can change between now and then and it is the single fact that moves this pick.
 
-**The live angle to check first:** Detroit has 6 outfielders on the injured list
-and has scored 3 or fewer in 6 of its last 14 games. Whether Riley Greene is back
-for this series is the single fact that decides what the preview is about. Check
-the transactions endpoint before writing a word.
+The series preview's call is Detroit takes 2 of 3, which is not a `PICKS.md` row
+and does not settle any individual game.
 
-**Ends when:** a KC preview is published before Friday 8:10pm ET.
+**Ends when:** `PICKS.md` has a row for `824072` and the entry is pushed before
+8:10pm ET Friday. Games 2 and 3 are `824073` (Sat 7:15pm) and `824071`
+(Sun 2:10pm).
 
-### By the 2026-08-20 2:00am cycle: grade Pick 11
+### By the 2026-08-21 2:00am cycle: grade nothing, and check that
 
-**Trigger:** `823342` finishes Wednesday afternoon. Match on the gamePk, confirm
-Final, then grade.
+**Trigger:** Detroit is off Thursday 08-20. `823342` was graded on 08-20 and the
+next gradeable game is Friday's, which finishes late Friday night.
 
-**Ends when:** `PICKS.md` row 11 has a result and a graded note is published.
+**Ends when:** a cycle has confirmed there is no Final Detroit game without a
+grade. Match on `gamePk`, never on team names.
 
 ### By 2026-08-21: the Pistons floor, and the sweep found a better hook than the one on file
 
@@ -372,6 +374,34 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### Done 2026-08-20: grade Pick 11
+
+`823342` fetched by id, status Final, Pirates 4 Tigers 3. The call was Pirates
+win, so **the record is 7-4**. The grade is more interesting than the result:
+Detroit chased Skenes in the 5th and led 3-2 into the bottom of the ninth, and
+Kenley Jansen gave up 2 solo home runs. The entry's argument, a lineup missing 6
+outfielders, did not happen. `entries/2026-08-20-grade-pick-11.md`.
+
+### Done 2026-08-20: Kansas City series preview
+
+Published a day and a half before the 8:10pm Friday opener rather than at the
+10:00am cycle it was due. Opened on the finding, not on the previous preview.
+
+The finding: **8 of the 10 Tigers-Royals games this season were decided by 1
+run, the most of any of the 391 pairings in baseball**, and no pairing has
+finished a full season above 7 since the balanced schedule arrived in 2023. Then
+the correction that number needed, because a maximum over 391 pairings sits in
+the tail by construction: 20,000 simulated leagues at the league's own one-run
+rate produce a leader at 8 in 13 percent of seasons. Tail draw, not a miracle,
+and the piece says so.
+
+New script `scripts/tightest_matchup.py` does all 3 checks and emits the chart.
+The live angle the item asked about: Riley Greene is still on the 10-day IL,
+placed 08-12, **eligible 08-22**, which is Saturday. The Detroit News quote about
+him rejoining on this road trip was cut from the piece because the article is
+paywalled and it could not be verified from a primary source.
+`entries/2026-08-20-royals-series-preview.md`.
 
 ### Done 2026-08-19: pick `823342`, Jobe vs Skenes
 
