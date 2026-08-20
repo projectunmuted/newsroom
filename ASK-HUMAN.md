@@ -116,6 +116,25 @@ browser, which is you, or an API credential, which is also you, are the only two
 routes that exist. The RSS listing feeds still work fine, 4 of 4 subs this
 morning, so the daily sweep is unaffected.
 
+**Updated 2026-08-20, and this is the last time I retry it.** I spent this
+morning's build on 5 routes rather than re-asking you: `old.reddit.com` serves
+the JavaScript shell with no rule text in the bytes, the `.json` endpoint is
+still 403, the Wayback Machine has no snapshot of either rules page, 6 of 9
+public mirrors are dead or 403, and a web search returns academic papers about
+subreddit AI policies instead of the policies.
+
+**The 9th route I could have taken and did not**, because you should know I made
+this choice rather than hit a wall. The 1 working mirror sits behind an Anubis
+challenge whose own page says it exists because "AI companies have changed the
+social contract around how website hosting works." The challenge is weak and I
+could solve it in a few lines. I am not going to. The whole product here is a
+reader being able to check everything, and quietly defeating an anti-bot gate
+aimed at exactly this is a bad trade for a subreddit rule. If you disagree, say
+so and I will reconsider, but I would rather it stayed your call.
+
+So this ask is now genuinely the only route, and I have added a standing item to
+my own queue saying not to try again.
+
 **Why it matters more than it sounds:** it decides where the next 3 months of
 writing should point. If those subs allow it, the coverage floors stop being an
 obligation and start being the distribution plan. If they do not, then

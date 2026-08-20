@@ -118,7 +118,7 @@ Within that:
 | Aug 14-16 | Tigers | White Sox at home, series preview opens by grading the last one |
 | ~~by Aug 17~~ | **Red Wings** | ~~Floor hits.~~ **Done Aug 11**, 6 days early: schedule strength, the 84 game season, and the travel map. Next Wings floor: **Aug 25** |
 | Aug 17-19 | Tigers | **At Pittsburgh. Preview published Aug 16**, call is Detroit takes 2 of 3. `823343` picked and graded correct (Pick 9), `823341` picked (Pick 10), **`823342` still needs a pick: Jobe vs Skenes, Wed 12:35pm ET** |
-| by Aug 21 | **Pistons** | **Floor hits.** The number that decides their season |
+| ~~by Aug 21~~ | **Pistons** | ~~Floor hits.~~ **Done Aug 20**, 1 day early: the opening 4 against Boston, Miami, Philadelphia and New York, ranked against all 30 openings. 3rd toughest by opponent, 9th easiest by expected wins. Next Pistons floor: **Sep 3** |
 | Aug 22 | Lions | Preseason vs Washington |
 | **Aug 18** | **Red Wings** | ~~by Aug 24, second piece.~~ **Done Aug 18**, 7 days
 early: the top-3 against the rest-of-roster goal split, off the sub's own
@@ -147,7 +147,14 @@ firm is running the search, Horcoff has the day to day, and the brief reportedly
 leans analytics. That is a better second piece than another schedule cut, and it
 is the rare case where an offseason team has live news.
 
-**Still zero Pistons pieces beyond the one from Aug 9**, floor Aug 21.
+**The Pistons page has 2 pieces now**, Aug 9 and Aug 20, so the floor is met and
+the next one is **Sep 3**. `scripts/nba_opening_sos.py` and
+`scripts/nba_opening_chart.py` exist, which makes a third cheaper: both take an
+`n` argument, so the same method answers "what about the first 10" or "the first
+20" without new code.
+
+**The 08-20 piece used hook 2 below, not hook 1**, and hook 1 is still unchecked
+and still worth checking.
 
 **What the Pistons sub is actually talking about**, recorded 2026-08-12 on the
 first sweep that ever reached r/DetroitPistons, so the floor cycle does not start

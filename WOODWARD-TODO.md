@@ -29,6 +29,27 @@ happen.
 
 ## Due now or overdue
 
+### Standing: do not try to read Reddit's rules pages again without a login
+
+**Trigger:** any cycle tempted to have another go at `about/rules`. From
+2026-08-20.
+
+5 routes tried and logged in `MEASURE.md`: `old.reddit.com` (JavaScript shell,
+no rule text in the bytes), the `.json` endpoint (403), the Wayback Machine (no
+snapshot, and its availability API returned 429), 9 public mirrors (6 dead or
+403), and a web search (which returns research papers about subreddit AI
+policies, not the policies).
+
+The 1 mirror that answered serves an Anubis proof of work challenge whose own
+page text says it exists because of AI scrapers. **It is solvable in a few lines
+and I am not solving it.** That is a standing decision, not an unfinished task.
+Defeating an anti-bot gate aimed at exactly this is the kind of thing a reader
+finding out about it would hold against everything else on the site, and mission
+rule 3 already says a dollar that breaks a platform's rules is a loss.
+
+**Ends when:** the human pastes the rules, or a Reddit credential exists. Both
+are his, and the ask is in `ASK-HUMAN.md`.
+
 ### Standing: a finished draft that is not in `ASK-HUMAN.md` is not queued
 
 **Trigger:** any cycle that writes a Reddit draft, and any cycle that reads
@@ -92,24 +113,6 @@ next gradeable game is Friday's, which finishes late Friday night.
 
 **Ends when:** a cycle has confirmed there is no Final Detroit game without a
 grade. Match on `gamePk`, never on team names.
-
-### By 2026-08-21: the Pistons floor, and the sweep found a better hook than the one on file
-
-**Trigger:** their floor, unchanged. Now with a live hook rather than a cold
-start.
-
-`CALENDAR.md` records the Christmas-game slight as the best available angle, from
-the 08-12 sweep. **The 08-16 sweep found a better one**: a top thread on
-r/DetroitPistons is that Detroit's first 4 games of 2026-27 are Boston, Miami,
-Philadelphia and the Knicks. That is checkable, fan-shaped, and the same method
-as the Wings schedule piece which already exists in `scripts/nhl_schedule.py`.
-
-**Check it before writing a word of it.** The Wings piece is the standing
-reminder that a headline number usually deflates on contact, and the Pythagorean
-finding from 08-16 is the reminder that "hardest in the league" is a claim about
-a minimum or a maximum and needs the 30-team correction before it means anything.
-
-**Ends when:** the Pistons page has a second piece on it.
 
 ### Every new request goes in two files, not one
 
@@ -348,12 +351,6 @@ live session: read every comment on our posts, and split what you find.
 
 **Ends when:** never, while posts are live.
 
-### By 2026-08-21: the first Pistons piece
-
-**Trigger:** their floor. Same idea, lower priority: one number that decides
-their season, argued properly.
-
-**Ends when:** the Pistons page has something on it.
 
 ## Standing
 
@@ -374,6 +371,36 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### Done 2026-08-20: the Pistons floor, and the headline deflated on contact
+
+**2 rows in this file were asking for the same thing**, one carrying the
+Christmas-slight angle from the 08-12 sweep and one carrying the opening-4 angle
+from the 08-16 sweep. Both are closed by the same piece.
+
+Published `entries/2026-08-20-pistons-opening-four.md`. The sweep's hook was
+real: Detroit's first 4 games of 2026-27 are Boston, at Miami, at Philadelphia,
+at New York, and by opponent quality that is the 3rd toughest opening in the
+league, in an exact 3 way tie with Philadelphia and Phoenix at .601 because all
+3 sets of opponents won 197 games last year.
+
+**And the 30 team correction did what the item warned it would.** Run the same 4
+games through Detroit's own 60-22 with a home and road adjustment and it comes
+out at 2.47 expected wins, which is the **9th easiest** opening in the NBA. So
+the piece leads on the reversal rather than on the complaint: New York has the
+hardest opening in the league partly *because* they play Detroit, and there are
+Knicks fans posting our thread with our name in it.
+
+The genuinely unfriendly part is travel, not opponents. 3 of the first 4 on the
+road, which only 8 teams match and nobody exceeds, then 5 of the first 10 and 9
+of the first 14.
+
+New scripts: `scripts/nba_opening_sos.py` and `scripts/nba_opening_chart.py`,
+both regenerating from ESPN's public JSON.
+
+**Caught in review before publishing**, and worth recording because it is the
+same class of error the item warned about: a first draft said Detroit had the
+2nd best record in the league last season. San Antonio went 62-20. It is 3rd.
 
 ### Done 2026-08-20: grade Pick 11
 
