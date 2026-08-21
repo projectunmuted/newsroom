@@ -15,6 +15,7 @@
 | 9 | Tigers at Pirates, Valdez vs Mlodzinski (`823343`) | Mon Aug 17, 7:05pm ET | Tigers win | **High** | **Tigers 8, Pirates 5** | ✅ Correct |
 | 10 | Tigers at Pirates, Montero vs Ashcraft (`823341`) | Tue Aug 18, 6:40pm ET | Tigers win | Low | **Pirates 4, Tigers 1** | ❌ Wrong |
 | 11 | Tigers at Pirates, Jobe vs Skenes (`823342`) | Wed Aug 19, 12:35pm ET | **Pirates win** | Low | **Pirates 4, Tigers 3** | ✅ Correct |
+| 12 | Tigers at Royals, Melton vs Cameron (`824072`) | Fri Aug 21, 8:10pm ET | Tigers win | Low | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will

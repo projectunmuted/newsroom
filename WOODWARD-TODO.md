@@ -88,31 +88,30 @@ with the control result printed next to it.
 **Ends when:** a run finds one of our pages, at which point M3 in `PLAN.md` is
 live and this becomes a monitoring item instead of a warning.
 
-### By the 2026-08-21 2:00am cycle: Pick 12, the Kansas City opener
+### Standing: re-pull a draft's numbers if it has waited more than a day
 
-**Trigger:** `824072`, Friday 08-21 8:10pm ET at Kauffman, Melton starting for
-Detroit. Not committed on 08-20 because the game was 42 hours out and **Kansas
-City had not named a starter for any of the 3 games**, which is half the pick.
+**Trigger:** any cycle that touches a draft in `drafts/` that was written more
+than 24 hours ago, and the posting session itself. From 2026-08-21.
 
-Check `PICKS.md` first: as of 08-20 there is no row for `824072` and there must
-never be a second one. Run `python scripts/injury_check.py 824072` and read it;
-**Riley Greene is eligible to come off the 10-day IL on 08-22**, so his status
-can change between now and then and it is the single fact that moves this pick.
+`drafts/2026-08-21-royals-tigers-series.md` was written on 08-20 saying Troy
+Melton was at **1.71** over 84.1 innings. By the next morning he was at **1.49**
+over the same 84.1 innings, without pitching: 2 of the 3 runs charged to him on
+August 15 were rescored unearned, 16 earned became 14. A draft awaiting approval
+is not a stored file, it is a set of claims drifting away from the data.
 
-The series preview's call is Detroit takes 2 of 3, which is not a `PICKS.md` row
-and does not settle any individual game.
+I only caught it because that morning's pick needed Melton's line anyway. That
+is luck, not process.
 
-**Ends when:** `PICKS.md` has a row for `824072` and the entry is pushed before
-8:10pm ET Friday. Games 2 and 3 are `824073` (Sat 7:15pm) and `824071`
-(Sun 2:10pm).
+**What to do:** every draft must name the command that regenerates its numbers,
+near the top. Both current drafts now do. If the draft has waited more than a
+day, run that command and diff before it goes up. Historical-season drafts (the
+Lions backtest) will diff to zero and the rule still applies, because knowing the
+diff is zero costs a minute.
 
-### By the 2026-08-21 2:00am cycle: grade nothing, and check that
+**A published entry gets a correction note, never a silent edit.** The 08-20
+series preview keeps its table as published with a dated note underneath.
 
-**Trigger:** Detroit is off Thursday 08-20. `823342` was graded on 08-20 and the
-next gradeable game is Friday's, which finishes late Friday night.
-
-**Ends when:** a cycle has confirmed there is no Final Detroit game without a
-grade. Match on `gamePk`, never on team names.
+**Ends when:** never.
 
 ### Every new request goes in two files, not one
 
@@ -371,6 +370,21 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### Done 2026-08-21: Pick 12 committed, `824072`
+
+The 2:00am cycle Friday, as the item required. Kansas City had finally named all
+3 starters, which is why this waited: Noah Cameron Friday, Wacha Saturday, Lynch
+Sunday. `injury_check.py 824072` ran clean at exit 0. Riley Greene is still on
+the 10-day and eligible **Saturday**, so he does not touch this game. Call is
+Tigers win, Low, on Melton at 1.49 against a Cameron who is 5.17 at Kauffman and
+3.33 on the road. Pushed before 8:10pm ET with hours to spare.
+
+### Done 2026-08-21: confirmed nothing was owed a grade
+
+Fetched by `gamePk`, not by name. `823342` was graded on 08-20 and is the most
+recent Final Detroit game; `824072`, `824073` and `824071` are all Scheduled.
+Detroit was off Thursday. Record unchanged at **7-4**.
 
 ### Done 2026-08-20: the Pistons floor, and the headline deflated on contact
 

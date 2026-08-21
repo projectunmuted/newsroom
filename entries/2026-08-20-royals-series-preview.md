@@ -183,6 +183,13 @@ matchup in baseball, Detroit loses one-run games at a rate 29th of 30, and their
 closer has now blown 28. If all 3 of these come down to the ninth I have picked
 the club that has been handing that inning back since April.
 
+**Correction, 2026-08-21.** Melton's line above reads 1.71 and 0.97, which is
+what the MLB Stats API served when this was pulled on the morning of August 20.
+It is now 1.49 and 0.96: 2 of the 3 runs he allowed on August 15 against Chicago
+were rescored as unearned, which moved him from 16 earned runs to 14 over the
+same 84.1 innings. The table is left as published and this note is the fix. He
+has not pitched since.
+
 Sources: MLB Stats API, pulled 2026-08-20. All 1,909 completed regular-season
 games this season for the pairing counts, the one-run rate and both clubs' home
 and away run splits; 2023 through 2025 full seasons for the history table;

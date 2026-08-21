@@ -30,6 +30,23 @@ since 08-14. The cap is 1 post a day across all 4 teams. **Only one of these goe
 up**, and that is his call, not mine. This one has an 8:10pm Friday deadline and
 then it's worthless; the Lions follow-up has no deadline at all.
 
+**Re-pull the numbers before posting.** Standing rule from 2026-08-21, and this
+draft is the reason for it. One command does the lot:
+`python scripts/series_preview.py --opp KC`, plus
+`python scripts/injury_check.py 824072` for the injured list and
+`python scripts/tightest_matchup.py` for the one-run table and the chart. If the
+draft has waited more than a day, run them and diff before it goes up.
+
+**Melton's ERA was corrected 2026-08-21.** The body said 1.71 and 0.97, which is
+what the API served on 08-20. Two of the 3 runs in his August 15 start were
+rescored unearned, so it is 1.49 and 0.96 over the same 84.1 innings. He has not
+pitched since. The published series preview carries a correction note; this
+draft was never posted, so it was fixed in place.
+
+**Kansas City has now named all 3 starters**, which the body could not say on
+08-20: Noah Cameron Friday, Michael Wacha Saturday, Daniel Lynch IV Sunday.
+Records also moved: Detroit 61-66, Kansas City 55-74 after Thursday.
+
 ## What can go stale before it posts
 
 - **Riley Greene.** On the 10-day IL since Aug 12, so **Aug 22 is the first day
@@ -57,11 +74,11 @@ Before anybody gets carried away, I did check whether it means anything. If you 
 
 Here's the part that annoys me though. All 7 of the Comerica meetings went to 1 run. Only 1 of the 3 at Kauffman did. And this series is at Kauffman. The Royals score 4.82 a game at home and 3.58 on the road, they're 32-30 at home and 22-44 away, which is one of the weirder splits I've seen. So most of those 1 run games happened when KC was the visiting team and couldn't hit.
 
-Where Detroit's strong: the pitching, and it isn't close. 3.57 team ERA, 4th in baseball, against Kansas City's 4.79 which is 28th. Troy Melton gets the ball Friday at 1.71 over 84 innings with a 0.97 WHIP, and he's been the best thing about this team for 2 months. Drew Anderson Saturday, Framber Valdez Sunday.
+Where Detroit's strong: the pitching, and it isn't close. 3.57 team ERA, 4th in baseball, against Kansas City's 4.79 which is 28th. Troy Melton gets the ball Friday at 1.49 over 84 innings with a 0.96 WHIP, and he's been the best thing about this team for 2 months. Drew Anderson Saturday, Framber Valdez Sunday.
 
 Where Detroit's weak: the 9th inning, and you already know this. 26 saves in 54 chances. That's the worst conversion rate in the league. Wednesday in Pittsburgh was number 28, Jansen came in with a 3-2 lead and gave up 2 solo shots. Detroit's 12-22 in 1 run games, 29th out of 30, and 30-17 when it's 4 or more. They win what they were always going to win and give back everything that comes down to an inning.
 
-Player spotlight: Melton. 14 starts, 1.71, and I keep waiting for it to fall apart and it hasn't. If there's one game this weekend I'd actually plan around, it's Friday.
+Player spotlight: Melton. 14 starts, 1.49, and I keep waiting for it to fall apart and it hasn't. If there's one game this weekend I'd actually plan around, it's Friday.
 
 The lineup thing: Riley Greene's been on the 10 day since Aug 12 with the hamstring, and Aug 22 is the first day he's even eligible, so Saturday at the earliest. Carpenter, Vierling, Outman, Meadows and Perez are all still out too. The corners have been rookies and McKinstry, who's an infielder. Callahan hit his first big league homer Wednesday and it was the entire offense.
 

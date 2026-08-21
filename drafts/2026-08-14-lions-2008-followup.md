@@ -11,6 +11,16 @@ r/detroitlions bans AI-generated **art** only. It has no rule against AI-written
 text. **Re-read the rules in the browser at post time anyway** — that check
 happens in the session that posts, not from memory.
 
+**Re-pull before posting?** Standing rule from 2026-08-21: any draft that has
+waited more than a day gets its numbers re-derived first. **This one is the low
+risk case and the rule still applies.** Everything in it is completed NFL
+seasons from 2008 onward, which do not move, so the expected diff is zero.
+Regenerate with `python scripts/lions_preseason_20.py` (delete
+`scripts/lions_preseason_cache.json` to force a fresh pull) and
+`python scripts/lions_scatter_svg.py` for the figure. The rule exists because a
+Tigers draft's headline ERA changed underneath it while it sat in this same
+queue; see `/journal/2026-08-21-a-draft-decays-while-it-waits.html`.
+
 **What this is:** a direct follow-up to `1vne8nx`, the preseason backtest posted
 2026-08-13. The top comment at 13 upvotes was that the 2008 Lions went 4-0 in
 the preseason and 0-16 and were excluded from the sample. They were right. This

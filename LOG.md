@@ -4,6 +4,136 @@ Newest at top.
 
 ---
 
+## 2026-08-21 (Friday, 2:00am cycle) — a draft that was finished 18 hours ago already had a wrong number in it
+
+**Short lane, game-day work.** Yesterday's 10:00am cycle was long lane build, so
+the alternation is right. 2 entries: Pick 12 on the analysis track, 1 process
+entry. No grade was owed.
+
+**Grade: nothing, and I checked by id rather than assuming.** `823342` was graded
+on 08-20 and is the most recent Final Detroit game. `824072`, `824073` and
+`824071` all come back Scheduled. Detroit was off Thursday. Record stays **7-4**.
+
+**Series preview check ran first and did not fire.** Kansas City opens tonight
+and both the entry (`entries/2026-08-20-royals-series-preview.md`) and the Reddit
+draft already exist from yesterday's 2:00am cycle.
+
+**Sweep: 4 of 4 subs, exit 0.** Nothing in it argues against tonight's call, and
+one thread corroborates the part of the pick that scares me: r/motorcitykitties
+has a Lynn Henning piece up titled around the bullpen having "blown apart" the
+season. The Lions sub's news of the day is Goff sitting out Saturday's preseason
+game, which matters for the 08-22 Washington preview and not for this.
+
+### Pick 12: `824072`, Tigers at Royals, Friday 8:10pm ET
+
+**Tigers win, Low.** Committed this cycle because `WOODWARD-TODO.md` set that
+deadline on 08-20, when the game was 42 hours out and Kansas City had not named
+a starter for any of the 3. They have now: **Noah Cameron** Friday, Wacha
+Saturday, Lynch Sunday.
+
+`python scripts/injury_check.py 824072` ran at **exit 0**. Riley Greene is still
+on the 10-day and eligible **Saturday**, which is 1 day too late to touch this
+game. Carpenter and Vierling are out too.
+
+**The finding, and I built a script for it.** Cameron's season ERA is 4.16 and
+that number is hiding two pitchers:
+
+| | IP | ERA | WHIP | Opponent avg | BB / BF |
+|---|---|---|---|---|---|
+| At Kauffman | 62.2 | 5.17 | 1.55 | .287 | 25 / 282 |
+| On the road | 75.2 | 3.33 | 0.95 | .196 | 18 / 298 |
+
+`scripts/venue_split.py` puts that gap next to every other starter's. Of the 97
+pitchers with 100 innings and 15 starts, Cameron's **+1.84 is 4th largest** in
+the home-worse direction, against a league median of **-0.28**, because starters
+are normally slightly better at home.
+
+**And the deflation, which is in the piece.** The standard deviation of that
+distribution is **1.45**, and **20 of 97** starters are more than a full run
+worse at home. Pull Cameron's 2 worst home starts (7 earned in 5 against San
+Diego, 6 in 3 and 2 thirds against Tampa Bay) and most of the gap goes. So it is
+a tiebreaker, not a thesis, and the piece says so.
+
+**The detail nobody else will mention:** the 7 shutout innings Cameron threw
+against Detroit on July 24 was **not a start**. Kansas City used an opener and he
+came in behind him, `gamesStarted: 0`, 24 batters faced. It sits in his road
+split and not in his start log, which is correct in both places and would be
+baffling to anybody who found the two totals disagreeing. That is now documented
+in the script's own docstring.
+
+The real edge is Melton: 14 starts, 84.1 innings, **1.49**, 0.96 WHIP, and he has
+allowed more than 2 earned runs in a start exactly once all season. Detroit's
+team ERA is 3.55, 4th in baseball, against Kansas City's 4.76, 28th.
+
+Why Low and not High: Detroit's OPS is .694 against left-handed pitching against
+.738 against righties, Cameron is a lefty, and the lineup is 4 regulars short and
+has scored 4.0 a game since Greene went out. **8 of the 10 meetings this season
+were decided by exactly 1 run** and Detroit is 12-22 in one-run games, 29th of
+30, with 26 saves in 54 chances.
+
+### The thing that actually went wrong
+
+**A finished, queued Reddit draft had a wrong number in it, and it got there
+without anybody touching the file.**
+
+`drafts/2026-08-21-royals-tigers-series.md` was written yesterday morning saying
+Melton was at **1.71** over 84.1 innings. This morning the API says **1.49** over
+the same 84.1 innings. He has not pitched. 2 of the 3 runs charged to him on
+August 15 against Chicago were **rescored as unearned**, taking him from 16
+earned runs to 14.
+
+I only found it because Pick 12 needed Melton's line and I pull from the API
+rather than from my own earlier files. Had the pick been about anyone else, that
+draft goes up whenever it goes up, carrying a figure a reader disproves in 10
+seconds, into the one channel this project has ever measured. That is luck, not
+process.
+
+**What it cost and what it bought.** It cost nothing to catch, because the pick
+work surfaced it anyway. It bought a distinction I had wrong: I was treating
+"finished draft awaiting approval" as a stable state. It is not. A draft is a set
+of claims drifting away from the data, and I had only been counting the cheap
+kind of decay, a piece going stale and boring, not the expensive kind, a piece
+going quietly wrong.
+
+**3 fixes, all done this cycle rather than queued:**
+
+1. `entries/2026-08-20-royals-series-preview.md` now carries a dated **correction
+   note** naming the old figure, the new one and why it moved. The table is left
+   as published; I do not silently edit a number out of a live piece.
+2. Both drafts were fixed in place and both now **name the command that
+   regenerates their numbers**, near the top. The Royals one also records that
+   Kansas City has since named all 3 starters and that both records moved.
+3. A **standing item in `WOODWARD-TODO.md`**: any draft that has waited more than
+   a day gets its numbers re-pulled and diffed before it goes up, including the
+   historical-season Lions draft where the diff will be zero.
+
+Published as `entries/2026-08-21-a-draft-decays-while-it-waits.md`, framed as the
+money log: the approval queue is not free storage, and this is the second
+measured cost of it.
+
+### What did not happen, and it is the same thing as yesterday
+
+**Nothing was posted. 7 days now.** Both finished drafts are in `ASK-HUMAN.md`
+with the slot conflict stated, and the Royals one **expires at 8:10pm ET tonight**
+at first pitch. `drafts/POSTED.md` was cross-checked against the Open section of
+`ASK-HUMAN.md` per the standing rule; both drafts appear in both, so nothing is
+stuck in the folder-is-not-a-queue failure mode. I did not re-queue or re-argue
+it, because it was written up in full yesterday and repeating it is not evidence.
+
+**Deliberately not done:** I did not run the `skeptic` agent on either draft this
+cycle. Every number in the pick was re-derived directly from the MLB Stats API in
+this session, including the 2 I expected to be able to take from yesterday's
+preview, which is how the ERA error surfaced. The one-run count, the one-run
+league rank, the Melton earned-run distribution and the 97-starter population
+were each pulled and checked separately.
+
+**Numbers:** Ko-fi **$0.00**. Record **7-4**, Pick 12 pending. Days since anything
+was posted to Reddit: **7**. Finished drafts waiting on his approval: **2**, one
+of which dies tonight. Analytics not re-read this cycle; that is the 10:00am
+cycle's item and yesterday's figures stand in `MEASURE.md`.
+
+---
+
 ## 2026-08-20 (Thursday, 10:00am cycle) — the Pistons open against the 3rd hardest schedule in the league and are favoured in most of it
 
 **Long lane, build work, with 1 publish.** The 2:00am cycle published, so the
