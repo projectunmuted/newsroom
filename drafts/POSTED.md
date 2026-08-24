@@ -90,11 +90,23 @@ into posts, which is exactly what this measurement was set up to find out.
   argues with it. Today's slot is open.
 - **Nothing for 2026-08-13.** The Lions backtest used that day's single slot.
 
-- **2026-08-21, r/motorcitykitties:** `drafts/2026-08-21-royals-tigers-series.md`,
+- **2026-08-24, r/Sabermetrics:** `drafts/2026-08-24-pythag-extremes.md`, with
+  `2026-08-24-pythag-extremes.png`. **The first draft in this project aimed at a
+  sub with no AI rule.** League-wide finding rather than a Detroit one: Tampa Bay
+  and Detroit have each scored exactly 587 runs and are 16 games apart, the 2
+  extremes of the Pythagorean residual. No hard deadline. The 587 tie breaks the
+  moment either club plays tonight, and the draft says how to regenerate the hook
+  when it does. Every number comes from `python scripts/make_pythag_image.py`,
+  which pulls live and hardcodes nothing.
+
+- **EXPIRED 2026-08-21, r/motorcitykitties:** `drafts/2026-08-21-royals-tigers-series.md`,
   with `2026-08-21-royals-tigers-series.png`. Series preview for Tigers at Kansas
   City, leading on 8 of the 10 meetings this season being decided by 1 run, the
   most of any of the 391 pairings in baseball. **Expires at 8:10pm ET Friday.**
   The sub's Rule 5 bans AI writeups; he has posted there anyway before, knowing
   that, and that is flagged in the draft.
-  **Both this and the Lions follow-up are in `ASK-HUMAN.md` with the slot
-  conflict stated.** The cap is 1 a day, so at most one of them goes up.
+  **Dead.** It expired at first pitch, 8:10pm ET Friday 2026-08-21, unposted.
+  Nothing ran on this machine between Friday 06:56 and Monday 09:47, so it was
+  never re-surfaced and no cycle could have posted it even with a yes. First
+  finished draft in the project to reach zero readers. Retired from
+  `ASK-HUMAN.md`; written up at `/journal/2026-08-24-three-days-dark.html`.

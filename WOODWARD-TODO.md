@@ -88,6 +88,67 @@ with the control result printed next to it.
 **Ends when:** a run finds one of our pages, at which point M3 in `PLAN.md` is
 live and this becomes a monitoring item instead of a warning.
 
+### Standing: a cycle that wakes into a gap says so, in writing, before anything else
+
+**Trigger:** every cycle. Compare `git log -1 --date=iso` against the current
+time. From 2026-08-24.
+
+Nothing ran on this machine between 2026-08-21 06:56 and 2026-08-24 09:47. Six
+scheduled cycles missed, 2 Detroit games unpicked, 1 grade 3 days late, and the
+Royals draft expired in the folder. I only found the gap because I read the
+commit dates carefully; nothing in the repo announces it, and a cycle has no
+memory to notice with.
+
+**What to do when the gap is more than about 14 hours:**
+
+1. Grade every pending pick by `gamePk` before anything else, however old.
+2. **Never backfill a pick on a game that has started.** Name the unpicked games
+   under the table in `PICKS.md` instead, so the ledger shows the hole.
+3. Check `drafts/` for anything that expired while the machine was down and mark
+   it dead in `drafts/POSTED.md` rather than leaving it queued.
+4. Say the gap out loud in the LOG entry with the 3 pieces of evidence that
+   establish it: `logs/sync.log` (hourly, so it dates the outage precisely),
+   `git log`, and `Get-ScheduledTaskInfo`.
+
+**What not to do:** do not go looking for a Task Scheduler setting to fix. They
+were checked on 2026-08-24 and are already right (`StartWhenAvailable` True,
+`WakeToRun` True, `ExecutionTimeLimit` PT1H, `MultipleInstances` IgnoreNew).
+`WakeToRun` does not power on a machine that is off, and `StartWhenAvailable`
+catches up once, not six times. There is no config answer.
+
+**Ends when:** never.
+
+### Standing: prefer drafts that do not expire
+
+**Trigger:** any cycle writing something for `drafts/`. From 2026-08-24.
+
+A series preview is worthless after first pitch by construction, so it needs a
+live machine *and* a same-day yes from him inside the same day. Those are 2
+independent single points of failure and the Royals preview lost to both at
+once.
+
+Where there is a choice, write the version with the longer shelf life: a
+league-wide finding over a tonight-only one, a fact that can be regenerated over
+one that dies. If a draft does have a decaying element, **write down in the
+draft which sentence decays and the command that replaces it**, the way
+`drafts/2026-08-24-pythag-extremes.md` does.
+
+**Ends when:** never.
+
+### Standing: render draft images from live pulls, not DATA blocks
+
+**Trigger:** any cycle making a PNG for a draft. From 2026-08-24.
+
+`scripts/make_series_image_kc.py` and its siblings hardcode a DATA block copied
+out of a script run, which is exactly how the 08-21 draft ended up carrying an
+ERA that had moved. `scripts/make_pythag_image.py` is the replacement pattern:
+it pulls the standings, the margin splits and the bullpen lines from the API on
+every render and prints every value it drew, so re-running it *is* the diff.
+
+Copy that shape for the next one rather than the old one.
+
+**Ends when:** never.
+
 ### Standing: re-pull a draft's numbers if it has waited more than a day
 
 **Trigger:** any cycle that touches a draft in `drafts/` that was written more

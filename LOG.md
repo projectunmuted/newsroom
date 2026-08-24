@@ -4,6 +4,146 @@ Newest at top.
 
 ---
 
+## 2026-08-24 (Monday, 10:00am cycle) — three days dark, and the only draft with a deadline died in the queue
+
+**Short lane, game-day work**, with one build item folded in because the build
+item *is* the response to what went wrong. 3 entries: a grade and a series
+preview on the analysis track, 1 process entry.
+
+**This cycle woke into a gap and the gap is the headline.** Nothing ran here
+between Friday 2026-08-21 06:56 and this morning 09:47. 3 records agree:
+`logs/sync.log` has an hourly row every hour to 06:56 Friday then nothing;
+`git log` stops at 08-21 02:13; `Get-ScheduledTaskInfo` reports LastRunTime
+08-21 14:25 with result 267009, `SCHED_S_TASK_RUNNING`. **6 scheduled cycles
+missed.**
+
+**I went looking for a bad setting and there isn't one.** `StartWhenAvailable`
+True, `WakeToRun` True, `ExecutionTimeLimit` PT1H, `MultipleInstances`
+IgnoreNew. All correct. `WakeToRun` wakes a sleeping machine and does not power
+on one that is off; `StartWhenAvailable` catches up **once**, not 6 times. So the
+catch-up did what it was built to do and delivered 1 cycle out of 6. There is no
+config fix, which is the actual finding.
+
+### Grade: Pick 12 wrong, record 7-5
+
+`824072` confirmed Final on the id: **Royals 5, Tigers 2.** Graded 3 days late,
+which is the outage and not a judgment call.
+
+Both legs of the pick inverted. Cameron, the 5.17-at-Kauffman pitcher the whole
+thing rested on, threw **5 shutout innings at Kauffman** on 2 hits, and his home
+ERA is 4.79 now with the gap down from 1.84 to 1.46 in a single start. Melton,
+the 1.49 counter-argument, gave up 3 runs in 5.2 and sits at 1.60. Kansas City
+scored in the 4th, 5th, 6th, 7th and 8th, one run each time, never a big inning.
+
+Kansas City swept: 3-1 Saturday behind 7 innings from Wacha, 11-7 Sunday. Detroit
+left at **61-69** on a 5-game skid.
+
+**2 games went unpicked**, `824073` and `824071`, because no cycle ran. They are
+named under the table in `PICKS.md` so the hole is visible rather than silent. I
+did not backfill and never will.
+
+### Series preview check ran first and fired
+
+Tampa Bay opens at Comerica **tonight**, 3 games, and `drafts/` had nothing for
+it. That made the preview this cycle's non-discretionary work.
+
+**Ceiling call I made deliberately:** 1 analysis piece per team per day means a
+preview and a separate Pick 13 entry would have been 2 Tigers pieces. So the
+preview **carries** the pick: `entries/2026-08-24-pick-13-rays-series-preview.md`
+has `game_id`, `prediction` and `confidence` in its frontmatter and `pick-13` in
+its slug, which is the join `build.py` uses for the ledger. Verified in the built
+output.
+
+### The finding, and it is the best one this project has had
+
+**Tampa Bay and Detroit have each scored exactly 587 runs, in exactly 130 games.**
+
+Detroit has allowed 514, Tampa Bay 543. So Detroit has the better run
+differential by 29 and the better team ERA, 3.62 to 3.83. Tampa Bay is 77-53 and
+Detroit is 61-69.
+
+They are the 2 extremes of all 30 teams: Detroit **-11.9** wins against its
+Pythagorean expectation, the largest deficit in baseball, Tampa Bay **+7.4**, the
+largest surplus. Third in either direction is the Reds at +6.1 and the Angels at
+-6.2, so Detroit is nearly twice as far out as anyone.
+
+The mechanism is in the margin splits, and every number below reconciles to the
+season record exactly:
+
+| Margin | Tigers | Rays |
+|---|---|---|
+| 1 run | 12-22 | 18-13 |
+| 2 to 4 runs | 27-36 | 42-19 |
+| 5 or more | 22-11 | 17-21 |
+
+Detroit wins one bucket and it is the one that decides nothing. Bullpens say it
+again: Detroit 26 of 54 with 28 blown saves, Tampa Bay 51 of 66 with 15.
+
+**Pick 13: Rays win, Low.** `824235`, 6:40pm ET tonight. Rasmussen at 3.01 with
+138 strikeouts against 25 walks is the best pitcher in the series by a distance;
+Valdez is at 4.35 with 54 walks. `python scripts/injury_check.py 824235` ran at
+**exit 0**: Greene still on the 10-day, Carpenter and Vierling with him, Outman
+designated Sunday. Low because Comerica is the only place Detroit is near even
+(32-31 home, 29-38 road) and Tampa Bay is 3-7 in its last 10 as well.
+
+**Sweep: 4 of 4 subs, exit 0.** Nothing argues against the call. r/motorcitykitties
+corroborates the mood rather than the analysis: the top posts are "This is now a
+sub about tigers" and a column headlined that the math says the Tigers are toast.
+
+### Build work: 3 changes, all made rather than queued
+
+**1. `scripts/pythag_chart.py` takes `all`.** It was division-only, which cannot
+show a cross-division comparison, and the whole story here is a cross-division
+comparison. The all-30 view drops the bar height for 30 rows and bolds the 2
+teams in play. The chart in the entry is that output verbatim.
+
+**2. `scripts/make_pythag_image.py`, and it hardcodes nothing.** The
+`make_series_image_*.py` family all carry a DATA block copied out of a script
+run, which is exactly the failure mode Friday's entry was about: a queued draft
+whose ERA moved underneath it. This one pulls standings, margin splits and
+bullpen lines live on every render and prints every value it drew. Re-running it
+*is* the diff. That is now a standing item.
+
+**3. A draft aimed at a door that has never been closed.**
+`drafts/2026-08-24-pythag-extremes.md`, **for r/Sabermetrics**, which per the
+08-10 survey has no AI rule at all. 33 of the 40 analysis pieces here are Tigers
+pieces, and the Tigers sub bans this by Rule 5. This is the first draft in the
+project's history written for a sub with no such rule, and its subject is
+league-wide rather than Detroit-only, so it does not spend r/detroitlions either.
+It has no deadline; the one decaying sentence is named in the draft along with
+the command that replaces it.
+
+### What failed, beyond the outage
+
+**The Royals preview is dead.** It expired at 8:10pm ET Friday, unposted, and no
+cycle existed to re-surface it. First finished draft here to reach zero readers.
+Marked EXPIRED in `drafts/POSTED.md` and retired from `ASK-HUMAN.md` rather than
+re-queued.
+
+**The Lions preseason game against Washington on 08-22 got nothing.** No preview,
+no follow-up, no coverage of any kind. Logged as a miss; the game is gone and
+there is no honest way to write it now.
+
+**Nothing has been posted for 10 days.** `ASK-HUMAN.md` now carries one item
+instead of two, with the dead draft removed and a straight recommendation:
+post the r/Sabermetrics one, because it tests a channel nobody has tested and
+the Lions draft keeps indefinitely.
+
+**Deliberately not done:** I did not run the `skeptic` agent. Every figure in
+both analysis entries was pulled directly from the MLB Stats API in this session,
+and the margin buckets were checked by reconciling them against the standings
+win totals (22+27+12 = 61, 11+36+22 = 69; 17+42+18 = 77, 21+19+13 = 53). The
+first run of that count came back 60-69 because it dropped a "Completed Early"
+game, an 11-6 win over St. Louis on April 4. That is now handled in the script
+and written into its docstring.
+
+**Numbers:** Ko-fi **$0.00**. Record **7-5**, Pick 13 pending. Days since anything
+was posted to Reddit: **10**. Finished drafts waiting on his approval: **2**, both
+without deadlines for the first time. Analytics not re-read this cycle; the
+outage means there is nothing new to attribute and `MEASURE.md` stands.
+
+---
+
 ## 2026-08-21 (Friday, 2:00am cycle) — a draft that was finished 18 hours ago already had a wrong number in it
 
 **Short lane, game-day work.** Yesterday's 10:00am cycle was long lane build, so

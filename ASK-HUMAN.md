@@ -17,60 +17,49 @@ waiting on him.
 
 ## Open
 
-### 2 finished posts, 1 slot a day, and one of them dies at 8:10pm Friday
+### One of the two drafts died. Here are the two that are alive
 
-2026-08-20. This replaces nothing below; it frames it. Both drafts are finished
-and neither can go up without you.
+2026-08-24, and this replaces the 08-20 version of this item, which is now out
+of date in a way worth stating plainly.
 
-| | `2026-08-14-lions-2008-followup.md` | `2026-08-21-royals-tigers-series.md` |
+**The Royals series preview is dead.** It expired at first pitch, 8:10pm ET
+Friday, unposted. Nothing ran on this machine between Friday morning and this
+morning, so nothing even re-surfaced it to you. That is not your fault and I am
+not re-queuing it. It is the first finished draft here to be read by nobody, and
+it is written up at `/journal/2026-08-24-three-days-dark.html`.
+
+**The two that are alive, and they do not conflict on a deadline any more:**
+
+| | `2026-08-14-lions-2008-followup.md` | `2026-08-24-pythag-extremes.md` |
 |---|---|---|
-| Sub | r/detroitlions | r/motorcitykitties |
-| Their AI rule | bans AI **art** only, text is fine | **Rule 5 bans AI writeups** |
-| Deadline | none, it is a reply to a live thread | **8:10pm ET Friday 08-21**, then worthless |
-| Waiting since | **6 days** | this morning |
-| Channel history | the only sub that has ever measurably sent a reader here | you have posted here twice, knowingly against Rule 5 |
+| Sub | r/detroitlions | **r/Sabermetrics** |
+| Their AI rule | bans AI **art** only, text is fine | **no AI rule at all**, per the 08-10 survey |
+| Deadline | none, it is a reply to a live thread | none. One sentence needs regenerating after tonight and the draft says which |
+| Waiting since | **10 days** | today |
+| Why it might work | the only sub that has ever measurably sent a reader here | the first door this project has tried that was never closed |
 
-**My read, for whatever it is worth:** the Lions one. It points at the open door,
-it has no deadline so the fact that it has waited 6 days is the whole problem,
-and it is a direct reply to a thread that produced 4 requests for analysis. The
-Royals preview is the better piece and it is aimed at the sub with the ban.
+**What is new and why it is worth 5 minutes of your attention.** Every draft
+before today pointed at a Detroit sub, and 33 of the 40 analysis pieces here are
+about the Tigers, whose sub bans this by Rule 5. The r/Sabermetrics draft is the
+first one aimed at an audience that has no rule against it, and its subject is a
+league-wide fact rather than a Detroit one: Tampa Bay and Detroit have each
+scored **exactly 587 runs** this season and are 16 games apart in the standings.
+That is a sabermetrics-sub question, not a fan-sub question, and it does not
+spend the one Detroit door known to be open.
 
-If you would rather post the Royals preview, that is a fine answer and it needs
-to happen before 8:10pm Friday. If the answer is neither, say so and I will
-retire both rather than keep re-queuing them.
+**My read:** post the r/Sabermetrics one. It tests a channel nobody has tested,
+it cannot be removed for being AI, and the Lions one keeps indefinitely because
+it has no deadline. If you would rather do the Lions one, that is also a good
+answer and it has waited long enough to deserve it. The cap is still 1 a day, so
+it is one or the other.
+
+If the answer is neither, say so and I will retire both rather than keep
+re-queuing them.
 
 **Unchanged either way:** you approve the specific post, I submit it through the
 browser, I never reply to a comment. Approval is per post and never standing.
-
-Written up at `/journal/2026-08-20-two-drafts-one-slot.html`.
-
-### Yes or no on the Lions follow-up post. It has been sitting finished for 5 days
-
-2026-08-19, and this should have been here on 08-14. It was not, which is my
-error: `drafts/POSTED.md` listed it under "Queued, not yet posted" and nothing
-ever put it in front of you. A draft in my folder is not an ask.
-
-**The draft:** `drafts/2026-08-14-lions-2008-followup.md`, for **r/detroitlions**,
-a direct follow-up to your 08-13 thread `1vne8nx`. It concedes the top comment's
-objection, that the 2008 Lions went 4-0 in the preseason and 0-16, which the
-original sample missed because it started in 2015, and reports the rerun on 798
-team-seasons.
-
-**Rules, so you are choosing with it in front of you:** r/detroitlions bans AI
-**art** only, not AI-written text. It is the one sub of the four where this is
-known to be allowed, and the only one that has ever sent a reader here.
-
-**Why it is at the top of this list now.** This morning I checked, for the first
-time, whether either site is in a search index. Neither is: 6 queries, 2 of them
-verbatim entry titles, zero results, with a control query that came back
-correctly. Search was one of two distribution legs and it is carrying nothing.
-That leaves Reddit as the only channel, and the last post went up **5 days ago**.
-
-Nothing else about the model changes: you approve this specific post, I submit
-it, I never reply to a comment. A no is a fine answer and I will retire the
-draft rather than keep re-queuing it.
-
-Written up at `/journal/2026-08-19-nobody-links-here.html`.
+The rules line above is from a dated survey, not a live read, because Reddit's
+rules pages are blocked from here; confirm it in the browser before you post.
 
 ### One `gh auth refresh`, if you happen to be at a terminal
 

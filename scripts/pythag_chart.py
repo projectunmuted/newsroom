@@ -5,9 +5,15 @@ The chart is derived from live data every time rather than hand-drawn, so the
 numbers in a published piece can never drift from the numbers behind it.
 
     python scripts/pythag_chart.py 202 > /tmp/chart.svg
+    python scripts/pythag_chart.py all > /tmp/chart.svg   # all 30 teams
 
 Division ids: 200 AL West, 201 AL East, 202 AL Central,
               203 NL West, 204 NL East, 205 NL Central
+
+Pass "all" instead of a division id for the whole league. That mode exists
+because the interesting comparison is sometimes across divisions: on 2026-08-24
+the Tigers and the Rays sat at opposite ends of this distribution and played
+each other, which the AL Central view cannot show.
 
 Colors come from CSS custom properties the site defines (--chart-pos,
 --chart-neg, --fg, --muted), so the figure follows light and dark mode without
@@ -29,7 +35,8 @@ BAR_H, ROW_GAP = 22, 12
 TOP, BOTTOM = 46, 34
 
 
-def fetch(division: int) -> list[dict]:
+def fetch(division: int | None) -> list[dict]:
+    """division=None means every team in both leagues."""
     url = ("https://statsapi.mlb.com/api/v1/standings"
            "?leagueId=103,104&season=2026&standingsTypes=regularSeason")
     with urllib.request.urlopen(url, timeout=30) as r:
@@ -37,7 +44,7 @@ def fetch(division: int) -> list[dict]:
 
     teams = []
     for record in data["records"]:
-        if record.get("division", {}).get("id") != division:
+        if division is not None and record.get("division", {}).get("id") != division:
             continue
         for t in record["teamRecords"]:
             rs, ra = t.get("runsScored"), t.get("runsAllowed")
@@ -64,7 +71,11 @@ def bar_path(x0: float, x1: float, y: float, h: float, r: float = 4.0) -> str:
             f"V{y+h-r}A{r},{r} 0 0 0 {x1+r},{y+h}H{x0}Z")
 
 
-def build(teams: list[dict], width: int = 640) -> str:
+def build(teams: list[dict], width: int = 640, subtitle: str = "AL Central",
+          highlight: tuple[str, ...] = ()) -> str:
+    global BAR_H, ROW_GAP
+    if len(teams) > 8:                          # 30 rows need thinner bars
+        BAR_H, ROW_GAP = 16, 7
     lo = min(-1.0, min(t["gap"] for t in teams)) - 0.8
     hi = max(1.0, max(t["gap"] for t in teams)) + 0.8
     plot_w = width - PAD_L - PAD_R
@@ -78,8 +89,8 @@ def build(teams: list[dict], width: int = 640) -> str:
         f'role="img" aria-labelledby="pythag-title" '
         f'style="max-width:{width}px;height:auto;font-family:ui-sans-serif,'
         f'system-ui,-apple-system,\'Segoe UI\',Roboto,sans-serif">',
-        '<title id="pythag-title">Wins above or below Pythagorean expectation, '
-        'AL Central</title>',
+        f'<title id="pythag-title">Wins above or below Pythagorean expectation, '
+        f'{subtitle}</title>',
         f'<text x="0" y="16" fill="var(--fg)" font-size="13" font-weight="600">'
         f'Wins above or below expectation</text>',
         f'<text x="0" y="34" fill="var(--muted)" font-size="11">'
@@ -101,7 +112,9 @@ def build(teams: list[dict], width: int = 640) -> str:
 
         out.append(
             f'<text x="{PAD_L-12}" y="{y+BAR_H/2+4:.1f}" text-anchor="end" '
-            f'fill="var(--fg)" font-size="12.5">{t["name"]}</text>'
+            f'fill="var(--fg)" font-size="12.5" '
+            f'font-weight="{600 if t["name"] in highlight else 400}"'
+            f'>{t["name"]}</text>'
         )
         out.append(
             f'<path d="{bar_path(x_start, x_end, y, BAR_H)}" fill="{color}">'
@@ -121,5 +134,10 @@ def build(teams: list[dict], width: int = 640) -> str:
 
 
 if __name__ == "__main__":
-    division = int(sys.argv[1]) if len(sys.argv) > 1 else 202
-    print(build(fetch(division)))
+    arg = sys.argv[1] if len(sys.argv) > 1 else "202"
+    if arg == "all":
+        division, subtitle = None, "all 30 teams"
+    else:
+        division, subtitle = int(arg), "one division"
+    print(build(fetch(division), subtitle=subtitle,
+                highlight=("Tigers", "Rays")))
