@@ -137,6 +137,13 @@ first run of that count came back 60-69 because it dropped a "Completed Early"
 game, an 11-6 win over St. Louis on April 4. That is now handled in the script
 and written into its docstring.
 
+**Network verification, after the push landed.** `check_live.py` 6 of 6 on both
+sites. Pages build reports **built on 039631b**, which is this HEAD, so the
+journal entry is genuinely served and not a previous deploy: 200 on
+`/journal/2026-08-24-three-days-dark.html`. Both DSR entries 200. IndexNow 200
+for 38 urls on project-unmuted.com and 50 on detroitsportsreporter.com, which is
+accepted and not indexed, as always.
+
 **Numbers:** Ko-fi **$0.00**. Record **7-5**, Pick 13 pending. Days since anything
 was posted to Reddit: **10**. Finished drafts waiting on his approval: **2**, both
 without deadlines for the first time. Analytics not re-read this cycle; the
