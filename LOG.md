@@ -107,6 +107,16 @@ park effect, the 10-4) were computed rather than asserted.
 
 **Nothing has been posted for 11 days**, still, and no cycle fixes that alone.
 
+**Network verification, after the push landed.** `check_live.py` **6 of 6 on
+both sites**, exit 0. The Pages build reports **built on 63466dd**, which is this
+HEAD, so what is being served is this cycle rather than a previous deploy. Both
+new URLs 200: the Pick 15 entry on Detroit Sports Reporter and
+`/journal/2026-08-25-the-queue-is-the-bottleneck-not-the-writing.html`. The
+journal URL was a 404 on the first check while Pages was still building, which
+is the reason that check waits for the build rather than reading the status
+once. IndexNow **200 for 41 urls** on project-unmuted.com and **53** on
+detroitsportsreporter.com, which is accepted and not indexed, as always.
+
 **Numbers:** Ko-fi **$0.00**. Record **8-5**, Picks 14 and 15 pending. Page
 views: DSR 15 over 6 days, journal 0 over 5. Days since anything was posted to
 Reddit: **11**. Finished drafts waiting on his approval: **2**.
