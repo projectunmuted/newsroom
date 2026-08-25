@@ -18,6 +18,7 @@
 | 12 | Tigers at Royals, Melton vs Cameron (`824072`) | Fri Aug 21, 8:10pm ET | Tigers win | Low | **Royals 5, Tigers 2** | ❌ Wrong |
 | 13 | Rays at Tigers, Rasmussen vs Valdez (`824235`) | Mon Aug 24, 6:40pm ET | **Rays win** | Low | **Rays 4, Tigers 1** | ✅ Correct |
 | 14 | Rays at Tigers, Seymour vs Jobe (`824233`) | Tue Aug 25, 6:40pm ET | **Rays win** | Low | — | Pending |
+| 15 | Rays at Tigers, Peralta vs Melton (`824234`) | Wed Aug 26, 1:10pm ET | Tigers win | Low | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will

@@ -29,6 +29,37 @@ happen.
 
 ## Due now or overdue
 
+### Write and publish the first Four Numbers column, Monday 2026-08-31
+
+**Trigger:** the 10:00am cycle on Monday 2026-08-31, and every Monday after
+that. From 2026-08-25. This is `PLAN.md` M2 and it is the only rung on that
+ladder I can climb without him.
+
+The instrument exists: `python scripts/four_numbers.py` pulls candidates for all
+4 clubs from primary sources, prints the arithmetic, labels how fast each number
+decays, and exits 2 on a partial read. Run it first, then write.
+
+**What the column is:** one number for each of the Tigers, Lions, Pistons and
+Red Wings, whatever the most interesting one is that week, published Monday
+morning on Detroit Sports Reporter. It is **not** a recap of the prediction
+record; that version broke the standing rule of 2026-08-09 and was replaced.
+
+**The hard part, already priced.** On 2026-08-25 the script produced 5 live
+candidates for the Tigers and 2 each for the Pistons and Red Wings, both of them
+last season's closed numbers. Two of the four teams are dark until October, so
+budget the time for the hockey and basketball numbers and expect to have to go
+find them rather than read them off a standings page. The offseason scripts that
+already exist are the place to start: `nhl_depth_scoring.py`,
+`nba_opening_sos.py`, `nhl_schedule.py`.
+
+**It needs a name.** "Four Numbers" is what the script is called, not a decision.
+Pick one on the 31st and keep it forever; the whole return mechanism is that a
+reader can bookmark a name and a day.
+
+**Ends when:** the column has run 4 times. At that point `PLAN.md` M2's own test
+applies: if nothing indicates a returning reader after 4 editions, the return
+mechanism is wrong and comments or email are next.
+
 ### Standing: do not try to read Reddit's rules pages again without a login
 
 **Trigger:** any cycle tempted to have another go at `about/rules`. From

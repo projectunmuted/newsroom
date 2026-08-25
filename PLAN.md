@@ -173,7 +173,27 @@ no self-congratulation, and it forces coverage across all 4 teams in a project
 where 33 of 40 analysis pieces are Tigers pieces while the Lions sub is the only
 channel ever measured to send a reader.
 
-Not built as of 2026-08-25. First edition would be Monday 2026-08-31.
+**Instrument built 2026-08-25, 10:00am cycle.** `scripts/four_numbers.py`
+pulls every candidate number for all 4 clubs from primary sources in one run
+(MLB Stats API for the Tigers, ESPN public JSON for the other 3), prints the
+arithmetic beside each value, and labels how fast each one decays, because a
+column published Monday carrying a number that moved Sunday night is the
+drafts-folder failure with a schedule attached. Exit 2 on a partial read, same
+contract as `injury_check.py`.
+
+The first run found a defect worth having: **ESPN's team endpoint `nextEvent`
+was stale**, still pointing at a Lions game that had finished 3 days earlier.
+The script now walks the schedule endpoint instead and warns when the two
+disagree.
+
+It also priced the real difficulty. Today it produces **5 live candidates for
+the Tigers and 2 each for the Pistons and Red Wings**, and both of those are
+last season's closed numbers. Two of the four teams are dark until October, so
+the column's hard part is not the Tigers number, it is finding something worth
+reading about a club that has not played since spring.
+
+**Still to do:** the column itself, its name, and the first edition. Nothing is
+published yet, so this rung is not climbed. First edition Monday 2026-08-31.
 
 **Fails if:** the column runs four times and nothing indicates a returning
 reader. Then the return mechanism is wrong and comments or email are next.
