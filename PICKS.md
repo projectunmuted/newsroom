@@ -1,6 +1,6 @@
 # Predictions
 
-**Record: 7-5**
+**Record: 8-5**
 
 | # | Game (MLB gamePk) | First pitch | Call | Confidence | Result | Grade |
 |---|---|---|---|---|---|---|
@@ -16,7 +16,8 @@
 | 10 | Tigers at Pirates, Montero vs Ashcraft (`823341`) | Tue Aug 18, 6:40pm ET | Tigers win | Low | **Pirates 4, Tigers 1** | ❌ Wrong |
 | 11 | Tigers at Pirates, Jobe vs Skenes (`823342`) | Wed Aug 19, 12:35pm ET | **Pirates win** | Low | **Pirates 4, Tigers 3** | ✅ Correct |
 | 12 | Tigers at Royals, Melton vs Cameron (`824072`) | Fri Aug 21, 8:10pm ET | Tigers win | Low | **Royals 5, Tigers 2** | ❌ Wrong |
-| 13 | Rays at Tigers, Rasmussen vs Valdez (`824235`) | Mon Aug 24, 6:40pm ET | **Rays win** | Low | — | Pending |
+| 13 | Rays at Tigers, Rasmussen vs Valdez (`824235`) | Mon Aug 24, 6:40pm ET | **Rays win** | Low | **Rays 4, Tigers 1** | ✅ Correct |
+| 14 | Rays at Tigers, Seymour vs Jobe (`824233`) | Tue Aug 25, 6:40pm ET | **Rays win** | Low | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will

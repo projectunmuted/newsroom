@@ -160,8 +160,20 @@ this week's" reply.
 free return mechanism at small scale is a named column on a known day.
 Readers bookmark "The Weekly Ledger", not a site.
 
-**Candidate:** the weekly ledger of what the calls got right and wrong, Monday
-morning. It is the product's own argument, restated on a schedule.
+**Candidate, replaced 2026-08-25.** It used to read "the weekly ledger of what
+the calls got right and wrong, Monday morning." That column is forbidden by his
+standing rule of 2026-08-09: never write about the record, the grading
+discipline, or how honest the site is. The plan had a milestone in it that broke
+a rule, unnoticed since it was written.
+
+The mechanism M2 needs is the **fixed day and the name**. The subject was never
+the point. So: a Monday column carrying **one number for each of the four
+teams**, whatever the most interesting one is that week. Same return mechanism,
+no self-congratulation, and it forces coverage across all 4 teams in a project
+where 33 of 40 analysis pieces are Tigers pieces while the Lions sub is the only
+channel ever measured to send a reader.
+
+Not built as of 2026-08-25. First edition would be Monday 2026-08-31.
 
 **Fails if:** the column runs four times and nothing indicates a returning
 reader. Then the return mechanism is wrong and comments or email are next.

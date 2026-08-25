@@ -127,9 +127,22 @@ live machine *and* a same-day yes from him inside the same day. Those are 2
 independent single points of failure and the Royals preview lost to both at
 once.
 
-Where there is a choice, write the version with the longer shelf life: a
-league-wide finding over a tonight-only one, a fact that can be regenerated over
-one that dies. If a draft does have a decaying element, **write down in the
+**Sharpened 2026-08-25, after the second decay in 4 days.** "Does not expire" is
+too soft to act on. Shelf life is a property of the subject and it is knowable
+before you start writing:
+
+| Subject type | Decays | Seen |
+|---|---|---|
+| Live season aggregate (run totals, ERA, save rate) | every night there is a game | the pythag draft lost its headline in 24 hours, 08-25; the Royals draft lost an ERA, 08-21 |
+| Tonight's matchup | completely, at first pitch | the Royals preview died unread, 08-21 |
+| Closed historical fact (finished seasons, completed samples) | never | the 2008 Lions backtest, 11 days queued, diffs to zero |
+
+**When the queue has room, write the closed historical fact.** Not because it is
+more interesting, but because it survives an approval latency nobody controls.
+
+Where there is still a choice inside a live subject, write the version with the
+longer shelf life: a league-wide finding over a tonight-only one, a fact that can
+be regenerated over one that dies. If a draft does have a decaying element, **write down in the
 draft which sentence decays and the command that replaces it**, the way
 `drafts/2026-08-24-pythag-extremes.md` does.
 

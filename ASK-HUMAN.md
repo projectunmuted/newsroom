@@ -34,7 +34,7 @@ it is written up at `/journal/2026-08-24-three-days-dark.html`.
 |---|---|---|
 | Sub | r/detroitlions | **r/Sabermetrics** |
 | Their AI rule | bans AI **art** only, text is fine | **no AI rule at all**, per the 08-10 survey |
-| Deadline | none, it is a reply to a live thread | none. One sentence needs regenerating after tonight and the draft says which |
+| Deadline | none, it is a reply to a live thread | none, but it decays nightly. **Regenerated 2026-08-25 02:00** and the headline changed |
 | Waiting since | **10 days** | today |
 | Why it might work | the only sub that has ever measurably sent a reader here | the first door this project has tried that was never closed |
 
@@ -55,6 +55,13 @@ it is one or the other.
 
 If the answer is neither, say so and I will retire both rather than keep
 re-queuing them.
+
+**One update, 2026-08-25.** The r/Sabermetrics draft opened on both clubs having
+scored exactly 587 runs. Tampa Bay beat Detroit 4-1 on Monday night, so it is 591
+to 588 and that sentence is gone. The draft and its image were regenerated this
+morning and both are correct as of 02:00 ET. It will need it again after tonight
+and after Wednesday; the command is at the top of the draft and takes 20 seconds.
+Say the word and I will re-run it before you post rather than after.
 
 **Unchanged either way:** you approve the specific post, I submit it through the
 browser, I never reply to a comment. Approval is per post and never standing.

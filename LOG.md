@@ -4,6 +4,120 @@ Newest at top.
 
 ---
 
+## 2026-08-25 (Tuesday, 2:00am cycle) — the queued draft lost its headline overnight, and a milestone in my own plan broke a standing rule
+
+**Short lane, game-day work**, with the build item folded in because the build
+item was repairing a live asset rather than making a new one. 3 entries: a grade
+and Pick 14 on the analysis track, 1 process entry.
+
+**No gap.** Last commit 2026-08-24 10:13, now 02:00 on 08-25. That is the normal
+16 hour stride from the 10:00am cycle to this one. The standing check ran and
+found nothing to report, which is the first time it has said that.
+
+### Grade: Pick 13 correct, record 8-5
+
+`824235` confirmed Final on the id: **Rays 4, Tigers 1.**
+
+The pick was built entirely on Drew Rasmussen being the best arm in the series
+and he went 6 innings, 3 hits, 1 run, 5 strikeouts, no walks. Framber Valdez went
+6 and **struck out nobody**, which had not happened to him once in his other 25
+starts this season. Detroit had 5 hits and its only run came in on a ball that
+was not a hit, Brett Callahan with an RBI and an 0-fer.
+
+Tampa Bay scored 2 in the 1st and singles in the 4th and 6th. Detroit is 32-32 at
+home, has lost 6 straight, and is **1-9 in its last 10 having been outscored 36
+to 56**. That last number is the one that matters and it goes in both today's
+analysis pieces, because the season-long story on this club is that the record
+understates it, and over 10 games the run differential stopped supporting that.
+
+### Pick 14: Rays win, Low. `824233`, 6:40pm ET tonight
+
+Seymour against Jobe. The argument is innings rather than runs. Jobe is 3 starts
+into a return and has thrown 71, 74 and 86 pitches without finishing a 6th
+inning; Seymour has gone at least 4.2 in each of his last 6 with 44 strikeouts in
+33.2. So Detroit needs 4 or 5 innings from a bullpen that is 26 of 54 with 28
+blown saves and made 5 roster moves in 3 days, including signing Tyler Kinley off
+the street on Monday and putting him straight on the active roster.
+
+`python scripts/injury_check.py 824233` ran at **exit 0**. Greene, Carpenter and
+Vierling all on the 10-day, which is 1,042 plate appearances of the everyday
+lineup out at once.
+
+**Series preview check ran first and did not fire.** The Rays series opened
+Monday and has its preview. The Dodgers arrive 08-28, which is 3 days out, so no
+preview is owed this cycle.
+
+**Sweep: 4 of 4 subs, exit 0.** Nothing argues against the call. One near miss
+worth recording: r/motorcitykitties had a highlight post reading "Kevin McGonigle
+hits his 14th HR to tie the game in the 5th", which would have been a nice detail
+for the grade. The 824235 box score says McGonigle had 1 hit, 0 RBI and 0 home
+runs, so that post is about a different game. It did not go in. A Reddit
+highlight is not a primary source.
+
+### The cycle's real work: the live draft had gone wrong while it waited
+
+`drafts/2026-08-24-pythag-extremes.md`, the one aimed at r/Sabermetrics and
+currently sitting in his queue, opened on Tampa Bay and Detroit having scored
+**exactly 587 runs apiece**. Tampa Bay won last night. It is 591 to 588 now and
+the hook is gone. Residuals moved with it, Detroit from minus 11.9 to minus 12.1.
+
+Had he approved it over coffee this morning, the post would have led with a
+figure that expired 8 hours earlier, in a sub whose population checks numbers for
+sport.
+
+`python scripts/make_pythag_image.py` found it in 20 seconds and re-rendered the
+PNG, which is the whole point of that script pulling live instead of carrying a
+DATA block. The draft was rewritten around the new hook (3 runs apart, 17 games
+apart), the caveat about the 1-9 stretch was added so a commenter does not have
+to supply it, and `ASK-HUMAN.md` now says plainly that it was regenerated and
+when.
+
+**The finding, and it is bigger than the fix.** This is the second decay in 4
+days. Two is a rate, not an incident, and a rate is a thing to design around. My
+drafts decay because I keep choosing **live season aggregates** as subjects, and
+those move every night there is a game. The other draft in the queue has waited
+**11 days and diffs to zero**, because it is about the 2008 Lions and 320
+completed team-seasons. Shelf life is a property of the subject and I choose the
+subject. `WOODWARD-TODO.md` now carries the table: live aggregate decays nightly,
+tonight's matchup decays completely at first pitch, closed historical fact never
+decays. When the queue has room, write the closed fact.
+
+### A milestone in my own plan that a standing rule forbids
+
+`PLAN.md` M2, due 2026-09-21, wanted a named recurring column at a fixed time.
+The candidate written into it was "the weekly ledger of what the calls got right
+and wrong, Monday morning." His rule of 2026-08-09 is never to write about the
+record or the grading discipline. So the plan's own next milestone was a weekly
+column doing exactly the thing I was told to stop, and it had sat there unnoticed
+since the plan was written.
+
+The mechanism M2 needs is the fixed day and the name; the subject was never the
+point. Replaced with **a Monday column carrying one number for each of the four
+teams**. Keeps the return mechanism, drops the self-congratulation, and forces
+coverage across 4 teams in a project where 33 of 40 analysis pieces are Tigers
+pieces. Not built. First edition would be Monday 2026-08-31, and that is now the
+obvious candidate for the next long-lane cycle.
+
+### What failed or did not get done
+
+**Nothing has been posted for 11 days** and no cycle can fix that alone.
+`ASK-HUMAN.md` still carries the same one choice between two drafts.
+
+**I did not run the `skeptic` agent.** Every figure in both analysis entries came
+out of the MLB Stats API in this session. The margin buckets were not re-derived
+because they are not in today's entries.
+
+**M2 was diagnosed and not built.** Writing the column generator at 2am with a
+grade and a pick owed was the wrong trade; the diagnosis is the part a later
+cycle could not reconstruct, and it is written down.
+
+**Numbers:** Ko-fi **$0.00**. Record **8-5**, Pick 14 pending. Days since anything
+was posted to Reddit: **11**. Finished drafts waiting on his approval: **2**, both
+correct as of 02:00 this morning and one of them was not at 01:00. Analytics not
+re-read this cycle.
+
+---
+
 ## 2026-08-24 (Monday, 10:00am cycle) — three days dark, and the only draft with a deadline died in the queue
 
 **Short lane, game-day work**, with one build item folded in because the build
