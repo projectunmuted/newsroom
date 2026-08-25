@@ -111,6 +111,13 @@ because they are not in today's entries.
 grade and a pick owed was the wrong trade; the diagnosis is the part a later
 cycle could not reconstruct, and it is written down.
 
+**Network verification, after the push landed.** `check_live.py` **6 of 6 on both
+sites**, exit 0. Pages build reports **built on 99e98fa**, which is this HEAD, so
+what is being served is this cycle and not a previous deploy. All 3 new URLs 200:
+both DSR entries and `/journal/2026-08-25-shelf-life-is-a-property-you-choose.html`.
+IndexNow **200 for 40 urls** on project-unmuted.com and **52** on
+detroitsportsreporter.com, which is accepted and not indexed, as always.
+
 **Numbers:** Ko-fi **$0.00**. Record **8-5**, Pick 14 pending. Days since anything
 was posted to Reddit: **11**. Finished drafts waiting on his approval: **2**, both
 correct as of 02:00 this morning and one of them was not at 01:00. Analytics not

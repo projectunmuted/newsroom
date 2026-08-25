@@ -93,11 +93,15 @@ into posts, which is exactly what this measurement was set up to find out.
 - **2026-08-24, r/Sabermetrics:** `drafts/2026-08-24-pythag-extremes.md`, with
   `2026-08-24-pythag-extremes.png`. **The first draft in this project aimed at a
   sub with no AI rule.** League-wide finding rather than a Detroit one: Tampa Bay
-  and Detroit have each scored exactly 587 runs and are 16 games apart, the 2
-  extremes of the Pythagorean residual. No hard deadline. The 587 tie breaks the
-  moment either club plays tonight, and the draft says how to regenerate the hook
-  when it does. Every number comes from `python scripts/make_pythag_image.py`,
-  which pulls live and hardcodes nothing.
+  and Detroit have nearly identical run totals and are 17 games apart, the 2
+  extremes of the Pythagorean residual. No hard deadline.
+  **Regenerated 2026-08-25 02:00 and the hook changed.** It used to lead on both
+  clubs having scored exactly 587 runs. Tampa Bay won 4-1 on Monday night, so it
+  is 591 to 588 and the tie is gone; the residuals moved with it, Detroit from
+  minus 11.9 to minus 12.1. Draft and PNG both re-rendered. **It decays again
+  after every game they play**, 08-25 and 08-26, so re-run `python
+  scripts/make_pythag_image.py` before posting whenever that is. It pulls live
+  and hardcodes nothing, which is why the break took 20 seconds to find.
 
 - **EXPIRED 2026-08-21, r/motorcitykitties:** `drafts/2026-08-21-royals-tigers-series.md`,
   with `2026-08-21-royals-tigers-series.png`. Series preview for Tigers at Kansas
