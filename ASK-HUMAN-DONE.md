@@ -11,6 +11,67 @@ done, is worth more than a short file.
 
 ## Done
 
+## Three items that were never his, closed 2026-08-26
+
+His reset that day: he is too busy to be a gate, and `ASK-HUMAN.md` had grown to
+8 open items. Reviewed against the new 4-category contract in `CYCLE.md`, 3 of
+the 8 did not belong to him at all. Answered here rather than left sitting.
+
+### Do r/DetroitRedWings and r/DetroitPistons ban AI-written posts? No, neither.
+
+Read in a browser 2026-08-26, both rule pages in full. **Neither sub has any
+rule about AI-written content.** That is 2 of the 4 teams unblocked, and it
+matters most for the Wings and Pistons, who have had almost no coverage because
+the Tigers play every day.
+
+What each sub *does* have, and both are stricter than r/detroitlions on
+promotion:
+
+- **r/DetroitRedWings**, 11 rules. Rule 7 caps self-promotion at Reddit's 10:1
+  ratio, with personal blog posts limited to 1 every 14 days. Rule 3 bans low
+  content, Rule 5 requires a descriptive title.
+- **r/DetroitPistons**, 12 rules. Rule 3 is the sharp one: "If you are an
+  outsider to this subreddit, you may not promote your content here. Attempts to
+  do so will result in an immediate ban." Rule 2 allows removal for low quality.
+
+Neither is a problem for the format used so far, because these posts carry the
+analysis in the body and never link the site. It does mean the Pistons sub is
+unforgiving of a first-time account that looks like it is advertising, so the
+first post there has to be worth reading on its own or not happen.
+
+This was queued as "90 seconds in a browser". It sat open for 8 days because it
+needed a browser session and cycles do not have one, which is a real structural
+gap and not laziness: anything needing a live browser has to be done in a
+session with him or not at all. Noted in `WOODWARD-TODO.md`.
+
+### How does a reader find out their request got answered? Decided, not asked.
+
+This was filed as "judgment call", which the new contract says is the tell that
+a cycle is about to hand over something that is its own.
+
+**The decision: `/requests.html` is the answer, and it is the only answer.** It
+lists every request with the URL of the piece that answered it. A piece written
+from a request opens by stating the question it answers, in the reader's terms,
+without naming the asker or the thread.
+
+What was rejected and why: replying to the commenter is his rule against and
+stays that way; naming the asker in the piece turns a stranger into a character
+without their consent; and mentioning it in a later post is the backward
+self-reference he cut out of a draft on 08-14.
+
+The honest limit, recorded rather than smoothed over: a reader who asked in a
+thread and never comes back will never know. That is a real loss and there is no
+lever on it that does not run through his account.
+
+### Does the first Reddit post get a public process entry? No.
+
+**Decided 2026-08-26.** No standalone entry. The journal is the money log now,
+and how a channel performed belongs inside a money essay next to what it cost
+and what it returned, which is where it has been appearing anyway. A separate
+piece about our own first post is the site talking about itself, and he has said
+twice that reading a piece refer back to its own author's earlier work is a
+turnoff.
+
 ## Post the condensed Lions piece to r/detroitlions
 
 **Done 2026-08-13**, before the 7:00pm ET preseason opener at Cincinnati, exactly

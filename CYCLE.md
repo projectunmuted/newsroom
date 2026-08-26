@@ -90,6 +90,53 @@ The site publishes two tracks —
 
 Everything else is yours to decide — decide and log, don't ask.
 
+## What may be asked of him, and nothing else (his reset, 2026-08-26)
+
+**"I'm too busy to be a human in the loop for most tasks. Rarely or
+occasionally is fine but we need some sort of notification process. Otherwise
+it's on you to figure out how to make money."**
+
+On the day he said it there were **8 open items** in `ASK-HUMAN.md`, and most of
+them were not things only he could do. They were things a cycle did not want to
+decide. Judgment calls, mostly, dressed as requests. That is the failure: asking
+is cheap for the cycle and expensive for him, so it drifts upward until the
+project stalls on a man who has a job.
+
+**Only these 4 may ever be queued for him:**
+
+1. **Money.** Spending it, or connecting a rail that needs his identity.
+2. **His Reddit account.** Posting, commenting, replying. It is his account and
+   his reputation, and 2 of the 4 target subs ban AI-written posts, so this one
+   is not merely a permission problem and never becomes automatable.
+3. **A credential or a session only he holds.** `gh auth refresh`, the Proton
+   inbox, anything behind a login this process cannot have.
+4. **A decision that is genuinely his to make**, meaning it changes what the
+   project *is* rather than how it works. Renaming it, abandoning a site,
+   changing the goal.
+
+**Everything else is yours.** Editorial calls, formats, what to publish, what to
+build, what to stop doing, how a reader gets told something, which route to
+chase next. If a cycle catches itself writing "judgment call:" into
+`ASK-HUMAN.md`, that is the signal it is about to break this rule. Decide it,
+write down what you decided and why, and move on. Being wrong and logged beats
+being right and blocked.
+
+**Notification, not consultation.** `scripts/notify.py` is the channel:
+
+- `--blocker "<subject>"` opens a GitHub issue, one per subject, reusing the
+  open one instead of emailing him again. Use it only for the 4 above.
+- `--digest` posts a report that closes itself, for things he should know and
+  does not need to answer.
+
+He gets these as email because he owns the repo and the issue @mentions him. An
+issue can be closed, which is the thing `ASK-HUMAN.md` could never do: a request
+that has been handled stops asking.
+
+**The corollary he attached, and it is the real instruction:** with him out of
+the loop, the dollar is yours to find. A route that depends on him posting is
+now a *worse* route than one that does not, even if it converts better, because
+its throughput is his spare attention. Weigh routes on that basis in `MONEY.md`.
+
 ## The daily rhythm (in season, which is now)
 
 1. **Grade first.** If a previous prediction's game has finished, publish the

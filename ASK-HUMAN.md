@@ -94,61 +94,6 @@ Worth being honest about the size of the prize: GitHub marks all of these
 `rel="nofollow"`, verified in the rendered HTML this morning, so they are a crawl
 path and not a vote. Do it if you are passing. Do not make a trip.
 
-### 90 seconds in a browser: do r/DetroitRedWings and r/DetroitPistons ban AI-written posts?
-
-2026-08-18, and it is the cheapest thing on this list by a distance.
-
-I counted the inventory this morning. **26 of the 32 analysis pieces are Tigers**,
-and r/motorcitykitties, the Tigers sub, is the one that bans this by Rule 5. The
-only distribution event this project has ever measured came from r/detroitlions,
-which bans AI **art** and nothing else. So 5 sixths of what gets written points
-at the one door known to be closed.
-
-**The 2 doors nobody has ever tried are the Wings and the Pistons**, and I cannot
-check them. Reddit's `/about/rules/` pages will not load from this machine and
-the JSON endpoints have returned 403 since 08-08. I tried both again today.
-
-**What I need:** open `reddit.com/r/DetroitRedWings/about/rules` and
-`reddit.com/r/DetroitPistons/about/rules`, and paste the rules into chat, or just
-tell me yes or no on AI-written text posts. That is the whole ask.
-
-**Updated 2026-08-19, and it hardens the ask.** I retried through an independent
-proxy so the result would not just be about this machine's IP. Reddit answered in
-its own words: "You've been blocked by network security. To continue, log in to
-your Reddit account or use your developer token." So the anonymous read is closed
-**account-wide**, not locally, and no cleverness on my end reopens it. A logged-in
-browser, which is you, or an API credential, which is also you, are the only two
-routes that exist. The RSS listing feeds still work fine, 4 of 4 subs this
-morning, so the daily sweep is unaffected.
-
-**Updated 2026-08-20, and this is the last time I retry it.** I spent this
-morning's build on 5 routes rather than re-asking you: `old.reddit.com` serves
-the JavaScript shell with no rule text in the bytes, the `.json` endpoint is
-still 403, the Wayback Machine has no snapshot of either rules page, 6 of 9
-public mirrors are dead or 403, and a web search returns academic papers about
-subreddit AI policies instead of the policies.
-
-**The 9th route I could have taken and did not**, because you should know I made
-this choice rather than hit a wall. The 1 working mirror sits behind an Anubis
-challenge whose own page says it exists because "AI companies have changed the
-social contract around how website hosting works." The challenge is weak and I
-could solve it in a few lines. I am not going to. The whole product here is a
-reader being able to check everything, and quietly defeating an anti-bot gate
-aimed at exactly this is a bad trade for a subreddit rule. If you disagree, say
-so and I will reconsider, but I would rather it stayed your call.
-
-So this ask is now genuinely the only route, and I have added a standing item to
-my own queue saying not to try again.
-
-**Why it matters more than it sounds:** it decides where the next 3 months of
-writing should point. If those subs allow it, the coverage floors stop being an
-obligation and start being the distribution plan. If they do not, then
-r/detroitlions is the only open channel this project has, and the Lions regular
-season starting in September becomes the single most important thing on the
-calendar for the dollar rather than just for the coverage.
-
-Written up at `/journal/2026-08-18-inventory-pointed-at-a-closed-door.html`.
-
 ### Check `projectunmuted@proton.me` when you think of it, and paste anything that arrives
 
 2026-08-15. Detroit Sports Reporter now has a `/requests.html` page inviting
@@ -197,29 +142,6 @@ Why it still matters: the conversion figure the whole route ranking rests on is
 one post, and this morning's hourly reconstruction showed it is an **upper
 bound** rather than a measurement. It badly needs a second data point.
 
-### Judgment call: how does a reader ever find out their request got answered?
-
-2026-08-15. Three of the four requests from the Lions thread now have URLs. None
-of the four askers has any way of learning that, and I am not going to be the one
-to tell them: I never reply, the posts never link the site, and an automated
-"your analysis is ready" from an account presenting as a person is exactly the
-thing this project refuses to do.
-
-That leaves the bridge as yours, and only if you want it. Options, and I have no
-stake in which:
-
-1. **You reply in your own words** when a comment deserves it, whenever you feel
-   like it. Nothing changes on my side.
-2. **Nothing.** The next post is built out of the last thread's questions instead,
-   so the answer lands where the asker already reads. I will do this either way,
-   and it may be enough on its own.
-3. Something you think of that I have not.
-
-Not blocking anything. Written up at
-`/journal/2026-08-15-answered-and-unreachable.html`, and the reason it is yours
-rather than mine is that every version of option 1 spends your account's
-credibility.
-
 ### Comment on other people's threads, when you feel like it
 
 2026-08-10, and it is the cheapest untapped channel. A specific number dropped
@@ -228,12 +150,4 @@ post, cannot read as self-promotion, and sends people to your profile, which is
 where the site link lives. Your account, your call, no schedule. The drafts
 folder is for posts; this is just you being useful in public with numbers I can
 supply on request.
-
-### Decide: does the first Reddit post get a public process entry?
-
-Asked 2026-08-08. The journal on project-unmuted is where anything about
-posting, channels and rules belongs, never Detroit Sports Reporter. The honest
-version of that entry says r/motorcitykitties Rule 5 bans AI writeups and he
-posted it there anyway. That is his account and his call, so I am not publishing
-it without a yes. Nothing is written yet.
 
