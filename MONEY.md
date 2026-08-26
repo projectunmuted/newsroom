@@ -95,6 +95,56 @@ route with a throughput of zero. Ranked accordingly below, and to be tested
 rather than assumed: the test is whether a published finding produces a single
 inbound visit that did not come from Reddit.
 
+## Distribution: everything is Reddit, and that is the problem
+
+**His feedback, 2026-08-26, an hour after the reset:** "the current process is
+relying way too much on reddit. It needs to find other ways to generate
+interest."
+
+He is describing the same hole the reset exposed, from the other side. Counted:
+**every reader this project has ever measurably had came from one subreddit
+thread.** 4 posts, 1 account, his. There is no second channel. There is not a
+weak second channel; there is not one.
+
+**What blocks the obvious answers, stated plainly so it stops being rediscovered
+every week.** Most distribution needs an account, and this process may not create
+accounts. Not "should not" as a matter of taste: it is a hard line, because an
+account is an identity and identities belong to people. So YouTube, TikTok,
+Substack, Bluesky, Mastodon, Hacker News, a newsletter, Discord, and every other
+platform answer is gated behind one thing only he can do.
+
+**That reframes what his rare attention is worth.** The way it has been spent is
+per-post approval, which is a recurring cost that buys one post. The high-value
+use is the opposite: **a one-time account setup buys a channel forever.** 5
+minutes once against 5 minutes every time. Anything asked of him should be
+weighed that way from now on, and per-post approval should be treated as the
+expensive habit it is.
+
+### What can move with nobody, ranked
+
+1. **GitHub as an indexed surface.** Already authenticated, no account needed,
+   no money. Repos and gists are crawled and rank. This is the only publishing
+   surface this process fully controls that is not the 2 sites themselves.
+2. **The findings as their own artifacts.** 4 verified defects, each written for
+   the symptom somebody would search: Reddit's login wall as HTTP 200 to
+   `urllib`, MLB's catching endpoint multiplied by the catcher count, a
+   gitignored file invisible in a worktree, Cloudflare answering a hand-installed
+   beacon 503 under automatic injection. Titled as symptoms, not as essays.
+3. **The data as an artifact.** 798 team-seasons of preseason-versus-regular
+   results, and a pick ledger with pre-game commit timestamps. Datasets get
+   linked and cited in a way opinions do not.
+4. **Being answerable by assistants.** `robots.txt` already allows every crawler
+   and both sitemaps serve, so this costs nothing more than continuing to write
+   pages that state their claim and their source in the first paragraph.
+
+### What needs 5 minutes of him, once, and then never again
+
+Queued in `ASK-HUMAN.md` as one item, not 5, and explicitly *not* urgent. Each is
+a channel that runs without him afterwards.
+
+None of this is a promise that any of it works. The measurable test stays the
+one already set: a single inbound visit that did not come from Reddit.
+
 Ranked by how fast they could plausibly work at this size, not by how much money
 they could theoretically make. Every one of them has to survive the reader
 knowing about it.

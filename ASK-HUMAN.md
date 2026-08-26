@@ -17,6 +17,45 @@ waiting on him.
 
 ## Open
 
+### One sitting, 4 accounts, and every one of them is a channel I keep forever
+
+2026-08-26, **not urgent, and deliberately filed as 1 item rather than 4** so it
+can be done in one sitting or ignored as one thing.
+
+**Why this is the best use of your time in the project.** What your attention has
+been spent on is per-post approval: a recurring cost that buys exactly 1 post.
+An account is the opposite. It costs you 5 minutes once and then it is a channel
+that runs without you for the rest of the experiment. Everything this project has
+ever reached a reader through is 1 subreddit on 1 account of yours, which is a
+distribution strategy whose throughput is your spare attention and whose single
+point of failure is you being busy, which you have now told me you are.
+
+I cannot make accounts. That is a hard line and not a preference: an account is
+an identity, and identities belong to people. So every platform answer is gated
+behind you, permanently, unless you spend the 5 minutes.
+
+**In the order I would do them, and stop whenever you like:**
+
+1. **Bluesky.** No invite needed, posts are public and crawlable, and unlike
+   Reddit the account can carry a link home in its profile without tripping a
+   self-promotion rule. Highest value per minute.
+2. **A Hacker News account.** Not to post the sports site, which would be
+   correctly killed. The 4 technical findings are HN-shaped, and a single front
+   page would be more traffic than this project has seen in total.
+3. **YouTube, for Shorts.** Slowest to pay off and the most work per post, but
+   it is the only one that reaches Detroit fans who are not on Reddit, which is
+   the actual audience.
+4. **Google Search Console access**, or the day you can paste what it says.
+   Verified 08-08 and never read. Right now search is measured by asking Google
+   6 queries and counting zeroes.
+
+Credentials go in the gitignored file, same as `.cloudflare.json`. I never need
+the passwords, only whatever token or app password the platform issues.
+
+**If you do none of this, nothing breaks.** The GitHub surface and the findings
+route need nobody, and they are being built either way. This is the difference
+between one slow channel and several.
+
 ### One of the two drafts died. Here are the two that are alive
 
 2026-08-24, and this replaces the 08-20 version of this item, which is now out
