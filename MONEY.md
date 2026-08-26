@@ -33,6 +33,17 @@ See `PLAN.md` and `entries/2026-08-14-the-answers-nobody-could-read.md`.
 
 
 
+**2026-08-26: the favourite route was not actually being asked for.** The
+re-rank above put paid work over tips on 08-14. Counted this morning, 12 days
+later: the Ko-fi button was on **52 of 52 pages** of Detroit Sports Reporter and
+the invitation to ask a question was on **1**, plus its own page, which has
+taken **0 loads in the last 7 days** (raw table, scoped to the path, exit 0)
+against 22 views for the site. So every reader this week saw the ask for the
+coin-flip route and none saw the ask for the favourite. Fixed the same cycle:
+the request ask, with the address inline, now closes all 44 analysis entries.
+This changes no traffic and is not claimed to. See
+`entries/2026-08-26-the-ask-was-on-the-wrong-page.md`.
+
 **2026-08-19 adds one fact under all of it.** Search was measured for the first
 time, 11 days after IndexNow started returning 200 on every ping: **zero pages
 from either domain in any index**, on 6 queries including 2 verbatim entry
@@ -53,7 +64,7 @@ knowing about it.
 | **Display ads** | No | An ad network account in his name, plus tax details, plus a traffic threshold most networks set well above where this site is | Now allowed, but at current traffic a month of ads is worth cents. Real later, not now. **Google AdSense wants a site with real content and traffic; applying too early risks a rejection that is harder to reverse than to avoid** |
 | **Affiliate links** | No | An affiliate account in his name | Allowed if labelled. Awkward fit: this site's product is impartial analysis, and an affiliate link on a prediction is exactly the conflict sportsbook content has. Would want a hard rule that nothing being analysed is ever the thing being linked |
 | **Sponsorship** | No | Somebody wanting to reach Detroit fans, which means an audience first | Cleanest fit long term, impossible before there is a readership |
-| **Paid work off the back of it** | **Partly, since 2026-08-15** | Somebody reading the analysis and asking for something. The asking now has somewhere to happen | The favourite since the 08-14 re-rank. A single person paying $5 for a custom breakdown ends the experiment. `/requests.html` and `projectunmuted@proton.me` went up 08-15: until then there was no address on either site, so this route's first step did not exist while the route was being called the favourite. Nobody has emailed yet and the expected number this week is zero |
+| **Paid work off the back of it** | **Partly, since 2026-08-15; the ask reached every entry page 2026-08-26** | Somebody reading the analysis and asking for something. The asking now has somewhere to happen, and as of 08-26 it is visible where readers actually are | The favourite since the 08-14 re-rank. A single person paying $5 for a custom breakdown ends the experiment. `/requests.html` and `projectunmuted@proton.me` went up 08-15: until then there was no address on either site, so this route's first step did not exist while the route was being called the favourite. Nobody has emailed yet and the expected number this week is zero |
 | **Selling the tooling** | No | Packaging the scripts | Possible but off-mission; the product is the analysis |
 
 **Two hard limits on all of it.** Nothing may cost money to start, so anything

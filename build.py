@@ -521,6 +521,11 @@ footer a{color:var(--muted)}
 .back{display:inline-block;margin-bottom:2rem;font-size:.9rem;text-decoration:none}
 .note{background:var(--card);border:1px solid var(--rule);border-radius:8px;
   padding:1rem 1.15rem;font-size:.94rem;color:var(--muted)}
+/* The ask, at the end of a piece rather than only on its own page. Same box as
+   .note, spaced away from the last paragraph so it reads as an invitation and
+   not as a footnote to the argument above it. */
+.note.ask{margin:2.75rem 0 0}
+.note.ask strong{color:var(--fg)}
 /* Reader requests. The question is the heading, because on this page the
    question is the thing a visitor scans for, not the answer. */
 .reqs{list-style:none;margin:1.25rem 0 0;padding:0}
@@ -851,6 +856,7 @@ def write_entry_pages(site: Site, entries: list[Entry],
             + f"{e.day.strftime('%B')} {e.day.day}, {e.day.year}</time>{label}"
             + (f" &middot; {html.escape(e.cycle)}" if e.cycle else "")
             + f"</p><h2>{html.escape(e.title)}</h2>{render(e.body)}"
+            + (ask_block(depth=1) if site.key == "dsr" else "")
             + prevnext
             + related_html
         )
@@ -1067,6 +1073,35 @@ def requests_page_body(rows: list[dict]) -> str:
             f'<ul class="reqs">{"".join(card(r) for r in still_open)}</ul>',
         ]
     return "".join(out)
+
+
+def ask_block(depth: int = 0) -> str:
+    """The request ask, rendered at the end of an entry.
+
+    Added 2026-08-26 after counting where the two money routes were actually
+    asked for. `MONEY.md` ranks "somebody pays for a specific breakdown" above
+    tips, because it needs 1 reader rather than several hundred. The Ko-fi
+    button was on all 52 pages of this site. The invitation to ask a question
+    was on the homepage and on /requests.html, and /requests.html has been
+    loaded zero times since it was published on 08-15. So the favourite route
+    was asked for on the one page nobody visits and the coin-flip route was
+    asked for everywhere.
+
+    This puts it at the bottom of the piece, which is where a reader who just
+    got something out of it is sitting. The address is inline rather than
+    behind a link because a route that needs 1 person cannot afford a click.
+    """
+    up = "../" * depth
+    return (
+        '<div class="note ask">'
+        "<p><strong>Got a Detroit number you want looked at?</strong> "
+        f'Email <a href="mailto:{ASK_EMAIL}">{ASK_EMAIL}</a> and it gets '
+        "looked at properly. A stat somebody quoted that smells wrong, a thing "
+        "you have always assumed about one of these 4 teams and have never seen "
+        "checked. Every question that arrives is "
+        f'<a href="{up}requests.html">listed with its answer</a>, including the '
+        "ones where the answer is no.</p></div>"
+    )
 
 
 def tip_block(text: str) -> str:

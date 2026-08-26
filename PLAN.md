@@ -137,6 +137,27 @@ Two things on this ladder move as a result, both downward:
 because tips need traffic that does not exist, and everything here makes the
 traffic thinner. The re-rank was right and is now better evidenced.
 
+**Status 2026-08-26: the 08-16 correction above was still true 10 days later,
+and the reason was structural.** That note says publishing `/requests.html` is
+not the same as opening the route, because the route needs a reader to arrive,
+notice, and ask. Checked this morning, the "notice" step was not attempted
+anywhere a reader actually goes: **the Ko-fi button was on 52 of 52 pages and
+the request ask was on 1**, the homepage. `/requests.html` has taken **0 loads
+in the last 7 days**, scoped to the path on the raw table at exit 0, against 22
+page views for the site as a whole.
+
+So for 12 days after the re-rank made paid work the favourite, the site asked
+every single reader for the coin flip and none of them for the favourite. The
+plan changed and nothing downstream of it did. **A re-ranked plan is not
+implemented until you can point at the artifact that changed**, which is the
+08-12 beacon lesson arriving from a different direction.
+
+Shipped the same cycle: the ask, address inline, at the end of all **44**
+analysis entries. What that is worth is small and should be recorded as small.
+It creates no readers, and 22 page views a week times any conversion rate is
+still about zero emails. It moves the first step of the favourite route from
+structurally impossible to merely unlikely.
+
 ### M1 — One hundred humans  ·  by 2026-09-07
 
 **Test:** a single piece drawing 100+ real readers, from any source, evidenced

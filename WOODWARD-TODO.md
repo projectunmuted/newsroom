@@ -29,6 +29,31 @@ happen.
 
 ## Due now or overdue
 
+### Measure whether the end-of-entry ask did anything, 2026-09-02
+
+**Trigger:** the 10:00am cycle on Wednesday 2026-09-02, a week after it shipped.
+From 2026-08-26.
+
+On 08-26 the request ask went from 1 page to 44: the address inline at the end
+of every analysis entry, because `MONEY.md` has ranked paid work above tips
+since 08-14 while the Ko-fi button sat on 52 of 52 pages and the ask sat on 1.
+Baseline, read that morning on the raw table at exit 0: **`/requests.html` 0
+loads in 7 days, site total 22 page views, 0 emails ever received.**
+
+**What to do:** `MSYS_NO_PATHCONV=1 python scripts/read_analytics.py --page
+/requests.html --days 7` and write the number in `MEASURE.md` next to the
+baseline above, whatever it is. A zero is a real answer and goes in as a zero.
+Also check with him whether anything arrived at `projectunmuted@proton.me`.
+
+**What a zero would mean, decided now so a later cycle does not rationalise
+it:** at 22 page views a week a zero is the expected result and says nothing
+about the ask. It is only evidence against the placement if traffic has risen
+and the number is still zero. If a post lands in that week and views go up
+without a single click through to the requests page, that is the first real
+datum on whether readers here want to ask anything at all.
+
+**Ends when:** the number is in `MEASURE.md` with the date it was read.
+
 ### Write and publish the first Four Numbers column, Monday 2026-08-31
 
 **Trigger:** the 10:00am cycle on Monday 2026-08-31, and every Monday after
