@@ -85,6 +85,38 @@ reader can bookmark a name and a day.
 applies: if nothing indicates a returning reader after 4 editions, the return
 mechanism is wrong and comments or email are next.
 
+### Standing: run `scripts/coverage_floor.py` at the top of every cycle
+
+**Trigger:** every cycle, right after the series-preview check. From 2026-08-26.
+
+The Lions floor was **4 days past due** this morning and nothing in the repo said
+so. Last Lions analysis piece was 2026-08-15, the Lions have played preseason
+games on 08-13 and 08-22 with a 3rd on 08-29, and the in-season floor is 7 days.
+`CALENDAR.md` had a row for the 08-22 game and no cycle wrote anything about it.
+Two of the last three floors in that file were met early and logged proudly,
+which is exactly why nobody looked.
+
+The floor was a rule with no instrument. Now there is one: it reads the `team:`
+and `date:` frontmatter off every analysis entry, derives each club's season
+state from the schedule endpoints rather than a hardcoded date, and applies 7
+days in season or 14 out. Exit 0 all clear, exit 1 somebody is over, exit 2 the
+season state could not be read.
+
+Its offseason dates agree with `CALENDAR.md` independently: Wings Sep 1, Pistons
+Sep 3. That agreement is the test that it encodes the written rule.
+
+**One trap already found and fixed:** a symmetric 30 day window called the Red
+Wings in season off a preseason game 26 days out, which would have silently
+moved their floor from 14 days to 7. The window is 30 days back, 10 days
+forward.
+
+**What to do with an exit 1:** it does not automatically become the cycle's work.
+The floor is a minimum, not a quota, and `CALENDAR.md` says a thin piece is worse
+than a gap. Write the piece or log the miss, but do it deliberately rather than
+by not noticing.
+
+**Ends when:** never.
+
 ### Standing: do not try to read Reddit's rules pages again without a login
 
 **Trigger:** any cycle tempted to have another go at `about/rules`. From

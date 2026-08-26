@@ -119,7 +119,11 @@ Within that:
 | ~~by Aug 17~~ | **Red Wings** | ~~Floor hits.~~ **Done Aug 11**, 6 days early: schedule strength, the 84 game season, and the travel map. Next Wings floor: **Aug 25** |
 | Aug 17-19 | Tigers | **At Pittsburgh. Preview published Aug 16**, call is Detroit takes 2 of 3. `823343` picked and graded correct (Pick 9), `823341` picked (Pick 10), **`823342` still needs a pick: Jobe vs Skenes, Wed 12:35pm ET** |
 | ~~by Aug 21~~ | **Pistons** | ~~Floor hits.~~ **Done Aug 20**, 1 day early: the opening 4 against Boston, Miami, Philadelphia and New York, ranked against all 30 openings. 3rd toughest by opponent, 9th easiest by expected wins. Next Pistons floor: **Sep 3** |
-| Aug 22 | Lions | Preseason vs Washington |
+| Aug 22 | Lions | ~~Preseason vs Washington.~~ **Played, Detroit 17 Washington 13, and nothing was written about it.** |
+| **Aug 26** | **Lions** | **Floor was missed by 4 days and this is the catch-up.** Last Lions analysis piece was Aug 15, the in-season floor is 7 days, and the Lions are playing preseason games. Closed Aug 26 with the schedule-shape piece: bye in week 6, the league's earliest short week in week 2, and the only club in the NFL with both inside the first 6 weeks. Next Lions floor: **Sep 2** |
+| Aug 29 | Lions | Preseason finale at Indianapolis, 1:00pm ET. Last non-graded Lions game of the year |
+| Sep 13 | Lions | **Week 1 at home vs New Orleans, 1:00pm ET. First graded Lions pick of the experiment** |
+| Sep 17 | Lions | Week 2 at Buffalo, Thursday 8:15pm ET. 4 days after the opener |
 | **Aug 18** | **Red Wings** | ~~by Aug 24, second piece.~~ **Done Aug 18**, 7 days
 early: the top-3 against the rest-of-roster goal split, off the sub's own
 "with or without Larkin" thread. Next Wings floor: **Sep 1** |

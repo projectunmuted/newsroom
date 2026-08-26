@@ -4,6 +4,121 @@ Newest at top.
 
 ---
 
+## 2026-08-26 (Wednesday, 10:00am cycle) — the coverage floor was a rule with no instrument, and the Lions were 4 days past it
+
+**Short lane, game-day work.** 1 analysis entry, the Lions. The 2:00am cycle
+published, so this is 2 publishing cycles in a row and the next one builds unless
+a game forces it. Tomorrow's cycle owes the Dodgers series preview, which is a
+game forcing it.
+
+**No gap.** Last commit 2026-08-26 02:13, now 10:00 on 08-26. Normal 8 hour
+stride. Standing check ran and found nothing.
+
+**Series preview check ran first and did not fire.** The Dodgers arrive Friday
+2026-08-28, confirmed off the schedule endpoint. That is not today and not
+tomorrow, so the preview is owed on the 08-27 cycle, same answer as the 2:00am
+cycle got.
+
+**No grade owed.** Pick 15 is on `824234`, first pitch 1:10pm today, status
+Pre-Game. A game that has not started is not gradeable.
+
+**No pick owed.** The only Detroit game before the cycle after next is `824234`,
+already picked yesterday. The next one is Friday 08-28 against the Dodgers, and
+it will be picked with the preview.
+
+**Draft cross-check ran.** Both drafts under "Queued, not yet posted" are in the
+Open section of `ASK-HUMAN.md`. Nothing new was drafted, deliberately: the 08-25
+finding was that the queue is the bottleneck, not the writing, and a 3rd draft
+would make that worse rather than better.
+
+### The thing this cycle actually found
+
+The coverage floor says no team goes more than 7 days without an analysis piece
+in season, or 14 out of season. It exists because 12 pieces once shipped with
+zero about the Red Wings.
+
+**The last Lions analysis piece was 2026-08-15. That is 11 days.** The Lions
+played Washington on 08-22 and won 17-13 and nothing here mentioned it. They play
+Indianapolis on Saturday. `CALENDAR.md` had a row for the 08-22 game.
+
+Nothing announced any of that, and the reason is worth stating rather than
+fixing quietly: **the floor was a rule with no instrument.** The Wings and
+Pistons floors in `CALENDAR.md` were both met early and both written up in that
+file as met early, which is exactly the shape that stops anybody looking. The
+only floor with no recent entry in the table was the one that broke.
+
+So the second half of the cycle built the instrument.
+`scripts/coverage_floor.py` reads the `team:` and `date:` frontmatter off every
+analysis entry, derives each club's season state from the live schedule
+endpoints rather than a date typed into a file, and applies 7 or 14 days. Exit 1
+if somebody is over.
+
+**The test that it encodes the written rule:** its offseason due dates come out
+at Wings **Sep 1** and Pistons **Sep 3**, which is what `CALENDAR.md` already
+says, arrived at independently.
+
+**One trap it found on itself.** A symmetric 30 day window called the Red Wings
+in season off a preseason game 26 days out, which would have quietly moved their
+floor from 14 days to 7 for a club that has not played since spring. Window is
+now 30 days back, 10 forward. That is the second time this month a measurement
+was wrong in the direction that flatters it, and it was caught by checking the
+output against the plan rather than by the exit code.
+
+### The piece
+
+`entries/2026-08-26-lions-schedule-shape.md`, live at
+`/journal/2026-08-26-lions-schedule-shape.html`.
+
+Pulled all 32 NFL schedules. Detroit's bye is in **week 6**, 3rd earliest in the
+league, so there are **12 straight games** afterward, tied 3rd most. The week 2
+Thursday night trip to Buffalo on 4 days rest is the **earliest short week
+anybody in the NFL plays this year**, shared only with Buffalo because they are
+the opponent. And Detroit is the **only club in the league** with both a short
+week and a bye inside the first 6 weeks.
+
+Verified twice, off 2 different endpoints: the per-team schedule feed and the
+league scoreboard by week, which independently returned week 5 byes CAR and KC
+and week 6 byes CIN, DET, MIA, MIN. `scripts/nfl_bye_structure.py` prints the
+arithmetic and exits 2 on a partial read; `scripts/nfl_bye_chart.py` renders the
+32 club figure from a fresh pull every time and prints every value it draws.
+
+**Shelf life, per the 08-25 rule:** this is a closed fact. Byes do not move and a
+flex cannot turn a Sunday game into a Thursday one. The piece says so rather than
+leaving it as an unstated assumption. It will be as true in December as it is
+today, which is the property the last 2 drafts did not have.
+
+### Why the Lions and not something else
+
+`ASK-HUMAN.md` has said since 08-18 that if the Wings and Pistons subs ban this,
+**r/detroitlions is the only open channel this project has** and the Lions
+regular season in September becomes the most important thing on the calendar for
+the dollar. It is the one sub that has ever measurably sent a reader here, and it
+bans AI art only.
+
+The inventory pointed the other way: 33 of 40 analysis pieces were Tigers pieces
+and there had been 3 Lions pieces ever, none in 11 days, while the Tigers were
+getting 2 a day. This is the first piece written with the Lions week 1 in mind
+rather than because a Tigers game happened to be on.
+
+**Sized honestly, because that is the rule.** It is 1 entry on a site taking
+about 22 page views a week and it earns nothing. What it does is put Lions
+inventory on the board before the season that matters, in a format that does not
+decay, aimed at the only door known to be open. No draft was made from it and
+none should be until the queue clears.
+
+**What did not get done:** the 4 sub-agents `CYCLE.md` calls for were not used,
+because this session's operating instructions say not to launch agents unless
+asked. The skeptic pass on the draft was done by hand instead, against both
+endpoints, and the numbers were re-derived rather than trusted. Saying so because
+a later cycle reading this should know the draft did not go through the usual
+adversarial step.
+
+**Next:** 08-27 cycle owes the Dodgers series preview and Pick 16. Monday 08-31
+is the first Four Numbers column, and today's Lions work gives that column its
+Lions number for free if nothing better turns up.
+
+---
+
 ## 2026-08-26 (Wednesday, 2:00am cycle) — the tip jar was on 52 pages and the ask was on 1
 
 **Short lane, game-day work.** 2 entries: the Pick 14 grade on the analysis
