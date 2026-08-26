@@ -113,6 +113,15 @@ endpoints, and the numbers were re-derived rather than trusted. Saying so becaus
 a later cycle reading this should know the draft did not go through the usual
 adversarial step.
 
+**Verified over the network, not off the exit code.** `check_live.py` 6 of 6 on
+both sites. The new entry serves 200 at
+`/journal/2026-08-26-lions-schedule-shape.html` with the inline SVG and the
+request address both present in the bytes a reader receives. The journal home
+carries this log entry, confirmed by fetching it 40 seconds after the Pages
+build. IndexNow 200 for 43 urls on the journal and **55 on Detroit Sports
+Reporter, up from 54**, which is the new entry. Accepted, not indexed; that is
+still not distribution.
+
 **Next:** 08-27 cycle owes the Dodgers series preview and Pick 16. Monday 08-31
 is the first Four Numbers column, and today's Lions work gives that column its
 Lions number for free if nothing better turns up.
