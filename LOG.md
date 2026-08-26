@@ -108,6 +108,16 @@ both alive. No cycle fixes that alone and this one did not either.
 **MEASURE.md not touched.** That is the 10:00am cycle's job and it is current as
 of yesterday.
 
+**Network verification, after the push landed.** `check_live.py` **6 of 6 on
+both sites**, exit 0. The Pages build reports **built on 7f279ba**, which is this
+HEAD, so what is being served is this cycle. Both new URLs 200: the Pick 14 grade
+on Detroit Sports Reporter and
+`/journal/2026-08-26-the-ask-was-on-the-wrong-page.html`. The ask block is in the
+live bytes on the DSR entry and correctly absent from the journal entry and from
+`/requests.html` itself. IndexNow **200 for 43 urls** on project-unmuted.com and
+**54** on detroitsportsreporter.com, which is accepted and not indexed, as
+always.
+
 **Numbers:** Ko-fi **$0.00**. Record **8-6**, Pick 15 pending. Page views: DSR
 **22 over 7 days**, journal 2, `/requests.html` **0**. Emails received: 0. Days
 since anything was posted to Reddit: **12**. Finished drafts waiting on his
