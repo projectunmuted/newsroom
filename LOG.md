@@ -4,6 +4,151 @@ Newest at top.
 
 ---
 
+## 2026-08-27 (Thursday, 2:00am cycle) — Skubal comes back Friday, and the trade did nothing to the Dodgers
+
+**Short lane, game-day work.** A grade and a series preview. That is 2
+publishing cycles in a row before this one and 3 with it, which normally means
+the next cycle builds, but the preview was forced: the Dodgers open at Comerica
+tomorrow night and `CYCLE.md` puts a series preview ahead of anything
+discretionary.
+
+**No gap.** Last commit 2026-08-26 10:32, now 02:00 on 08-27. That is 15.5
+hours, which is the designed 10:00am-to-2:00am stride, not an outage.
+
+**Series preview check ran first and fired.** Dodgers at Comerica Friday through
+Sunday, off the schedule endpoint. `LAD` was missing from `OPPS` in
+`scripts/series_preview.py` and is now in it.
+
+**Coverage floor ran, exit 0.** All 4 clubs inside. Tigers and Lions both 1 day
+old, Pistons due 09-03, Red Wings due 09-01.
+
+**Draft cross-check ran.** Both drafts under "Queued, not yet posted" are in the
+Open section of `ASK-HUMAN.md`. Nothing new was drafted, same reasoning as
+yesterday: the queue is the bottleneck, not the writing.
+
+### Graded Pick 15, and it lost on the half of the game I said would decide it
+
+Rays 3, Tigers 0 on `gamePk` 824234, Final on the id. **Record 8-7.**
+
+The pick was a home run split: Freddy Peralta with 15 away and 7 at home, making
+a road start. He threw 6 innings, gave up 2 hits, walked nobody and allowed no
+home runs. Nobody hit one all afternoon. Melton was worse than his season line,
+7 innings and 3 earned, and it did not matter because Detroit got 2 hits.
+
+There were **zero walks in the entire game**, both clubs, 18 half innings.
+
+The part worth carrying forward is that the pick entry contained the sentence
+"a rotation edge does not matter if the lineup keeps putting up 1 run" and I
+made the pick anyway. Split Detroit's August on the day Riley Greene went on the
+injured list:
+
+| | G | Record | RS/g | RA/g |
+|---|---|---|---|---|
+| Aug 1-11 | 9 | 7-2 | 6.6 | 2.2 |
+| Aug 12-26 | 14 | 3-11 | 3.4 | 4.7 |
+
+The grade says out loud that the pitching collapsed on the same date, which a
+hamstring does not explain, so a good chunk of this is a 14 game slump being a
+slump. Writing the caveat in was the point; the entry that flatters the finding
+is the one that gets caught.
+
+### Pick 16, and it is only the 2nd High ever put on the board
+
+**Tarik Skubal pitches for Los Angeles on Friday night at Comerica.** Last
+Detroit start July 29, first Dodgers start August 4, and Friday is the first one
+against the club that had him.
+
+**The call: Dodgers win, High.** Best pitcher in baseball against a lineup
+scoring 3.4 a game without Greene, Carpenter or Vierling, with a 4.09 starter
+opposite. High means I will look stupid if it misses and that is the correct
+exposure here. Series call: Los Angeles takes 2 of 3.
+
+`python scripts/injury_check.py 824231` ran at exit 0 before the pick was
+committed. It is what surfaced that the Dodgers are missing their centre fielder
+and both catchers as well.
+
+### The finding the preview is actually built on
+
+I went looking for the Skubal-revenge angle and found something better underneath
+it. **Los Angeles has not had a winning month by run differential since June.**
+
+| Month | Detroit | Los Angeles |
+|---|---|---|
+| June | 15-11, +46 | 18-9, +34 |
+| July | 15-9, +43 | 13-11, **-8** |
+| August | 10-13, +20 | 11-12, **-6** |
+
+Since July 1: Los Angeles **24-23, minus 14**. Detroit **25-22, plus 63**.
+
+The slide starts in **July, before the deadline**, which is what makes it worth
+writing rather than a cheap trade take. Acquiring Skubal did not fix it and he
+did not cause it; he walked into the middle of it. The piece says that
+explicitly, because the number invites the lazier reading and a reader who
+checks would catch it.
+
+`scripts/monthly_diff_chart.py` is new: 12 rows, 2 clubs by month, pulled live
+and printing every value it draws to stderr, colours restricted to the validated
+`--chart-pos` / `--chart-neg` tokens with the clubs told apart by row label so it
+survives greyscale. `scripts/skubal_return.py` holds the arithmetic and exits 2
+on a partial read.
+
+**One trap it caught on itself.** Summing the schedule endpoint on
+`abstractGameState == Final` gave Detroit 69-80 over 149 games. Two of those were
+postponements, which carry Final, and one was a `Completed Early` shortened game,
+which is real and was being dropped. Filtering on `detailedState in (Final,
+Completed Early)` lands on 62-71 over 133, which matches the standings feed
+exactly. Both scripts carry the comment.
+
+### The r/Sabermetrics draft stopped decaying, which is the good outcome
+
+It has now produced 4 headlines in 4 days. 587 apiece, then 591-588, then 592
+apiece, and after Wednesday it is 595-592 with the series over and no 4th game
+to bring them level.
+
+I retired the coincidence instead of chasing a 4th version of it. What the draft
+leads on now is what was underneath it the whole time: **Detroit is 12.1 wins
+below its Pythagorean record, the largest in baseball, and 2nd place is the
+Angels at 7.2.** That number moves about a tenth of a win a night over a 133 game
+base, so the draft now keeps for weeks.
+
+That is the 08-25 shelf-life rule paying off in a way I did not expect. The rule
+was written as "prefer subjects that do not decay". The sharper version, learned
+here: **a live subject usually contains both a fragile version and a durable one,
+and the fragile one is the one that looks like the headline.** Three cycles led
+on the coincidence. The residual was sitting in the same script output every
+time.
+
+`ASK-HUMAN.md` updated so his queue says this rather than yesterday's version.
+
+### What did not happen, and why
+
+**The `skeptic` agent did not review either draft.** This session runs under a
+harness rule against launching subagents unless the human asks in the turn, and
+he asked for the cycle rather than for the agents. So I did the pass myself, and
+it caught 3 things worth naming rather than hiding: a fabricated-sounding claim
+that Detroit's young hitters had faced Skubal in spring training, which came out;
+"the reigning Cy Young winner", which the API cannot confirm and which came out;
+and "both of last year's catchers", which became "2 catchers". Two ages were
+wrong before checking the roster, 20 and 21 against the real 22 and 21.
+
+Self-review found those. It is still weaker than an adversarial read and the
+entries went up with a thinner check than the process asks for, which is worth
+saying rather than quietly skipping.
+
+**Nothing was queued for him this cycle.** The only change to `ASK-HUMAN.md` is
+that an existing item now tells the truth about its own draft.
+
+### Next
+
+The 10:00am cycle owes nothing forced: Detroit is off Thursday, the Dodgers pick
+is already on the board, and no floor is due. **Monday 08-31 is the first Four
+Numbers column**, which is `PLAN.md` M2 and the only rung on that ladder that
+does not need him. A build-lane cycle between now and then should go at the
+hockey and basketball numbers, because 2 of the 4 clubs are dark until October
+and those are the ones that will be hard on the morning.
+
+---
+
 ## 2026-08-26 (Wednesday, 10:00am cycle) — the coverage floor was a rule with no instrument, and the Lions were 4 days past it
 
 **Short lane, game-day work.** 1 analysis entry, the Lions. The 2:00am cycle

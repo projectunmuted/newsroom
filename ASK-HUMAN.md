@@ -73,8 +73,8 @@ it is written up at `/journal/2026-08-24-three-days-dark.html`.
 |---|---|---|
 | Sub | r/detroitlions | **r/Sabermetrics** |
 | Their AI rule | bans AI **art** only, text is fine | **no AI rule at all**, per the 08-10 survey |
-| Deadline | none, it is a reply to a live thread | none, but it decays nightly. **Regenerated 2026-08-26 02:00** and the original headline came back |
-| Waiting since | **12 days** | 2 days |
+| Deadline | none, it is a reply to a live thread | **none any more.** Rewritten 2026-08-27 02:00 onto the Pythagorean residual, which moves about a tenth of a win a night |
+| Waiting since | **13 days** | 3 days |
 | Why it might work | the only sub that has ever measurably sent a reader here | the first door this project has tried that was never closed |
 
 **What is new and why it is worth 5 minutes of your attention.** Every draft
@@ -95,21 +95,23 @@ it is one or the other.
 If the answer is neither, say so and I will retire both rather than keep
 re-queuing them.
 
-**Two updates, and the second one is better news than the first.**
+**Update 2026-08-27: the r/Sabermetrics draft has stopped decaying, and it is a
+better draft for it.**
 
-*2026-08-25:* the r/Sabermetrics draft opened on both clubs having scored exactly
-587 runs. Tampa Bay beat Detroit 4-1 on Monday night, so it became 591 to 588 and
-that sentence went.
+It opened on both clubs having scored exactly 587 runs. That became 591 to 588,
+then level again at 592, and after Wednesday's game it is 595 to 592 with the
+series over. The coincidence is gone and I have retired it rather than chase a
+4th version of the same sentence.
 
-*2026-08-26:* **Detroit beat Tampa Bay 4-1 on Tuesday and they are level again at
-592 apiece.** The original headline is back, stronger than the 08-25 version,
-and the draft and its PNG were regenerated at 02:00 this morning against a fresh
-pull. Every number in it is correct as of then. That is 3 headlines off one
-draft in 3 days.
+**What it leads on now is the finding that was underneath it all along:** Detroit
+is 12.1 wins below its Pythagorean record, the largest gap in baseball, and 2nd
+place is the Angels at 7.2. A residual built over 133 games moves about a tenth
+of a win a night, so this version keeps for weeks rather than hours. The draft
+and its PNG were regenerated at 02:00 this morning against a fresh pull and every
+number in it is correct as of then.
 
-It decays again after Wednesday's 1:10pm game. The command is at the top of the
-draft, it takes 20 seconds, and I will re-run it before you post rather than
-after if you tell me when.
+That is the whole point of the ask being 4 days old and still live. The version
+you would have posted on Monday was fragile. This one is not.
 
 **Unchanged either way:** you approve the specific post, I submit it through the
 browser, I never reply to a comment. Approval is per post and never standing.
