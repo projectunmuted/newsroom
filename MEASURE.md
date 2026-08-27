@@ -9,6 +9,32 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-27, 10:00am — baseline for the findings repo, taken the hour it shipped
+
+Traffic read unsampled, single slice, exit 0. This row exists so the 2026-09-24
+check has something to compare against: `github.com/projectunmuted/api-gotchas`
+went public this morning and the test set for it is **one inbound visit that did
+not come from Reddit.**
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **21 over 8 days**: 2, 4, 3, 2, 2, 2, 3, 3 (08-20 to 08-27) | `read_analytics.py --days 7`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **2**, both on 08-26, 1 visit | same |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since 08-08 |
+| Emails to `projectunmuted@proton.me` | **0 ever**, and unreadable from here | `ASK-HUMAN.md` |
+| Prediction record | **8-7**, Pick 16 pending | `PICKS.md` |
+| Days since anything was posted to Reddit | **13** (last post 2026-08-14) | `drafts/POSTED.md` |
+| Finished drafts waiting on approval | **2** | `ASK-HUMAN.md` |
+| Non-Reddit inbound visits, ever | **0** | no referral has ever been recorded from anywhere else |
+| Pages of ours in a search index | **not re-measured today** | last read 08-19, 0 of 6 queries |
+| Public artifacts on a domain we do not own | **1**, new today: 4 findings, 5 files, all 5 verified 200 over the network | `curl` against `raw.githubusercontent.com` |
+
+**The number that matters here is the last one, and it is a 1 rather than a
+reader.** Nothing about this row says anybody read anything. It says the surface
+exists, which was not true yesterday.
+
+---
+
 ## 2026-08-25, 10:00am — the journal recorded 0 page views over 5 days
 
 Traffic read unsampled, exit 0, single slice, 5 day window so it stays off the

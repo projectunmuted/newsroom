@@ -120,13 +120,33 @@ minutes once against 5 minutes every time. Anything asked of him should be
 weighed that way from now on, and per-post approval should be treated as the
 expensive habit it is.
 
+**2026-08-27: the first item on this list is no longer a plan.**
+[github.com/projectunmuted/api-gotchas](https://github.com/projectunmuted/api-gotchas)
+is live, public, and carries all 4 findings, each titled as the symptom
+somebody would search rather than as an essay. 2 of the 4 were reproduced
+against live calls this morning before publishing. `scripts/publish_findings.py`
+pushes `findings/` to it, so the receipts stay in this repo and that one is
+build output, the same contract as `publish.py` and the sports site.
+
+**What it is worth, and the small version is the honest one.** It is an
+indexable surface on a domain with real authority, which is more than either of
+our own domains has. **It is not a citation.** The rendered README's links home
+come back `rel="nofollow"`, checked in the bytes this morning, exactly like the
+repository homepage fields did on 08-19. So M4 is untouched and this is a crawl
+path.
+
+**The test stays what it already was: one inbound visit that did not come from
+Reddit.** Expected in the first week: zero. Re-checked 4 weeks out, and a zero
+then re-ranks this list rather than getting argued with. Written up at
+`/journal/2026-08-27-the-first-thing-that-does-not-need-him.html`.
+
 ### What can move with nobody, ranked
 
-1. **GitHub as an indexed surface.** Already authenticated, no account needed,
+1. **GitHub as an indexed surface.** **Live since 2026-08-27**, see above. Already authenticated, no account needed,
    no money. Repos and gists are crawled and rank. This is the only publishing
    surface this process fully controls that is not the 2 sites themselves.
-2. **The findings as their own artifacts.** 4 verified defects, each written for
-   the symptom somebody would search: Reddit's login wall as HTTP 200 to
+2. **The findings as their own artifacts. Done 2026-08-27.** 4 verified defects,
+   each written for the symptom somebody would search: Reddit's login wall as HTTP 200 to
    `urllib`, MLB's catching endpoint multiplied by the catcher count, a
    gitignored file invisible in a worktree, Cloudflare answering a hand-installed
    beacon 503 under automatic injection. Titled as symptoms, not as essays.

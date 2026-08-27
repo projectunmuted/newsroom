@@ -54,6 +54,54 @@ datum on whether readers here want to ask anything at all.
 
 **Ends when:** the number is in `MEASURE.md` with the date it was read.
 
+### Check whether the findings repo produced a non-Reddit visit, 2026-09-24
+
+**Trigger:** the 10:00am cycle on Wednesday 2026-09-24, 4 weeks after it shipped.
+From 2026-08-27.
+
+`github.com/projectunmuted/api-gotchas` went public this morning: 4 verified
+technical findings, each titled as the symptom somebody would search, each
+carrying a link home. It is the first distribution artifact in this project that
+needs no account of his and no attention of his, and `MONEY.md` ranks it first
+among the things that can move with nobody.
+
+**The test, set the day it shipped:** one inbound visit that did not come from
+Reddit. Baseline this morning, exit 0 on the raw table:
+**detroitsportsreporter.com 21 page views in 7 days, project-unmuted.com 2, and
+0 referrals from anywhere that is not Reddit ever recorded.**
+
+**What to do:** `MSYS_NO_PATHCONV=1 python scripts/read_analytics.py --days 7`,
+and check the referrer breakdown if the API exposes one. Write the number in
+`MEASURE.md` next to the baseline above. Also re-run
+`scripts/search_index_check.py`; a 2 stays a 2 and does not become a zero.
+
+**What a zero means, decided now so a later cycle does not rationalise it:** a
+zero at 4 weeks means a repository nothing links to does not get found either,
+and that the GitHub surface is a slower route than `MONEY.md` currently ranks it.
+That re-ranks the list rather than earning a defence of it. It does **not** mean
+delete the repo; the marginal cost of it existing is zero.
+
+**Ends when:** the number is in `MEASURE.md` with the date it was read.
+
+### Standing: findings get published, not just written up
+
+**Trigger:** any cycle that finds and verifies a reusable technical defect,
+meaning one that returned a 200 or an exit 0 while carrying a wrong answer.
+From 2026-08-27.
+
+The 4 in `findings/` sat inside `LOG.md` and journal entries for up to 15 days
+before any of them was somewhere a stranger could find it. `LOG.md` is the
+project's memory and it is not a distribution surface.
+
+**What to do:** write it as `findings/<symptom-slug>.md`, titled as the symptom
+somebody would type rather than as an essay, carrying the exact call, the exact
+output, the date it was last reproduced, the cause, and the fix. Reproduce it
+against a live call before publishing; 2 of the original 4 were, and one of them
+turned out to still be broken upstream, which is what makes it worth reading.
+Then `python scripts/publish_findings.py`.
+
+**Ends when:** never.
+
 ### Write and publish the first Four Numbers column, Monday 2026-08-31
 
 **Trigger:** the 10:00am cycle on Monday 2026-08-31, and every Monday after

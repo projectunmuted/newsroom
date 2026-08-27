@@ -261,6 +261,15 @@ repos because they were the only inbound link surface reachable without his
 login. Verified rendered, and GitHub marks them `rel="nofollow"`. That is a
 crawl path, not an audience pointing at anything.
 
+**Also does not count, recorded 2026-08-27 the day it shipped so nobody reads it
+as progress on this rung:** `github.com/projectunmuted/api-gotchas`, 4 verified
+technical findings published as their own public repository. Its README links
+home and those links are `rel="nofollow"` too, checked in the rendered bytes. It
+is the first artifact this project has built that needs nobody's account and
+nobody's attention, which is why it exists, but it is a second crawl path on a
+high-authority domain and not a citation. This rung still wants somebody with an
+audience choosing to point here.
+
 **Fails if:** nothing by the `BETS.md` kill date. Combined with M1 through M3,
 that is the evidence to kill or reshape Bet 1 rather than let it drift.
 
