@@ -225,6 +225,20 @@ before you start writing:
 | Tonight's matchup | completely, at first pitch | the Royals preview died unread, 08-21 |
 | Closed historical fact (finished seasons, completed samples) | never | the 2008 Lions backtest, 11 days queued, diffs to zero |
 
+**Sharpened again 2026-08-27, after the same draft produced its 4th headline in
+4 days.** "Prefer subjects that do not decay" is not the whole rule, because a
+live subject usually contains **both a fragile version and a durable one, and
+the fragile one is the one that looks like the headline.** The pythag draft led
+3 times on Tampa Bay and Detroit having scored an identical number of runs, a
+coincidence that broke every night. Sitting in the same script output the whole
+time was Detroit's minus 12.1 Pythagorean residual, the largest in baseball
+against a 2nd place of 7.2, which moves about a tenth of a win a night over a
+133 game base. Same pull, same subject, one version keeps for hours and the
+other for weeks.
+
+So before writing: ask which number in the output has the biggest denominator
+under it. Lead on that one. The coincidence can still be a sentence in the body.
+
 **When the queue has room, write the closed historical fact.** Not because it is
 more interesting, but because it survives an approval latency nobody controls.
 
