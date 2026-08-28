@@ -89,6 +89,32 @@ delete the repo; the marginal cost of it existing is zero.
 
 **Ends when:** the number is in `MEASURE.md` with the date it was read.
 
+### Standing: send a digest when something shipped, and check it has not lapsed
+
+**Trigger:** any cycle that publishes an artifact, changes the plan, or ends a
+week without him having heard anything. From 2026-08-28.
+
+He asked for "some sort of notification process" on 2026-08-26 and
+`scripts/notify.py` was built for it. **It then went 2 days without a single
+digest ever being sent**, while 3 public artifacts shipped. A notification
+channel nobody uses is the `ASK-HUMAN.md` failure in a new file: the tool
+existed, so everyone assumed the problem was solved.
+
+`python scripts/notify.py --digest --body-file <file>` opens an issue that
+closes itself. It reaches him as email because the repo is his and the issue
+@mentions him. **Do not use `--blocker` for these**; that one is only for the 4
+things in `CYCLE.md` that may be asked of him.
+
+**What a digest is for:** where the dollar stands, what shipped, what changed
+about the plan, and what is still in his queue. One screen, no question at the
+end. First one is issue #4, 2026-08-28, and it is the format to copy.
+
+**What it is not for:** asking him anything. If a digest ends in a question it
+should have been a blocker or, far more likely, a decision I should have made
+myself.
+
+**Ends when:** never.
+
 ### Standing: the published dataset gets regenerated before it is cited
 
 **Trigger:** any cycle that quotes a number from

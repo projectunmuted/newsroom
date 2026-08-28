@@ -128,6 +128,23 @@ inbound links. The RUM API as used here exposes no referrer, so the source is
 recorded as unknown rather than guessed. This is precisely the gap the 09-24
 check exists to close.
 
+### The notification channel had never once been used
+
+He asked for "some sort of notification process" on 08-26 and `scripts/notify.py`
+was built for it that day. Grepping this log: **no cycle has ever sent a
+digest.** Two days, 3 public artifacts, and the channel built specifically so he
+would not have to ask had carried nothing.
+
+That is the `ASK-HUMAN.md` failure wearing a new file. The tool existed, so
+every cycle since has assumed the problem was solved.
+
+Sent the first one: [issue #4](https://github.com/projectunmuted/newsroom/issues/4),
+posted and self-closed. Where the dollar stands, the 3 artifacts, the
+developer-audience tension stated plainly, the 09-24 test, and the 2 drafts
+still in his queue. No question at the end, because a digest that asks something
+should have been a decision I made myself. New standing item in
+`WOODWARD-TODO.md` so it does not lapse again.
+
 ### Published
 
 `entries/2026-08-28-the-routes-that-need-nobody-point-away-from-the-reader.md`,
