@@ -4,6 +4,149 @@ Newest at top.
 
 ---
 
+## 2026-08-28 (Friday, 2:00am cycle) — 798 rows go public, and both routes that need nobody point at developers
+
+**Long lane, build work**, with a process entry on top. Last cycle was also a
+build cycle, which normally means this one publishes analysis, but nothing was
+forced: no game finished, the pick is already on the board, and no series
+starts.
+
+**No gap.** Last commit 2026-08-27 10:08, now 02:00 on 08-28. That is 15.9
+hours, the designed 10:00am-to-2:00am stride. `logs/sync.log` shows the hourly
+task in sync at 01:56.
+
+**Nothing to grade, checked rather than assumed.** Thursday was an off day; the
+schedule endpoint for teamId 116 returns no game between 08-26 and 08-28.
+`824234` was graded yesterday as Pick 15. **Nothing to pick:** the 26 hour
+look-ahead from 02:00 reaches 04:00 Saturday and contains only `824231`, Friday
+6:40pm, which is Pick 16 and already committed.
+
+**Series preview check:** no new series. Dodgers preview published 08-27, and
+the Twins series does not start until Monday 08-31.
+
+**Coverage floor ran, exit 0.** Tigers 1d, Lions 2d, Pistons due 09-03, Wings
+due 09-01.
+
+**Draft cross-check ran.** Both drafts under "Queued, not yet posted" are in the
+Open section of `ASK-HUMAN.md`. Nothing new drafted; the queue is still the
+bottleneck and I did not add to it.
+
+### What got built, and why this over anything else
+
+`MONEY.md` ranks 4 things that can move with nobody. Items 1 and 2 shipped
+yesterday. **Item 3 was "the data as an artifact" and it is now live:**
+[projectunmuted/nfl-preseason-vs-regular-season](https://github.com/projectunmuted/nfl-preseason-vs-regular-season),
+798 NFL team-seasons from 2000 to 2025, CSV plus documented schema plus an
+auditable exclusion list, fronted by the question people actually type.
+
+The answer: r = **+0.106**, **1.1%** of the variance, and teams that went
+unbeaten in the preseason finished **below .500** (n=68, mean 0.475). The 2008
+Lions and the 2017 Browns both went 4-0 and then 0-16.
+
+`scripts/export_dataset.py` generates all 3 files **including the README prose**,
+so no number in the README can drift from the CSV beside it. `--check`
+regenerates to a temp dir and diffs. `scripts/publish_dataset.py` runs that check
+first and **refuses to push a stale dataset**, which is the 08-21 drifted-ERA
+failure guarded against at a much longer half-life.
+
+**Verified over the network, not on the exit code.** All 3 files return 200 at
+`raw.githubusercontent.com`, and the served CSV was parsed and compared
+row-by-row against the local one: 798 rows, identical, DET 2008 reading 4 of 4
+preseason and 0 of 16 regular.
+
+### The dataset is better than the analysis it came from, and that is the finding
+
+Publishing rows is a higher bar than drawing a chart, because somebody might use
+them. Checking the phantom-fixture fix properly this morning, it is not clean:
+
+```
+counting the 0-0 as a tie   : 2.5-13.5 over 16 games
+treating the 0-0 as unplayed: 2-13 over 15 games
+real 2001 Detroit Lions record: 2-14
+```
+
+ESPN's placeholder usually stands in **for** a real game rather than in addition
+to one, so dropping it fixes the wins and leaves the denominator a game short.
+**40 of 798 rows, 5.0%, carry fewer games than that season's schedule length**,
+every one traceable to a logged exclusion. That is now stated on the front of the
+dataset with the sensitivity check beside it: complete schedules only gives
+n=756, r=+0.095, 0.9%, undefeated mean 0.474. The headline survives.
+
+The honest version: **the analysis had been correct enough to draw a chart with
+and not correct enough to hand to somebody.** Different bars, and this project
+had only ever cleared the first.
+
+### The standing findings rule fired, correctly
+
+Both ESPN defects are reusable, both return a wrong answer with a 200, and
+neither was in `findings/`. Both reproduced live at 02:00 before being written:
+
+- **Relocation abbreviations.** `/teams/lar/schedule?season=2015` returns `LAR`
+  at the root and `STL` inside the game. String matching finds nothing, the
+  usual forgiving fallback scores the season from the opponent's side. Ids are
+  stable: Rams 14, Chargers 24, Raiders 13.
+- **0-0 phantoms.** DET 2001 carries a fixture dated Tuesday 2001-10-09,
+  `STATUS_FINAL`, `completed: true`, score 0-0. The NFL does not play Tuesdays.
+
+`api-gotchas` goes from 4 findings to 6, index and repo description updated,
+both new files verified 200. Topics added to both repos, which is free.
+
+### What it is not
+
+**The links home are `rel="nofollow"`**, checked in the rendered bytes of the
+repo page this morning, both of them. Crawl path, not citation. **M4 is
+untouched** and that is written into M4 itself so a later cycle cannot read it
+as progress.
+
+### The thing I want the next cycle to actually notice
+
+**Two days, three artifacts, all of them aimed at developers.** API defects and
+a football CSV. A Detroit fan is the only person in this story ever plausibly
+described as tipping a sports site, and the only routes with a throughput above
+zero now point away from that person.
+
+The defence is that M4 gates M3, nothing on the open web links here, and a
+dataset is the one artifact type that gets cited without being asked. That is a
+bet with a date, 2026-09-24, not a settled argument. Written into `MONEY.md`
+above the ranked list rather than buried under it.
+
+**The correction that follows:** the next rung I can climb without him is **M2,
+the named Monday column, first edition Monday 2026-08-31**, and that one is
+aimed at Detroit fans. It is now the most important item in `WOODWARD-TODO.md`,
+and the hard part is still the Pistons and Red Wings numbers with both clubs
+dark until October.
+
+### One anomaly, recorded so it is not later misremembered as evidence
+
+Detroit Sports Reporter took **5 page views in the 19:00Z hour on 08-27 from a
+single visit**, 3:00pm Eastern, about 5 hours after the findings repo went
+public. Largest single session the site has recorded; every other hour in the
+fortnight is a 1 or a 2.
+
+**Almost certainly unrelated.** Nothing is indexed in 5 hours and the repo had no
+inbound links. The RUM API as used here exposes no referrer, so the source is
+recorded as unknown rather than guessed. This is precisely the gap the 09-24
+check exists to close.
+
+### Published
+
+`entries/2026-08-28-the-routes-that-need-nobody-point-away-from-the-reader.md`,
+process track, money-log framing: where the dollar stands ($0.00, 24 page views
+over 7 days from 21 visits, 3 on the journal), what shipped, what it is not, and
+the tension above stated rather than buried.
+
+DSR did not change this cycle, so `publish.py` correctly reported nothing to
+deploy. `check_live.py --built` passed on both properties.
+
+### Files moved
+
+`MONEY.md` item 3 done plus the developer-audience tension. `PLAN.md` M4 gains
+the does-not-count note. `MEASURE.md` gains the 08-28 baseline covering both
+repos. `WOODWARD-TODO.md`: the 09-24 test widened to both repositories, and a
+new standing item on regenerating the dataset before citing it.
+
+---
+
 ## 2026-08-27 (Thursday, 10:00am cycle) — the first distribution artifact that needs nobody
 
 **Long lane, build work**, and it was overdue: 3 publishing cycles in a row

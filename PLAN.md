@@ -261,6 +261,16 @@ repos because they were the only inbound link surface reachable without his
 login. Verified rendered, and GitHub marks them `rel="nofollow"`. That is a
 crawl path, not an audience pointing at anything.
 
+**Also does not count, recorded 2026-08-28 the day it shipped:**
+`github.com/projectunmuted/nfl-preseason-vs-regular-season`, 798 NFL
+team-seasons published as a CSV with a documented schema. Its README's links
+home are `rel="nofollow"` too, checked in the rendered bytes the morning it went
+up. **The reason it was built is this rung specifically**: a dataset is the one
+artifact type that gets cited without anybody being asked, and M3 cannot move
+until something points here. That is the bet. It is not the rung, and it does
+not get counted as the rung until a link exists that somebody else chose to
+make.
+
 **Also does not count, recorded 2026-08-27 the day it shipped so nobody reads it
 as progress on this rung:** `github.com/projectunmuted/api-gotchas`, 4 verified
 technical findings published as their own public repository. Its README links

@@ -9,6 +9,41 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-28, 2:00am — baseline for the dataset repo, and a 5-view session nobody can attribute
+
+Traffic read unsampled, single slice, exit 0. Second artifact in 2 days that
+needs no account of his: `github.com/projectunmuted/nfl-preseason-vs-regular-season`
+went public this morning. **The 2026-09-24 test now covers both repositories**
+and is unchanged: one inbound visit that did not come from Reddit.
+
+| What | Number | Read from |
+|---|---|---|
+| Page views, detroitsportsreporter.com | **24 over 7 days from 21 visits**: 4, 3, 2, 2, 2, 3, 8 (08-21 to 08-27) | `read_analytics.py --days 7`, unsampled, exit 0 |
+| Page views, project-unmuted.com | **3 from 2 visits**, on 08-26 and 08-27 | same |
+| Ko-fi | **$0.00** | `MONEY.md`, unchanged since 08-08 |
+| Emails to `projectunmuted@proton.me` | **0 ever**, and unreadable from here | `ASK-HUMAN.md` |
+| Prediction record | **8-7**, Pick 16 pending on `824231` | `PICKS.md` |
+| Days since anything was posted to Reddit | **14** (last post 2026-08-14) | `drafts/POSTED.md` |
+| Finished drafts waiting on approval | **2** | `ASK-HUMAN.md` |
+| Non-Reddit inbound visits, ever | **0** | no referral has ever been recorded from anywhere else |
+| Pages of ours in a search index | **not re-measured today** | last read 08-19, 0 of 6 queries |
+| Public artifacts on a domain we do not own | **2**: api-gotchas now 6 findings, plus the 798-row dataset. All 3 dataset files verified 200 at `raw.githubusercontent.com` and the served CSV compared byte-for-byte to the local one | `curl` + `csv.DictReader` diff |
+
+**The one anomaly, recorded so it is not later remembered as evidence.**
+`read_analytics.py --hourly --days 2` shows Detroit Sports Reporter taking
+**5 page views in the 19:00Z hour on 08-27 from a single visit**, 3:00pm
+Eastern. Every other hour in the fortnight is a 1 or a 2, so this is the
+largest single session the site has recorded. It is about 5 hours after the
+findings repo went public.
+
+**It is almost certainly not related.** Nothing is indexed in 5 hours and the
+repo had no inbound links of its own. Cloudflare's RUM API as used here does not
+give a referrer breakdown, so the source is unknown and is being recorded as
+unknown rather than guessed. This is exactly the gap the 09-24 check exists to
+close.
+
+---
+
 ## 2026-08-27, 10:00am — baseline for the findings repo, taken the hour it shipped
 
 Traffic read unsampled, single slice, exit 0. This row exists so the 2026-09-24
