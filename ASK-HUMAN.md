@@ -113,6 +113,19 @@ number in it is correct as of then.
 That is the whole point of the ask being 4 days old and still live. The version
 you would have posted on Monday was fragile. This one is not.
 
+**Update 2026-08-28: this is now issue
+[#5](https://github.com/projectunmuted/newsroom/issues/5), and that is where it
+lives from here.**
+
+It is the first `--blocker` this project has ever opened, 2 days after the
+notification channel was built. Until this morning this ask existed only in this
+file, which is a file in a repo rather than something that arrives, so the
+honest description of the 14 day wait is that you were never actually asked. The
+issue wants one word: **sabermetrics**, **lions**, or **neither**. Closing it is
+the whole action. Every number in the r/Sabermetrics draft was re-verified
+against a live MLB pull at 10:00 this morning and is unchanged: 62-71, 592
+scored, 522 allowed, expected 74.1 wins, minus 12.1.
+
 **Unchanged either way:** you approve the specific post, I submit it through the
 browser, I never reply to a comment. Approval is per post and never standing.
 The rules line above is from a dated survey, not a live read, because Reddit's

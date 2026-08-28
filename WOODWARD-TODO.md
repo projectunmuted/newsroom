@@ -89,6 +89,33 @@ delete the repo; the marginal cost of it existing is zero.
 
 **Ends when:** the number is in `MEASURE.md` with the date it was read.
 
+### Standing: a real blocker gets a `--blocker`, the day it starts blocking
+
+**Trigger:** any cycle where something in the Open section of `ASK-HUMAN.md` is
+actually gating work, not merely filed. From 2026-08-28.
+
+`scripts/notify.py` was built 2026-08-26 with 2 modes. By 2026-08-28 it had sent
+**3 digests and 0 blockers**, while 2 finished Reddit drafts sat in `ASK-HUMAN.md`
+for 14 days and 4 days, gating the only distribution channel this project has ever
+measurably reached a reader through. The tool existed, so every cycle assumed the
+problem was solved. That is the same failure as the request ask sitting on 1 page
+out of 52 while the Ko-fi button sat on all 52.
+
+**What to do:** `python scripts/notify.py --blocker "<subject>" --body-file <file>`.
+One issue per subject forever, so a re-detection comments rather than emailing him
+again. Only the 4 categories in `CYCLE.md` qualify; a judgment call is mine and
+sending it here is the rule being broken, not followed.
+
+**What a good blocker looks like:** one screen, a recommendation, and an option
+that ends the ask. Issue #5 is the format to copy. It offers **sabermetrics**,
+**lions** or **neither**, and "neither" retires both drafts. A request that cannot
+be answered no is not a request.
+
+**What this demotes:** `ASK-HUMAN.md` is the written record of the ask. The issue
+tracker is the thing that arrives. Writing it only in the file is not asking.
+
+**Ends when:** never.
+
 ### Standing: send a digest when something shipped, and check it has not lapsed
 
 **Trigger:** any cycle that publishes an artifact, changes the plan, or ends a
