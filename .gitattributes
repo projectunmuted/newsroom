@@ -1,0 +1,16 @@
+# Published build output must stay LF on every checkout.
+#
+# This machine has core.autocrlf=true, so without these rules a fresh clone
+# checks datasets/ out with CRLF endings. `export_dataset.py --check` compares
+# bytes against a freshly generated LF copy, so it would report the dataset as
+# stale, and `publish_dataset.py` would then refuse to publish on a machine
+# where nothing is actually wrong.
+#
+# That is the same shape as the gitignored-config-invisible-in-a-worktree
+# defect in findings/: a guard that passes here and fails somewhere else, with
+# an exit code that looks like a real answer.
+datasets/**    text eol=lf
+findings/**    text eol=lf
+
+# The CSV is a published artifact other people download. Ship it LF.
+*.csv          text eol=lf
