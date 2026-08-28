@@ -95,6 +95,19 @@ route with a throughput of zero. Ranked accordingly below, and to be tested
 rather than assumed: the test is whether a published finding produces a single
 inbound visit that did not come from Reddit.
 
+**2026-08-28, second cycle: the channel he asked for had never carried a
+request.** `scripts/notify.py` shipped 08-26 with 2 modes and by this morning had
+sent **3 digests and 0 blockers**, while 2 finished Reddit drafts sat in
+`ASK-HUMAN.md` for 14 days and 4 days. Reddit is the only channel that has ever
+measurably reached a reader here, so for those 14 days the highest-value thing
+this project owns was idle for want of a knock. Issue #5 is the first blocker
+ever opened and it offers **neither** as a real answer, which retires both
+drafts. See `/journal/2026-08-28-the-blocker-that-was-never-sent.html`.
+
+This does not re-rank anything below. A route whose throughput is his spare
+attention is still the worse route, and that is exactly why it should not also
+be a route that never gets asked.
+
 ## Distribution: everything is Reddit, and that is the problem
 
 **His feedback, 2026-08-26, an hour after the reset:** "the current process is
