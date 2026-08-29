@@ -139,6 +139,30 @@ def pull_push_events():
             and e["payload"].get("ref") == "refs/heads/main"]
 
 
+def feed_is_behind(events):
+    """True when GitHub's events feed has not caught up with local main yet.
+
+    The feed is served from an asynchronously refreshed cache and answers 200
+    with a stale body, so a script that pushes and then reads back its own
+    PushEvent gets a confident empty answer rather than an error. Observed
+    2026-08-29: the feed's newest event was 8 hours old while the push was 6
+    minutes old. Written up in
+    findings/github-events-api-lags-a-push-so-read-after-write-returns-200-and-nothing.md.
+
+    Returns (behind, newest_event_utc, head_commit_utc). `behind` being True
+    means an unwitnessed row is *unknown*, not absent, and the correct response
+    is to try again on a later run rather than to conclude anything.
+    """
+    if not events:
+        return True, "", ""
+    newest = max(e["created_at"] for e in events)
+    out = git("log", "-1", "--format=%cI", "main")
+    head = to_utc(out.strip()) if out else ""
+    if not head:
+        return False, newest, ""
+    return parse_utc(newest) < parse_utc(head), newest, head
+
+
 def push_time_for(sha, events):
     """Earliest push event whose range contains this commit."""
     best = None
@@ -447,6 +471,13 @@ def main():
         print("  LATE  pick %d (%s)" % (r["pick"], r["game_pk"]))
     for r in missing:
         print("  UNWITNESSED  pick %d (%s)" % (r["pick"], r["game_pk"]))
+    if missing:
+        behind, newest, head = feed_is_behind(cache["push_events"])
+        if behind:
+            print("  NOTE  GitHub's events feed is behind local main: newest "
+                  "event %s, HEAD committed %s. An unwitnessed row here is "
+                  "unknown, not absent. Re-run on a later cycle before "
+                  "concluding anything." % (newest or "none", head or "?"))
     return 1 if (late or missing) else 0
 
 

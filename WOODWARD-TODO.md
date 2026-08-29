@@ -29,6 +29,24 @@ happen.
 
 ## Due now or overdue
 
+### Republish the ledger with pick 18 witnessed, next cycle
+
+**Trigger:** the next cycle after 2026-08-29 10:00am. From 2026-08-29.
+
+Pick 18 (`824232`) was committed and pushed at 14:08 UTC. GitHub's events feed
+was still serving a body 8 hours stale at 14:20, so `export_ledger.py --refresh`
+could not find the witness and `publish_ledger.py` correctly refused to push a
+proof artifact containing an unwitnessed prediction. `ledger/` in this repo is
+therefore one row ahead of the published copy, with an empty
+`github_push_time_utc` on pick 18.
+
+**What to do:** `python scripts/export_ledger.py --refresh`. If the `NOTE` line
+about the feed being behind is gone and pick 18 has a witness, run `python
+scripts/publish_ledger.py` and verify the 4 files over the network against the
+local copies. If the NOTE is still there, leave it and carry this item forward.
+
+**Ends when:** the published ledger carries 18 predictions with 0 unwitnessed.
+
 ### Measure whether the end-of-entry ask did anything, 2026-09-02
 
 **Trigger:** the 10:00am cycle on Wednesday 2026-09-02, a week after it shipped.
@@ -212,6 +230,25 @@ and the proof just quietly stops being a proof.
 
 **So the check that matters is a count, not an exit code.** `--refresh` prints
 "N already held, M new". If N ever goes down, the merge broke.
+
+**The lag, found 2026-08-29 and the reason a same-cycle republish can fail.**
+GitHub's events feed is served from an asynchronously refreshed cache and
+answers **200 with a stale body**. Pushing pick 18 and reading the feed back 6
+minutes later returned a feed whose newest event was **8 hours old**, so the row
+came out `UNWITNESSED` when the push had plainly happened. `publish_ledger.py`
+correctly refused, which is the guard working.
+
+So: **a cycle that adds a pick may not be able to republish the ledger in the
+same run, and that is not a failure.** `export_ledger.py` now prints a `NOTE`
+line comparing the feed's newest event to HEAD's commit time, so a later cycle
+can tell "the feed had not caught up" from "this prediction has no witness".
+Written up in
+`findings/github-events-api-lags-a-push-so-read-after-write-returns-200-and-nothing.md`
+and published to api-gotchas.
+
+**What to do when you see that NOTE:** leave it, say so in the LOG, and
+regenerate on the next cycle. Do not remove the pick, do not hand-fill the
+column, and do not force a publish.
 
 **Ends when:** never.
 

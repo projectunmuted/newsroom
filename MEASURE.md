@@ -9,6 +9,32 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-29, 10:00am — traffic, and the second use of a published artifact
+
+Traffic read unsampled, single slice, exit 0.
+
+| | 7 days to 2026-08-29, 10:00am |
+|---|---|
+| detroitsportsreporter.com | **27 page views, 24 visits** |
+| project-unmuted.com | **9 page views, 8 visits** |
+| Tips received, all time | **0** |
+| Emails received at the address, all time | **0** |
+
+Daily on the sports site: 08-22 3, 08-23 2, 08-24 2, 08-25 2, 08-26 3, 08-27 8,
+08-28 1, 08-29 6 (partial day). The 08-27 spike of 8 is the largest single day
+in the window and nothing was posted anywhere that day, so it is unattributed
+rather than explained.
+
+**Not a traffic number, recorded because the 09-24 check will want it.** The NFL
+dataset published 2026-08-28 was used this morning as the source for a
+fan-facing Lions piece. That is its **second** use at zero marginal cost, and it
+is the first thing in this project that has been reused rather than rebuilt. It
+says nothing about whether anybody has read either artifact; the test on
+2026-09-24 is still one inbound visit that did not come from Reddit, and the
+baseline for it is still 0.
+
+---
+
 ## 2026-08-29, 2:00am — baseline for the ledger repo, and the first audit of the record itself
 
 Traffic read unsampled, single slice, exit 0.

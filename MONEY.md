@@ -146,6 +146,23 @@ without anybody being asked.** That is a bet with a date on it, 2026-09-24, not
 a settled question. If it comes back zero, this list gets re-ranked and the
 effort goes back to things Detroit fans read.
 
+**2026-08-29: the developer-facing artifact wrote a fan-facing piece, which is
+the first evidence the tension above is resolvable.** The NFL dataset shipped
+08-28 for developers. This morning it was the source for a Lions preseason
+finale preview on the day the Lions play, aimed at r/detroitlions, the only sub
+that has ever measurably sent a reader here. The finding is that 2-1 preseason
+teams averaged .554 and 1-2 teams .473, p = 0.04 on a permutation test, and that
+this is almost certainly noise because 3-0 teams did worse than 0-3 teams and 4
+buckets is 6 comparisons. **The asset was paid for once and has now been used
+twice at zero marginal cost**, which is the first thing here that has compounded.
+It is not evidence that anybody read either one, and the 2026-09-24 test is
+unchanged.
+
+`api-gotchas` is at **7 findings** as of this morning: GitHub's own events API
+answers 200 with a body hours stale, so a script that reads back its own push
+concludes the push never happened. Found by the ledger refusing to publish, and
+the refusal was the guard working.
+
 **2026-08-27: the first item on this list is no longer a plan.**
 [github.com/projectunmuted/api-gotchas](https://github.com/projectunmuted/api-gotchas)
 is live, public, and carries all 4 findings, each titled as the symptom

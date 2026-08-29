@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29T06:12:55Z",
+ "generated": "2026-08-29T14:18:19Z",
  "picks": [
   {
    "commit_sha": "abb15beb8dbb172d50be142c64f0a30cf6100ab8",
@@ -254,10 +254,30 @@
    "matchup": "Dodgers at Tigers, Snell vs Montero",
    "pick": 17,
    "prediction": "Dodgers win",
+   "status": "Pre-Game"
+  },
+  {
+   "commit_sha": "e30d866df4cbcd3bb9126b0c80cf91e8374be110",
+   "commit_time_utc": "2026-08-29T14:08:02Z",
+   "confidence": "High",
+   "correct": "",
+   "final_score": "",
+   "first_pitch_local_text": "Sun Aug 30, 1:40pm ET",
+   "first_pitch_utc": "2026-08-30T17:40:00Z",
+   "game_pk": 824232,
+   "github_push_time_utc": "",
+   "matchup": "Dodgers at Tigers, TBD vs Valdez",
+   "pick": 18,
+   "prediction": "Dodgers win",
    "status": "Scheduled"
   }
  ],
  "push_events": [
+  {
+   "before": "64b828d04d7ae8f55d2644899acf69f59e5c9697",
+   "created_at": "2026-08-29T06:14:32Z",
+   "head": "ddafdcb41e004b02c16c585e37d41ee03efbd858"
+  },
   {
    "before": "027e6bf0db65941583332adcbf7d1f25d6952079",
    "created_at": "2026-08-28T14:07:19Z",
