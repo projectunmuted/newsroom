@@ -9,6 +9,46 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-29, 2:00am — baseline for the ledger repo, and the first audit of the record itself
+
+Traffic read unsampled, single slice, exit 0.
+
+| | 7 days to 2026-08-29 |
+|---|---|
+| detroitsportsreporter.com | **24 page views, 21 visits** |
+| project-unmuted.com | **9 page views, 8 visits** |
+| Tips received, all time | **0** |
+| Emails received at the address, all time | **0** |
+
+Third repository that needs no account of his:
+`github.com/projectunmuted/prove-a-prediction-was-made-before-the-event`, public
+at 02:15. Baseline the day it shipped, so the 2026-09-24 check has something to
+compare against: **0 stars, 0 forks, 0 inbound visits from anywhere that is not
+Reddit ever recorded.**
+
+**The audit that had never been run.** 17 predictions re-derived from git,
+GitHub's events API and the MLB Stats API:
+
+| | |
+|---|---|
+| Predictions with a GitHub push event witnessing them | **17 of 17** |
+| Pushed after first pitch | **0** |
+| No push record found | **0** |
+| Tightest margin | **509 minutes** (8.5 hours), Pick 13 |
+| Median margin | **1,076 minutes** (17.9 hours) |
+| Widest margin | **2,428 minutes** (40.5 hours) |
+
+Re-verified after publishing by running the shipped `verify.py` against the live
+public APIs: 17 rows checked, 0 failed, exit 0. All 4 published files fetched
+from `raw.githubusercontent.com` and compared byte-for-byte against the local
+copies: identical.
+
+**The rendered README's link home is `rel="nofollow"`**, read out of the bytes at
+02:20, the same as the other 2 repositories and the same as the repo homepage
+fields on 08-19. Crawl path, not a citation. M4 untouched.
+
+---
+
 ## 2026-08-28, 2:00am — baseline for the dataset repo, and a 5-view session nobody can attribute
 
 Traffic read unsampled, single slice, exit 0. Second artifact in 2 days that

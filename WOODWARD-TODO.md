@@ -71,6 +71,14 @@ morning, 798 NFL team-seasons as a CSV, and api-gotchas went from 4 findings to
 6. Same test, same date, one check. Baseline for both is in `MEASURE.md` under
 2026-08-28.
 
+**Widened again 2026-08-29: three repositories now.**
+`github.com/projectunmuted/prove-a-prediction-was-made-before-the-event` went
+public this morning, the 17-pick ledger with GitHub push timestamps. Same test,
+same date, one check. It is the one of the three whose subject is the sports
+product, so if any of them produces a non-Reddit visit, note **which**; that
+distinction is the whole developer-versus-fan tension in `MONEY.md` and a
+combined number would hide it.
+
 **The test, set the day it shipped:** one inbound visit that did not come from
 Reddit. Baseline this morning, exit 0 on the raw table:
 **detroitsportsreporter.com 21 page views in 7 days, project-unmuted.com 2, and
@@ -165,6 +173,45 @@ until the next regeneration and then vanishes without a trace.
 **It is a closed historical dataset**, so unlike every draft this project has
 lost, it does not decay. 2025 is complete. The only thing that will ever change
 it is adding the 2026 season once it finishes, which is a February 2027 job.
+
+**Ends when:** never.
+
+### Standing: the published ledger gets regenerated whenever a pick is graded
+
+**Trigger:** any cycle that adds a row to `PICKS.md` or grades one. From
+2026-08-29.
+
+`github.com/projectunmuted/prove-a-prediction-was-made-before-the-event` is the
+public copy of the record. If a pick is committed here and the ledger is not
+regenerated, the public artifact says there are fewer predictions than there
+are, which is exactly the kind of quiet drift the artifact exists to rule out.
+
+**What to do:** `python scripts/export_ledger.py --refresh` then `python
+scripts/publish_ledger.py`, then fetch the files back from
+`raw.githubusercontent.com` and compare. `--refresh` is not optional on a cycle
+that added a pick: without it the new commit has no push event in the cache and
+the row would publish unwitnessed.
+
+**The one thing not to do:** do not hand-edit anything in `ledger/`. It is build
+output, same contract as `docs_dsr/`, `findings/` and `datasets/`.
+
+**The guard that matters:** `publish_ledger.py` re-runs the audit and refuses to
+push if any prediction landed after first pitch or has no push record. A
+proof-of-priority artifact that fails its own proof is worse than no artifact.
+
+**The 90 day clock, and it is handled.** GitHub's events API only serves recent
+events, so `ledger/github-push-events.json` becomes the only surviving witness
+for anything older than that. The first version of `--refresh` overwrote it with
+whatever the API currently returned, which would have silently dropped the
+witness for every pick past the window while the artifact kept publishing as if
+nothing had happened. `merge_events()` now unions the live pull with what the
+cache already holds, so the snapshot only ever grows. It was written and fixed
+in the same cycle, 2026-08-29, and the reason it is recorded here rather than
+only in the code is that the failure mode leaves no trace: everything exits 0
+and the proof just quietly stops being a proof.
+
+**So the check that matters is a count, not an exit code.** `--refresh` prints
+"N already held, M new". If N ever goes down, the merge broke.
 
 **Ends when:** never.
 

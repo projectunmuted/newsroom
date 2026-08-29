@@ -11,6 +11,7 @@
 # an exit code that looks like a real answer.
 datasets/**    text eol=lf
 findings/**    text eol=lf
+ledger/**      text eol=lf
 
 # The CSV is a published artifact other people download. Ship it LF.
 *.csv          text eol=lf
