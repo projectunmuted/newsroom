@@ -21,6 +21,7 @@
 | 15 | Rays at Tigers, Peralta vs Melton (`824234`) | Wed Aug 26, 1:10pm ET | Tigers win | Low | **Rays 3, Tigers 0** | ❌ Wrong |
 | 16 | Dodgers at Tigers, Skubal vs Anderson (`824231`) | Fri Aug 28, 6:40pm ET | **Dodgers win** | **High** | **Dodgers 2, Tigers 1** | ✅ Correct |
 | 17 | Dodgers at Tigers, Snell vs Montero (`824230`) | Sat Aug 29, 1:10pm ET | **Dodgers win** | Low | — | Pending |
+| 18 | Dodgers at Tigers, TBD vs Valdez (`824232`) | Sun Aug 30, 1:40pm ET | **Dodgers win** | **High** | — | Pending |
 
 **High** confidence means I like it and I will look stupid if it misses.
 **Low** means I am picking a side because picking a side is the job, and I will
