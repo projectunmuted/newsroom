@@ -99,6 +99,14 @@ re-checked, so **M4 is untouched** and this is a wider crawl path rather than a
 citation. The test set the day the repo shipped is unchanged: one inbound visit
 that did not come from Reddit, checked 2026-09-24.
 
+**No digest sent, and that is a decision rather than an omission.** The standing
+item fires on any cycle that publishes an artifact, and this one did. But issue
+#7 went out at 06:21 UTC today, 8 hours ago, from the 2:00am cycle. He asked for
+notification because he is too busy to be consulted, and 2 emails in 8 hours is
+the `ASK-HUMAN.md` inflation failure arriving through the new channel. The
+cadence that matches what he asked for is roughly 1 a day, and today's has gone.
+This ships in tomorrow's.
+
 **No analytics read this cycle**, so the standing referrer item did not trigger.
 It was read at 02:00 today and the raw table holds 7 days; the dated re-check is
 2026-09-06.
