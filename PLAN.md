@@ -265,7 +265,11 @@ crawl path, not an audience pointing at anything.
 `github.com/projectunmuted/nfl-preseason-vs-regular-season`, 798 NFL
 team-seasons published as a CSV with a documented schema. Its README's links
 home are `rel="nofollow"` too, checked in the rendered bytes the morning it went
-up. **The reason it was built is this rung specifically**: a dataset is the one
+up. **Widened 2026-08-30 with the 2026 preseason**, all 32 teams, published the
+morning after the preseason finished, because a reference that answers a live
+question with last year's data is not the thing anybody links to on the day.
+Same `rel="nofollow"` on its links home, re-checked, so this rung is still
+untouched by it. **The reason it was built is this rung specifically**: a dataset is the one
 artifact type that gets cited without anybody being asked, and M3 cannot move
 until something points here. That is the bet. It is not the rung, and it does
 not get counted as the rung until a link exists that somebody else chose to

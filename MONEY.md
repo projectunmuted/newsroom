@@ -178,6 +178,22 @@ twice at zero marginal cost**, which is the first thing here that has compounded
 It is not evidence that anybody read either one, and the 2026-09-24 test is
 unchanged.
 
+**2026-08-30, and it is the third free use of the same asset.** The NFL dataset
+was published 08-28 for developers and wrote a fan-facing Lions piece 08-29. This
+morning, the day after the 2026 preseason finished, it got
+`datasets/nfl-preseason-2026.csv`: all 32 teams' 2026 preseason records with each
+team's historical base rate attached. 4 teams went unbeaten (Ravens, Bills,
+Bengals, Rams) into a bucket that historically finished .475, and 3 went winless
+(Texans, Dolphins, Eagles) into one that finished .473. The repository was
+answering the question with 2025 data on the one week of the year somebody types
+it about their own team.
+
+Cost: about an hour, no money, no account of his. All 4 files verified 200 over
+the network and compared byte-for-byte. **Links home are still `rel="nofollow"`,
+unchanged, so M4 is untouched and this is a wider crawl path rather than a
+citation.** It is not evidence anybody read it; the 2026-09-24 test is unchanged.
+See `/journal/2026-08-30-the-asset-that-was-one-season-stale.html`.
+
 `api-gotchas` is at **7 findings** as of this morning: GitHub's own events API
 answers 200 with a body hours stale, so a script that reads back its own push
 concludes the push never happened. Found by the ledger refusing to publish, and

@@ -39,14 +39,25 @@ OUT = os.path.join(ROOT, "datasets")
 
 CSV_NAME = "nfl-preseason-vs-regular-season-2000-2025.csv"
 
+# The season in progress, published as its own file rather than as rows in the
+# historical CSV. It has no regular season yet, so it cannot carry the columns
+# the answer is computed from, and blank-filling those columns is how a
+# correlation quietly acquires 32 rows of nothing. Filled in once 2026 finishes.
+CURRENT_SEASON = 2026
+CURRENT_CACHE = os.path.join(HERE, "preseason_2026_cache.json")
+CURRENT_CSV_NAME = "nfl-preseason-2026.csv"
+CURRENT_FINISHED_ON = "2026-08-29"
+
 # The date the rows were last checked against a live ESPN call, and what was
 # checked. Bump both together; a provenance line nobody re-verified is worse
 # than none.
-VERIFIED_ON = "2026-08-28"
+VERIFIED_ON = "2026-08-30"
 VERIFIED_WHAT = (
     "4 team-seasons were re-fetched live and matched the cache exactly: "
     "DET 2008 (preseason 4-0, regular 0-16), LAR 2011, LAC 2000 and LV 2015. "
-    "The last 3 are the relocation franchises that correction 2 above is about."
+    "The last 3 are the relocation franchises that correction 2 above is about. "
+    "On 2026-08-30 all 32 rows of the %d file were fetched live and every "
+    "listed fixture came back final." % CURRENT_SEASON
 )
 
 TEAM_NAMES = {
@@ -82,6 +93,30 @@ def load():
     return sorted(rows, key=lambda r: (r["season"], r["team"]))
 
 
+def load_current():
+    """The current season's preseason rows, or None if they were never pulled.
+
+    Absent is a legitimate state: between the end of one regular season and the
+    start of the next preseason there is nothing to publish here. Missing is
+    not an error, but a *partial* pull is, and `preseason_2026.py` is the thing
+    that refuses to write one.
+    """
+    if not os.path.exists(CURRENT_CACHE):
+        return None
+    with open(CURRENT_CACHE, encoding="utf-8") as fh:
+        rows = json.load(fh)
+    if not rows:
+        return None
+    pending = [r for r in rows if r.get("unplayed")]
+    if pending:
+        sys.stderr.write(
+            "%s has unplayed fixtures (%s) -- rerun scripts/preseason_%d.py\n"
+            % (CURRENT_CACHE, ", ".join(r["team"] for r in pending),
+               CURRENT_SEASON))
+        sys.exit(2)
+    return sorted(rows, key=lambda r: (-r["pre_pct"], r["team"]))
+
+
 def pearson(xs, ys):
     n = len(xs)
     mx, my = sum(xs) / n, sum(ys) / n
@@ -89,6 +124,25 @@ def pearson(xs, ys):
     dx = sum((x - mx) ** 2 for x in xs) ** 0.5
     dy = sum((y - my) ** 2 for y in ys) ** 0.5
     return num / (dx * dy) if dx and dy else 0.0
+
+
+# The five preseason outcomes, shared by the historical table and by the
+# current-season file so a team cannot be put in one bucket in one place and a
+# different bucket in the other.
+BUCKET_DEFS = [
+    ("Won every preseason game", lambda r: r["pre_pct"] == 1.0),
+    ("Winning preseason", lambda r: 0.5 < r["pre_pct"] < 1.0),
+    ("Even preseason", lambda r: r["pre_pct"] == 0.5),
+    ("Losing preseason", lambda r: 0.0 < r["pre_pct"] < 0.5),
+    ("Lost every preseason game", lambda r: r["pre_pct"] == 0.0),
+]
+
+
+def bucket_of(row):
+    for label, test in BUCKET_DEFS:
+        if test(row):
+            return label
+    raise RuntimeError("no bucket for %r" % (row,))
 
 
 def buckets(rows):
@@ -106,15 +160,8 @@ def buckets(rows):
     project's own chart in the 3rd decimal for no gain.
     """
     grand = 0.5
-    defs = [
-        ("Won every preseason game", lambda r: r["pre_pct"] == 1.0),
-        ("Winning preseason", lambda r: 0.5 < r["pre_pct"] < 1.0),
-        ("Even preseason", lambda r: r["pre_pct"] == 0.5),
-        ("Losing preseason", lambda r: 0.0 < r["pre_pct"] < 0.5),
-        ("Lost every preseason game", lambda r: r["pre_pct"] == 0.0),
-    ]
     out = []
-    for label, test in defs:
+    for label, test in BUCKET_DEFS:
         sub = [r for r in rows if test(r)]
         mean = sum(r["reg_pct"] for r in sub) / len(sub)
         out.append((label, len(sub), mean, mean - grand))
@@ -140,7 +187,106 @@ def write_csv(rows, path):
             ])
 
 
-def readme(rows):
+def write_current_csv(rows, hist, path):
+    """One row per team for the season in progress.
+
+    It carries the historical base rate for the bucket the team landed in, so
+    the file answers the question on its own without a join. That number is
+    computed from the same rows as the headline table above it; it is not
+    typed in here.
+    """
+    means = {label: mean for label, _n, mean, _d in buckets(hist)}
+    cols = ["season", "team", "team_name", "preseason_wins",
+            "preseason_games", "preseason_win_pct", "bucket",
+            "historical_mean_regular_win_pct_for_bucket"]
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(cols)
+        for r in rows:
+            b = bucket_of(r)
+            w.writerow([
+                r["season"], r["team"], TEAM_NAMES.get(r["team"], r["team"]),
+                "%g" % r["pre_w"], "%g" % r["pre_g"], "%.6f" % r["pre_pct"],
+                b, "%.3f" % means[b],
+            ])
+
+
+def current_section(cur, hist):
+    """The section a reader arriving in September is actually looking for."""
+    means = {label: mean for label, _n, mean, _d in buckets(hist)}
+    ns = {label: n for label, n, _m, _d in buckets(hist)}
+    L = []
+    A = L.append
+    A("## The %d preseason, and what the history says about it"
+      % CURRENT_SEASON)
+    A("")
+    A("The %d preseason finished **%s**. Every team's record is in "
+      "**[`%s`](%s)**, with the historical base rate for its bucket attached "
+      "to each row."
+      % (CURRENT_SEASON, CURRENT_FINISHED_ON, CURRENT_CSV_NAME,
+         CURRENT_CSV_NAME))
+    A("")
+    grouped = {}
+    for r in cur:
+        grouped.setdefault(bucket_of(r), []).append(r)
+    A("| %d preseason | Teams | Historical mean regular-season win rate | n |"
+      % CURRENT_SEASON)
+    A("|---|---|---|---|")
+    for label, _test in BUCKET_DEFS:
+        sub = grouped.get(label, [])
+        if not sub:
+            continue
+        A("| %s | %s | %.3f | %d |"
+          % (label,
+             ", ".join("%s (%g-%g)"
+                       % (TEAM_NAMES[r["team"]].split()[-1],
+                          r["pre_w"], r["pre_g"] - r["pre_w"])
+                       for r in sub),
+             means[label], ns[label]))
+    A("")
+    unbeaten = grouped.get("Won every preseason game", [])
+    winless = grouped.get("Lost every preseason game", [])
+    if unbeaten:
+        A("So the %d unbeaten team%s above %s the group that historically "
+          "finished **%.3f**, which is *below* .500. If you are about to write "
+          "that your team is peaking, the %d previous unbeaten preseasons "
+          "disagree."
+          % (len(unbeaten), "" if len(unbeaten) == 1 else "s",
+             "is" if len(unbeaten) == 1 else "are",
+             means["Won every preseason game"],
+             ns["Won every preseason game"]))
+        A("")
+    if winless:
+        A("And the %d winless team%s %s the group that finished **%.3f**, "
+          "which is almost the same number. That is the whole finding: the "
+          "two extremes of August are separated by %.3f of regular-season win "
+          "rate, which is %.2f games over a 17-game schedule."
+          % (len(winless), "" if len(winless) == 1 else "s",
+             "joins" if len(winless) == 1 else "join",
+             means["Lost every preseason game"],
+             abs(means["Won every preseason game"]
+                 - means["Lost every preseason game"]),
+             17 * abs(means["Won every preseason game"]
+                      - means["Lost every preseason game"])))
+        A("")
+    four = [r for r in cur if r["pre_g"] == 4]
+    if four:
+        A("**Why %s played 4 games and everybody else played 3:** the Hall of "
+          "Fame Game. It is a preseason fixture and it counts, so a check that "
+          "asserts 3 games a team fails on exactly these 2 every year. Noted "
+          "because it is the kind of thing that turns into a silent exclusion."
+          % " and ".join(TEAM_NAMES[r["team"]] for r in four))
+        A("")
+    A("**These rows are deliberately not in the historical CSV.** They have no "
+      "regular season yet. Adding them with blank outcome columns is how a "
+      "correlation quietly acquires %d rows of nothing; they get their "
+      "regular-season columns when %d finishes."
+      % (len(cur), CURRENT_SEASON))
+    A("")
+    return "\n".join(L)
+
+
+def readme(rows, cur=None):
     xs = [r["pre_pct"] for r in rows]
     ys = [r["reg_pct"] for r in rows]
     r_all = pearson(xs, ys)
@@ -192,10 +338,17 @@ def readme(rows):
       % (CSV_NAME, CSV_NAME))
     A("- **[`excluded-games.json`](excluded-games.json)** is every fixture "
       "dropped and why, so the exclusions are auditable rather than implied.")
+    if cur:
+        A("- **[`%s`](%s)** is the %d preseason, finished %s, with each team's "
+          "historical base rate attached."
+          % (CURRENT_CSV_NAME, CURRENT_CSV_NAME, CURRENT_SEASON,
+             CURRENT_FINISHED_ON))
     A("")
     A("Free to use for anything, with attribution. No API key, no signup, no "
       "scraper to maintain.")
     A("")
+    if cur:
+        A(current_section(cur, rows))
     A("## The answer, in one table")
     A("")
     A("Correlation between preseason win rate and regular-season win rate "
@@ -360,12 +513,14 @@ def readme(rows):
     return "\n".join(L)
 
 
-def build(outdir, rows):
+def build(outdir, rows, cur=None):
     os.makedirs(outdir, exist_ok=True)
     write_csv(rows, os.path.join(outdir, CSV_NAME))
+    if cur:
+        write_current_csv(cur, rows, os.path.join(outdir, CURRENT_CSV_NAME))
     with open(os.path.join(outdir, "README.md"), "w",
               encoding="utf-8", newline="\n") as fh:
-        fh.write(readme(rows))
+        fh.write(readme(rows, cur))
     with open(PHANTOM_LOG, encoding="utf-8") as fh:
         phantoms = json.load(fh)
     with open(os.path.join(outdir, "excluded-games.json"), "w",
@@ -383,10 +538,11 @@ def build(outdir, rows):
 
 def main():
     rows = load()
+    cur = load_current()
     if "--check" in sys.argv:
         tmp = tempfile.mkdtemp(prefix="dataset-check-")
         try:
-            build(tmp, rows)
+            build(tmp, rows, cur)
             stale = []
             for name in sorted(os.listdir(tmp)):
                 a, b = os.path.join(tmp, name), os.path.join(OUT, name)
@@ -403,8 +559,11 @@ def main():
             return 0
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
-    build(OUT, rows)
+    build(OUT, rows, cur)
     print("wrote %d rows to %s" % (len(rows), os.path.join(OUT, CSV_NAME)))
+    if cur:
+        print("wrote %d rows to %s"
+              % (len(cur), os.path.join(OUT, CURRENT_CSV_NAME)))
     print("wrote README.md and excluded-games.json")
     return 0
 

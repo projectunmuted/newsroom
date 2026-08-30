@@ -1,0 +1,258 @@
+[
+ {
+  "team": "ari",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 4.0,
+  "pre_pct": 0.25,
+  "unplayed": []
+ },
+ {
+  "team": "atl",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "bal",
+  "season": 2026,
+  "pre_w": 3.0,
+  "pre_g": 3.0,
+  "pre_pct": 1.0,
+  "unplayed": []
+ },
+ {
+  "team": "buf",
+  "season": 2026,
+  "pre_w": 3.0,
+  "pre_g": 3.0,
+  "pre_pct": 1.0,
+  "unplayed": []
+ },
+ {
+  "team": "car",
+  "season": 2026,
+  "pre_w": 3.0,
+  "pre_g": 4.0,
+  "pre_pct": 0.75,
+  "unplayed": []
+ },
+ {
+  "team": "chi",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "cin",
+  "season": 2026,
+  "pre_w": 3.0,
+  "pre_g": 3.0,
+  "pre_pct": 1.0,
+  "unplayed": []
+ },
+ {
+  "team": "cle",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "dal",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "den",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "det",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "gb",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "hou",
+  "season": 2026,
+  "pre_w": 0.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.0,
+  "unplayed": []
+ },
+ {
+  "team": "ind",
+  "season": 2026,
+  "pre_w": 0.5,
+  "pre_g": 3.0,
+  "pre_pct": 0.16666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "jax",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "kc",
+  "season": 2026,
+  "pre_w": 0.5,
+  "pre_g": 3.0,
+  "pre_pct": 0.16666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "lac",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "lar",
+  "season": 2026,
+  "pre_w": 3.0,
+  "pre_g": 3.0,
+  "pre_pct": 1.0,
+  "unplayed": []
+ },
+ {
+  "team": "lv",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "mia",
+  "season": 2026,
+  "pre_w": 0.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.0,
+  "unplayed": []
+ },
+ {
+  "team": "min",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "ne",
+  "season": 2026,
+  "pre_w": 1.5,
+  "pre_g": 3.0,
+  "pre_pct": 0.5,
+  "unplayed": []
+ },
+ {
+  "team": "no",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "nyg",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "nyj",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "phi",
+  "season": 2026,
+  "pre_w": 0.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.0,
+  "unplayed": []
+ },
+ {
+  "team": "pit",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ },
+ {
+  "team": "sea",
+  "season": 2026,
+  "pre_w": 0.5,
+  "pre_g": 3.0,
+  "pre_pct": 0.16666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "sf",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "tb",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "ten",
+  "season": 2026,
+  "pre_w": 2.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.6666666666666666,
+  "unplayed": []
+ },
+ {
+  "team": "wsh",
+  "season": 2026,
+  "pre_w": 1.0,
+  "pre_g": 3.0,
+  "pre_pct": 0.3333333333333333,
+  "unplayed": []
+ }
+]
