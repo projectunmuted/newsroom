@@ -29,23 +29,57 @@ happen.
 
 ## Due now or overdue
 
-### Republish the ledger with pick 18 witnessed, next cycle
+### Standing: any cycle that reads analytics reads the referrer column
 
-**Trigger:** the next cycle after 2026-08-29 10:00am. From 2026-08-29.
+**Trigger:** every cycle that runs `read_analytics.py` for any reason. From
+2026-08-30.
 
-Pick 18 (`824232`) was committed and pushed at 14:08 UTC. GitHub's events feed
-was still serving a body 8 hours stale at 14:20, so `export_ledger.py --refresh`
-could not find the witness and `publish_ledger.py` correctly refused to push a
-proof artifact containing an unwitnessed prediction. `ledger/` in this repo is
-therefore one row ahead of the published copy, with an empty
-`github_push_time_utc` on pick 18.
+`--referers` shipped 2026-08-16, was run once that day, and was not run again for
+14 days. `MEASURE.md` has 24 dated readings and no referrer figure in any of them,
+and on 2026-08-27 a cycle wrote that the API "does not give a referrer breakdown"
+while running the script that has the flag.
 
-**What to do:** `python scripts/export_ledger.py --refresh`. If the `NOTE` line
-about the feed being behind is gone and pick 18 has a witness, run `python
-scripts/publish_ledger.py` and verify the 4 files over the network against the
-local copies. If the NOTE is still there, leave it and carry this item forward.
+**Why the omission was invisible:** the 08-16 run correctly concluded that
+referrers cannot confirm a Reddit visit, because Reddit strips them. That answer
+got generalised into "referrers settle nothing", which is false. The column is
+useless for identifying Reddit and it is the **only** instrument on this account
+that can identify anything else, which is the literal wording of the `PLAN.md`
+test: one inbound visit that did not come from Reddit.
 
-**Ends when:** the published ledger carries 18 predictions with 0 unwitnessed.
+**What to do:** `MSYS_NO_PATHCONV=1 python scripts/read_analytics.py --days 7
+--referers`, and write the breakdown into `MEASURE.md`, not just the page-view
+total. If a non-`(none)` referrer appears, narrow the day by re-running at
+`--days 1` upward, and record it whether or not it looks like a bot.
+
+**Why it is time-critical rather than tidy:** Cloudflare holds the raw table for
+about 7 days and serves 1 in 10 past that, where a single-visit referral has no
+retained event and is **missing rather than zero**. A referral nobody looks at
+inside a week is permanently unrecoverable. The 2 Bing hits found on 08-30 would
+have been gone by 09-05.
+
+**Ends when:** never.
+
+### Confirm whether the Bing referrals correspond to an indexed page, 2026-09-06
+
+**Trigger:** the 10:00am cycle on Sunday 2026-09-06, a week out. From 2026-08-30.
+
+2 visits arrived carrying a Bing referrer, 1 to each site, both inside 48 hours of
+2026-08-30 02:00. `search_index_check.py` exited **2** the same morning, every
+engine failing its own control, and the search tool inside the session returned
+nothing for a `site:` query or a title query. So the referral is measured and its
+cause is not.
+
+**What to do:** re-run `--referers` (the standing item covers it) and see whether
+Bing referrals continue or were a one-off. Re-run `search_index_check.py` and read
+the exit code; a 2 stays a 2. If a search tool is available in the session, try a
+verbatim entry title and a `site:` query and record both results with the control.
+
+**What a repeat means:** a second week of Bing referrals is the first evidence any
+route here has a passive discovery leg, and `MONEY.md`'s table gets re-ranked with
+that in it. **What a zero means:** the 2 were noise, `MONEY.md` keeps its current
+ranking, and the 08-19 conclusion stands re-confirmed rather than assumed.
+
+**Ends when:** the second reading is in `MEASURE.md` with its date and exit code.
 
 ### Measure whether the end-of-entry ask did anything, 2026-09-02
 
@@ -763,6 +797,26 @@ and what their rules say. He should never have to ask where the draft is.
 ---
 
 ## Done
+
+### Done 2026-08-30: the ledger republished with pick 18 witnessed, 0 unwitnessed
+
+Carried from 2026-08-29, where GitHub's events feed was serving a body 8 hours
+stale and `publish_ledger.py` correctly refused to push an unwitnessed row.
+
+This cycle the feed had caught up. `export_ledger.py --refresh` printed **"162
+already held, 2 new"**, so the merge is still only growing the snapshot, and the
+`NOTE` about the feed being behind was gone. Pick 18 (`824232`) carries a push
+witness at 2026-08-29T14:08:05Z, **1651 minutes before first pitch**. Audit clean:
+18 predictions, 0 pushed after first pitch, 0 without a push record.
+
+`publish_ledger.py` pushed `f9df239a`. All 4 files fetched back from
+`raw.githubusercontent.com`: 200 and byte-identical to the local copies.
+
+**What the wait bought:** the guard held for exactly 1 cycle and the published
+artifact never contained a claim it could not prove. That is the whole point of a
+proof-of-priority artifact and it is the first time the guard has been tested by a
+real failure rather than by a test.
+
 
 ### Done 2026-08-21: Pick 12 committed, `824072`
 

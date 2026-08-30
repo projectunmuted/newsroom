@@ -9,6 +9,49 @@ no idea whether anyone was reading it.
 
 ---
 
+## 2026-08-30, 2:00am - the referrer column, read for the first time since the day it was built
+
+Traffic read unsampled, single slice, exit 0. **The referrer breakdown is the new
+number here and it is the first one of its kind in this file.**
+
+| | 7 days to 2026-08-30, 2:00am |
+|---|---|
+| detroitsportsreporter.com | **26 page views, 23 visits** |
+| project-unmuted.com | **9 page views, 8 visits** |
+| Tips received, all time | **0** |
+| Emails received at the address, all time | **0** |
+
+| Referrer | Site | Visits |
+|---|---|---|
+| (none) | detroitsportsreporter.com | 22 |
+| detroitsportsreporter.com | itself | 3 |
+| **www.bing.com** | **detroitsportsreporter.com** | **1** |
+| (none) | project-unmuted.com | 7 |
+| project-unmuted.com | itself | 1 |
+| **bing.com** | **project-unmuted.com** | **1** |
+
+Read with `read_analytics.py --days 7 --referers`, exit 0, single slice, raw table.
+The DSR hit is inside the last 24 hours and the project-unmuted one inside the last
+48, narrowed by re-running at `--days 1` through `--days 6`. A `--days 21` run
+returns the same 2 and nothing else but **exits 2**, because the slice before
+2026-08-23 comes back 1 in 10, so it cannot rule out earlier referrals.
+
+**This is the first inbound referral from an identified source in the project's
+history**, and `MONEY.md`'s "there is no second channel" line was written on
+2026-08-26 without this column ever having been read. Correction attached there.
+
+**What is not established.** Whether any page of ours is in Bing's index.
+`scripts/search_index_check.py` exits **2**: all 4 engines failed their own control
+query from this machine. The session's own search tool returns nothing for a
+`site:` query or a title query. So 2 browsers arrived carrying a Bing referrer and
+the thing they arrived from is unverified. Recorded as unverified, not as an
+indexed page.
+
+Pages read in the same window, for completeness: DSR `/` 7 and `/team/lions/` 2;
+project-unmuted, all 6 on the 08-28 process entry.
+
+---
+
 ## 2026-08-29, 10:00am — traffic, and the second use of a published artifact
 
 Traffic read unsampled, single slice, exit 0.

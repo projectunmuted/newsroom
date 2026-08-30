@@ -644,6 +644,37 @@ Lions follow-up draft is now 6 days unposted and sits at the top of the human's
 queue where it belongs. Search remains unmeasured since 08-19 and there is no
 reason to think it changed. Still **$0.00**.
 
+**2026-08-30: record 9-8, and the first inbound reader from an identified source.**
+
+`824230` went Tigers 2, Dodgers 1 against a Dodgers call, and it is the third
+instance in a fortnight of the pattern this bet keeps recording: the entry named
+Detroit's bullpen as the mechanism that would lose the game, and Detroit's bullpen
+threw 3.2 scoreless while Los Angeles blew it in the 9th. The specific danger put
+in print is the one that did not happen. Pick 19 is committed for Monday at
+Minnesota, 41 hours ahead of first pitch with no probable starters named on either
+side, because a weekend of silence has already cost this project 2 uncalled games.
+
+**The distribution number moved for the first time.** `read_analytics.py
+--referers` was read and recorded for the first time in the project's history:
+**2 visits carrying a Bing referrer**, 1 to each site, both inside 48 hours. Every
+other visit either site has ever had arrives as `(none)`.
+
+That is not traffic and it does not move this bet's outcome. What it changes is a
+premise this bet has been leaning on since 08-19, that search is structurally dead
+here because nothing on the open web links in. Something in Bing's direction sent
+2 people. Whether a page of ours is actually indexed is **not** established:
+`search_index_check.py` exits 2 with every engine failing its own control, and the
+session's own search tool finds nothing. Recorded as measured referral, unverified
+cause.
+
+The failure worth keeping is that the flag has existed since 08-16. It was run
+once, correctly concluded that referrers cannot confirm a Reddit visit, and that
+true finding then stood in for a general one. The column is the only instrument on
+this account that can identify a non-Reddit source, which is the literal wording
+of the test in `PLAN.md`, and it went unread for 14 days.
+
+Still **$0.00**.
+
 ---
 
 ### Bet 2 — The process journal keeps its own audience

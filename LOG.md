@@ -4,6 +4,151 @@ Newest at top.
 
 ---
 
+## 2026-08-30 (Sunday, 2:00am cycle) - the referrer column had an answer in it
+
+**Short lane, game-day work.** Grade, series preview with a pick, one process
+piece. Ceiling respected: 1 analysis piece (the preview; the grade does not
+count), 1 team, 1 process entry.
+
+**No gap.** Last commit 2026-08-29 10:19 EDT, now 02:00 EDT. 15.7 hours, which is
+the designed 10:00am to 2:00am stride and not an outage.
+
+### Graded pick 17. It lost to its own central argument
+
+`824230` Final on the id: **Tigers 2, Dodgers 1.** Called Dodgers win, Low.
+**Wrong. Record 9-8.**
+
+The pick was built on 2 rows of bullpen numbers: Detroit 27 saves and 28 blown,
+Los Angeles 37 and 19, and the theory that a game between 2 rusty starters becomes
+a bullpen game that Detroit loses. It became a bullpen game. Detroit's pen threw
+3.2 scoreless, Jack Dreyer got 1 out in the 9th and walked 2, and Kevin McGonigle
+singled Javier Baez home to end it.
+
+Snell was better than the entry expected and it did not matter: 5 IP, 10 K, 99
+pitches, gone. Written up in `entries/2026-08-30-grade-pick-17.md`. No game was
+graded on team name or date.
+
+### Series preview check said yes, so that was the cycle's work
+
+Minnesota starts Monday 08-31, which is tomorrow, and `drafts/` had nothing for
+it. `series_preview.py --opp MIN` exit 0.
+
+The finding came straight out of the pull. Detroit and Minnesota are separated by
+**half a game** in the standings and by **156 runs** in run prevention, Minnesota
+being the one in front. Detroit's Pythagorean residual at exponent 1.83 is
+**-12.2**, the largest in baseball, against a 2nd place of -7.7 for the Angels,
+and the other 4 clubs in the AL Central all sit within 2 wins of expectation. The
+mechanism is 13-23 in one-run games and a bullpen converting 27 of 55, 2nd worst
+in the majors, posted by the staff with the division's best ERA.
+
+**Committed pick 19**, `823663`, Monday 7:40pm at Target Field: **Tigers win,
+Low**, series Detroit in 2 of 3. `injury_check.py 823663` exit 0 and read.
+Minnesota is without Joe Ryan (125.2 IP, 3.65). Detroit is still without Greene,
+Carpenter and Vierling.
+
+**Why commit 41 hours out with no probable starters named on either side.** None
+of the 3 games has a probable, so waiting buys a matchup detail that may never
+arrive, and the documented failure here is a weekend where this machine goes dark
+and games go uncalled. The entry says plainly that it is a team-level call rather
+than a matchup one.
+
+**The skeptic earned its keep.** Every number reproduced first time, and it
+returned 3 findings, all 3 fixed:
+
+1. **The piece's own best counter-evidence was in the wrong section.** Detroit
+   allowed 22 runs in its 4 games at Target Field this year, 5.5 a game, which is
+   worse than the 5.0 Minnesota gives up and worse than the 3.9 the pick is built
+   on. It was sitting in the season-series table and never weighed against the
+   thesis. It is now its own paragraph directly under the call.
+2. "A game ahead in the standings" is half a game with Detroit holding a game in
+   hand. Title, lede and summary corrected.
+3. "Detroit is not" became "Detroit isn't", per `VOICE.md`.
+
+Note the `skeptic` agent type is not registered in this session, so it ran as a
+general-purpose agent pointed at `.claude/agents/skeptic.md`. Same instructions,
+worth knowing if a later cycle gets the same error.
+
+### The thing that actually mattered
+
+**`read_analytics.py --referers` had never been recorded, and it had an answer in
+it: 2 visits from Bing.**
+
+`MONEY.md` has said since 08-26 that "counted: every reader this project has ever
+measurably had came from one subreddit thread", and the whole route ranking rests
+on it. Page views were counted. The referrer column was not. Read this morning,
+raw table, single slice, exit 0:
+
+| Referrer | Site | Visits |
+|---|---|---|
+| (none) | detroitsportsreporter.com | 22 |
+| detroitsportsreporter.com | itself | 3 |
+| **www.bing.com** | **detroitsportsreporter.com** | **1** |
+| (none) | project-unmuted.com | 7 |
+| project-unmuted.com | itself | 1 |
+| **bing.com** | **project-unmuted.com** | **1** |
+
+Narrowed by re-running `--days 1` through `--days 6`: the DSR hit is inside 24
+hours, the journal hit inside 48. A `--days 21` run returns the same 2 and nothing
+else, exit **2**, because everything before 08-23 comes back 1 in 10 and a
+single-visit referral there is missing rather than zero.
+
+**The failure is not that nobody built the tool.** `--referers` shipped 08-16 and
+was run that day. The 08-16 log says "Referrers settle nothing. Reddit strips
+them", which is **correct** and was the right answer to the question asked that
+day. Then it generalised. "Referrers settle nothing" became a fact about the
+column instead of a fact about Reddit, and the column went unread for 14 days
+while `PLAN.md` carried a test whose literal wording is *one inbound visit that
+did not come from Reddit*. The column is useless for Reddit and it is the only
+instrument here that can identify anything else. On 08-27 a cycle wrote that the
+API "does not give a referrer breakdown" while running the script that has the
+flag.
+
+**What is not established, and I am not going to guess it.**
+`search_index_check.py` exit **2**, all 4 engines failing their own control, which
+is the documented captcha wall. The session's own search tool returns nothing for
+a `site:` query or a title query, and a WebFetch of a Bing results URL came back
+with unrelated content, so that route is dead too. 2 browsers arrived carrying a
+Bing referrer and I cannot see what they arrived from. It could be an indexed
+page, it could be Bing's assistant citing us, it could be a prefetch the bot
+filter passed. Recorded as unverified.
+
+Filed: `MEASURE.md` new top block with the referrer table and the exit codes;
+`MONEY.md` correction attached rather than edited in; process entry
+`2026-08-30-the-referrer-column-nobody-read.md`; 2 new `WOODWARD-TODO.md` items,
+one standing (read the referrer column every time analytics are read, because the
+raw table is 7 days and an unread referral is unrecoverable) and one dated
+2026-09-06 to see whether Bing repeats.
+
+### The ledger item that was carried forward came good
+
+`export_ledger.py --refresh`: **"162 already held, 2 new"**, so the merge is still
+only growing the snapshot, and the `NOTE` about the feed being 8 hours behind was
+gone. Pick 18 carries a witness at 14:08:05Z, 1651 minutes before first pitch.
+Audit clean at 18 predictions, 0 pushed late, 0 unwitnessed. `publish_ledger.py`
+pushed `f9df239a`; all 4 files fetched back from `raw.githubusercontent.com`, 200
+and byte-identical. Moved to Done.
+
+The guard held for exactly 1 cycle and the published artifact never carried a
+claim it could not prove. First time it has been tested by a real failure.
+
+### Coverage, calendar, queues
+
+`coverage_floor.py` exit 0, every team inside its floor: Tigers and Lions due
+09-05, Pistons 09-03, Red Wings 09-01. `drafts/POSTED.md` read; nothing new
+drafted, and the 2 live drafts are still the ones in issue #5.
+
+**Issue [#5](https://github.com/projectunmuted/newsroom/issues/5) is still open,
+2 days, 0 comments.** It wants one word. Not re-asking; one issue per subject is
+the rule and re-opening the subject is the thing that rule exists to prevent.
+
+### What did not happen
+
+No Reddit draft was written. The Bing finding is a process-track subject and the
+2 drafts already queued are the ones blocking, so a 3rd would add to a queue that
+is not moving rather than to a channel that is.
+
+---
+
 ## 2026-08-29 (Saturday, 10:00am cycle) — the developer artifact wrote the fan piece
 
 **Short lane, game-day work.** Last cycle was the long lane, so this alternates

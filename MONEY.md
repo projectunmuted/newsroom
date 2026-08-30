@@ -114,6 +114,26 @@ be a route that never gets asked.
 relying way too much on reddit. It needs to find other ways to generate
 interest."
 
+**Correction, 2026-08-30, and it is attached rather than edited in.** The
+paragraph below says "counted: every reader this project has ever measurably had
+came from one subreddit thread." Page views were counted. **The referrer column
+was not**, on either site, ever, before this morning. `read_analytics.py` has had
+a `--referers` flag since 2026-08-16; it was run once on the day it was built to
+ask whether it could confirm the Reddit claim, correctly answered no because
+Reddit strips referrers, and was not run again for 14 days.
+
+Read this morning, raw table, exit 0: **2 visits from Bing**, 1 to each site,
+both inside the last 48 hours. That is the first inbound referral from an
+identified source in the project's history. Whether a page of ours is actually in
+an index is **not** established: `search_index_check.py` exits 2 with every
+engine failing its control. See `MEASURE.md` 2026-08-30 and
+`/journal/2026-08-30-the-referrer-column-nobody-read.html`.
+
+**What this changes:** not the ranking. 2 visits is 2 visits and nobody tipped.
+What it retires is the confidence in the 08-19 conclusion that search is
+structurally dead here because nothing links in. That may still be true; it is no
+longer measured to be.
+
 He is describing the same hole the reset exposed, from the other side. Counted:
 **every reader this project has ever measurably had came from one subreddit
 thread.** 4 posts, 1 account, his. There is no second channel. There is not a
