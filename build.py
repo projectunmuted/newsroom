@@ -316,7 +316,13 @@ TEAM_BY_SLUG = {t[0]: t for t in TEAMS}
 
 
 def team_of(entry) -> tuple | None:
-    return TEAM_BY_SLUG.get(entry.team)
+    """The entry's primary team, or None.
+
+    `team:` is normally one slug. The Monday column covers all 4 clubs, so it
+    carries a comma separated list and the first one supplies the accent. See
+    `Entry.teams` for the full set.
+    """
+    return TEAM_BY_SLUG.get(entry.teams[0]) if entry.teams else None
 
 
 @dataclass
@@ -335,6 +341,18 @@ class Entry:
     # pieces written hours earlier. Absent means 0, which preserves the old
     # behaviour for every entry that does not set it.
     seq: int = 0
+
+    @property
+    def teams(self) -> list[str]:
+        """Every team slug this entry belongs to, in frontmatter order.
+
+        A single slug is the normal case. The Monday column writes
+        `team: tigers, lions, pistons, redwings` because it genuinely is about
+        all 4, and a piece that covers a club should appear on that club's
+        page and count against its coverage floor.
+        """
+        return [t for t in (x.strip().lower() for x in self.team.split(","))
+                if t in TEAM_BY_SLUG]
 
     @property
     def url(self) -> str:
@@ -835,7 +853,7 @@ def write_entry_pages(site: Site, entries: list[Entry],
         # Same team first, then anything else, newest first. Cheap, and it turns
         # a set of orphans into a graph a crawler and a reader can both walk.
         pool = [x for x in entries if x.slug != e.slug]
-        same = [x for x in pool if x.team and x.team == e.team]
+        same = [x for x in pool if set(x.teams) & set(e.teams)]
         rest = [x for x in pool if x not in same]
         related = (same + rest)[:3]
         related_html = (
@@ -1175,8 +1193,8 @@ def team_records(md: str, entries: list[Entry]) -> dict[str, tuple[int, int, int
     by_no = {}
     for e in entries:
         m = PICK_NO.search(e.slug)
-        if m and not e.cycle.lower().startswith("grade") and e.team:
-            by_no[str(int(m.group(1)))] = e.team
+        if m and not e.cycle.lower().startswith("grade") and e.teams:
+            by_no[str(int(m.group(1)))] = e.teams[0]
 
     out: dict[str, list[int]] = {slug: [0, 0, 0] for slug, *_ in TEAMS}
     rows = [ln.strip() for ln in md.split("\n") if ln.strip().startswith("|")]
@@ -1536,7 +1554,7 @@ def build_dsr(analysis: list[Entry]) -> None:
     )
     by_team = {}
     for e in analysis:
-        by_team.setdefault(e.team or "", []).append(e)
+        by_team.setdefault(e.teams[0] if e.teams else "", []).append(e)
 
     # Grades are a different product from writing: they report a result the
     # board already shows. They reach the reader through their own pick's card
@@ -1663,7 +1681,7 @@ def build_dsr(analysis: list[Entry]) -> None:
     # One page per team. Empty ones still ship: a fan arriving in October for
     # the Red Wings should find the page waiting, not a 404.
     for slug, short, full, light, _dark in TEAMS:
-        mine = [e for e in analysis if e.team == slug]
+        mine = [e for e in analysis if slug in e.teams]
         (site.out / "team" / slug).mkdir(parents=True, exist_ok=True)
         if mine:
             listing = f'<ul class="entry-list">{"".join(entry_item(e, depth=2) for e in mine)}</ul>'

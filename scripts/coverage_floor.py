@@ -57,14 +57,21 @@ def last_pieces():
         fm = head[0]
         if not re.search(r"^track:\s*analysis\s*$", fm, re.M):
             continue
-        m = re.search(r"^team:\s*\"?([A-Za-z_-]+)\"?\s*$", fm, re.M)
+        # `team:` is one slug normally and a comma separated list for the
+        # Monday column, which covers all 4 clubs and should satisfy all 4
+        # floors. A single-slug regex silently credited none of them.
+        m = re.search(r"^team:\s*\"?([A-Za-z_,\s-]+?)\"?\s*$", fm, re.M)
         d = re.search(r"^date:\s*(\d{4}-\d{2}-\d{2})", fm, re.M)
         if not m or not d:
             continue
-        slug = ALIASES.get(m.group(1).lower(), m.group(1).lower())
         date = datetime.date.fromisoformat(d.group(1))
-        if slug not in seen or date > seen[slug][0]:
-            seen[slug] = (date, f.name)
+        for part in m.group(1).split(","):
+            part = part.strip().lower()
+            if not part:
+                continue
+            slug = ALIASES.get(part, part)
+            if slug not in seen or date > seen[slug][0]:
+                seen[slug] = (date, f.name)
     return seen
 
 
