@@ -213,8 +213,20 @@ last season's closed numbers. Two of the four teams are dark until October, so
 the column's hard part is not the Tigers number, it is finding something worth
 reading about a club that has not played since spring.
 
-**Still to do:** the column itself, its name, and the first edition. Nothing is
-published yet, so this rung is not climbed. First edition Monday 2026-08-31.
+**The column is named and running as of 2026-08-31.** It is **Four Numbers**,
+and the first edition went out that Monday morning:
+`/journal/2026-08-31-four-numbers-aug-31.html`. The Tigers number was the
+bullpen (27 saves converted against 28 blown, 3rd worst conversion in MLB behind
+a top 5 team ERA), the Lions number was their 2026 opponents' 2025 record
+(134-155, 4th easiest of 32), the Pistons number was 60 wins, the Red Wings
+number was 41 for the 3rd time in 11 seasons.
+
+**The mechanism is live. The rung is not climbed**, because M2's test is two
+clauses and only the first is satisfied. A named column at a fixed time exists;
+evidence somebody returned for it does not, and cannot until at least the second
+edition. Do not mark this done on the strength of publishing.
+
+**Editions so far: 1.** Next 2026-09-07. The fail condition below bites after 4.
 
 **Fails if:** the column runs four times and nothing indicates a returning
 reader. Then the return mechanism is wrong and comments or email are next.

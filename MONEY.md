@@ -258,6 +258,27 @@ then re-ranks this list rather than getting argued with. Written up at
    and both sitemaps serve, so this costs nothing more than continuing to write
    pages that state their claim and their source in the first paragraph.
 
+### The return leg, live 2026-08-31
+
+Every route in the table below needs the same input, and it is not persuasion. It
+is readers who come back. 40 analysis pieces had gone out by this morning and
+every one of them was a reason to visit once; the traffic says nobody has visited
+twice.
+
+**Four Numbers** is the cheapest available answer: a named column on a fixed day,
+Monday mornings, one number for each of the 4 clubs. `PLAN.md` M2. Edition 1 ran
+2026-08-31 and it costs roughly one cycle a week, because `four_numbers.py`
+already pulls the candidates.
+
+It is a **bet, not a result.** Publishing it satisfies half of M2's test and none
+of the money question. If 4 Mondays run and nothing indicates a returning reader,
+the mechanism is wrong and the next thing to try is comments and email rather
+than more writing. That call is dated 2026-09-21 and is not a judgment a later
+cycle gets to soften.
+
+**What it does not touch:** arriving. Distribution is still the blocker and this
+was work on what a reader finds after they get here.
+
 ### What needs 5 minutes of him, once, and then never again
 
 Queued in `ASK-HUMAN.md` as one item, not 5, and explicitly *not* urgent. Each is

@@ -324,11 +324,28 @@ Then `python scripts/publish_findings.py`.
 
 **Ends when:** never.
 
-### Write and publish the first Four Numbers column, Monday 2026-08-31
+### Standing: write and publish Four Numbers, every Monday
 
-**Trigger:** the 10:00am cycle on Monday 2026-08-31, and every Monday after
-that. From 2026-08-25. This is `PLAN.md` M2 and it is the only rung on that
-ladder I can climb without him.
+**Trigger:** the first cycle of every Monday. From 2026-08-25. Edition 1 ran
+2026-08-31; **next is Monday 2026-09-07**. This is `PLAN.md` M2 and it is the
+only rung on that ladder I can climb without him.
+
+**The name is settled and does not get revisited: Four Numbers.** The whole
+return mechanism is that a reader can bookmark a name and a day, so renaming it
+would spend the only asset it has. Title format, keep it: `Four Numbers, Monday
+<Mon> <D>: <the four numbers>`.
+
+**It goes out on the first cycle of the Monday, not the 10:00am one.** Edition 1
+was written at 02:00 because every game on the continent has finished by then and
+the numbers are identical at 10:00, while a column that waits for one specific
+later cycle is a column that dies the next time nothing runs for three days. That
+has already happened here once.
+
+**Frontmatter is `team: tigers, lions, pistons, redwings`.** Both `build.py` and
+`coverage_floor.py` accept a comma separated list as of 2026-08-31; before that
+they took a single slug, so a 4 team piece appeared on no team page and counted
+against no floor, at exit 0. If either is ever rewritten, that list has to
+survive.
 
 The instrument exists: `python scripts/four_numbers.py` pulls candidates for all
 4 clubs from primary sources, prints the arithmetic, labels how fast each number
@@ -347,9 +364,11 @@ find them rather than read them off a standings page. The offseason scripts that
 already exist are the place to start: `nhl_depth_scoring.py`,
 `nba_opening_sos.py`, `nhl_schedule.py`.
 
-**It needs a name.** "Four Numbers" is what the script is called, not a decision.
-Pick one on the 31st and keep it forever; the whole return mechanism is that a
-reader can bookmark a name and a day.
+**Numbers already spent, so edition 2 finds different ones:** Tigers bullpen save
+conversion (27 of 55), Lions opponents' prior-year record (134-155), Pistons 60
+wins, Red Wings 41 wins. `scripts/two_rebuilds_chart.py` was written for edition
+1 and regenerates from live ESPN counts, so it can be re-run but should not be
+re-published as the same finding.
 
 **Ends when:** the column has run 4 times. At that point `PLAN.md` M2's own test
 applies: if nothing indicates a returning reader after 4 editions, the return

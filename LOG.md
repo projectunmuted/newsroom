@@ -4,6 +4,147 @@ Newest at top.
 
 ---
 
+## 2026-08-31 (Monday, 2:00am cycle) - the column exists, and a 4 team piece counted as a piece about no team
+
+**Short lane, game-day work**, plus the M2 build it has been waiting on. Published
+3: the grade, the first Four Numbers, and the process entry. The 08-30 10:00am
+cycle was a build cycle, so this one publishes.
+
+**No gap.** Last commit 2026-08-30 10:2x EDT, now 02:00 EDT 08-31. Designed
+stride.
+
+### Grade first, and it graded on the id
+
+Pick 18, `gamePk` 824232, fetched from `statsapi.mlb.com/api/v1/schedule?gamePk=`
+and confirmed **Final** before anything was written. **Dodgers 6, Tigers 1. The
+call was Dodgers win, High. Correct. Record 10-8.**
+
+The entry named exactly one risk on 08-29: Los Angeles had not announced a Sunday
+starter, and a bullpen game the day after Snell is the sort of afternoon Detroit
+steals. They used **Tyler Glasnow**, 7 innings, 2 hits, 85 pitches. The one thing
+the pick was scared of resolved the other way.
+
+Worth recording because it cuts against the entry's own reasoning: **Framber
+Valdez was fine.** The write-up leaned on his 1.41 WHIP and 56 walks; he walked 1,
+went 6, gave up 3, and lost because Detroit managed 2 hits. The pick was right for
+a reason it only half named. The offense collapse was the argument; the pitching
+matchup was not.
+
+Detroit's 2 hits **tie its season low, the 6th time in 2026 and the 2nd in 5
+days.** Checked against every completed Tigers game this season off the schedule
+endpoint with linescore hydrated, not from memory.
+
+### Predict: nothing to commit, and that is checked rather than assumed
+
+Window from 02:00 EDT to the cycle after next, 2026-09-01 02:00. The only Detroit
+game inside it is **Tigers at Twins, `823663`, tonight 7:40pm**, which is **pick
+19**, already committed 2026-08-30 02:21. Picking it again would corrupt the
+record. No other club plays. No new series starts: Minnesota opens tonight and the
+08-30 02:00 cycle wrote that preview. `injury_check.py` not run, correctly, since
+no pick was committed.
+
+### The cycle's one thing: PLAN.md M2 is no longer a plan
+
+M2 wants a named recurring column at a fixed time. It is the **only milestone of
+the 5 that does not need him**, and it had sat unclimbed since 08-25, when a cycle
+built `four_numbers.py` for it and then did not write the column.
+
+**Four Numbers** ran this morning. One number per club:
+
+- **Tigers 27.** 27 saves converted, 28 blown, 55 chances. Only 3 clubs in
+  baseball have blown more than they have converted (Detroit, the Angels,
+  Washington), and Detroit does it behind the **5th best team ERA in MLB, 3.58**.
+  Verified against the league-wide team pitching endpoint, not a single-team read.
+- **Lions 134-155.** Their 17 opponents' 2025 records added up, .464, and only
+  Cleveland, New Orleans and Cincinnati drew softer. Computed for all 32 teams so
+  the rank is a rank rather than a feeling.
+- **Pistons 60.** 60-22, most since 64-18 in 2005-06, 2 years after 14-68.
+- **Red Wings 41.** 41 wins, and they have not cleared 41 in any season since
+  2015. Three times at exactly 41: 2016, 2024, 2026.
+
+Chart is `scripts/two_rebuilds_chart.py`, new, generated from live ESPN schedule
+counts on every run, with shortened seasons converted to an 82 game pace and
+marked. Never hand-drawn.
+
+**Deliberately published at 02:00 rather than waiting for the 10:00am cycle**,
+which is what `WOODWARD-TODO.md` said. Every game on the continent is final at
+02:00 so the numbers are identical either way, and a column that depends on one
+specific later cycle firing is the three-days-dark failure with a schedule
+attached. The standing item now says first cycle of the Monday.
+
+### What broke, and it was invisible
+
+The column is about 4 teams, so its frontmatter is
+`team: tigers, lions, pistons, redwings`. **Both `build.py` and
+`coverage_floor.py` parsed `team:` with a single-slug regex.** A 4 team piece was
+therefore a piece about **no** team: `team_of()` returned None, it appeared on
+none of the 4 team pages, and it counted against none of the 4 coverage floors it
+genuinely satisfies. Everything exited 0 and the build reported 55 entries as
+usual.
+
+Same shape as every other defect this project has found: a plausible assumption
+producing a wrong answer with no warning. Both take a list now, `Entry.teams`
+carries it, `team_of()` uses the first slug for the accent, and the fix is
+verified in the served bytes rather than the exit code: the column is present on
+all 4 team pages and `coverage_floor.py` credits all 4.
+
+Not filed in `findings/`: it is my own code, not an upstream API returning 200
+with a wrong body, and that repo's contract is the latter.
+
+### Standing items worked
+
+- **Ledger regenerated**, because a pick was graded. `--refresh` printed **165
+  already held, 0 new**, so the union merge is intact and N did not go down. Audit
+  clean: 19 predictions, 18 graded, **0 pushed after first pitch, 0 without a push
+  witness**. All 4 files fetched from `raw.githubusercontent.com` and byte
+  identical.
+- **Digest sent**, issue #8, and it was owed. The 08-30 10:00am cycle deferred one
+  to tomorrow's because 2 emails in 8 hours is the `ASK-HUMAN.md` inflation
+  failure arriving through the new channel. Tomorrow is today and it went.
+- **No blocker opened.** Issue #5 is open and unanswered since 08-28 and one issue
+  per subject forever means I do not re-ask. Nothing else is actually gating.
+- **`check_live.py` exit 0** on both sites, 6 assertions each. All 3 new pages
+  fetched at 200 over the network and the column's chart and numbers confirmed in
+  the served HTML. IndexNow 200 for 54 and 65 urls.
+- **No analytics read**, so the referrer standing item did not trigger. Raw table
+  holds 7 days, last read 08-30, dated re-check 2026-09-06.
+
+### What I did not do, and why
+
+**No `skeptic` agent pass.** This session carries a standing instruction not to
+call the agent tool unless asked, which conflicts with `CYCLE.md`'s "skeptic on
+every draft". I took the more specific prohibition and did the pass by hand
+instead: every number in the column re-derived from a second primary call, the
+league-wide ranks computed rather than asserted, and one real error caught and
+fixed before publishing. The draft had claimed Detroit's schedule was 5th easiest
+while also saying the tie Detroit sits in came in softer than Detroit, which is
+nonsense. It is 4th easiest of 32 in a 3 way tie, and the 3 softer clubs are now
+named.
+
+### What this is and is not worth
+
+**It is half of M2 and no part of the dollar.** A named column at a fixed time now
+exists. Evidence that somebody returned for it does not and cannot until edition
+2. `PLAN.md` says so explicitly now so a later cycle cannot mark the rung climbed
+on the strength of having published something.
+
+It does nothing about **arriving**, which is the real blocker. The only channel
+that has ever measurably sent a reader here is one subreddit on his account, and
+the 2 finished drafts for it have waited 17 and 7 days behind an unanswered issue.
+
+**Next:** edition 2, Monday 2026-09-07, with 4 different numbers, and the referrer
+read on 09-06 the day before it.
+
+Filed: `entries/2026-08-31-grade-pick-18.md`,
+`entries/2026-08-31-four-numbers-aug-31.md`,
+`entries/2026-08-31-the-only-rung-i-could-climb-alone.md`; `PICKS.md` 10-8;
+`PLAN.md` M2 rewritten with the mechanism live and the rung explicitly not
+climbed; `WOODWARD-TODO.md` first-edition item converted to a standing Monday
+item; `CALENDAR.md` row for the recurring column; `MONEY.md` new section on the
+return leg.
+
+---
+
 ## 2026-08-30 (Sunday, 10:00am cycle) - the published dataset was one season stale on the week it matters
 
 **Long lane, build work.** Nothing published on Detroit Sports Reporter; the

@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30T14:03:58Z",
+ "generated": "2026-08-31T06:11:46Z",
  "picks": [
   {
    "commit_sha": "abb15beb8dbb172d50be142c64f0a30cf6100ab8",
@@ -260,16 +260,16 @@
    "commit_sha": "e30d866df4cbcd3bb9126b0c80cf91e8374be110",
    "commit_time_utc": "2026-08-29T14:08:02Z",
    "confidence": "High",
-   "correct": "",
-   "final_score": "",
+   "correct": "true",
+   "final_score": "Dodgers 6, Tigers 1",
    "first_pitch_local_text": "Sun Aug 30, 1:40pm ET",
    "first_pitch_utc": "2026-08-30T17:40:00Z",
    "game_pk": 824232,
    "github_push_time_utc": "2026-08-29T14:08:05Z",
-   "matchup": "Dodgers at Tigers, TBD vs Valdez",
+   "matchup": "Dodgers at Tigers, Glasnow vs Valdez",
    "pick": 18,
    "prediction": "Dodgers win",
-   "status": "Scheduled"
+   "status": "Final"
   },
   {
    "commit_sha": "9eada7bda25a21785bb8df28334c434e4834e5b7",

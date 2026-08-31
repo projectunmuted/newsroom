@@ -130,6 +130,7 @@ early: the top-3 against the rest-of-roster goal split, off the sub's own
 | Aug 19 | Tigers | `823342`, Jobe vs Skenes, 12:35pm ET. **Pick due at the 2:00am cycle**, 10 hours before first pitch |
 | Aug 21-23 | Tigers | At Kansas City. **New series, preview due Aug 20 or the 2:00am cycle Aug 21** |
 | Aug 24-26 | Tigers | Rays at home |
+| **Every Monday from Aug 31** | **All 4** | **Four Numbers**, the recurring column. One number per club, published on the Monday's first cycle. It carries `team: tigers, lions, pistons, redwings`, so it satisfies all 4 coverage floors and resets every one of them to that Monday. Edition 1 Aug 31: bullpen conversion, Lions strength of schedule, 60 wins, 41 wins |
 
 **The Wings page now has 2 pieces**, Aug 11 and Aug 18, and both went up ahead
 of the floor. `scripts/nhl_schedule.py` and `scripts/nhl_depth_scoring.py` both
