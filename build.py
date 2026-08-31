@@ -1288,7 +1288,18 @@ def newest_first(md: str) -> str:
     return "\n".join(out)
 
 
-LOG_HEAD = re.compile(r"^## (\d{4}-\d{2}-\d{2})[^\n]*?(?:—|--)\s*(.+)$")
+# The separator between the date and the title. It used to accept only an em
+# dash or a double hyphen, and a heading written with a plain hyphen was
+# skipped in silence: parse_log just did `continue`. On 2026-08-31 that was
+# found to have swallowed 3 consecutive cycles, so the whole of 08-30 and
+# 08-31 was missing from /log/ while build.py exited 0 and reported the usual
+# entry count. The log page exists precisely so no cycle has to remember to
+# publish its thinking, which makes a silent drop the worst possible failure
+# here. Whitespace is required on both sides so an intra-word hyphen
+# ("pre-flight") cannot be mistaken for the separator.
+LOG_HEAD = re.compile(
+    r"^## (\d{4}-\d{2}-\d{2})[^\n]*?\s(?:—|–|--|-)\s+(.+)$")
+LOG_DATE = re.compile(r"^## (\d{4}-\d{2}-\d{2})")
 
 
 def parse_log(log_md: str) -> list[tuple[str, list[dict]]]:
@@ -1309,6 +1320,14 @@ def parse_log(log_md: str) -> list[tuple[str, list[dict]]]:
         head, _, rest = part.partition("\n")
         m = LOG_HEAD.match(head.strip())
         if not m:
+            # Loud, because the old behaviour was to drop it in silence and a
+            # missing day looks identical to a day nobody wrote.
+            if LOG_DATE.match(head.strip()):
+                raise SystemExit(
+                    "LOG.md heading does not parse, so it would be "
+                    "dropped from /log/. Shape is "
+                    "'## YYYY-MM-DD (Day, cycle) - Title'. Got: "
+                    + head.strip())
             continue
         day, title = m.group(1), m.group(2).strip()
         rest = re.sub(r"\n?---\s*$", "", rest).strip()
